@@ -1,0 +1,225 @@
+version: '3'
+
+tasks:
+  #### Default ####
+  default:
+    desc: List all tasks
+    cmds:
+      - task -l
+    silent: true
+
+  #### Setup ####
+  setup:
+    desc: Run all setup tasks
+    cmds:
+      - task setup:venv
+      - task setup:dev
+      - task setup:pre-commit
+    silent: true
+
+  setup:venv:
+    desc: Create and activate virtual environment
+    cmds:
+      - python3 -m venv .venv
+      - source .venv/bin/activate
+    silent: true
+
+  setup:dev:
+    desc: Install development dependencies
+    cmds:
+      - pip install -e ".[dev]"
+      - pip install build hatch
+    silent: true
+
+  setup:pre-commit:
+    desc: Install pre-commit hooks
+    cmds:
+      - pre-commit install
+    silent: true
+
+  #### Lint ####
+  lint:
+    desc: Run all linting tasks
+    cmds:
+      - task lint:ruff
+    silent: true
+
+  lint:ruff:
+    desc: Run ruff linter
+    cmd: ruff check src tests
+    silent: true
+
+  #### Format ####
+  format:
+    desc: Format code
+    cmd: ruff format src tests
+    silent: true
+
+  #### Test ####
+  test:
+    desc: Run all tests
+    cmd: pytest tests/ --disable-warnings
+    silent: true
+
+  test:core:
+    desc: Run core subpackage tests
+    cmd: pytest tests/core
+    silent: true
+
+  test:core:client:
+    desc: Run client module tests
+    cmd: pytest tests/core/test_client.py
+    silent: true
+
+  test:core:models:
+    desc: Run models module tests
+    cmd: pytest tests/core/test_models.py
+    silent: true
+
+  test:core:adoption:
+    desc: Run adoption module tests
+    cmd: pytest tests/core/test_adoption.py
+    silent: true
+
+  test:utils:
+    desc: Run utils subpackage tests
+    cmd: pytest tests/utils
+    silent: true
+
+  test:utils:scanner:
+    desc: Run scanner module tests
+    cmd: pytest tests/utils/test_scanner.py
+    silent: true
+
+  test:cli:
+    desc: Run cli subpackage tests
+    cmd: pytest tests/cli
+    silent: true
+
+  test:cli:commands:
+    desc: Run commands module tests
+    cmd: pytest tests/cli/test_commands.py
+    silent: true
+
+  test:cli:printer:
+    desc: Run printer module tests
+    cmd: pytest tests/cli/test_printer.py
+    silent: true
+
+  #### Coverage ####
+  coverage:
+    desc: Generate coverage for all subpackages
+    cmds:
+      - pytest --cov=ado_template_tracker --disable-warnings tests
+      - rm .coverage
+    silent: true
+
+  coverage:report:
+    desc: Generate HTML coverage report
+    cmds:
+      - pytest --cov=src/ado_template_tracker --cov-report=html
+      - echo "Coverage report generated in htmlcov/index.html"
+    silent: true
+
+  coverage:threshold:
+    desc: Check coverage thresholds
+    cmds:
+      - pytest -q --cov=ado_template_tracker.core --cov-fail-under=85 tests/core
+      - pytest -q --cov=ado_template_tracker.utils --cov-fail-under=90 tests/utils
+      - pytest -q --cov=ado_template_tracker.cli --cov-fail-under=40 tests/cli
+      - rm .coverage
+    silent: true
+
+  coverage:core:
+    desc: Generate coverage for core subpackage
+    cmd: pytest --cov=ado_template_tracker.core tests/core
+    silent: true
+
+  coverage:utils:
+    desc: Generate coverage for utils subpackage
+    cmd: pytest --cov=ado_template_tracker.utils tests/utils
+    silent: true
+
+  coverage:cli:
+    desc: Generate coverage for cli subpackage
+    cmd: pytest --cov=ado_template_tracker.cli tests/cli
+    silent: true
+
+  #### Build & Publish ####
+  build:
+    desc: Build package using hatch
+    cmd: hatch build
+    silent: true
+
+  publish:test:
+    desc: Publish to TestPyPI
+    cmd: hatch publish -r test
+    silent: true
+
+  publish:release:
+    desc: Publish to PyPI
+    cmd: hatch publish
+    silent: true
+
+  #### Release ####
+  version:bump:
+    desc: Bump version (patch by default)
+    cmds:
+      - task: version:{{.CLI_ARGS | default "patch"}}
+    silent: true
+
+  version:patch:
+    desc: Bump patch version
+    cmd: hatch version patch
+    silent: true
+
+  version:minor:
+    desc: Bump minor version
+    cmd: hatch version minor
+    silent: true
+
+  version:major:
+    desc: Bump major version
+    cmd: hatch version major
+    silent: true
+
+  #### Clean ####
+  clean:
+    desc: Clean build artifacts and cache
+    cmds:
+      - rm -rf build/
+      - rm -rf dist/
+      - rm -rf .pytest_cache/
+      - rm -rf .coverage
+      - rm -rf htmlcov/
+      - rm -rf .mypy_cache/
+      - rm -rf .ruff_cache/
+      - find . -type d -name "__pycache__" -exec rm -rf {} + 2>/dev/null || true
+      - find . -type d -name "*.egg-info" -exec rm -rf {} + 2>/dev/null || true
+    silent: true
+
+  clean:all:
+    desc: Clean all, including virtual environment
+    cmds:
+      - task: clean
+      - rm -rf .venv/
+    silent: true
+
+  #### CLI ####
+  cli:
+    desc: Run the CLI tool
+    cmd: python -m ado_template_tracker {{.CLI_ARGS}}
+    silent: true
+
+  #### Init __init__.py ####
+  init:version:
+    desc: Initialize or update version in __init__.py
+    cmds:
+      - |
+        if [ ! -f src/ado_template_tracker/__init__.py ] || ! grep -q "__version__" src/ado_template_tracker/__init__.py; then
+          echo '__version__ = "0.1.0"' > src/ado_template_tracker/__init__.py
+          echo "Version initialized to 0.1.0 in __init__.py"
+        else
+          echo "Version already exists in __init__.py"
+        fi
+    silent: true

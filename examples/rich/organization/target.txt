@@ -1,0 +1,34 @@
+                                                                                            Organization 'Dunder Mifflin' - Non-Compliant (MAJORITY mode)
+                                                                                                     Compliant Pipelines: 6.1% (48/788)
+                                                                                                    Compliant Repositories: 6.1% (24/391)
+                                                                                                       Compliant Projects: 25.0% (1/4)
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━┓
+┃ Project                        ┃ Repository                                        ┃ Pipeline                                                                                               ┃ Template(s)                        ┃ Usage  ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━┩
+│ Terraform-Module-Library       │ terraform-azurerm-virtual-network                 │ terraform-azurerm-virtual-network/terraform-azurerm-virtual-network-ci                                 │ pipeline-library/terraform/ci.yaml │ extend │
+│                                │                                                   │                                                                                                        │                                    │        │
+│                                │ terraform-azuread-application-registration        │ terraform-azuread-application-registration/terraform-azuread-application-registration-ci               │ pipeline-library/terraform/ci.yaml │ extend │
+│                                │                                                   │                                                                                                        │                                    │        │
+│                                │ terraform-azuredevops-elastic-pool                │ terraform-azuredevops-elastic-pool/terraform-azuredevops-elastic-pool-ci                               │ pipeline-library/terraform/ci.yaml │ extend │
+│                                │                                                   │                                                                                                        │                                    │        │
+│                                │ terraform-azuredevops-git-repository              │ terraform-azuredevops-git-repository/terraform-azuredevops-git-repository-ci                           │ pipeline-library/terraform/ci.yaml │ extend │
+│                                │                                                   │                                                                                                        │                                    │        │
+│                                │ terraform-azuredevops-project                     │ terraform-azuredevops-project/terraform-azuredevops-project-ci                                         │ pipeline-library/terraform/ci.yaml │ extend │
+│                                │                                                   │                                                                                                        │                                    │        │
+│                                │ terraform-azurerm-app-service                     │ terraform-azurerm-app-service/terraform-azurerm-app-service-ci                                         │ pipeline-library/terraform/ci.yaml │ extend │
+│                                │                                                   │                                                                                                        │                                    │        │
+│                                │ terraform-azurerm-container-registry              │ terraform-azurerm-container-registry/terraform-azurerm-container-registry-ci                           │ pipeline-library/terraform/ci.yaml │ extend │
+│                                │                                                   │                                                                                                        │                                    │        │
+│                                │ terraform-azurerm-key-vault                       │ terraform-azurerm-key-vault/terraform-azurerm-key-vault-ci                                             │ pipeline-library/terraform/ci.yaml │ extend │
+│                                │                                                   │                                                                                                        │                                    │        │
+│                                │ terraform-azurerm-linux-virtual-machine-scale-set │ terraform-azurerm-linux-virtual-machine-scale-set/terraform-azurerm-linux-virtual-machine-scale-set-ci │ pipeline-library/terraform/ci.yaml │ extend │
+│                                │                                                   │                                                                                                        │                                    │        │
+│                                │ terraform-azurerm-storage-account                 │ terraform-azurerm-storage-account/terraform-azurerm-storage-account-ci                                 │ pipeline-library/terraform/ci.yaml │ extend │
+│                                │                                                   │                                                                                                        │                                    │        │
+│                                │                                                   │                                                                                                        │                                    │        │
+│                                │                                                   │                                                                                                        │                                    │        │
+└────────────────────────────────┴───────────────────────────────────────────────────┴────────────────────────────────────────────────────────────────────────────────────────────────────────┴────────────────────────────────────┴────────┘
+
+Additional Metrics
+ Most Used Templates:  terraform/deploy.yaml (17 uses), terraform/ci.yaml (10 uses), terraform/generate-docs.yaml (10 uses)
+ Processing Time:      29.57s

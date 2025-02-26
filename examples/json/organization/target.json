@@ -1,0 +1,237 @@
+{
+  "name": "Dunder Mifflin",
+  "compliance_mode": "MAJORITY",
+  "is_compliant": false,
+  "project_adoption": {
+    "adoption_rate": 25.0,
+    "compliant_projects": 1,
+    "total_projects": 4
+  },
+  "repository_adoption": {
+    "adoption_rate": 6.14,
+    "compliant_repositories": 24,
+    "total_repositories": 391
+  },
+  "pipeline_adoption": {
+    "adoption_rate": 6.09,
+    "compliant_pipelines": 48,
+    "total_pipelines": 788
+  },
+  "projects": [
+    {
+      "name": "Terraform-Module-Library",
+      "repository_adoption": {
+        "adoption_rate": 83.33,
+        "compliant_repositories": 10,
+        "total_repositories": 12
+      },
+      "pipeline_adoption": {
+        "adoption_rate": 100.0,
+        "compliant_pipelines": 10,
+        "total_pipelines": 10
+      },
+      "repositories": [
+        {
+          "name": "terraform-azurerm-virtual-network",
+          "adoption": {
+            "adoption_rate": 100.0,
+            "compliant_pipelines": 1,
+            "total_pipelines": 1
+          },
+          "pipelines": [
+            {
+              "name": "terraform-azurerm-virtual-network-ci",
+              "path": "terraform-azurerm-virtual-network/terraform-azurerm-virtual-network-ci",
+              "templates": [
+                {
+                  "path": "pipeline-library/terraform/ci.yaml",
+                  "usage_type": "extend"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "terraform-azuread-application-registration",
+          "adoption": {
+            "adoption_rate": 100.0,
+            "compliant_pipelines": 1,
+            "total_pipelines": 1
+          },
+          "pipelines": [
+            {
+              "name": "terraform-azuread-application-registration-ci",
+              "path": "terraform-azuread-application-registration/terraform-azuread-application-registration-ci",
+              "templates": [
+                {
+                  "path": "pipeline-library/terraform/ci.yaml",
+                  "usage_type": "extend"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "terraform-azuredevops-elastic-pool",
+          "adoption": {
+            "adoption_rate": 100.0,
+            "compliant_pipelines": 1,
+            "total_pipelines": 1
+          },
+          "pipelines": [
+            {
+              "name": "terraform-azuredevops-elastic-pool-ci",
+              "path": "terraform-azuredevops-elastic-pool/terraform-azuredevops-elastic-pool-ci",
+              "templates": [
+                {
+                  "path": "pipeline-library/terraform/ci.yaml",
+                  "usage_type": "extend"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "terraform-azuredevops-git-repository",
+          "adoption": {
+            "adoption_rate": 100.0,
+            "compliant_pipelines": 1,
+            "total_pipelines": 1
+          },
+          "pipelines": [
+            {
+              "name": "terraform-azuredevops-git-repository-ci",
+              "path": "terraform-azuredevops-git-repository/terraform-azuredevops-git-repository-ci",
+              "templates": [
+                {
+                  "path": "pipeline-library/terraform/ci.yaml",
+                  "usage_type": "extend"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "terraform-azuredevops-project",
+          "adoption": {
+            "adoption_rate": 100.0,
+            "compliant_pipelines": 1,
+            "total_pipelines": 1
+          },
+          "pipelines": [
+            {
+              "name": "terraform-azuredevops-project-ci",
+              "path": "terraform-azuredevops-project/terraform-azuredevops-project-ci",
+              "templates": [
+                {
+                  "path": "pipeline-library/terraform/ci.yaml",
+                  "usage_type": "extend"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "terraform-azurerm-app-service",
+          "adoption": {
+            "adoption_rate": 100.0,
+            "compliant_pipelines": 1,
+            "total_pipelines": 1
+          },
+          "pipelines": [
+            {
+              "name": "terraform-azurerm-app-service-ci",
+              "path": "terraform-azurerm-app-service/terraform-azurerm-app-service-ci",
+              "templates": [
+                {
+                  "path": "pipeline-library/terraform/ci.yaml",
+                  "usage_type": "extend"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "terraform-azurerm-container-registry",
+          "adoption": {
+            "adoption_rate": 100.0,
+            "compliant_pipelines": 1,
+            "total_pipelines": 1
+          },
+          "pipelines": [
+            {
+              "name": "terraform-azurerm-container-registry-ci",
+              "path": "terraform-azurerm-container-registry/terraform-azurerm-container-registry-ci",
+              "templates": [
+                {
+                  "path": "pipeline-library/terraform/ci.yaml",
+                  "usage_type": "extend"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "terraform-azurerm-key-vault",
+          "adoption": {
+            "adoption_rate": 100.0,
+            "compliant_pipelines": 1,
+            "total_pipelines": 1
+          },
+          "pipelines": [
+            {
+              "name": "terraform-azurerm-key-vault-ci",
+              "path": "terraform-azurerm-key-vault/terraform-azurerm-key-vault-ci",
+              "templates": [
+                {
+                  "path": "pipeline-library/terraform/ci.yaml",
+                  "usage_type": "extend"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "terraform-azurerm-linux-virtual-machine-scale-set",
+          "adoption": {
+            "adoption_rate": 100.0,
+            "compliant_pipelines": 1,
+            "total_pipelines": 1
+          },
+          "pipelines": [
+            {
+              "name": "terraform-azurerm-linux-virtual-machine-scale-set-ci",
+              "path": "terraform-azurerm-linux-virtual-machine-scale-set/terraform-azurerm-linux-virtual-machine-scale-set-ci",
+              "templates": [
+                {
+                  "path": "pipeline-library/terraform/ci.yaml",
+                  "usage_type": "extend"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "terraform-azurerm-storage-account",
+          "adoption": {
+            "adoption_rate": 100.0,
+            "compliant_pipelines": 1,
+            "total_pipelines": 1
+          },
+          "pipelines": [
+            {
+              "name": "terraform-azurerm-storage-account-ci",
+              "path": "terraform-azurerm-storage-account/terraform-azurerm-storage-account-ci",
+              "templates": [
+                {
+                  "path": "pipeline-library/terraform/ci.yaml",
+                  "usage_type": "extend"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

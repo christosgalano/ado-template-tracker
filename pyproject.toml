@@ -1,0 +1,117 @@
+[build-system]
+requires = ["hatchling>=1.18.0"]
+build-backend = "hatchling.build"
+
+[project]
+name = "ado-template-tracker"
+description = "Azure DevOps Template Adoption Tracker"
+readme = "README.md"
+requires-python = ">=3.12"
+license = { text = "MIT" }
+authors = [
+  { name = "Christos Galanopoulos", email = "christosgalanop@gmail.com" },
+]
+classifiers = [
+  "Development Status :: 4 - Beta",
+  "Intended Audience :: Developers",
+  "Intended Audience :: Information Technology",
+  "License :: OSI Approved :: MIT License",
+  "Programming Language :: Python",
+  "Programming Language :: Python :: 3 :: Only",
+  "Programming Language :: Python :: 3.12",
+  "Topic :: Software Development :: Libraries :: Python Modules",
+  "Topic :: Software Development :: Build Tools",
+  "Typing :: Typed",
+]
+dependencies = [
+  "aiohttp>=3.11.0,<4.0.0",
+  "tenacity>=9.0.0,<10.0.0",
+  "azure-devops>=7.1.0b3,<8.0.0",
+  "azure-identity>=1.20.0,<2.0.0",
+  "pydantic>=2.10.0,<3.0.0",
+  "pyyaml>=6.0.0,<7.0.0",
+  "requests>=2.32.0,<3.0.0",
+  "rich>=13.9.0,<14.0.0",
+]
+dynamic = ["version"]
+
+[project.optional-dependencies]
+dev = [
+  "ruff>=0.2.1",
+  "pre-commit>=3.6.0",
+  "python-dotenv>=0.19.0",
+  "pytest>=8.0.0",
+  "pytest-asyncio>=0.23.5",
+  "pytest-cov>=4.1.0",
+  "types-PyYAML>=6.0.12",
+  "types-requests>=2.31.0",
+]
+
+[project.scripts]
+ado-template-tracker = "ado_template_tracker.cli:main"
+
+[project.urls]
+Documentation = "https://github.com/christosgalano/ado-template-tracker#readme"
+Issues = "https://github.com/christosgalano/ado-template-tracker/issues"
+Source = "https://github.com/christosgalano/ado-template-tracker"
+
+[tool.hatch.version]
+path = "src/ado_template_tracker/__init__.py"
+pattern = '__version__ = "(?P<version>[^"]+)"'
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/ado_template_tracker"]
+
+[tool.hatch.build.targets.sdist]
+include = [
+  "src/ado_template_tracker",
+  "tests",
+  "README.md",
+  "LICENSE",
+  "CONTRIBUTING.md",
+  "CODE_OF_CONDUCT.md",
+]
+
+[tool.ruff]
+line-length = 120
+target-version = "py312"
+
+# Enable all rules by default, then disable specific ones
+select = ["ALL"]
+ignore = [
+  "D203",   # no-blank-line-before-class
+  "D212",   # multi-line-summary-first-line
+  "TRY300",
+  "D107",   # missing-function-docstring
+  "T201",   # no print
+]
+
+# Exclude files and directories
+exclude = [
+  ".git",
+  ".ruff_cache",
+  ".venv",
+  "venv",
+  "build",
+  "dist",
+  "main.py",
+  "__pycache__",
+]
+
+[tool.ruff.pydocstyle]
+convention = "google"
+
+[tool.ruff.isort]
+known-first-party = ["ado_template_tracker"]
+
+[tool.ruff.per-file-ignores]
+"tests/*" = ["D", "ANN", "S101"]
+"src/ado_template_tracker/__init__.py" = ["D"]
+"src/ado_template_tracker/__main__.py" = ["E402"]
+
+[tool.pytest.ini_options]
+asyncio_mode = "strict"
+asyncio_default_fixture_loop_scope = "function"
+addopts = "-v --no-header --cov=src/ado_template_tracker --cov-report=term-missing"
+testpaths = ["tests"]
+python_files = "test_*.py"

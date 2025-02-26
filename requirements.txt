@@ -1,0 +1,11 @@
+# Core dependencies
+aiohttp>=3.11.0,<4.0.0
+tenacity>=9.0.0,<10.0.0
+azure-devops>=7.1.0b3,<8.0.0
+azure-identity>=1.20.0,<2.0.0
+pydantic>=2.10.0,<3.0.0
+pyyaml>=6.0.0,<7.0.0
+requests>=2.32.0,<3.0.0
+
+# Output formatting
+rich>=13.9.0,<14.0.0

@@ -1,0 +1,18 @@
+                                      Adoption Overview for Dunder Mifflin
+┏━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃ Category               ┃ Metric                       ┃ Value         ┃ Details                      ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┩
+│ Compliance Information │ Mode                         │ MAJORITY      │ Scope: ORGANIZATION          │
+│                        │ Status                       │ Non-Compliant │ Based on MAJORITY mode       │
+├────────────────────────┼──────────────────────────────┼───────────────┼──────────────────────────────┤
+│ Template Statistics    │ Total Templates              │ 5             │ 48 total uses                │
+│                        │ terraform/deploy.yaml        │ 17 uses       │ 35.4% of compliant pipelines │
+│                        │ terraform/ci.yaml            │ 10 uses       │ 20.8% of compliant pipelines │
+│                        │ terraform/generate-docs.yaml │ 10 uses       │ 20.8% of compliant pipelines │
+├────────────────────────┼──────────────────────────────┼───────────────┼──────────────────────────────┤
+│ Adoption Metrics       │ Pipeline Adoption            │ 6.1%          │ 48 of 788 pipelines          │
+│                        │ Repository Adoption          │ 6.1%          │ 24 of 391 repositories       │
+│                        │ Project Adoption             │ 25.0%         │ 1 of 4 projects              │
+├────────────────────────┼──────────────────────────────┼───────────────┼──────────────────────────────┤
+│ Performance            │ Processing Time              │ 29.57s        │                              │
+└────────────────────────┴──────────────────────────────┴───────────────┴──────────────────────────────┘

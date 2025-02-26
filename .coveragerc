@@ -1,0 +1,22 @@
+[run]
+source = src/ado_template_tracker
+
+[report]
+exclude_lines =
+    pragma: no cover
+    def __repr__
+    def __str__
+    # Visual formatting patterns
+    table\.add_column
+    table\.add_row
+    table\.add_section
+    self\._write\(
+    self\.console\.print
+    # Markdown formatters
+    lines\.extend
+    lines\.append
+    # JSON dictionary building
+    "_get_.*": {
+    ".*": {
+    # Template blocks
+    for .* in .*:$

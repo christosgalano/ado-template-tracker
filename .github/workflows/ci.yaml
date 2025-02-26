@@ -1,0 +1,108 @@
+name: ci
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref_name }}
+  cancel-in-progress: true
+
+# TODO: Update for python
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Setup Go
+      uses: actions/setup-go@v5
+      with:
+        go-version-file: 'go.mod'
+        cache: false
+
+    - name: Lint with golangci-lint
+      uses: golangci/golangci-lint-action@v6
+      with:
+        version: v1.61
+
+  test:
+    name: test-${{ matrix.os }}
+    runs-on: ${{ matrix.os }}
+    needs: lint
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest, macos-latest]
+      fail-fast: false
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Setup Go
+      uses: actions/setup-go@v5
+      with:
+        go-version-file: 'go.mod'
+
+    - name: Install Task
+      run: go install github.com/go-task/task/v3/cmd/task@latest
+
+    - name: Install Go tools
+      run: task setup:test
+
+    - name: Security scan
+      id: security
+      run: task security
+
+    - name: Test
+      id: test
+      run: task test
+
+    - name: Code coverage
+      id: coverage
+      run: task coverage
+
+    - name: Benchmark
+      if: github.event_name == 'pull_request'
+      run: task benchmark
+
+  update-readme:
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main'
+    needs: test
+    permissions:
+      contents: write
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Setup Go
+      uses: actions/setup-go@v5
+      with:
+        go-version-file: 'go.mod'
+
+    - name: Check if README changed
+      id: readme
+      run: |
+        ./.github/scripts/coverage-badge.sh
+        git config --local user.name 'github-actions[bot]'
+        git config --local user.email 'github-actions[bot]@users.noreply.github.com'
+        git diff --quiet --exit-code -- README.md || UPDATED=true
+        if [[ "$UPDATED" == "true" ]]; then
+          git add README.md
+          git commit -m "Update code coverage badge"
+          echo "changed=true" >> $GITHUB_OUTPUT
+        fi
+
+    - name: Push updated README
+      if: steps.readme.outputs.changed == 'true'
+      uses: ad-m/github-push-action@master
+      with:
+        branch: ${{ github.ref }}
+        github_token: ${{ secrets.GITHUB_TOKEN }}

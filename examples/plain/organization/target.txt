@@ -1,0 +1,92 @@
+Organization: Dunder Mifflin
+Compliance Mode: MAJORITY
+Compliance Status: Non-Compliant
+Compliant Projects: 25.0% (1/4)
+Compliant Repositories: 6.1% (24/391)
+Compliant Pipelines: 6.1% (48/788)
+================================================================================
+
+Project: Terraform-Module-Library
+Compliant Repositories: 83.3% (10/12)
+Compliant Pipelines: 100.0% (10/10)
+
+  Repository: terraform-azurerm-virtual-network
+  Compliant Pipelines: 100.0% (1/1)
+
+    Pipeline: terraform-azurerm-virtual-network/terraform-azurerm-virtual-network-ci
+      Template: pipeline-library/terraform/ci.yaml
+      Usage: extend
+
+
+  Repository: terraform-azuread-application-registration
+  Compliant Pipelines: 100.0% (1/1)
+
+    Pipeline: terraform-azuread-application-registration/terraform-azuread-application-registration-ci
+      Template: pipeline-library/terraform/ci.yaml
+      Usage: extend
+
+
+  Repository: terraform-azuredevops-elastic-pool
+  Compliant Pipelines: 100.0% (1/1)
+
+    Pipeline: terraform-azuredevops-elastic-pool/terraform-azuredevops-elastic-pool-ci
+      Template: pipeline-library/terraform/ci.yaml
+      Usage: extend
+
+
+  Repository: terraform-azuredevops-git-repository
+  Compliant Pipelines: 100.0% (1/1)
+
+    Pipeline: terraform-azuredevops-git-repository/terraform-azuredevops-git-repository-ci
+      Template: pipeline-library/terraform/ci.yaml
+      Usage: extend
+
+
+  Repository: terraform-azuredevops-project
+  Compliant Pipelines: 100.0% (1/1)
+
+    Pipeline: terraform-azuredevops-project/terraform-azuredevops-project-ci
+      Template: pipeline-library/terraform/ci.yaml
+      Usage: extend
+
+
+  Repository: terraform-azurerm-app-service
+  Compliant Pipelines: 100.0% (1/1)
+
+    Pipeline: terraform-azurerm-app-service/terraform-azurerm-app-service-ci
+      Template: pipeline-library/terraform/ci.yaml
+      Usage: extend
+
+
+  Repository: terraform-azurerm-container-registry
+  Compliant Pipelines: 100.0% (1/1)
+
+    Pipeline: terraform-azurerm-container-registry/terraform-azurerm-container-registry-ci
+      Template: pipeline-library/terraform/ci.yaml
+      Usage: extend
+
+
+  Repository: terraform-azurerm-key-vault
+  Compliant Pipelines: 100.0% (1/1)
+
+    Pipeline: terraform-azurerm-key-vault/terraform-azurerm-key-vault-ci
+      Template: pipeline-library/terraform/ci.yaml
+      Usage: extend
+
+
+  Repository: terraform-azurerm-linux-virtual-machine-scale-set
+  Compliant Pipelines: 100.0% (1/1)
+
+    Pipeline: terraform-azurerm-linux-virtual-machine-scale-set/terraform-azurerm-linux-virtual-machine-scale-set-ci
+      Template: pipeline-library/terraform/ci.yaml
+      Usage: extend
+
+
+  Repository: terraform-azurerm-storage-account
+  Compliant Pipelines: 100.0% (1/1)
+
+    Pipeline: terraform-azurerm-storage-account/terraform-azurerm-storage-account-ci
+      Template: pipeline-library/terraform/ci.yaml
+      Usage: extend
+
+--------------------------------------------------------------------------------
