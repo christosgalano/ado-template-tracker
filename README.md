@@ -1,6 +1,7 @@
 # ado-template-tracker
 
 [![ci](https://github.com/christosgalano/ado-template-tracker/actions/workflows/ci.yaml/badge.svg?branch=main&event=push)](https://github.com/christosgalano/ado-template-tracker/actions/workflows/ci.yaml)
+![Code Coverage](.github/badges/coverage.svg)
 [![Github Downloads](https://img.shields.io/github/downloads/christosgalano/ado-template-tracker/total.svg)](https://github.com/christosgalano/ado-template-tracker/releases)
 
 ## Table of contents

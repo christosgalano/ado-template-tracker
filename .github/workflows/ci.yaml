@@ -1,19 +1,17 @@
 name: ci
 
 on:
-  push:
-    branches:
-      - main
-  pull_request:
-    branches:
-      - main
+  # push:
+  #   branches:
+  #     - main
+  # pull_request:
+  #   branches:
+  #     - main
   workflow_dispatch:
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref_name }}
   cancel-in-progress: true
-
-# TODO: Update for python
 
 jobs:
   lint:
@@ -22,55 +20,117 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v4
 
-    - name: Setup Go
-      uses: actions/setup-go@v5
+    - name: Set up Python
+      uses: actions/setup-python@v5
       with:
-        go-version-file: 'go.mod'
-        cache: false
+        python-version: '3.12'
+        cache: 'pip'
 
-    - name: Lint with golangci-lint
-      uses: golangci/golangci-lint-action@v6
+    - name: Install task
+      uses: arduino/setup-task@v2
       with:
-        version: v1.61
+        version: 3.x
+        repo-token: ${{ secrets.GITHUB_TOKEN }}
+
+    - name: Install dependencies
+      run: task setup
+
+    - name: Lint with ruff
+      run: task lint
+
+    - name: Check formatting with ruff
+      run: task format -- --check
 
   test:
-    name: test-${{ matrix.os }}
+    name: test-${{ matrix.os }}-python${{ matrix.python-version }}
     runs-on: ${{ matrix.os }}
     needs: lint
+    permissions:
+      checks: write
+      contents: read
+      pull-requests: write
     strategy:
       matrix:
         os: [ubuntu-latest, windows-latest, macos-latest]
+        python-version: ['3.12']
       fail-fast: false
     steps:
     - name: Checkout repository
       uses: actions/checkout@v4
 
-    - name: Setup Go
-      uses: actions/setup-go@v5
+    - name: Set up Python ${{ matrix.python-version }}
+      uses: actions/setup-python@v5
       with:
-        go-version-file: 'go.mod'
+        python-version: ${{ matrix.python-version }}
+        cache: 'pip'
 
-    - name: Install Task
-      run: go install github.com/go-task/task/v3/cmd/task@latest
+    - name: Install task
+      uses: arduino/setup-task@v2
+      with:
+        version: 3.x
+        repo-token: ${{ secrets.GITHUB_TOKEN }}
 
-    - name: Install Go tools
-      run: task setup:test
-
-    - name: Security scan
-      id: security
-      run: task security
+    - name: Install dependencies
+      run: task setup
 
     - name: Test
       id: test
-      run: task test
+      run: task test:junit
 
     - name: Code coverage
       id: coverage
-      run: task coverage
+      run: task coverage:xml
 
-    - name: Benchmark
-      if: github.event_name == 'pull_request'
-      run: task benchmark
+    - name: Code coverage summary report
+      uses: irongut/CodeCoverageSummary@v1.3.0
+      with:
+        filename: coverage.xml
+        badge: true
+        output: both
+        format: markdown
+        indicators: true
+        thresholds: "60 80"
+        fail_below_min: false
+        hide_complexity: true
+        hide_branch_rate: false
+
+    - name: Upload test and coverage results
+      if: success() || failure()
+      uses: actions/upload-artifact@v4
+      with:
+        name: pytest-results
+        path: |
+          coverage.xml
+          junit.xml
+          code-coverage-results.md
+        retention-days: 5
+
+    - name: Publish test results
+      uses: EnricoMi/publish-unit-test-result-action@v2
+      if: success() || failure()
+      with:
+        check_name: pytest-results
+        junit_files: junit.xml
+        comment_mode: always
+        fail_on: test failures
+        action_fail: false
+        ignore_runs: false
+        job_summary: true
+        compare_to_earlier_commit: true
+        check_run_annotations: all tests, skipped tests
+
+    - name: Pytest coverage summary
+      if: success() || failure()
+      run: |
+        echo "## coverage-results" >> $GITHUB_STEP_SUMMARY
+        cat code-coverage-results.md >> $GITHUB_STEP_SUMMARY
+
+    - name: Add coverage PR comment
+      uses: marocchino/sticky-pull-request-comment@v2
+      if: (success() || failure()) && github.event_name == 'pull_request'
+      with:
+        path: code-coverage-results.md
+        recreate: true
 
   update-readme:
     runs-on: ubuntu-latest
@@ -82,27 +142,58 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v4
 
-    - name: Setup Go
-      uses: actions/setup-go@v5
+    - name: Set up Python
+      uses: actions/setup-python@v5
       with:
-        go-version-file: 'go.mod'
+        python-version: '3.12'
+        cache: 'pip'
 
-    - name: Check if README changed
-      id: readme
+    - name: Install dependencies
+      run: task setup
+
+    - name: Generate coverage badge
+      run: task coverage:badge
+
+    - name: Check if coverage badge changed
+      id: badge
       run: |
-        ./.github/scripts/coverage-badge.sh
         git config --local user.name 'github-actions[bot]'
         git config --local user.email 'github-actions[bot]@users.noreply.github.com'
-        git diff --quiet --exit-code -- README.md || UPDATED=true
-        if [[ "$UPDATED" == "true" ]]; then
-          git add README.md
+        git diff --quiet --exit-code -- .github/badges/coverage.svg || echo "changed=true" >> $GITHUB_OUTPUT
+        if [[ -n "$(git status --porcelain .github/badges/coverage.svg)" ]]; then
+          git add .github/badges/coverage.svg
           git commit -m "Update code coverage badge"
-          echo "changed=true" >> $GITHUB_OUTPUT
         fi
 
-    - name: Push updated README
-      if: steps.readme.outputs.changed == 'true'
+    - name: Push updated coverage badge
+      if: steps.badge.outputs.changed == 'true'
       uses: ad-m/github-push-action@master
       with:
         branch: ${{ github.ref }}
         github_token: ${{ secrets.GITHUB_TOKEN }}
+
+  build:
+    runs-on: ubuntu-latest
+    needs: test
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.12'
+        cache: 'pip'
+
+    - name: Install build dependencies
+      run: task setup:build
+
+    - name: Build package
+      run: task build
+
+    - name: Upload artifacts
+      uses: actions/upload-artifact@v4
+      with:
+        name: dist
+        path: dist/
+        retention-days: 7

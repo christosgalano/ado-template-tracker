@@ -12,29 +12,67 @@ tasks:
   setup:
     desc: Run all setup tasks
     cmds:
-      - task setup:venv
+      - task setup:build
       - task setup:dev
-      - task setup:pre-commit
+    silent: true
+
+  setup:upgrade:
+    desc: Upgrade pip
+    deps: [setup:venv]
+    cmds:
+      - |
+        if [ "{{OS}}" == "windows" ]; then
+          python -m pip install --upgrade pip
+        else
+          python3 -m pip install --upgrade pip
+        fi
     silent: true
 
   setup:venv:
-    desc: Create and activate virtual environment
+    desc: Create and activate virtual environment if it doesn't exist
     cmds:
-      - python3 -m venv .venv
-      - source .venv/bin/activate
+      # Check if venv exists first
+      - |
+        if [ "{{OS}}" == "windows" ]; then
+          if [ ! -d ".venv" ] || [ ! -f ".venv\Scripts\python.exe" ]; then
+            echo "Creating virtual environment..."
+            python -m venv .venv
+          else
+            echo "Virtual environment already exists."
+          fi
+        else
+          if [ ! -d ".venv" ] || [ ! -f ".venv/bin/python" ]; then
+            echo "Creating virtual environment..."
+            python3 -m venv .venv
+          else
+            echo "Virtual environment already exists."
+          fi
+        fi
+      # Activation is handled differently per OS
+      - |
+        if [ "{{OS}}" == "windows" ]; then
+          echo "Run: .venv\\Scripts\\activate"
+        else
+          echo "Run: source .venv/bin/activate"
+        fi
     silent: true
 
   setup:dev:
     desc: Install development dependencies
-    cmds:
-      - pip install -e ".[dev]"
-      - pip install build hatch
+    deps: [setup:upgrade]
+    cmd: pip install -e ".[dev]"
     silent: true
 
-  setup:pre-commit:
-    desc: Install pre-commit hooks
-    cmds:
-      - pre-commit install
+  setup:build:
+    desc: Install build dependencies
+    deps: [setup:upgrade]
+    cmd: pip install build hatch
+    silent: true
+
+  setup:badge:
+    desc: Install genbadge
+    deps: [setup:upgrade]
+    cmd: pip install "genbadge[coverage]"
     silent: true
 
   #### Lint ####
@@ -46,19 +84,26 @@ tasks:
 
   lint:ruff:
     desc: Run ruff linter
-    cmd: ruff check src tests
+    cmd: ruff check src tests -q
     silent: true
 
   #### Format ####
   format:
     desc: Format code
-    cmd: ruff format src tests
+    cmd: ruff format src tests -q
     silent: true
 
   #### Test ####
   test:
     desc: Run all tests
     cmd: pytest tests/ --disable-warnings
+    silent: true
+
+  test:junit:
+    desc: Run all tests and generate JUnit report
+    cmds:
+      - pytest tests/ --junitxml=junit.xml --disable-warnings
+      - echo "JUnit report generated in junit.xml"
     silent: true
 
   test:core:
@@ -114,11 +159,27 @@ tasks:
       - rm .coverage
     silent: true
 
+  coverage:xml:
+    desc: Generate XML coverage report
+    deps: [setup:badge]
+    cmds:
+      - pytest --cov=src/ado_template_tracker --cov-report=xml
+      - echo "Coverage report generated in coverage.xml"
+    silent: true
+
   coverage:report:
     desc: Generate HTML coverage report
     cmds:
       - pytest --cov=src/ado_template_tracker --cov-report=html
       - echo "Coverage report generated in htmlcov/index.html"
+    silent: true
+
+  coverage:badge:
+    desc: Generate coverage badge
+    cmds:
+      - pytest --cov=src/ado_template_tracker --cov-report=xml
+      - genbadge coverage -i coverage.xml -o .github/badges/coverage.svg
+      - echo "Coverage badge generated in .github/badges/coverage.svg"
     silent: true
 
   coverage:threshold:
@@ -197,6 +258,7 @@ tasks:
       - find . -type d -name "__pycache__" -exec rm -rf {} + 2>/dev/null || true
       - find . -type d -name "*.egg-info" -exec rm -rf {} + 2>/dev/null || true
     silent: true
+    ignore_error: true
 
   clean:all:
     desc: Clean all, including virtual environment
@@ -204,6 +266,7 @@ tasks:
       - task: clean
       - rm -rf .venv/
     silent: true
+    ignore_error: true
 
   #### CLI ####
   cli:
