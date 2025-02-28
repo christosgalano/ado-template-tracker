@@ -33,7 +33,7 @@ Components:
 
     Configuration Models:
         ComplianceMode: Rules for determining compliance (ANY/MAJORITY/ALL)
-        ViewMode: Controls results presentation format (TARGET/SOURCE/OVERVIEW)
+        ViewMode: Controls results presentation format (TARGET/SOURCE/OVERVIEW/NON_COMPLIANT)
         TargetScope: Analysis scope (ORGANIZATION/PROJECT/REPOSITORY/PIPELINE)
 
 Examples:

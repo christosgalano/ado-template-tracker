@@ -1,0 +1,42 @@
+
+Repository: administration
+Compliance Mode: ANY
+Compliance Status: Compliant
+Compliant Pipelines: 50.0% (6/12)
+================================================================================
+
+Pipeline: administration/aad-group-myomada-creation
+  Template: pipeline-library/terraform/deploy.yaml
+  Usage: include
+
+--------------------------------------------------------------------------------
+
+Pipeline: administration/create-application-registration
+  Template: pipeline-library/terraform/deploy.yaml
+  Usage: include
+
+--------------------------------------------------------------------------------
+
+Pipeline: administration/create-project
+  Template: pipeline-library/terraform/deploy.yaml
+  Usage: extend
+
+--------------------------------------------------------------------------------
+
+Pipeline: administration/create-repository
+  Template: pipeline-library/terraform/deploy.yaml
+  Usage: include
+
+--------------------------------------------------------------------------------
+
+Pipeline: administration/create-self-hosted-agent
+  Template: pipeline-library/terraform/deploy.yaml
+  Usage: include
+
+--------------------------------------------------------------------------------
+
+Pipeline: administration/create-template-repository
+  Template: pipeline-library/terraform/deploy.yaml
+  Usage: include
+
+--------------------------------------------------------------------------------

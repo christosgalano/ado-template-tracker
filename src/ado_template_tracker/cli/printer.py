@@ -95,6 +95,7 @@ class AdoptionPrinter(ABC):
     result: Organization | Project | Repository | Pipeline
     metrics: AdoptionMetrics
     _scope: TargetScope
+    _output: TextIO | None = None  # Add this to store the output stream
 
     def __init__(
         self,
@@ -106,7 +107,6 @@ class AdoptionPrinter(ABC):
         self.metrics = metrics
         self._scope = self.metrics.target.get_scope()
 
-    @abstractmethod
     def print(self, view_mode: ViewMode = ViewMode.TARGET, output_file: str | None = None) -> None:
         """
         Print adoption results in specified view mode to given output file.
@@ -115,6 +115,23 @@ class AdoptionPrinter(ABC):
             view_mode: The view mode to use for displaying results
             output_file: Path to output file, or None for stdout
         """
+        self._validate_view_mode(view_mode)
+
+        # Handle file streams and stdout differently
+        if output_file:
+            # For actual files, use context manager to ensure proper closing
+            with self._get_output_stream(output_file) as output:
+                self._output = output
+                self._print_content(view_mode)
+        else:
+            # For stdout, don't use with statement to avoid closing it
+            self._output = sys.stdout
+            self._print_content(view_mode)
+            # Don't close stdout
+
+    @abstractmethod
+    def _print_content(self, view_mode: ViewMode) -> None:
+        """Print content based on view mode to the configured output stream."""
 
     def _get_output_stream(self, output_file: str | None) -> TextIO:
         """
@@ -155,30 +172,23 @@ class AdoptionPlainPrinter(AdoptionPrinter):
         """Write content to configured output."""
         print(content, file=self._output)
 
-    def print(self, view_mode: ViewMode = ViewMode.TARGET, output_file: str | None = None) -> None:
-        """
-        Print adoption results in Markdown format based on view mode.
-
-        Args:
-            view_mode: TARGET, SOURCE, or OVERVIEW
-            output_file: Path to output file, or None to use default output
-        """
-        self._validate_view_mode(view_mode)
-        with self._get_output_stream(output_file) as output:
-            self._output = output  # Set output for use in _write method
-            if view_mode == ViewMode.TARGET:
-                if self._scope == TargetScope.ORGANIZATION:
-                    self._print_organization()
-                elif self._scope == TargetScope.PROJECT:
-                    self._print_project()
-                elif self._scope == TargetScope.REPOSITORY:
-                    self._print_repository()
-                else:
-                    self._print_pipeline()
-            elif view_mode == ViewMode.SOURCE:
-                self._print_source()
+    def _print_content(self, view_mode: ViewMode) -> None:
+        """Print content based on view mode to the configured output stream."""
+        if view_mode == ViewMode.TARGET:
+            if self._scope == TargetScope.ORGANIZATION:
+                self._print_organization()
+            elif self._scope == TargetScope.PROJECT:
+                self._print_project()
+            elif self._scope == TargetScope.REPOSITORY:
+                self._print_repository()
             else:
-                self._print_overview()
+                self._print_pipeline()
+        elif view_mode == ViewMode.SOURCE:
+            self._print_source()
+        elif view_mode == ViewMode.OVERVIEW:
+            self._print_overview()
+        else:
+            self._print_non_compliant()
 
     def _print_organization(self) -> None:  # pragma: no cover
         """Print organization adoption data as text."""
@@ -226,7 +236,7 @@ class AdoptionPlainPrinter(AdoptionPrinter):
             for repo in project.compliant_repositories:
                 self._write(f"\n  Repository: {repo.name}")
                 self._write(
-                    f"  Compliant Pipelines: {repo.adoption_rate:.1f}% "
+                    f"  Compliant Pipelines: {repo.pipeline_adoption_rate:.1f}% "
                     f"({len(repo.compliant_pipelines)}/{repo.total_no_pipelines})",
                 )
 
@@ -269,7 +279,7 @@ class AdoptionPlainPrinter(AdoptionPrinter):
         for repo in project.compliant_repositories:
             self._write(f"\nRepository: {repo.name}")
             self._write(
-                f"Compliant Pipelines: {repo.adoption_rate:.1f}% ({len(repo.compliant_pipelines)}/{repo.total_no_pipelines})",
+                f"Compliant Pipelines: {repo.pipeline_adoption_rate:.1f}% ({len(repo.compliant_pipelines)}/{repo.total_no_pipelines})",
             )
 
             for pipeline in repo.compliant_pipelines:
@@ -290,7 +300,7 @@ class AdoptionPlainPrinter(AdoptionPrinter):
             f"Compliance Status: {'Compliant' if repository.is_compliant(self.metrics.compliance_mode) else 'Non-Compliant'}",
         )
         self._write(
-            f"Compliant Pipelines: {repository.adoption_rate:.1f}% ({len(repository.compliant_pipelines)}/{repository.total_no_pipelines})",
+            f"Compliant Pipelines: {repository.pipeline_adoption_rate:.1f}% ({len(repository.compliant_pipelines)}/{repository.total_no_pipelines})",
         )
         self._write("=" * 80)
 
@@ -383,9 +393,17 @@ class AdoptionPlainPrinter(AdoptionPrinter):
         self._write(f"\nName: {self.result.name}")
         self._write(f"Scope: {self._scope.name}")
         self._write(f"Compliance Mode: {self.metrics.compliance_mode.name}")
-        self._write(
-            f"Compliance Status: {'Compliant' if self.result.is_compliant(self.metrics.compliance_mode) else 'Non-Compliant'}",
-        )
+
+        total_compliant = 0
+        if self._scope == TargetScope.PIPELINE:
+            self._write(
+                f"Compliance Status: {'Compliant' if self.result.is_compliant() else 'Non-Compliant'}",
+            )
+        else:
+            self._write(
+                f"Compliance Status: {'Compliant' if self.result.is_compliant(self.metrics.compliance_mode) else 'Non-Compliant'}",
+            )
+            total_compliant = len(self.result.compliant_pipelines)
 
         # Template Statistics
         self._write("\nTemplate Statistics:")
@@ -393,17 +411,19 @@ class AdoptionPlainPrinter(AdoptionPrinter):
         self._write(f"Total Uses: {sum(self.metrics.template_usage.values())}")
 
         # Most used templates
-        total_compliant = len(self.result.compliant_pipelines)
         self._write("\nMost Used Templates:")
         for template, count in sorted(
             self.metrics.template_usage.items(),
             key=lambda x: x[1],
             reverse=True,
         )[:3]:  # Top 3
-            usage_percent = count / total_compliant * 100 if total_compliant > 0 else 0
-            self._write(
-                f"  - {template}: {count} uses ({usage_percent:.1f}% of compliant pipelines)",
-            )
+            if total_compliant > 0:
+                usage_percent = count / total_compliant * 100
+                self._write(
+                    f"  - {template}: {count} use(s) ({usage_percent:.1f}% of compliant pipelines)",
+                )
+            else:
+                self._write(f"  - {template}: {count} use(s)")
 
         # Adoption metrics (scope-specific)
         self._write("\nAdoption Metrics:")
@@ -432,6 +452,100 @@ class AdoptionPlainPrinter(AdoptionPrinter):
         # Performance metrics
         self._write(f"\nProcessing Time: {self.metrics.processing_time:.2f}s")
 
+    def _print_non_compliant(self) -> None:  # pragma: no cover  # noqa: C901, PLR0912, PLR0915
+        """Print non-compliant items summary as text."""
+        self._write("\nNon-Compliance Report")
+        self._write("=" * 80)
+
+        # Basic compliance information
+        self._write(f"\nName: {self.result.name}")
+        self._write(f"Scope: {self._scope.name}")
+        self._write(f"Compliance Mode: {self.metrics.compliance_mode.name}")
+
+        # Check compliance status with appropriate method based on scope
+        if self._scope == TargetScope.PIPELINE:
+            is_compliant = self.result.is_compliant()
+        else:
+            is_compliant = self.result.is_compliant(self.metrics.compliance_mode)
+
+        self._write(f"Compliance Status: {'Compliant' if is_compliant else 'Non-Compliant'}")
+        self._write(f"Processing Time: {self.metrics.processing_time:.2f}s")
+        self._write()
+
+        # Pipeline scope - simplified output
+        if self._scope == TargetScope.PIPELINE:
+            pipeline = self.result
+            if pipeline.is_compliant():
+                if pipeline.adoption:
+                    self._write(f"Templates ({pipeline.adoption.usage_type.value}):")
+                    for template in pipeline.adoption.templates:
+                        self._write(f"- {format_template_path(template)}")
+            else:
+                self._write("This pipeline is non-compliant.")
+                self._write("No template usage detected from required sources.")
+
+        # Non-pipeline scopes
+        # Show non-compliant statistics based on scope
+        elif self._scope == TargetScope.ORGANIZATION:
+            organization = self.result
+            self._write("Non-Compliance Statistics:")
+            self._write(
+                f"- Non-Compliant Projects: {organization.project_non_compliance_rate:.1f}% "
+                f"({len(organization.non_compliant_projects)}/{organization.total_no_projects})",
+            )
+            self._write(
+                f"- Non-Compliant Repositories: {organization.repository_non_compliance_rate:.1f}% "
+                f"({len(organization.non_compliant_repositories)}/{organization.total_no_repositories})",
+            )
+            self._write(
+                f"- Non-Compliant Pipelines: {organization.pipeline_non_compliance_rate:.1f}% "
+                f"({len(organization.non_compliant_pipelines)}/{organization.total_no_pipelines})",
+            )
+            if organization.non_compliant_projects:
+                self._write("\nNon-Compliant Projects:")
+                for project in organization.non_compliant_projects:
+                    self._write(f"- {project.name}")
+            if organization.non_compliant_repositories:
+                self._write("\nNon-Compliant Repositories:")
+                for repository in organization.non_compliant_repositories:
+                    self._write(f"- {repository.name}")
+            if organization.non_compliant_pipelines:
+                self._write("\nNon-Compliant Pipelines:")
+                for pipeline in organization.non_compliant_pipelines:
+                    self._write(f"- {format_pipeline_path(pipeline)}")
+
+        elif self._scope == TargetScope.PROJECT:
+            project = self.result
+            self._write("Non-Compliance Statistics:")
+            self._write(
+                f"- Non-Compliant Repositories: {project.repository_non_compliance_rate:.1f}% "
+                f"({len(project.non_compliant_repositories)}/{project.total_no_repositories})",
+            )
+            self._write(
+                f"- Non-Compliant Pipelines: {project.pipeline_non_compliance_rate:.1f}% "
+                f"({len(project.non_compliant_pipelines)}/{project.total_no_pipelines})",
+            )
+            if project.non_compliant_repositories:
+                self._write("\nNon-Compliant Repositories:")
+                for repository in project.non_compliant_repositories:
+                    self._write(f"- {repository.name}")
+            if project.non_compliant_pipelines:
+                self._write("\nNon-Compliant Pipelines:")
+                for pipeline in project.non_compliant_pipelines:
+                    self._write(f"- {format_pipeline_path(pipeline)}")
+
+        elif self._scope == TargetScope.REPOSITORY:
+            repository = self.result
+            self._write("Non-Compliance Statistics:")
+            self._write(
+                f"- Non-Compliant Pipelines: {repository.pipeline_non_compliance_rate:.1f}% "
+                f"({len(repository.non_compliant_pipelines)}/{repository.total_no_pipelines})",
+            )
+            if repository.non_compliant_pipelines:
+                self._write("\nNon-Compliant Pipelines:")
+                for pipeline in repository.non_compliant_pipelines:
+                    self._write(f"- {format_pipeline_path(pipeline)}")
+
 
 class AdoptionRichPrinter(AdoptionPrinter):
     """Adoption result printer with rich text formatting."""
@@ -440,30 +554,26 @@ class AdoptionRichPrinter(AdoptionPrinter):
         """Write content to configured output."""
         self._console.print(content)
 
-    def print(self, view_mode: ViewMode = ViewMode.TARGET, output_file: str | None = None) -> None:
-        """
-        Print adoption results in Markdown format based on view mode.
+    def _print_content(self, view_mode: ViewMode) -> None:
+        """Print content based on view mode to the configured output stream."""
+        # Initialize console with the current output stream
+        self._console = Console(file=self._output)
 
-        Args:
-            view_mode: TARGET, SOURCE, or OVERVIEW
-            output_file: Path to output file, or None to use default output
-        """
-        self._validate_view_mode(view_mode)
-        with self._get_output_stream(output_file) as output:
-            self._console = Console(file=output)  # Set console for use in _write method
-            if view_mode == ViewMode.TARGET:
-                if self._scope == TargetScope.ORGANIZATION:
-                    self._print_organization_adoption()
-                elif self._scope == TargetScope.PROJECT:
-                    self._print_project_adoption()
-                elif self._scope == TargetScope.REPOSITORY:
-                    self._print_repository_adoption()
-                else:
-                    self._print_pipeline_adoption()
-            elif view_mode == ViewMode.SOURCE:
-                self._print_source()
+        if view_mode == ViewMode.TARGET:
+            if self._scope == TargetScope.ORGANIZATION:
+                self._print_organization_adoption()
+            elif self._scope == TargetScope.PROJECT:
+                self._print_project_adoption()
+            elif self._scope == TargetScope.REPOSITORY:
+                self._print_repository_adoption()
             else:
-                self._print_overview()
+                self._print_pipeline_adoption()
+        elif view_mode == ViewMode.SOURCE:
+            self._print_source()
+        elif view_mode == ViewMode.OVERVIEW:
+            self._print_overview()
+        else:
+            self._print_non_compliant()
 
     def _print_organization_adoption(self) -> None:  # pragma: no cover
         """Print adoption report for an entire organization with metrics."""
@@ -561,7 +671,7 @@ class AdoptionRichPrinter(AdoptionPrinter):
             # Repository summary with metrics
             if repo.compliant_pipelines:
                 repo_adoption_rate = (
-                    f"{repo.adoption_rate:.1f}% ({len(repo.compliant_pipelines)}/{repo.total_no_pipelines})"
+                    f"{repo.pipeline_adoption_rate:.1f}% ({len(repo.compliant_pipelines)}/{repo.total_no_pipelines})"
                 )
                 table.add_row(
                     "",
@@ -587,7 +697,7 @@ class AdoptionRichPrinter(AdoptionPrinter):
                 f"[{'green' if is_compliant else 'red'}]"
                 f"{'Compliant' if is_compliant else 'Non-Compliant'}[/] "
                 f"({self.metrics.compliance_mode.name} mode)\n"
-                f"Compliant Pipelines: {repository.adoption_rate:.1f}% "
+                f"Compliant Pipelines: {repository.pipeline_adoption_rate:.1f}% "
                 f"({len(repository.compliant_pipelines)}/{repository.total_no_pipelines})"
             ),
         )
@@ -652,7 +762,7 @@ class AdoptionRichPrinter(AdoptionPrinter):
             )[:3]
             summary_table.add_row(
                 "Most Used Templates:",
-                ", ".join(f"{t} ({c} uses)" for t, c in top_templates),
+                ", ".join(f"{t} ({c} use(s))" for t, c in top_templates),
             )
 
         summary_table.add_row("Processing Time:", f"{self.metrics.processing_time:.2f}s")
@@ -729,7 +839,10 @@ class AdoptionRichPrinter(AdoptionPrinter):
             f"Scope: {self._scope.name}",
         )
 
-        is_compliant = self.result.is_compliant(self.metrics.compliance_mode)
+        if self._scope == TargetScope.PIPELINE:
+            is_compliant = self.result.is_compliant()
+        else:
+            is_compliant = self.result.is_compliant(self.metrics.compliance_mode)
 
         table.add_row(
             "",
@@ -747,7 +860,7 @@ class AdoptionRichPrinter(AdoptionPrinter):
             template_header,
             "Total Templates",
             str(len(self.metrics.template_usage)),
-            f"{sum(self.metrics.template_usage.values())} total uses",
+            f"{sum(self.metrics.template_usage.values())} total use(s)",
         )
 
         # Most used templates (top 3)
@@ -758,21 +871,26 @@ class AdoptionRichPrinter(AdoptionPrinter):
         )[:3]
 
         for template, count in top_templates:
-            usage_percent = (
-                round(
-                    count / len(self.result.compliant_pipelines) * 100,
-                    1,
+            # Handle pipeline scope differently since it doesn't have compliant_pipelines
+            if self._scope == TargetScope.PIPELINE:
+                # For pipeline scope, just show count without percentage
+                table.add_row("", template, f"{count} use(s)", "Single pipeline view")
+            else:
+                # For other scopes, calculate percentage of compliant pipelines
+                usage_percent = (
+                    round(
+                        count / len(self.result.compliant_pipelines) * 100,
+                        1,
+                    )
+                    if len(self.result.compliant_pipelines) > 0
+                    else 0
                 )
-                if len(self.result.compliant_pipelines) > 0
-                else 0
-            )
-
-            table.add_row(
-                "",
-                template,
-                f"{count} uses",
-                f"{usage_percent:.1f}% of compliant pipelines",
-            )
+                table.add_row(
+                    "",
+                    template,
+                    f"{count} use(s)",
+                    f"{usage_percent:.1f}% of compliant pipelines",
+                )
 
         # Adoption metrics based on scope
         if self._scope != TargetScope.PIPELINE:
@@ -811,6 +929,142 @@ class AdoptionRichPrinter(AdoptionPrinter):
 
         self._write(table)
 
+    def _print_non_compliant(self) -> None:  # pragma: no cover  # noqa: C901, PLR0912, PLR0915
+        """Print non-compliant items summary with rich text formatting."""
+        # Create header table with basic information
+        info_table = Table(
+            title="Non-Compliance Report",
+            show_header=False,
+            box=None,
+        )
+        info_table.add_column("Property", style="cyan")
+        info_table.add_column("Value", style="yellow")
+
+        # Check compliance status with appropriate method based on scope
+        if self._scope == TargetScope.PIPELINE:
+            is_compliant = self.result.is_compliant()
+        else:
+            is_compliant = self.result.is_compliant(self.metrics.compliance_mode)
+        compliance_status = "[green]Compliant[/green]" if is_compliant else "[red]Non-Compliant[/red]"
+
+        info_table.add_row("Scope", self._scope.name)
+        info_table.add_row("Name", self.result.name)
+        info_table.add_row("Compliance Mode", self.metrics.compliance_mode.name)
+        info_table.add_row("Compliance Status", compliance_status)
+        info_table.add_row("Processing Time", f"{self.metrics.processing_time:.2f}s")
+        info_table.add_row("", "")
+        self._write(info_table)
+
+        if self._scope == TargetScope.PIPELINE:
+            pipeline = self.result
+            if pipeline.is_compliant():
+                status_table = Table(title="Compliance Details")
+                status_table.add_column("Templates", style="yellow")
+                status_table.add_column("Usage Type", style="yellow")
+                templates = []
+                if pipeline.adoption:
+                    for template in pipeline.adoption.templates:
+                        templates.extend([format_template_path(template)])
+                status_table.add_row("\n".join(templates), pipeline.adoption.usage_type.value)
+                self._write(status_table)
+        else:
+            # Create statistics table for all non-pipeline scopes
+            stats_table = Table(title="Non-Compliance Statistics")
+            stats_table.add_column("Resource Type", style="blue")
+            stats_table.add_column("Non-Compliant", style="red", justify="right")
+            stats_table.add_column("Total", justify="right")
+            stats_table.add_column("Percentage", style="magenta", justify="right")
+
+            if self._scope == TargetScope.ORGANIZATION:
+                organization = self.result
+                stats_table.add_row(
+                    "Projects",
+                    str(len(organization.non_compliant_projects)),
+                    str(organization.total_no_projects),
+                    f"{organization.project_non_compliance_rate:.1f}%",
+                )
+                stats_table.add_row(
+                    "Repositories",
+                    str(len(organization.non_compliant_repositories)),
+                    str(organization.total_no_repositories),
+                    f"{organization.repository_non_compliance_rate:.1f}%",
+                )
+                stats_table.add_row(
+                    "Pipelines",
+                    str(len(organization.non_compliant_pipelines)),
+                    str(organization.total_no_pipelines),
+                    f"{organization.pipeline_non_compliance_rate:.1f}%",
+                )
+                self._write(stats_table)
+
+                if organization.non_compliant_projects:
+                    projects_table = Table(title="Non-Compliant Projects")
+                    projects_table.add_column("Project", style="red")
+                    for project in organization.non_compliant_projects:
+                        projects_table.add_row(project.name)
+                    self._write(projects_table)
+
+                if organization.non_compliant_repositories:
+                    repos_table = Table(title="Non-Compliant Repositories")
+                    repos_table.add_column("Repository", style="red")
+                    for repository in organization.non_compliant_repositories:
+                        repos_table.add_row(repository.name)
+                    self._write(repos_table)
+
+                if organization.non_compliant_projects:
+                    pipelines_table = Table(title="Non-Compliant Pipelines")
+                    pipelines_table.add_column("Pipeline", style="red")
+                    for pipeline in organization.non_compliant_pipelines:
+                        pipelines_table.add_row(format_pipeline_path(pipeline))
+                    self._write(pipelines_table)
+
+            elif self._scope == TargetScope.PROJECT:
+                project = self.result
+                stats_table.add_row(
+                    "Repositories",
+                    str(len(project.non_compliant_repositories)),
+                    str(project.total_no_repositories),
+                    f"{project.repository_non_compliance_rate:.1f}%",
+                )
+                stats_table.add_row(
+                    "Pipelines",
+                    str(len(project.non_compliant_pipelines)),
+                    str(project.total_no_pipelines),
+                    f"{project.pipeline_non_compliance_rate:.1f}%",
+                )
+                self._write(stats_table)
+
+                if project.non_compliant_repositories:
+                    repos_table = Table(title="Non-Compliant Repositories")
+                    repos_table.add_column("Repository", style="red")
+                    for repository in project.non_compliant_repositories:
+                        repos_table.add_row(repository.name)
+                    self._write(repos_table)
+
+                if project.non_compliant_pipelines:
+                    pipelines_table = Table(title="Non-Compliant Pipelines")
+                    pipelines_table.add_column("Pipeline", style="red")
+                    for pipeline in project.non_compliant_pipelines:
+                        pipelines_table.add_row(format_pipeline_path(pipeline))
+                    self._write(pipelines_table)
+
+            elif self._scope == TargetScope.REPOSITORY:
+                repository = self.result
+                stats_table.add_row(
+                    "Pipelines",
+                    str(len(repository.non_compliant_pipelines)),
+                    str(repository.total_no_pipelines),
+                    f"{repository.pipeline_non_compliance_rate:.1f}%",
+                )
+                self._write(stats_table)
+
+                if repository.non_compliant_pipelines:
+                    details_table = Table(title="Non-Compliant Pipelines", show_header=False)
+                    details_table.add_column("Pipeline", style="red")
+                    for pipeline in repository.non_compliant_pipelines:
+                        details_table.add_row(f"- {format_pipeline_path(pipeline)}")
+                    self._write(details_table)
+
 
 class AdoptionJSONPrinter(AdoptionPrinter):
     """Adoption result printer with JSON output."""
@@ -820,119 +1074,213 @@ class AdoptionJSONPrinter(AdoptionPrinter):
         json.dump(content, self._output, indent=2)
         self._output.write("\n")
 
-    def print(self, view_mode: ViewMode = ViewMode.TARGET, output_file: str | None = None) -> None:
-        """Print adoption results in JSON format."""
-        self._validate_view_mode(view_mode)
-        with self._get_output_stream(output_file) as output:
-            self._output = output  # Set output for use in _write method
-            if view_mode == ViewMode.TARGET:
-                if self._scope == TargetScope.ORGANIZATION:
-                    data = self._get_organization(self.result)
-                elif self._scope == TargetScope.PROJECT:
-                    data = self._get_project(self.result)
-                elif self._scope == TargetScope.REPOSITORY:
-                    data = self._get_repository(self.result)
-                else:
-                    data = self._get_pipeline(self.result)
-            elif view_mode == ViewMode.SOURCE:
-                data = self._get_source()
+    def _print_content(self, view_mode: ViewMode) -> None:
+        """Print content based on view mode to the configured output stream."""
+        if view_mode in {ViewMode.TARGET, ViewMode.NON_COMPLIANT}:
+            if self._scope == TargetScope.ORGANIZATION:
+                data = self._get_organization(self.result, view_mode)
+            elif self._scope == TargetScope.PROJECT:
+                data = self._get_project(self.result, view_mode)
+            elif self._scope == TargetScope.REPOSITORY:
+                data = self._get_repository(self.result, view_mode)
             else:
-                data = self._get_overview()
-            self._write(data)
+                data = self._get_pipeline(self.result, view_mode)
+        elif view_mode == ViewMode.SOURCE:
+            data = self._get_source()
+        elif view_mode == ViewMode.OVERVIEW:
+            data = self._get_overview()
+        self._write(data)
 
-    def _get_organization(self, organization: Organization) -> dict:  # pragma: no cover
+    def _get_organization(self, organization: Organization, view_mode: ViewMode) -> dict:  # pragma: no cover
         """Print organization adoption data as dict."""
-        projects = []
-        for p in organization.compliant_projects:
-            project_data = self._get_project(p)
-            project_data.pop("compliance_mode")
-            project_data.pop("is_compliant")
-            projects.append(project_data)
-
-        return {
+        data = {
             "name": organization.name,
             "compliance_mode": str(self.metrics.compliance_mode),
             "is_compliant": organization.is_compliant(self.metrics.compliance_mode),
-            "project_adoption": {
-                "adoption_rate": round(organization.project_adoption_rate, 2),
-                "compliant_projects": len(organization.compliant_projects),
-                "total_projects": organization.total_no_projects,
-            },
-            "repository_adoption": {
-                "adoption_rate": round(organization.repository_adoption_rate, 2),
-                "compliant_repositories": len(organization.compliant_repositories),
-                "total_repositories": organization.total_no_repositories,
-            },
-            "pipeline_adoption": {
-                "adoption_rate": round(organization.pipeline_adoption_rate, 2),
-                "compliant_pipelines": len(organization.compliant_pipelines),
-                "total_pipelines": organization.total_no_pipelines,
-            },
-            "projects": projects,
         }
+        if view_mode != ViewMode.NON_COMPLIANT:
+            projects = []
+            for p in organization.compliant_projects:
+                project_data = self._get_project(p, view_mode)
+                project_data.pop("compliance_mode")
+                project_data.pop("is_compliant")
+                projects.append(project_data)
+            data.update(
+                {
+                    "project_adoption": {
+                        "adoption_rate": round(organization.project_adoption_rate, 2),
+                        "compliant_projects": len(organization.compliant_projects),
+                        "total_projects": organization.total_no_projects,
+                    },
+                    "repository_adoption": {
+                        "adoption_rate": round(organization.repository_adoption_rate, 2),
+                        "compliant_repositories": len(organization.compliant_repositories),
+                        "total_repositories": organization.total_no_repositories,
+                    },
+                    "pipeline_adoption": {
+                        "adoption_rate": round(organization.pipeline_adoption_rate, 2),
+                        "compliant_pipelines": len(organization.compliant_pipelines),
+                        "total_pipelines": organization.total_no_pipelines,
+                    },
+                    "compliant_projects": projects,
+                },
+            )
+        else:
+            projects = []
+            for p in organization.non_compliant_projects:
+                project_data = self._get_project(p, view_mode)
+                project_data.pop("compliance_mode")
+                project_data.pop("is_compliant")
+                projects.append(project_data)
+            data.update(
+                {
+                    "project_non_compliance": {
+                        "non_compliance_rate": round(organization.project_non_compliance_rate, 2),
+                        "non_compliant_projects": len(organization.non_compliant_projects),
+                        "total_projects": organization.total_no_projects,
+                    },
+                    "repository_non_compliance": {
+                        "non_compliance_rate": round(organization.repository_non_compliance_rate, 2),
+                        "non_compliant_repositories": len(organization.non_compliant_repositories),
+                        "total_repositories": organization.total_no_repositories,
+                    },
+                    "pipeline_non_compliance": {
+                        "non_compliance_rate": round(organization.pipeline_non_compliance_rate, 2),
+                        "non_compliant_pipelines": len(organization.non_compliant_pipelines),
+                        "total_pipelines": organization.total_no_pipelines,
+                    },
+                    "non_compliant_projects": projects,
+                },
+            )
 
-    def _get_project(self, project: Project) -> dict:  # pragma: no cover
+        return data
+
+    def _get_project(self, project: Project, view_mode: ViewMode) -> dict:  # pragma: no cover
         """Print project adoption data as dict."""
-        repositories = []
-        for r in project.compliant_repositories:
-            repository_data = self._get_repository(r)
-            repository_data.pop("compliance_mode")
-            repository_data.pop("is_compliant")
-            repositories.append(repository_data)
-
-        return {
+        data = {
             "name": project.name,
             "compliance_mode": str(self.metrics.compliance_mode),
             "is_compliant": project.is_compliant(self.metrics.compliance_mode),
-            "repository_adoption": {
-                "adoption_rate": round(project.repository_adoption_rate, 2),
-                "compliant_repositories": len(project.compliant_repositories),
-                "total_repositories": project.total_no_repositories,
-            },
-            "pipeline_adoption": {
-                "adoption_rate": round(project.pipeline_adoption_rate, 2),
-                "compliant_pipelines": len(project.compliant_pipelines),
-                "total_pipelines": project.total_no_pipelines,
-            },
-            "repositories": repositories,
         }
+        if view_mode != ViewMode.NON_COMPLIANT:
+            # Process compliant repositories
+            repositories = []
+            for r in project.compliant_repositories:
+                repository_data = self._get_repository(r, view_mode)
+                repository_data.pop("compliance_mode")
+                repository_data.pop("is_compliant")
+                repositories.append(repository_data)
+            data.update(
+                {
+                    "repository_adoption": {
+                        "adoption_rate": round(project.repository_adoption_rate, 2),
+                        "compliant_repositories": len(project.compliant_repositories),
+                        "total_repositories": project.total_no_repositories,
+                    },
+                    "pipeline_adoption": {
+                        "adoption_rate": round(project.pipeline_adoption_rate, 2),
+                        "compliant_pipelines": len(project.compliant_pipelines),
+                        "total_pipelines": project.total_no_pipelines,
+                    },
+                    "compliant_repositories": repositories,
+                },
+            )
+        else:
+            # Process non-compliant repositories
+            repositories = []
+            for r in project.non_compliant_repositories:
+                repository_data = self._get_repository(r, view_mode)
+                repository_data.pop("compliance_mode")
+                repository_data.pop("is_compliant")
+                repositories.append(repository_data)
+            data.update(
+                {
+                    "repository_non_compliance": {
+                        "non_compliance_rate": round(project.repository_non_compliance_rate, 2),
+                        "non_compliant_repositories": len(project.non_compliant_repositories),
+                        "total_repositories": project.total_no_repositories,
+                    },
+                    "pipeline_non_compliance": {
+                        "non_compliance_rate": round(project.pipeline_non_compliance_rate, 2),
+                        "non_compliant_pipelines": len(project.non_compliant_pipelines),
+                        "total_pipelines": project.total_no_pipelines,
+                    },
+                    "non_compliant_repositories": repositories,
+                },
+            )
 
-    def _get_repository(self, repository: Repository) -> dict:  # pragma: no cover
+        return data
+
+    def _get_repository(
+        self,
+        repository: Repository,
+        view_mode: ViewMode,
+    ) -> dict:  # pragma: no cover
         """Get repository adoption data as dict."""
-        pipelines = []
-        for p in repository.compliant_pipelines:
-            pipeline_data = self._get_pipeline(p)
-            pipeline_data.pop("is_compliant")
-            pipelines.append(pipeline_data)
-
-        return {
+        data = {
             "name": repository.name,
             "compliance_mode": str(self.metrics.compliance_mode),
             "is_compliant": repository.is_compliant(self.metrics.compliance_mode),
-            "adoption": {
-                "adoption_rate": round(repository.adoption_rate, 2),
-                "compliant_pipelines": len(repository.compliant_pipelines),
-                "total_pipelines": repository.total_no_pipelines,
-            },
-            "pipelines": pipelines,
         }
+        if view_mode != ViewMode.NON_COMPLIANT:
+            # Process compliant pipelines
+            pipelines = []
+            for p in repository.compliant_pipelines:
+                pipeline_data = self._get_pipeline(p, view_mode)
+                pipeline_data.pop("is_compliant")
+                pipelines.append(pipeline_data)
+            data.update(
+                {
+                    "adoption": {
+                        "adoption_rate": round(repository.pipeline_adoption_rate, 2),
+                        "compliant_pipelines": len(repository.compliant_pipelines),
+                        "total_pipelines": repository.total_no_pipelines,
+                    },
+                    "compliant_pipelines": pipelines,
+                },
+            )
+        else:
+            # Process non-compliant pipelines
+            pipelines = []
+            for p in repository.non_compliant_pipelines:
+                pipeline_data = self._get_pipeline(p, view_mode)
+                pipeline_data.pop("is_compliant")
+                pipelines.append(pipeline_data)
+            data.update(
+                {
+                    "non_compliance": {
+                        "non_compliance_rate": round(repository.pipeline_non_compliance_rate, 2),
+                        "non_compliant_pipelines": len(repository.non_compliant_pipelines),
+                        "total_pipelines": repository.total_no_pipelines,
+                    },
+                    "non_compliant_pipelines": pipelines,
+                },
+            )
 
-    def _get_pipeline(self, pipeline: Pipeline) -> dict:  # pragma: no cover
+        return data
+
+    def _get_pipeline(self, pipeline: Pipeline, view_mode: ViewMode) -> dict:  # pragma: no cover
         """Get pipeline adoption data as dict."""
-        return {
+        data = {
             "name": pipeline.name,
             "is_compliant": pipeline.is_compliant(),
             "path": format_pipeline_path(pipeline),
-            "templates": [
-                {
-                    "path": format_template_path(t),
-                    "usage_type": pipeline.adoption.usage_type.value,
-                }
-                for t in pipeline.adoption.templates
-            ]
-            if pipeline.adoption
-            else [],
         }
+        if view_mode != ViewMode.NON_COMPLIANT:
+            data.update(
+                {
+                    "templates": [
+                        {
+                            "path": format_template_path(t),
+                            "usage_type": pipeline.adoption.usage_type.value,
+                        }
+                        for t in pipeline.adoption.templates
+                    ]
+                    if pipeline.adoption
+                    else [],
+                },
+            )
+        return data
 
     def _get_source(self) -> dict:  # pragma: no cover
         """
@@ -992,36 +1340,65 @@ class AdoptionJSONPrinter(AdoptionPrinter):
         """
         data = {
             "name": self.result.name,
-            "compliance": {
-                "mode": str(self.metrics.compliance_mode),
-                "scope": self._scope.name,
-                "status": "Compliant" if self.result.is_compliant(self.metrics.compliance_mode) else "Non-Compliant",
-            },
-            "template_statistics": {
-                "total_templates": len(self.metrics.template_usage),
-                "total_uses": sum(self.metrics.template_usage.values()),
-                "most_used": [
-                    {
-                        "template": t,
-                        "uses": c,
-                        "usage_percent": round(
-                            c / len(self.result.compliant_pipelines) * 100,
-                            2,
-                        )
-                        if len(self.result.compliant_pipelines) > 0
-                        else 0,
-                    }
-                    for t, c in sorted(
-                        self.metrics.template_usage.items(),
-                        key=lambda x: x[1],
-                        reverse=True,
-                    )[:3]
-                ],
-            },
-            "performance": {
-                "processing_time": round(self.metrics.processing_time, 2),
-            },
         }
+        if self._scope == TargetScope.PIPELINE:
+            data.update(
+                {
+                    "compliance": {
+                        "mode": str(self.metrics.compliance_mode),
+                        "scope": self._scope.name,
+                        "status": "Compliant" if self.result.is_compliant() else "Non-Compliant",
+                    },
+                    "template_statistics": {
+                        "total_templates": len(self.metrics.template_usage),
+                        "total_uses": sum(self.metrics.template_usage.values()),
+                        "most_used": [
+                            {
+                                "template": t,
+                                "use(s)": c,
+                            }
+                            for t, c in sorted(
+                                self.metrics.template_usage.items(),
+                                key=lambda x: x[1],
+                                reverse=True,
+                            )[:3]
+                        ],
+                    },
+                },
+            )
+        else:
+            data.update(
+                {
+                    "compliance": {
+                        "mode": str(self.metrics.compliance_mode),
+                        "scope": self._scope.name,
+                        "status": "Compliant"
+                        if self.result.is_compliant(self.metrics.compliance_mode)
+                        else "Non-Compliant",
+                    },
+                    "template_statistics": {
+                        "total_templates": len(self.metrics.template_usage),
+                        "total_uses": sum(self.metrics.template_usage.values()),
+                        "most_used": [
+                            {
+                                "template": t,
+                                "use(s)": c,
+                                "usage_percent": round(
+                                    c / len(self.result.compliant_pipelines) * 100,
+                                    2,
+                                )
+                                if len(self.result.compliant_pipelines) > 0
+                                else 0,
+                            }
+                            for t, c in sorted(
+                                self.metrics.template_usage.items(),
+                                key=lambda x: x[1],
+                                reverse=True,
+                            )[:3]
+                        ],
+                    },
+                },
+            )
 
         # Add metrics based on scope
         if self._scope == TargetScope.PIPELINE:
@@ -1035,7 +1412,7 @@ class AdoptionJSONPrinter(AdoptionPrinter):
                 },
             },
         )
-        if self._scope != TargetScope.REPOSITORY:
+        if self._scope in {TargetScope.PROJECT, TargetScope.ORGANIZATION}:
             data.update(
                 {
                     "repository_adoption": {
@@ -1045,7 +1422,7 @@ class AdoptionJSONPrinter(AdoptionPrinter):
                     },
                 },
             )
-        if self._scope != TargetScope.PROJECT:
+        if self._scope == TargetScope.ORGANIZATION:
             data.update(
                 {
                     "project_adoption": {
@@ -1055,6 +1432,13 @@ class AdoptionJSONPrinter(AdoptionPrinter):
                     },
                 },
             )
+        data.update(
+            {
+                "performance": {
+                    "processing_time": round(self.metrics.processing_time, 2),
+                },
+            },
+        )
 
         return data
 
@@ -1067,30 +1451,23 @@ class AdoptionMarkdownPrinter(AdoptionPrinter):
         self._output.write(content)
         self._output.write("\n")
 
-    def print(self, view_mode: ViewMode = ViewMode.TARGET, output_file: str | None = None) -> None:
-        """
-        Print adoption results in Markdown format based on view mode.
-
-        Args:
-            view_mode: TARGET, SOURCE, or OVERVIEW
-            output_file: Path to output file, or None to use default output
-        """
-        self._validate_view_mode(view_mode)
-        with self._get_output_stream(output_file) as output:
-            self._output = output  # Set output for use in _write method
-            if view_mode == ViewMode.TARGET:
-                if self._scope == TargetScope.ORGANIZATION:
-                    self._print_organization(self.result)
-                elif self._scope == TargetScope.PROJECT:
-                    self._print_project(self.result)
-                elif self._scope == TargetScope.REPOSITORY:
-                    self._print_repository(self.result)
-                else:
-                    self._print_pipeline(self.result)
-            elif view_mode == ViewMode.SOURCE:
-                self._print_source_markdown()
+    def _print_content(self, view_mode: ViewMode) -> None:
+        """Print content based on view mode to the configured output stream."""
+        if view_mode == ViewMode.TARGET:
+            if self._scope == TargetScope.ORGANIZATION:
+                self._print_organization(self.result)
+            elif self._scope == TargetScope.PROJECT:
+                self._print_project(self.result)
+            elif self._scope == TargetScope.REPOSITORY:
+                self._print_repository(self.result)
             else:
-                self._print_overview_markdown()
+                self._print_pipeline(self.result)
+        elif view_mode == ViewMode.SOURCE:
+            self._print_source()
+        elif view_mode == ViewMode.OVERVIEW:
+            self._print_overview()
+        else:
+            self._print_non_compliant()
 
     def _print_organization(self, organization: Organization) -> None:  # pragma: no cover
         """Print organization adoption data as Markdown."""
@@ -1120,12 +1497,12 @@ class AdoptionMarkdownPrinter(AdoptionPrinter):
         lines.extend(["", "## Project Details", ""])
 
         for project in organization.compliant_projects:
-            self._print_project_markdown(project, lines, is_subsection=True)
+            self._print_project(project, lines, is_subsection=True)
             lines.append("---\n")
 
         self._write("\n".join(lines))
 
-    def _print_project_markdown(  # pragma: no cover
+    def _print_project(  # pragma: no cover
         self,
         project: Project,
         lines: list[str] | None = None,
@@ -1159,7 +1536,9 @@ class AdoptionMarkdownPrinter(AdoptionPrinter):
 
         # Add repository summary table with links
         for repo in project.compliant_repositories:
-            repo_compliance = f"{repo.adoption_rate:.1f}% ({len(repo.compliant_pipelines)}/{repo.total_no_pipelines})"
+            repo_compliance = (
+                f"{repo.pipeline_adoption_rate:.1f}% ({len(repo.compliant_pipelines)}/{repo.total_no_pipelines})"
+            )
             # Create anchor link - replace spaces and special chars with hyphens
             anchor = repo.name.lower().replace(" ", "-").replace("/", "-")
             lines.append(f"| [{repo.name}](#{anchor}) | {repo_compliance} |")
@@ -1168,7 +1547,7 @@ class AdoptionMarkdownPrinter(AdoptionPrinter):
 
         # Repository details sections
         for repo in project.compliant_repositories:
-            self._print_repository_details_markdown(repo, lines, is_subsection=True)
+            self._print_repository_details(repo, lines, is_subsection=True)
 
         if write_output:
             self._write("\n".join(lines))
@@ -1180,14 +1559,14 @@ class AdoptionMarkdownPrinter(AdoptionPrinter):
             "",
             f"- Compliance Mode: {self.metrics.compliance_mode.name}",
             f"- Compliance Status: {'Compliant' if repository.is_compliant(self.metrics.compliance_mode) else 'Non-Compliant'}",
-            f"- Compliant Pipelines: {repository.adoption_rate:.1f}% ({len(repository.compliant_pipelines)}/{repository.total_no_pipelines})",
+            f"- Compliant Pipelines: {repository.pipeline_adoption_rate:.1f}% ({len(repository.compliant_pipelines)}/{repository.total_no_pipelines})",
             "",
         ]
 
-        self._print_repository_details_markdown(repository, lines)
+        self._print_repository_details(repository, lines)
         self._write("\n".join(lines))
 
-    def _print_repository_details_markdown(  # pragma: no cover
+    def _print_repository_details(  # pragma: no cover
         self,
         repository: Repository,
         lines: list[str],
@@ -1200,7 +1579,7 @@ class AdoptionMarkdownPrinter(AdoptionPrinter):
             [
                 f"{header_level} {repository.name}",
                 "",
-                f"Compliant Pipelines: {repository.adoption_rate:.1f}% ({len(repository.compliant_pipelines)}/{repository.total_no_pipelines})",
+                f"Compliant Pipelines: {repository.pipeline_adoption_rate:.1f}% ({len(repository.compliant_pipelines)}/{repository.total_no_pipelines})",
                 "",
                 "| Pipeline | Templates | Usage |",
                 "|----------|-----------|--------|",
@@ -1319,28 +1698,62 @@ class AdoptionMarkdownPrinter(AdoptionPrinter):
             "",
             f"- Scope: {self._scope.name}",
             f"- Mode: {self.metrics.compliance_mode.name}",
-            f"- Status: {'Compliant' if self.result.is_compliant(self.metrics.compliance_mode) else 'Non-Compliant'}",
-            "",
-            "## Template Statistics",
-            "",
-            f"- Total Templates: {len(self.metrics.template_usage)}",
-            f"- Total Uses: {sum(self.metrics.template_usage.values())}",
-            "",
-            "### Most Used Templates",
-            "",
-            "| Template | Uses | Usage % |",
-            "|----------|------|---------|",
         ]
+        if self._scope == TargetScope.PIPELINE:
+            lines.append(f"- Status: {'Compliant' if self.result.is_compliant() else 'Non-Compliant'}")
+        else:
+            lines.append(
+                f"- Status: {'Compliant' if self.result.is_compliant(self.metrics.compliance_mode) else 'Non-Compliant'}",
+            )
+        lines.append("")
 
-        # Add most used templates
-        total_uses = sum(self.metrics.template_usage.values())
-        for template, count in sorted(
-            self.metrics.template_usage.items(),
-            key=lambda x: x[1],
-            reverse=True,
-        )[:3]:  # Top 3
-            usage_percent = f"{round(count / total_uses * 100, 2):.2f}%"
-            lines.append(f"| {template} | {count} | {usage_percent} |")
+        if self._scope == TargetScope.PIPELINE:
+            lines.extend(
+                [
+                    "## Template Statistics",
+                    "",
+                    f"- Total Templates: {len(self.metrics.template_usage)}",
+                    f"- Total Uses: {sum(self.metrics.template_usage.values())}",
+                    "",
+                    "### Most Used Templates",
+                    "",
+                    "| Template | Uses |",
+                    "|----------|------|",
+                ],
+            )
+
+            # Add most used templates
+            total_uses = sum(self.metrics.template_usage.values())
+            for template, count in sorted(
+                self.metrics.template_usage.items(),
+                key=lambda x: x[1],
+                reverse=True,
+            )[:3]:  # Top 3
+                lines.append(f"| {template} | {count} |")
+        else:
+            lines.extend(
+                [
+                    "## Template Statistics",
+                    "",
+                    f"- Total Templates: {len(self.metrics.template_usage)}",
+                    f"- Total Uses: {sum(self.metrics.template_usage.values())}",
+                    "",
+                    "### Most Used Templates",
+                    "",
+                    "| Template | Uses | Usage % |",
+                    "|----------|------|---------|",
+                ],
+            )
+
+            # Add most used templates
+            total_uses = sum(self.metrics.template_usage.values())
+            for template, count in sorted(
+                self.metrics.template_usage.items(),
+                key=lambda x: x[1],
+                reverse=True,
+            )[:3]:  # Top 3
+                usage_percent = f"{round(count / total_uses * 100, 2):.2f}%"
+                lines.append(f"| {template} | {count} | {usage_percent} |")
 
         lines.extend(
             [
@@ -1357,7 +1770,7 @@ class AdoptionMarkdownPrinter(AdoptionPrinter):
 
             # Repository and pipeline metrics
             if self._scope == TargetScope.REPOSITORY:
-                pipeline_rate = f"{self.result.adoption_rate:.1f}%"
+                pipeline_rate = f"{self.result.pipeline_adoption_rate:.1f}%"
                 pipeline_detail = f"{len(self.result.compliant_pipelines)}/{self.result.total_no_pipelines}"
                 lines.append(f"| Pipeline Adoption | {pipeline_rate} | {pipeline_detail} |")
 
@@ -1393,5 +1806,125 @@ class AdoptionMarkdownPrinter(AdoptionPrinter):
                 f"- Processing Time: {self.metrics.processing_time:.2f}s",
             ],
         )
+
+        self._write("\n".join(lines))
+
+    def _print_non_compliant(self) -> None:  # pragma: no cover  # noqa: C901, PLR0912, PLR0915
+        """Print non-compliant items summary as Markdown."""
+        lines = [
+            "# Non-Compliance Report",
+            "",
+            f"## {self.result.name}",
+            "",
+            f"- Compliance Mode: {self.metrics.compliance_mode.name}",
+            f"- Scope: {self._scope.name}",
+        ]
+
+        # Check compliance status with appropriate method based on scope
+        if self._scope == TargetScope.PIPELINE:
+            is_compliant = self.result.is_compliant()
+        else:
+            is_compliant = self.result.is_compliant(self.metrics.compliance_mode)
+
+        lines.append(f"- Status: {'Compliant' if is_compliant else 'Non-Compliant'}")
+        lines.append(f"- Processing Time: {self.metrics.processing_time:.2f}s")
+        lines.append("")
+
+        # Pipeline scope - needs special handling
+        if self._scope == TargetScope.PIPELINE:
+            pipeline = self.result
+            if pipeline.is_compliant():
+                lines.extend(
+                    [
+                        "### Templates",
+                        "",
+                        "| Template | Usage Type |",
+                        "|----------|------------|",
+                    ],
+                )
+                for template in pipeline.adoption.templates:
+                    lines.extend([f"| {format_template_path(template)} | {pipeline.adoption.usage_type.value} |"])
+                lines.append("")
+
+        # Organization scope
+        elif self._scope == TargetScope.ORGANIZATION:
+            organization = self.result
+            non_compliant_projects = len(organization.non_compliant_projects)
+            non_compliant_repos = len(organization.non_compliant_repositories)
+            non_compliant_pipelines = len(organization.non_compliant_pipelines)
+            lines.extend(
+                [
+                    "### Non-Compliance Statistics",
+                    "",
+                    "| Resource Type | Non-Compliant | Total | Rate |",
+                    "|---------------|---------------|-------|------|",
+                    f"| Projects | {non_compliant_projects} | {organization.total_no_projects} | {organization.project_non_compliance_rate:.1f}% |",
+                    f"| Repositories | {non_compliant_repos} | {organization.total_no_repositories} | {organization.repository_non_compliance_rate:.1f}% |",
+                    f"| Pipelines | {non_compliant_pipelines} | {organization.total_no_pipelines} | {organization.pipeline_non_compliance_rate:.1f}% |",
+                    "",
+                ],
+            )
+            if organization.non_compliant_projects:
+                lines.append("### Non-Compliant Projects\n")
+                for project in organization.non_compliant_projects:
+                    lines.extend([f"- {project.name}"])
+                lines.append("")
+            if organization.non_compliant_repositories:
+                lines.append("### Non-Compliant Repositories\n")
+                for repo in organization.non_compliant_repositories:
+                    lines.extend([f"- {repo.name}"])
+                lines.append("")
+            if organization.non_compliant_pipelines:
+                lines.append("### Non-Compliant Pipelines\n")
+                for pipeline in organization.non_compliant_pipelines:
+                    lines.extend([f"- {format_pipeline_path(pipeline)}"])
+                lines.append("")
+
+        # Project scope
+        elif self._scope == TargetScope.PROJECT:
+            project = self.result
+            non_compliant_repos = len(project.non_compliant_repositories)
+            non_compliant_pipelines = len(project.non_compliant_pipelines)
+            lines.extend(
+                [
+                    "### Non-Compliance Statistics",
+                    "",
+                    "| Resource Type | Non-Compliant | Total | Rate |",
+                    "|---------------|---------------|-------|------|",
+                    f"| Repositories | {non_compliant_repos} | {project.total_no_repositories} | {project.repository_non_compliance_rate:.1f}% |",
+                    f"| Pipelines | {non_compliant_pipelines} | {project.total_no_pipelines} | {project.pipeline_non_compliance_rate:.1f}% |",
+                    "",
+                ],
+            )
+            if project.non_compliant_repositories:
+                lines.append("### Non-Compliant Repositories\n")
+                for repo in project.non_compliant_repositories:
+                    lines.extend([f"- {repo.name}"])
+                lines.append("")
+            if project.non_compliant_pipelines:
+                lines.append("### Non-Compliant Pipelines\n")
+                for pipeline in project.non_compliant_pipelines:
+                    lines.extend([f"- {format_pipeline_path(pipeline)}"])
+                lines.append("")
+
+        # Repository scope
+        elif self._scope == TargetScope.REPOSITORY:
+            repository = self.result
+            non_compliant_pipelines = len(repository.non_compliant_pipelines)
+            lines.extend(
+                [
+                    "### Non-Compliance Statistics",
+                    "",
+                    "| Resource Type | Non-Compliant | Total | Rate |",
+                    "|---------------|---------------|-------|------|",
+                    f"| Pipelines | {non_compliant_pipelines} | {repository.total_no_pipelines} | {repository.pipeline_non_compliance_rate:.1f}% |",
+                    "",
+                ],
+            )
+            if repository.non_compliant_pipelines:
+                lines.append("### Non-Compliant Pipelines\n")
+                for pipeline in repository.non_compliant_pipelines:
+                    lines.extend([f"- {format_pipeline_path(pipeline)}"])
+                lines.append("")
 
         self._write("\n".join(lines))

@@ -1,0 +1,72 @@
+{
+  "name": "administration",
+  "compliance_mode": "ANY",
+  "is_compliant": true,
+  "adoption": {
+    "adoption_rate": 50.0,
+    "compliant_pipelines": 6,
+    "total_pipelines": 12
+  },
+  "compliant_pipelines": [
+    {
+      "name": "aad-group-myomada-creation",
+      "path": "administration/aad-group-myomada-creation",
+      "templates": [
+        {
+          "path": "pipeline-library/terraform/deploy.yaml",
+          "usage_type": "include"
+        }
+      ]
+    },
+    {
+      "name": "create-application-registration",
+      "path": "administration/create-application-registration",
+      "templates": [
+        {
+          "path": "pipeline-library/terraform/deploy.yaml",
+          "usage_type": "include"
+        }
+      ]
+    },
+    {
+      "name": "create-project",
+      "path": "administration/create-project",
+      "templates": [
+        {
+          "path": "pipeline-library/terraform/deploy.yaml",
+          "usage_type": "extend"
+        }
+      ]
+    },
+    {
+      "name": "create-repository",
+      "path": "administration/create-repository",
+      "templates": [
+        {
+          "path": "pipeline-library/terraform/deploy.yaml",
+          "usage_type": "include"
+        }
+      ]
+    },
+    {
+      "name": "create-self-hosted-agent",
+      "path": "administration/create-self-hosted-agent",
+      "templates": [
+        {
+          "path": "pipeline-library/terraform/deploy.yaml",
+          "usage_type": "include"
+        }
+      ]
+    },
+    {
+      "name": "create-template-repository",
+      "path": "administration/create-template-repository",
+      "templates": [
+        {
+          "path": "pipeline-library/terraform/deploy.yaml",
+          "usage_type": "include"
+        }
+      ]
+    }
+  ]
+}

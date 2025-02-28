@@ -134,8 +134,8 @@ class InvalidComplianceModeError(ConfigurationError):
 class TrackerNotInitializedError(ADOTemplateTrackerError):
     """Raised when tracker is used before initialization."""
 
-    def __init__(self) -> None:
-        super().__init__("Tracker not initialized. Call 'setup()' first.")
+    def __init__(self, message: str = "Tracker not initialized. Call 'setup()' first.") -> None:
+        super().__init__(message)
 
 
 class APIError(ADOTemplateTrackerError):
@@ -145,15 +145,15 @@ class APIError(ADOTemplateTrackerError):
 class SchemaFetchError(APIError):
     """Raised when fetching pipeline schema fails."""
 
-    def __init__(self) -> None:
-        super().__init__("Failed to fetch schema from GitHub")
+    def __init__(self, message: str = "Failed to fetch schema from GitHub") -> None:
+        super().__init__(message)
 
 
 class ContentFetchError(APIError):
     """Raised when fetching content fails."""
 
-    def __init__(self) -> None:
-        super().__init__("Failed to get pipeline content")
+    def __init__(self, message: str = "Failed to get pipeline content") -> None:
+        super().__init__(message)
 
 
 class YAMLParsingError(ADOTemplateTrackerError):

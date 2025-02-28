@@ -146,11 +146,15 @@ def test_create_view_mode() -> None:
         pytest.fail("Expected SOURCE view mode")
     if create_view_mode("overview") != ViewMode.OVERVIEW:
         pytest.fail("Expected OVERVIEW view mode")
+    if create_view_mode("non_compliant") != ViewMode.NON_COMPLIANT:
+        pytest.fail("Expected NON_COMPLIANT view mode")
+    if create_view_mode("non-compliant") != ViewMode.NON_COMPLIANT:
+        pytest.fail("Expected NON_COMPLIANT view mode")
 
     # Test invalid mode
     with pytest.raises(
         InvalidViewModeError,
-        match="Invalid view mode: invalid. Must be one of: target, source, overview",
+        match="Invalid view mode: invalid. Must be one of: target, source, overview, non_compliant",
     ):
         create_view_mode("invalid")
 
@@ -308,7 +312,7 @@ async def test_run(mock_args: argparse.Namespace) -> None:
         if not isinstance(kwargs["target"], AdoptionTarget):
             pytest.fail("Target not created correctly")
         # Fix: The parameter name is template_source, not source
-        if not isinstance(kwargs["template_source"], TemplateSource):
+        if not isinstance(kwargs["source"], TemplateSource):
             pytest.fail("Template source not created correctly")
         if kwargs["compliance_mode"] != ComplianceMode.ANY:
             pytest.fail(f"Expected ComplianceMode.ANY, got {kwargs['compliance_mode']}")

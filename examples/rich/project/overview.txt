@@ -1,0 +1,17 @@
+                           Adoption Overview for CCHBC-Governance-Center
+┏━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃ Category               ┃ Metric                       ┃ Value     ┃ Details                      ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┩
+│ Compliance Information │ Mode                         │ ANY       │ Scope: PROJECT               │
+│                        │ Status                       │ Compliant │ Based on ANY mode            │
+├────────────────────────┼──────────────────────────────┼───────────┼──────────────────────────────┤
+│ Template Statistics    │ Total Templates              │ 3         │ 8 total use(s)               │
+│                        │ terraform/deploy.yaml        │ 6 use(s)  │ 75.0% of compliant pipelines │
+│                        │ tools/install-tools.yaml     │ 1 use(s)  │ 12.5% of compliant pipelines │
+│                        │ terraform/generate-docs.yaml │ 1 use(s)  │ 12.5% of compliant pipelines │
+├────────────────────────┼──────────────────────────────┼───────────┼──────────────────────────────┤
+│ Adoption Metrics       │ Pipeline Adoption            │ 44.4%     │ 8 of 18 pipelines            │
+│                        │ Repository Adoption          │ 33.3%     │ 3 of 9 repositories          │
+├────────────────────────┼──────────────────────────────┼───────────┼──────────────────────────────┤
+│ Performance            │ Processing Time              │ 0.80s     │                              │
+└────────────────────────┴──────────────────────────────┴───────────┴──────────────────────────────┘

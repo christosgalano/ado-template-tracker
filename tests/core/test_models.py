@@ -315,6 +315,8 @@ def test_view_mode_values() -> None:
         pytest.fail("ViewMode missing TARGET value")
     if not hasattr(ViewMode, "SOURCE"):
         pytest.fail("ViewMode missing SOURCE value")
+    if not hasattr(ViewMode, "NON_COMPLIANT"):
+        pytest.fail("ViewMode missing NON_COMPLIANT value")
     if not hasattr(ViewMode, "OVERVIEW"):
         pytest.fail("ViewMode missing OVERVIEW value")
 
@@ -323,6 +325,8 @@ def test_view_mode_values() -> None:
         pytest.fail(f"Expected ViewMode.TARGET to be 'TARGET', got '{ViewMode.TARGET!s}'")
     if str(ViewMode.SOURCE) != "SOURCE":
         pytest.fail(f"Expected ViewMode.SOURCE to be 'SOURCE', got '{ViewMode.SOURCE!s}'")
+    if str(ViewMode.NON_COMPLIANT) != "NON_COMPLIANT":
+        pytest.fail(f"Expected ViewMode.NON_COMPLIANT to be 'NON_COMPLIANT', got '{ViewMode.NON_COMPLIANT!s}'")
     if str(ViewMode.OVERVIEW) != "OVERVIEW":
         pytest.fail(f"Expected ViewMode.OVERVIEW to be 'OVERVIEW', got '{ViewMode.OVERVIEW!s}'")
 
@@ -332,6 +336,10 @@ def test_view_mode_values() -> None:
             pytest.fail("ViewMode.from_string failed to convert 'target' to TARGET")
         if ViewMode.from_string("source") != ViewMode.SOURCE:
             pytest.fail("ViewMode.from_string failed to convert 'source' to SOURCE")
+        if ViewMode.from_string("non_compliant") != ViewMode.NON_COMPLIANT:
+            pytest.fail("ViewMode.from_string failed to convert 'non_compliant' to NON_COMPLIANT")
+        if ViewMode.from_string("non-compliant") != ViewMode.NON_COMPLIANT:
+            pytest.fail("ViewMode.from_string failed to convert 'non-compliant' to NON_COMPLIANT")
         if ViewMode.from_string("overview") != ViewMode.OVERVIEW:
             pytest.fail("ViewMode.from_string failed to convert 'overview' to OVERVIEW")
 
@@ -521,8 +529,8 @@ def test_repository_is_compliant() -> None:
         pytest.fail("Expected repository to be compliant with ALL mode when all pipelines are compliant")
 
 
-def test_repository_adoption_rate() -> None:
-    """Test Repository.adoption_rate property."""
+def test_repository_rates() -> None:
+    """Test Repository pipeline_adoption_rate and pipeline_non_compliance_rate property."""
     repo = Repository(
         id="test-repo",
         name="test-repo",
@@ -530,31 +538,29 @@ def test_repository_adoption_rate() -> None:
         project_id="test-project",
     )
 
-    # Empty repository has 0% adoption
-    if repo.adoption_rate != 0.0:
-        pytest.fail(f"Expected empty repository to have 0% adoption, got {repo.adoption_rate}%")
+    # Empty repository
+    if repo.pipeline_adoption_rate != 0.0:
+        pytest.fail(f"Expected empty repository to have 0% adoption, got {repo.pipeline_adoption_rate}%")
+    if repo.pipeline_non_compliance_rate != 100.0:
+        pytest.fail(f"Expected empty repository to have 100% non-compliance, got {repo.pipeline_non_compliance_rate}%")
 
     # 2 out of 5 pipelines are compliant (40%)
     repo.total_no_pipelines = 5
-    repo.compliant_pipelines = [
-        Pipeline(id=1, name="p1", folder="f"),
-        Pipeline(id=2, name="p2", folder="f"),
-    ]
+    repo.compliant_pipelines = [Pipeline(id=i, name=f"p{i}", folder="f") for i in range(1, 3)]
+    repo.non_compliant_pipelines = [Pipeline(id=i, name=f"p{i}", folder="f") for i in range(3, 6)]
 
-    if repo.adoption_rate != 40.0:
-        pytest.fail(f"Expected 40% adoption rate, got {repo.adoption_rate}%")
+    if repo.pipeline_adoption_rate != 40.0:
+        pytest.fail(f"Expected 40% adoption rate, got {repo.pipeline_adoption_rate}%")
+    if repo.pipeline_non_compliance_rate != 60.0:
+        pytest.fail(f"Expected 60% non-compliance rate, got {repo.pipeline_non_compliance_rate}%")
 
     # 5 out of 5 pipelines are compliant (100%)
-    repo.compliant_pipelines = [
-        Pipeline(id=1, name="p1", folder="f"),
-        Pipeline(id=2, name="p2", folder="f"),
-        Pipeline(id=3, name="p3", folder="f"),
-        Pipeline(id=4, name="p4", folder="f"),
-        Pipeline(id=5, name="p5", folder="f"),
-    ]
-
-    if repo.adoption_rate != 100.0:
-        pytest.fail(f"Expected 100% adoption rate, got {repo.adoption_rate}%")
+    repo.compliant_pipelines = [Pipeline(id=i, name=f"p{i}", folder="f") for i in range(1, 6)]
+    repo.non_compliant_pipelines = []
+    if repo.pipeline_adoption_rate != 100.0:
+        pytest.fail(f"Expected 100% adoption rate, got {repo.pipeline_adoption_rate}%")
+    if repo.pipeline_non_compliance_rate != 0.0:
+        pytest.fail(f"Expected 0% non-compliance rate, got {repo.pipeline_non_compliance_rate}%")
 
 
 def test_project_from_get_response() -> None:
@@ -619,18 +625,29 @@ def test_project_is_compliant() -> None:
         pytest.fail("Expected project to be compliant with ALL mode when all repositories are compliant")
 
 
-def test_project_adoption_rates() -> None:
-    """Test Project adoption rate properties."""
+def test_project_rates() -> None:
+    """Test Project adoption and noncompliance rate properties."""
     project = Project(
         id="test-project",
         name="Test Project",
     )
 
-    # Empty project has 0% adoption
+    # NOTE: Compliance mode is implied to be ANY for these tests
+
+    # Empty project
     if project.repository_adoption_rate != 0.0:
         pytest.fail(f"Expected empty project to have 0% repository adoption, got {project.repository_adoption_rate}%")
     if project.pipeline_adoption_rate != 0.0:
         pytest.fail(f"Expected empty project to have 0% pipeline adoption, got {project.pipeline_adoption_rate}%")
+
+    if project.repository_non_compliance_rate != 100.0:
+        pytest.fail(
+            f"Expected empty project to have 100% repository non-compliance, got {project.repository_non_compliance_rate}%",
+        )
+    if project.pipeline_non_compliance_rate != 100.0:
+        pytest.fail(
+            f"Expected empty project to have 100% pipeline non-compliance, got {project.pipeline_non_compliance_rate}%",
+        )
 
     # Set up repositories and pipelines
     # 3 out of 5 repositories are compliant (60%)
@@ -640,51 +657,59 @@ def test_project_adoption_rates() -> None:
     # Create repositories with pipelines
     repo1 = Repository(id="repo1", name="repo1", default_branch="main", project_id="test-project")
     repo1.total_no_pipelines = 3
-    repo1.compliant_pipelines = [
-        Pipeline(id=1, name="p1", folder="f"),
-        Pipeline(id=2, name="p2", folder="f"),
-    ]
+    repo1.compliant_pipelines = [Pipeline(id=i, name=f"p{i}", folder="f") for i in range(1, 3)]
+    repo1.non_compliant_pipelines = [Pipeline(id=3, name="p3", folder="f")]
 
     repo2 = Repository(id="repo2", name="repo2", default_branch="main", project_id="test-project")
     repo2.total_no_pipelines = 4
-    repo2.compliant_pipelines = [
-        Pipeline(id=3, name="p3", folder="f"),
-        Pipeline(id=4, name="p4", folder="f"),
-        Pipeline(id=5, name="p5", folder="f"),
-    ]
+    repo2.compliant_pipelines = [Pipeline(id=i, name=f"p{i}", folder="f") for i in range(4, 7)]
+    repo2.non_compliant_pipelines = [Pipeline(id=7, name="p7", folder="f")]
 
     repo3 = Repository(id="repo3", name="repo3", default_branch="main", project_id="test-project")
     repo3.total_no_pipelines = 3
-    repo3.compliant_pipelines = [
-        Pipeline(id=6, name="p6", folder="f"),
-    ]
+    repo3.compliant_pipelines = [Pipeline(id=7, name="p7", folder="f")]
+    repo3.non_compliant_pipelines = [Pipeline(id=i, name=f"p{i}", folder="f") for i in range(8, 10)]
 
     project.compliant_repositories = [repo1, repo2, repo3]
+    project.non_compliant_repositories = [
+        Repository(id=i, name=f"repo{i}", default_branch="main", project_id="test-project") for i in range(4, 6)
+    ]
+    project.compliant_pipelines = repo1.compliant_pipelines + repo2.compliant_pipelines + repo3.compliant_pipelines
+    project.non_compliant_pipelines = (
+        repo1.non_compliant_pipelines + repo2.non_compliant_pipelines + repo3.non_compliant_pipelines
+    )
 
     # Check repository adoption rate (3/5 = 60%)
     if project.repository_adoption_rate != 60.0:
         pytest.fail(f"Expected 60% repository adoption rate, got {project.repository_adoption_rate}%")
+    if project.repository_non_compliance_rate != 40.0:
+        pytest.fail(f"Expected 40% repository non-compliance rate, got {project.repository_non_compliance_rate}%")
 
     # Check pipeline adoption rate (2+3+1=6 out of 10 = 60%)
     if project.pipeline_adoption_rate != 60.0:
         pytest.fail(f"Expected 60% pipeline adoption rate, got {project.pipeline_adoption_rate}%")
+    if project.pipeline_non_compliance_rate != 40.0:
+        pytest.fail(f"Expected 40% pipeline non-compliance rate, got {project.pipeline_non_compliance_rate}%")
 
     # Test with all repositories compliant (100%)
     repo4 = Repository(id="repo4", name="repo4", default_branch="main", project_id="test-project")
     repo4.total_no_pipelines = 0  # Empty repository, but still counts as a repository
-
     repo5 = Repository(id="repo5", name="repo5", default_branch="main", project_id="test-project")
     repo5.total_no_pipelines = 0  # Empty repository, but still counts as a repository
-
     project.compliant_repositories = [repo1, repo2, repo3, repo4, repo5]
+    project.non_compliant_repositories = []
 
     # Check repository adoption rate (5/5 = 100%)
     if project.repository_adoption_rate != 100.0:
         pytest.fail(f"Expected 100% repository adoption rate, got {project.repository_adoption_rate}%")
+    if project.repository_non_compliance_rate != 0.0:
+        pytest.fail(f"Expected 0% repository non-compliance rate, got {project.repository_non_compliance_rate}%")
 
     # Pipeline adoption rate should remain the same (6/10 = 60%)
     if project.pipeline_adoption_rate != 60.0:
         pytest.fail(f"Expected 60% pipeline adoption rate, got {project.pipeline_adoption_rate}%")
+    if project.pipeline_non_compliance_rate != 40.0:
+        pytest.fail(f"Expected 40% pipeline non-compliance rate, got {project.pipeline_non_compliance_rate}%")
 
 
 def test_organization_is_compliant() -> None:
@@ -727,11 +752,11 @@ def test_organization_is_compliant() -> None:
         pytest.fail("Expected organization to be compliant with ALL mode when all projects are compliant")
 
 
-def test_organization_adoption_rates() -> None:
-    """Test Organization adoption rate properties."""
+def test_organization_rates() -> None:
+    """Test Organization adoption and noncompliance rate properties."""
     org = Organization(name="TestOrg")
 
-    # Empty organization has 0% adoption
+    # Empty organization
     if org.project_adoption_rate != 0.0:
         pytest.fail(f"Expected empty organization to have 0% project adoption, got {org.project_adoption_rate}%")
     if org.repository_adoption_rate != 0.0:
@@ -739,17 +764,34 @@ def test_organization_adoption_rates() -> None:
     if org.pipeline_adoption_rate != 0.0:
         pytest.fail(f"Expected empty organization to have 0% pipeline adoption, got {org.pipeline_adoption_rate}%")
 
+    if org.project_non_compliance_rate != 100.0:
+        pytest.fail(
+            f"Expected empty organization to have 100% project non-compliance, got {org.project_non_compliance_rate}%",
+        )
+    if org.repository_non_compliance_rate != 100.0:
+        pytest.fail(
+            f"Expected empty organization to have 100% repository non-compliance, got {org.repository_non_compliance_rate}%",
+        )
+    if org.pipeline_non_compliance_rate != 100.0:
+        pytest.fail(
+            f"Expected empty organization to have 100% pipeline non-compliance, got {org.pipeline_non_compliance_rate}%",
+        )
+
     # Setup organization with projects, repositories and pipelines
     org.total_no_projects = 4
     org.compliant_projects = [Project(id="proj1", name="Project 1"), Project(id="proj2", name="Project 2")]
+    org.non_compliant_projects = [Project(id="proj3", name="Project 3"), Project(id="proj4", name="Project 4")]
 
     org.total_no_repositories = 10
     org.compliant_repositories = [
         Repository(id=f"repo{i}", name=f"Repo {i}", default_branch="main") for i in range(1, 6)
     ]
-
+    org.non_compliant_repositories = [
+        Repository(id=f"repo{i}", name=f"Repo {i}", default_branch="main") for i in range(6, 11)
+    ]
     org.total_no_pipelines = 20
     org.compliant_pipelines = [Pipeline(id=i, name=f"Pipeline {i}", folder="src") for i in range(1, 11)]
+    org.non_compliant_pipelines = [Pipeline(id=i, name=f"Pipeline {i}", folder="src") for i in range(11, 21)]
 
     # Check adoption rates
     if org.project_adoption_rate != 50.0:
@@ -758,3 +800,11 @@ def test_organization_adoption_rates() -> None:
         pytest.fail(f"Expected 50% repository adoption rate, got {org.repository_adoption_rate}%")
     if org.pipeline_adoption_rate != 50.0:
         pytest.fail(f"Expected 50% pipeline adoption rate, got {org.pipeline_adoption_rate}%")
+
+    # Check non-compliance rates
+    if org.project_non_compliance_rate != 50.0:
+        pytest.fail(f"Expected 50% project non-compliance rate, got {org.project_non_compliance_rate}%")
+    if org.repository_non_compliance_rate != 50.0:
+        pytest.fail(f"Expected 50% repository non-compliance rate, got {org.repository_non_compliance_rate}%")
+    if org.pipeline_non_compliance_rate != 50.0:
+        pytest.fail(f"Expected 50% pipeline non-compliance rate, got {org.pipeline_non_compliance_rate}%")

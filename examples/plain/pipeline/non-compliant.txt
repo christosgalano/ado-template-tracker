@@ -1,19 +1,12 @@
 
-Adoption Statistics Overview
+Non-Compliance Report
 ================================================================================
 
 Name: aad-group-myomada-creation
 Scope: PIPELINE
 Compliance Mode: ANY
 Compliance Status: Compliant
-
-Template Statistics:
-Total Templates: 1
-Total Uses: 1
-
-Most Used Templates:
-  - terraform/deploy.yaml: 1 use(s)
-
-Adoption Metrics:
-
 Processing Time: 0.13s
+
+Templates (include):
+- pipeline-library/terraform/deploy.yaml

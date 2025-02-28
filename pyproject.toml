@@ -94,7 +94,6 @@ exclude = [
   "venv",
   "build",
   "dist",
-  "main.py",
   "__pycache__",
 ]
 

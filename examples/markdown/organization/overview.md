@@ -1,10 +1,10 @@
-# Adoption Overview for Dunder Mifflin
+# Adoption Overview for CCHBC
 
 ## Compliance Information
 
 - Scope: ORGANIZATION
-- Mode: MAJORITY
-- Status: Non-Compliant
+- Mode: ANY
+- Status: Compliant
 
 ## Template Statistics
 
@@ -23,10 +23,10 @@
 
 | Metric | Rate | Details |
 |--------|------|---------|
-| Project Adoption | 25.0% | 1/4 |
-| Repository Adoption | 6.1% | 24/391 |
-| Pipeline Adoption | 6.1% | 48/788 |
+| Project Adoption | 75.0% | 3/4 |
+| Repository Adoption | 6.1% | 24/393 |
+| Pipeline Adoption | 6.0% | 48/797 |
 
 ## Performance
 
-- Processing Time: 29.57s
+- Processing Time: 30.14s

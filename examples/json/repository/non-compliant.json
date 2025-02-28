@@ -1,0 +1,36 @@
+{
+  "name": "administration",
+  "compliance_mode": "ANY",
+  "is_compliant": true,
+  "non_compliance": {
+    "non_compliance_rate": 50.0,
+    "non_compliant_pipelines": 6,
+    "total_pipelines": 12
+  },
+  "non_compliant_pipelines": [
+    {
+      "name": "add-repository-pipelines",
+      "path": "administration/add-repository-pipelines"
+    },
+    {
+      "name": "get-aad-applications",
+      "path": "administration/get-aad-applications"
+    },
+    {
+      "name": "run-repository-pipelines",
+      "path": "administration/run-repository-pipelines"
+    },
+    {
+      "name": "test-self-hosted-agent",
+      "path": "administration/test-self-hosted-agent"
+    },
+    {
+      "name": "track-pipeline-library-adoption",
+      "path": "administration/track-pipeline-library-adoption"
+    },
+    {
+      "name": "update-self-hosted-agent",
+      "path": "administration/update-self-hosted-agent"
+    }
+  ]
+}

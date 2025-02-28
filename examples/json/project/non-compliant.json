@@ -1,0 +1,86 @@
+{
+  "name": "CCHBC-Governance-Center",
+  "compliance_mode": "ANY",
+  "is_compliant": true,
+  "repository_non_compliance": {
+    "non_compliance_rate": 66.67,
+    "non_compliant_repositories": 6,
+    "total_repositories": 9
+  },
+  "pipeline_non_compliance": {
+    "non_compliance_rate": 55.56,
+    "non_compliant_pipelines": 10,
+    "total_pipelines": 18
+  },
+  "non_compliant_repositories": [
+    {
+      "name": "knowledge-base",
+      "non_compliance": {
+        "non_compliance_rate": 100.0,
+        "non_compliant_pipelines": 1,
+        "total_pipelines": 1
+      },
+      "non_compliant_pipelines": [
+        {
+          "name": "knowledge-base-replicate-to-wiki",
+          "path": "knowledge-base/knowledge-base-replicate-to-wiki"
+        }
+      ]
+    },
+    {
+      "name": "knowledge-base-cloud-automation",
+      "non_compliance": {
+        "non_compliance_rate": 100.0,
+        "non_compliant_pipelines": 1,
+        "total_pipelines": 1
+      },
+      "non_compliant_pipelines": [
+        {
+          "name": "knowledge-base-cloud-automation-replicate-to-wiki",
+          "path": "knowledge-base-cloud-automation/knowledge-base-cloud-automation-replicate-to-wiki"
+        }
+      ]
+    },
+    {
+      "name": "Reporting",
+      "non_compliance": {
+        "non_compliance_rate": 100.0,
+        "non_compliant_pipelines": 0,
+        "total_pipelines": 0
+      },
+      "non_compliant_pipelines": []
+    },
+    {
+      "name": "resource-protection",
+      "non_compliance": {
+        "non_compliance_rate": 100.0,
+        "non_compliant_pipelines": 1,
+        "total_pipelines": 1
+      },
+      "non_compliant_pipelines": [
+        {
+          "name": "resource-protection-add-protection-checks",
+          "path": "resource-protection/resource-protection-add-protection-checks"
+        }
+      ]
+    },
+    {
+      "name": "terraform-module-template-repo",
+      "non_compliance": {
+        "non_compliance_rate": 100.0,
+        "non_compliant_pipelines": 0,
+        "total_pipelines": 0
+      },
+      "non_compliant_pipelines": []
+    },
+    {
+      "name": "terraform-structure-example-with-tfvars",
+      "non_compliance": {
+        "non_compliance_rate": 100.0,
+        "non_compliant_pipelines": 0,
+        "total_pipelines": 0
+      },
+      "non_compliant_pipelines": []
+    }
+  ]
+}

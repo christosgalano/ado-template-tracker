@@ -13,6 +13,8 @@ Key Components:
 Features:
     - Multi-level compliance assessment (organization/project/repository/pipeline)
     - Concurrent pipeline processing for performance
+    - Optimized O(1) resource lookups via ID-based dictionaries
+    - Memory-efficient batch processing for large datasets
     - Detailed adoption metrics collection
     - Support for different compliance modes (ANY/MAJORITY/ALL)
     - Template usage pattern detection (extend/include)
@@ -140,71 +142,43 @@ class TemplateAdoptionTracker:
         if self._initialized:
             return
 
+        # Initialize data containers
+        self._all_pipelines = []
+        self._all_repositories = []
+        self._all_projects = []
+        self._organization = None
+
         try:
-            # Get source repository and load templates
-            source_repository, _ = await asyncio.gather(
-                self.client.get_repository_async(self.source.project, self.source.repository),
-                self._load_source_templates(),
-            )
+            # Step 1: Get source repository
+            source_repository = await self.client.get_repository_async(self.source.project, self.source.repository)
+
+            # Step 2: Load source templates
+            await self._load_source_templates()
             if self.source.templates:
                 logging.info(
                     "tracker: found %d templates in source repository",
                     len(self.source.templates),
                 )
 
-            if self.target_scope == TargetScope.ORGANIZATION:
-                # Get all projects with all of their pipelines and repositories
-                self._all_projects = await self.client.list_projects_async()
-                tasks = [self.client.list_pipelines_async(project.name) for project in self._all_projects]
-                all_pipelines_results = await asyncio.gather(*tasks)
-                self._all_pipelines = [pipeline for pipelines in all_pipelines_results for pipeline in pipelines]
-                tasks = [self.client.list_repositories_async(project.name) for project in self._all_projects]
-                all_repositories_results = await asyncio.gather(*tasks)
-                self._all_repositories = [
-                    repository for repositories in all_repositories_results for repository in repositories
-                ]
-            elif self.target_scope == TargetScope.PROJECT:
-                # Get project with all of its pipelines and repositories
-                project, self._all_pipelines, self._all_repositories = await asyncio.gather(
-                    self.client.get_project_async(self.target.project),
-                    self.client.list_pipelines_async(self.target.project),
-                    self.client.list_repositories_async(self.target.project),
-                )
-                self._all_projects = [project]
-            elif self.target_scope == TargetScope.REPOSITORY:
-                # Get repository with all of its pipelines
-                repository, self._all_pipelines = await asyncio.gather(
-                    self.client.get_repository_async(self.target.project, self.target.repository),
-                    self.client.list_pipelines_async(self.target.project),
-                )
+            # Step 3: Load target data based on scope
+            await self._load_target_data()
 
-                if repository.id == source_repository.id:
-                    msg = "Target repository cannot be the same as source repository"
-                    raise InitializationError(msg)  # noqa: TRY301
-
-                self._all_pipelines = [p for p in self._all_pipelines if p.repository_id == repository.id]
-                self._all_repositories = [repository]
-                self._all_projects = []
-            elif self.target_scope == TargetScope.PIPELINE:
-                # Get pipeline
-                pipeline = await self.client.get_pipeline_by_id_async(
-                    self.target.project,
-                    self.target.pipeline_id,
-                )
-                self._all_pipelines = [pipeline]
-                self._all_repositories = []
-                self._all_projects = []
-
-            # Do not include source repository
+            # Step 4: Check if target repository is the same as source repository, if not remove it from search
             if self._all_repositories:
-                self._all_repositories = [r for r in self._all_repositories if r.id != source_repository.id]
+                if len(self._all_repositories) == 1:
+                    # Check if target repository is the same as source repository
+                    if self._all_repositories[0].id == source_repository.id:
+                        msg = "Target repository cannot be the same as source repository"
+                        raise InitializationError(msg)  # noqa: TRY301
+                else:
+                    # Do not include source repository
+                    self._all_repositories = [r for r in self._all_repositories if r.id != source_repository.id]
 
-            # Only keep pipelines with content
+            # Step 5: Filter out pipelines without content
             self._all_pipelines = [p for p in self._all_pipelines if p.content]
 
-            # Create dictionaries for quick access
-            self._projects_dict = {project.id: project for project in self._all_projects}
-            self._repositories_dict = {repository.id: repository for repository in self._all_repositories}
+            # Step 6: Initialize lookup dictionaries
+            self._initialize_lookups()
 
             # Initialization complete
             self._initialized = True
@@ -225,13 +199,10 @@ class TemplateAdoptionTracker:
             start_time = time.perf_counter()
 
             # Process all pipelines
-            self._all_pipelines = await self._process_pipelines(self._all_pipelines)
+            self._all_pipelines = await self._process_pipelines_in_batches(self._all_pipelines)
 
-            # Find all compliant pipelines
-            self._compliant_pipelines = [p for p in self._all_pipelines if p.is_compliant()]
-
-            # Set compliance on all levels
-            self._set_compliance(self._compliant_pipelines)
+            # Build compliance hierarchy
+            self._build_and_propagate_compliance()
 
             # Create result object
             result = self._create_result()
@@ -259,6 +230,7 @@ class TemplateAdoptionTracker:
             logging.exception("tracker: failed to track template adoption")
             raise
 
+    ### Initialization ###
     async def _load_source_templates(self) -> None:
         """Load the template source configuration."""
         try:
@@ -277,150 +249,258 @@ class TemplateAdoptionTracker:
             logging.exception("tracker: failed to load template source")
             raise
 
+    async def _load_target_data(self) -> None:
+        """Load target data based on target scope."""
+        loaders = {
+            TargetScope.ORGANIZATION: self._load_organization_data,
+            TargetScope.PROJECT: self._load_project_data,
+            TargetScope.REPOSITORY: self._load_repository_data,
+            TargetScope.PIPELINE: self._load_pipeline_data,
+        }
+
+        loader = loaders.get(self.target_scope)
+        if not loader:
+            msg = f"Unsupported target scope: {self.target_scope}"
+            logging.error(msg)
+            raise ValueError(msg)
+
+        return await loader()
+
+    async def _load_organization_data(self) -> None:
+        """Load organization data with all projects, repositories, and pipelines."""
+        self._organization = Organization(name=self.target.organization)
+
+        self._all_projects = await self.client.list_projects_async()
+
+        tasks = [self.client.list_pipelines_async(project.name) for project in self._all_projects]
+        all_pipelines_results = await asyncio.gather(*tasks)
+        self._all_pipelines = [pipeline for pipelines in all_pipelines_results for pipeline in pipelines]
+
+        tasks = [self.client.list_repositories_async(project.name) for project in self._all_projects]
+        all_repositories_results = await asyncio.gather(*tasks)
+        self._all_repositories = [
+            repository for repositories in all_repositories_results for repository in repositories
+        ]
+
+    async def _load_project_data(self) -> None:
+        """Load project data with all repositories and pipelines."""
+        project, self._all_pipelines, self._all_repositories = await asyncio.gather(
+            self.client.get_project_async(self.target.project),
+            self.client.list_pipelines_async(self.target.project),
+            self.client.list_repositories_async(self.target.project),
+        )
+        self._all_projects = [project]
+
+    async def _load_repository_data(self) -> None:
+        """Load repository data with all pipelines."""
+        repository, project, self._all_pipelines = await asyncio.gather(
+            self.client.get_repository_async(self.target.project, self.target.repository),
+            self.client.get_project_async(self.target.project),
+            self.client.list_pipelines_async(self.target.project),
+        )
+        self._all_pipelines = [p for p in self._all_pipelines if p.repository_id == repository.id]
+        self._all_repositories = [repository]
+        self._all_projects = [project]
+
+    async def _load_pipeline_data(self) -> None:
+        """Load pipeline data for a single pipeline."""
+        pipeline = await self.client.get_pipeline_by_id_async(
+            self.target.project,
+            self.target.pipeline_id,
+        )
+        self._all_pipelines = [pipeline]
+
+    ### Resource Lookup ###
+    def _initialize_lookups(self) -> None:
+        """
+        Initialize lookup dictionaries for fast ID-based access.
+
+        Performance Note:
+        These dictionaries are a critical performance optimization that enables
+        O(1) lookups by ID instead of O(n) searches through lists. This is
+        especially important when processing hundreds or thousands of pipelines
+        that need to update their parent repositories and projects.
+        """
+        self._pipelines_dict = {pipeline.id: pipeline for pipeline in self._all_pipelines}
+        self._repositories_dict = {repository.id: repository for repository in self._all_repositories}
+        self._projects_dict = {project.id: project for project in self._all_projects}
+
+    def _get_pipeline(self, pipeline_id: str) -> Pipeline | None:
+        """Get pipeline by ID with proper error handling."""
+        pipeline = next((p for p in self._all_pipelines if p.id == pipeline_id), None)
+        if not pipeline:
+            logging.warning("Pipeline with ID %s not found in lookup", pipeline_id)
+            return None
+        return pipeline
+
+    def _get_repository(self, repository_id: str) -> Repository | None:
+        """Get repository by ID with proper error handling."""
+        repository = self._repositories_dict.get(repository_id)
+        if not repository:
+            logging.warning("Repository with ID %s not found in lookup", repository.id)
+            return None
+        return repository
+
+    def _get_project(self, project_id: str) -> Project | None:
+        """Get project by ID with proper error handling."""
+        project = self._projects_dict.get(project_id)
+        if not project:
+            logging.warning("Project with ID %s not found in lookup", project_id)
+            return None
+        return project
+
+    def _get_organization(self) -> Organization | None:
+        """Get organization object with proper error handling."""
+        if not self._organization:
+            logging.warning("Organization not loaded")
+            return None
+        return self._organization
+
+    ### Result Creation ###
     def _create_result(self) -> Organization | Project | Repository | Pipeline:
-        """
-        Create and populate a result object based on the target scope.
+        """Create result object based on target scope."""
+        creators = {
+            TargetScope.ORGANIZATION: self._create_organization_result,
+            TargetScope.PROJECT: self._create_project_result,
+            TargetScope.REPOSITORY: self._create_repository_result,
+            TargetScope.PIPELINE: self._create_pipeline_result,
+        }
 
-        This method creates the appropriate result object (Organization, Project, Repository,
-        or Pipeline) and populates it with compliance metrics and overview based on the
-        processed data.
+        creator = creators.get(self.target_scope)
+        if not creator:
+            msg = f"Unsupported target scope: {self.target_scope}"
+            logging.error(msg)
+            raise ValueError(msg)
 
-        The result type depends on the target scope:
-        - ORGANIZATION: Creates Organization with project/repository/pipeline metrics
-        - PROJECT: Returns single processed project
-        - REPOSITORY: Returns single processed repository
-        - PIPELINE: Returns single processed pipeline
+        return creator()
 
-        Returns:
-            Organization | Project | Repository | Pipeline: The populated result object
-                matching the target scope type
+    def _create_organization_result(self) -> Organization:
+        """Create Organization result with metrics from all levels."""
+        organization = self._get_organization()
+        if not organization:
+            msg = "Organization not loaded"
+            raise InitializationError(msg)
+        return organization
 
-        Raises:
-            InitializationError: When scope-specific data validation fails:
-                - PROJECT scope expects exactly one project
-                - REPOSITORY scope expects exactly one repository
-                - PIPELINE scope expects exactly one pipeline
+    def _create_project_result(self) -> Project:
+        """Create Project result with metrics from pipelines and repositories."""
+        if len(self._all_projects) != 1:
+            msg = "Expected exactly one project for project scope"
+            raise InitializationError(msg)
+        return self._all_projects[0]
 
-        Example:
-            ```
-            # For Organization scope
-            organization = _create_result()
-            assert organization.total_no_projects == len(self._all_projects)
-            assert organization.compliant_projects == len([p for p in projects if p.is_compliant()])
+    def _create_repository_result(self) -> Repository:
+        """Create Repository result with metrics from pipelines."""
+        if len(self._all_repositories) != 1:
+            msg = "Expected exactly one repository for repository scope"
+            raise InitializationError(msg)
+        return self._all_repositories[0]
 
-            # For Project scope
-            project = _create_result()
-            assert project.compliant_pipelines == [p for p in pipelines if p.is_compliant()]
-
-            # For Repository scope
-            repository = _create_result()
-            assert repository.total_no_pipelines == len([p for p in pipelines if p.repository_id == repository.id])
-            ```
-
-        Notes:
-            - Organization result includes aggregated metrics for all levels
-            - For non-organization scopes, validates that exactly one target exists
-            - Uses pre-calculated compliance data from _set_compliance()
-            - Leverages list comprehensions for efficient filtering
-        """
-        if self.target_scope == TargetScope.ORGANIZATION:
-            organization = Organization(name=self.target.organization)
-
-            organization.total_no_projects = len(self._all_projects)
-            organization.total_no_repositories = len(self._all_repositories)
-            organization.total_no_pipelines = len(self._all_pipelines)
-
-            organization.compliant_projects = [
-                project for project in self._all_projects if project.is_compliant(self.compliance_mode)
-            ]
-            organization.compliant_repositories = [
-                repo for repo in self._all_repositories if repo.is_compliant(self.compliance_mode)
-            ]
-            organization.compliant_pipelines = self._compliant_pipelines
-
-            return organization
-
-        if self.target_scope == TargetScope.PROJECT:
-            if len(self._all_projects) != 1:
-                msg = "Expected exactly one project for project scope"
-                raise InitializationError(msg)
-            return self._all_projects[0]
-
-        if self.target_scope == TargetScope.REPOSITORY:
-            if len(self._all_repositories) != 1:
-                msg = "Expected exactly one repository for repository scope"
-                raise InitializationError(msg)
-            return self._all_repositories[0]
-
-        # TargetScope.PIPELINE
+    def _create_pipeline_result(self) -> Pipeline:
+        """Create Pipeline result with metrics for a single pipeline."""
         if len(self._all_pipelines) != 1:
             msg = "Expected exactly one pipeline for pipeline scope"
             raise InitializationError(msg)
         return self._all_pipelines[0]
 
-    def _set_compliance(self, compliant_pipelines: list[Pipeline]) -> None:
-        """
-        Set compliance status and metrics across all hierarchical levels.
+    ### Compliance  ###
+    def _build_and_propagate_compliance(self) -> None:
+        """Build compliance hierarchy by updating metrics across all levels."""
+        # Step 0: Handle pipeline target scope
+        if self.target_scope == TargetScope.PIPELINE:
+            return
 
-        This method efficiently updates compliance information in a single pass through
-        the data, setting metrics for repositories and projects based on their
-        contained pipelines.
+        # Step 1: Process pipeline compliance and update repositories/projects and optionally organization
+        self._process_pipeline_compliance()
 
-        Flow:
-        1. Update repository metrics:
-           - Set compliant pipelines list
-           - Calculate total pipeline count
-        2. Update project metrics:
-           - Set compliant pipelines list
-           - Calculate total pipeline count
-           - Calculate repository counts
-           - Set compliant repositories list
+        # Step 2: Process repository compliance and update projects and optionally organization
+        self._process_repository_compliance()
 
-        Performance Considerations:
-        - Processes all levels in a single pass
-        - Uses list comprehensions for efficient filtering
-        - Avoids redundant calculations
-        - Leverages pre-filtered compliant pipelines list
+        # Step 3: Process project compliance and update organization
+        if self.target_scope == TargetScope.ORGANIZATION:
+            self._process_project_compliance()
 
-        Args:
-            compliant_pipelines: List of pipelines that meet compliance criteria
-                               (already filtered by is_compliant())
+    def _process_pipeline_compliance(self) -> None:
+        """Process pipeline compliance and update repository, project, and optionally organization metrics."""
+        for p in self._all_pipelines:
+            repository = self._get_repository(p.repository_id)
+            project = self._get_project(p.project_id)
+            organization = self._get_organization()
 
-        Example Hierarchy:
-            Project
-            ├── Repository 1
-            │   ├── Pipeline A (compliant)
-            │   └── Pipeline B (non-compliant)
-            └── Repository 2
-                ├── Pipeline C (compliant)
-                └── Pipeline D (compliant)
+            # Skip if repository or project not found
+            if not repository or not project:
+                continue
 
-            Results in:
-            - Repository 1: 50% compliance (1/2 pipelines)
-            - Repository 2: 100% compliance (2/2 pipelines)
-            - Project: Both metrics plus repository compliance
-        """
-        # For each repository, set compliant pipelines and total pipelines.
-        # This covers the following scopes: organization, project, repository
+            # Update pipeline collections and counts
+            if p.is_compliant():
+                repository.compliant_pipelines.append(p)
+                project.compliant_pipelines.append(p)
+                if organization:
+                    organization.compliant_pipelines.append(p)
+            else:
+                repository.non_compliant_pipelines.append(p)
+                project.non_compliant_pipelines.append(p)
+                if organization:
+                    organization.non_compliant_pipelines.append(p)
+
+            repository.total_no_pipelines += 1
+            project.total_no_pipelines += 1
+            if organization:
+                organization.total_no_pipelines += 1
+
+    def _process_repository_compliance(self) -> None:
+        """Process repository compliance and update project and optionally organization metrics."""
         for repository in self._all_repositories:
-            repository.compliant_pipelines = [p for p in compliant_pipelines if p.repository_id == repository.id]
-            repository.total_no_pipelines = len(
-                [p for p in self._all_pipelines if p.repository_id == repository.id],
-            )
+            project = self._get_project(repository.project_id)
+            organization = self._get_organization()
 
-        # For each project, set compliant pipelines, total pipelines, compliant repositories, and total repositories (repositories are already set)  # noqa: E501
-        # This covers the following scopes: organization, project
+            # Skip if project not found
+            if not project:
+                continue
+
+            # Update repository collections and counts
+            if repository.is_compliant(self.compliance_mode):
+                project.compliant_repositories.append(repository)
+                if organization:
+                    organization.compliant_repositories.append(repository)
+            else:
+                project.non_compliant_repositories.append(repository)
+                if organization:
+                    organization.non_compliant_repositories.append(repository)
+
+            project.total_no_repositories += 1
+            if organization:
+                organization.total_no_repositories += 1
+
+    def _process_project_compliance(self) -> None:
+        """Process project compliance and update organization metrics."""
         for project in self._all_projects:
-            project.compliant_pipelines = [
-                p
-                for p in compliant_pipelines
-                if p.project_id == project.id  # repositories already set
-            ]
-            project.compliant_repositories = [
-                r for r in self._all_repositories if r.project_id == project.id and r.is_compliant(self.compliance_mode)
-            ]
-            project.total_no_pipelines = len([p for p in self._all_pipelines if p.project_id == project.id])
-            project.total_no_repositories = len([r for r in self._all_repositories if r.project_id == project.id])
+            organization = self._get_organization()
+            if not organization:
+                return
+
+            # Update project collections and counts
+            if project.is_compliant(self.compliance_mode):
+                organization.compliant_projects.append(project)
+            else:
+                organization.non_compliant_projects.append(project)
+
+            organization.total_no_projects += 1
+
+    ### Pipeline Processing ###
+    async def _process_pipelines_in_batches(self, pipelines: list[Pipeline], batch_size: int = 100) -> list[Pipeline]:
+        """Process pipelines in batches to reduce memory pressure."""
+        results = []
+        for i in range(0, len(pipelines), batch_size):
+            batch = pipelines[i : i + batch_size]
+            logging.info(
+                "Processing batch %d/%d (%d pipelines)",
+                i // batch_size + 1,
+                (len(pipelines) - 1) // batch_size + 1,
+                len(batch),
+            )
+            results.extend(await self._process_pipelines(batch))
+        return results
 
     async def _process_pipelines(self, pipelines: list[Pipeline]) -> list[Pipeline]:
         """Process given pipelines and set their adoption field."""
@@ -630,6 +710,7 @@ class TemplateAdoptionTracker:
             project=source_reference["project"],
         )
 
+    ### Metrics Collection ###
     def _collect_pipeline_metrics(self, pipeline: Pipeline) -> AdoptionMetrics:
         """Collect metrics for a single pipeline."""
         metrics = AdoptionMetrics(target=self.target, compliance_mode=self.compliance_mode)
@@ -676,17 +757,9 @@ class TemplateAdoptionTracker:
                 )
         return metrics
 
+    ### Source Repository Information ###
     def _get_source_repository_default_branch(self) -> str:
         """Gets the default branch of the source repository."""
         url = f"{self.client.base_url}/{self.source.project}/_apis/git/repositories/{self.source.repository}"
         data = self.client._get(url)  # noqa: SLF001
         return data["defaultBranch"].replace("refs/heads/", "")
-
-    async def __aenter__(self) -> "TemplateAdoptionTracker":
-        """Async context manager entry."""
-        await self.client.__aenter__()
-        return self
-
-    async def __aexit__(self, exc_type, exc_val, exc_tb) -> None:  # noqa: ANN001
-        """Async context manager exit."""
-        await self.client.__aexit__(exc_type, exc_val, exc_tb)

@@ -29,6 +29,7 @@ View Modes:
     - target: Results organized by project/repository/pipeline hierarchy
     - source: Results organized by template usage and coverage
     - overview: Overall metrics, trends and compliance status
+    - non_compliant: Results filtered to show only non-compliant resources
 
 Example:
     ```python
@@ -72,6 +73,28 @@ CLI Usage:
         --compliance-mode majority \
         --output-format markdown \
         --output-file report.md
+
+    # Use managed identity for authentication
+    $ ado-template-tracker track \
+        --organization myorg \
+        --source-project Templates \
+        --source-repository PipelineLibrary
+
+    # Use verbose output for debugging (level INFO)
+    $ ado-template-tracker track \
+        --organization myorg \
+        --token mytoken \
+        --source-project Templates \
+        --source-repository PipelineLibrary \
+        -vv
+
+    # Track non-compliant resources only
+    $ ado-template-tracker track \
+        --organization myorg \
+        --token mytoken \
+        --source-project Templates \
+        --source-repository PipelineLibrary \
+        --output-view non-compliant
     ```
 
 Raises:
@@ -84,6 +107,8 @@ Raises:
 
 import argparse
 import asyncio
+import logging
+import os
 
 from ado_template_tracker.core.adoption import TemplateAdoptionTracker
 from ado_template_tracker.core.client import AzureDevOpsClient
@@ -226,9 +251,24 @@ def parse_args() -> argparse.Namespace:
     )
     output_group.add_argument(
         "--output-view",
-        choices=["target", "source", "overview"],
+        choices=["target", "source", "overview", "non-compliant"],
         default="target",
         help="Output view to display (default: target)",
+    )
+
+    # Add verbosity control
+    parser.add_argument(
+        "--quiet",
+        "-q",
+        action="store_true",
+        help="Suppress all non-essential output",
+    )
+    parser.add_argument(
+        "--verbose",
+        "-v",
+        action="count",
+        default=0,
+        help="Increase verbosity (can be used multiple times)",
     )
 
     return parser.parse_args()
@@ -262,7 +302,7 @@ async def run(args: argparse.Namespace) -> None:
         tracker = TemplateAdoptionTracker(
             client=client,
             target=target,
-            template_source=source,
+            source=source,
             compliance_mode=compliance_mode,
         )
 
@@ -288,4 +328,27 @@ async def run(args: argparse.Namespace) -> None:
 def main() -> None:
     """Main CLI entry point."""
     args = parse_args()
+
+    # First check command-line args
+    if hasattr(args, "quiet") and args.quiet:
+        log_level = logging.CRITICAL
+    elif hasattr(args, "verbose") and args.verbose > 0:
+        # Map verbosity count to log levels
+        log_level = {
+            1: logging.WARNING,
+            2: logging.INFO,
+            3: logging.DEBUG,
+        }.get(min(args.verbose, 3), logging.DEBUG)
+    else:
+        # Then check environment variable
+        env_level = os.environ.get("ADO_TEMPLATE_TRACKER_LOG_LEVEL", "CRITICAL").upper()
+        log_level = getattr(logging, env_level, logging.CRITICAL)
+
+    # Configure logging
+    logging.basicConfig(level=log_level, format="%(levelname)s: %(message)s")
+
+    # Suppress third-party loggers
+    logging.getLogger("azure").setLevel(logging.ERROR)
+    logging.getLogger("urllib3").setLevel(logging.ERROR)
+
     asyncio.run(run(args))

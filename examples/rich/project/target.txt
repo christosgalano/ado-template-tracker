@@ -1,0 +1,24 @@
+                                                    Project 'CCHBC-Governance-Center' - Compliant (ANY mode)
+                                                                Compliant Pipelines: 44.4% (8/18)
+                                                               Compliant Repositories: 33.3% (3/9)
+┏━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━┳━━━━━━━━━━━━━━━┓
+┃ Repository              ┃ Pipeline                                                  ┃ Template(s)                                   ┃  Usage  ┃ Adoption Rate ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━╇━━━━━━━━━━━━━━━┩
+│ administration          │ administration/aad-group-myomada-creation                 │ pipeline-library/terraform/deploy.yaml        │ include │               │
+│                         │ administration/create-application-registration            │ pipeline-library/terraform/deploy.yaml        │ include │               │
+│                         │ administration/create-project                             │ pipeline-library/terraform/deploy.yaml        │ extend  │               │
+│                         │ administration/create-repository                          │ pipeline-library/terraform/deploy.yaml        │ include │               │
+│                         │ administration/create-self-hosted-agent                   │ pipeline-library/terraform/deploy.yaml        │ include │               │
+│                         │ administration/create-template-repository                 │ pipeline-library/terraform/deploy.yaml        │ include │               │
+│                         │ Repository Total                                          │                                               │         │  50.0% (6/12) │
+│                         │                                                           │                                               │         │               │
+│ policy-library          │ policy-library/policy-library-ci                          │ pipeline-library/tools/install-tools.yaml     │ include │               │
+│                         │ Repository Total                                          │                                               │         │   50.0% (1/2) │
+│                         │                                                           │                                               │         │               │
+│ terraform-template-repo │ terraform-template-repo/terraform-template-repo-generate… │ pipeline-library/terraform/generate-docs.yaml │ extend  │               │
+│                         │ Repository Total                                          │                                               │         │  100.0% (1/1) │
+└─────────────────────────┴───────────────────────────────────────────────────────────┴───────────────────────────────────────────────┴─────────┴───────────────┘
+
+Additional Metrics
+ Most Used Templates:  terraform/deploy.yaml (6 use(s)), tools/install-tools.yaml (1 use(s)), terraform/generate-docs.yaml (1 use(s))
+ Processing Time:      0.80s

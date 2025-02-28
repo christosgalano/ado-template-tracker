@@ -1,5 +1,5 @@
-# Testing
-test_outputs/
+# Generator
+_generate.py
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

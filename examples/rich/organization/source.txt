@@ -10,5 +10,5 @@
 └──────────────────────────────┴─────────────┴─────────┴──────────┴──────────────┴───────────┘
 
 Additional Metrics
- Most Used Templates:  terraform/deploy.yaml (17 uses), terraform/ci.yaml (10 uses), terraform/generate-docs.yaml (10 uses)
- Processing Time:      29.57s
+ Most Used Templates:  terraform/deploy.yaml (17 use(s)), terraform/ci.yaml (10 use(s)), terraform/generate-docs.yaml (10 use(s))
+ Processing Time:      30.14s

@@ -96,59 +96,59 @@ tasks:
   #### Test ####
   test:
     desc: Run all tests
-    cmd: pytest tests/ --disable-warnings
+    cmd: pytest tests/ --disable-warnings --no-cov
     silent: true
 
   test:junit:
     desc: Run all tests and generate JUnit report
     cmds:
-      - pytest tests/ --junitxml=junit.xml --disable-warnings
+      - pytest tests/ --junitxml=junit.xml --disable-warnings --no-cov
       - echo "JUnit report generated in junit.xml"
     silent: true
 
   test:core:
     desc: Run core subpackage tests
-    cmd: pytest tests/core
+    cmd: pytest tests/core --no-cov
     silent: true
 
   test:core:client:
     desc: Run client module tests
-    cmd: pytest tests/core/test_client.py
+    cmd: pytest tests/core/test_client.py --no-cov
     silent: true
 
   test:core:models:
     desc: Run models module tests
-    cmd: pytest tests/core/test_models.py
+    cmd: pytest tests/core/test_models.py --no-cov
     silent: true
 
   test:core:adoption:
     desc: Run adoption module tests
-    cmd: pytest tests/core/test_adoption.py
+    cmd: pytest tests/core/test_adoption.py --no-cov
     silent: true
 
   test:utils:
     desc: Run utils subpackage tests
-    cmd: pytest tests/utils
+    cmd: pytest tests/utils --no-cov
     silent: true
 
   test:utils:scanner:
     desc: Run scanner module tests
-    cmd: pytest tests/utils/test_scanner.py
+    cmd: pytest tests/utils/test_scanner.py --no-cov
     silent: true
 
   test:cli:
     desc: Run cli subpackage tests
-    cmd: pytest tests/cli
+    cmd: pytest tests/cli --no-cov
     silent: true
 
   test:cli:commands:
     desc: Run commands module tests
-    cmd: pytest tests/cli/test_commands.py
+    cmd: pytest tests/cli/test_commands.py --no-cov
     silent: true
 
   test:cli:printer:
     desc: Run printer module tests
-    cmd: pytest tests/cli/test_printer.py
+    cmd: pytest tests/cli/test_printer.py --no-cov
     silent: true
 
   #### Coverage ####

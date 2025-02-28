@@ -429,8 +429,9 @@ class Repository:
         name: Repository name
         default_branch: Repository default branch
         project_id: Project identifier
-        compliant_pipelines: List of pipelines that use tracked templates
         total_no_pipelines: Total count of YAML pipelines in the repository
+        compliant_pipelines: List of pipelines that use tracked templates
+        non_compliant_pipelines: List of pipelines that do not use tracked templates
     """
 
     id: str
@@ -440,6 +441,7 @@ class Repository:
 
     total_no_pipelines: int = 0
     compliant_pipelines: list["Pipeline"] = field(default_factory=list)
+    non_compliant_pipelines: list["Pipeline"] = field(default_factory=list)
 
     @classmethod
     def from_get_response(cls, data: dict[str, Any]) -> "Repository":
@@ -473,9 +475,18 @@ class Repository:
         return False
 
     @property
-    def adoption_rate(self) -> float:
+    def pipeline_adoption_rate(self) -> float:
         """Calculate adoption rate as percentage."""
         return (len(self.compliant_pipelines) / self.total_no_pipelines) * 100 if self.total_no_pipelines > 0 else 0.0
+
+    @property
+    def pipeline_non_compliance_rate(self) -> float:
+        """Calculate non-compliant rate as percentage."""
+        return (
+            (len(self.non_compliant_pipelines) / self.total_no_pipelines) * 100
+            if self.total_no_pipelines > 0
+            else 100.0
+        )
 
 
 @dataclass(frozen=False)
@@ -488,8 +499,10 @@ class Project:
         name: Project name
         total_no_repositories: Total count of repositories in the project
         compliant_repositories: List of repositories that use tracked templates
+        non_compliant_repositories: List of repositories that do not use tracked templates
         total_no_pipelines: Total count of YAML pipelines in the project
         compliant_pipelines: List of pipelines that use tracked templates
+        non_compliant_pipelines: List of pipelines that do not use tracked templates
     """
 
     id: str
@@ -497,9 +510,11 @@ class Project:
 
     total_no_repositories: int = 0
     compliant_repositories: list["Repository"] = field(default_factory=list)
+    non_compliant_repositories: list["Repository"] = field(default_factory=list)
 
     total_no_pipelines: int = 0
     compliant_pipelines: list["Pipeline"] = field(default_factory=list)
+    non_compliant_pipelines: list["Pipeline"] = field(default_factory=list)
 
     @classmethod
     def from_get_response(cls, data: dict[str, Any]) -> "Project":
@@ -537,10 +552,27 @@ class Project:
         )
 
     @property
+    def repository_non_compliance_rate(self) -> float:
+        """Calculate non-compliant repository rate as percentage."""
+        return (
+            (len(self.non_compliant_repositories) / self.total_no_repositories) * 100
+            if self.total_no_repositories > 0
+            else 100.0
+        )
+
+    @property
     def pipeline_adoption_rate(self) -> float:
         """Calculate pipeline adoption rate as percentage."""
-        compliant_pipelines = sum(len(repo.compliant_pipelines) for repo in self.compliant_repositories)
-        return (compliant_pipelines / self.total_no_pipelines) * 100 if self.total_no_pipelines > 0 else 0.0
+        return (len(self.compliant_pipelines) / self.total_no_pipelines) * 100 if self.total_no_pipelines > 0 else 0.0
+
+    @property
+    def pipeline_non_compliance_rate(self) -> float:
+        """Calculate non-compliant pipeline rate as percentage."""
+        return (
+            (len(self.non_compliant_pipelines) / self.total_no_pipelines) * 100
+            if self.total_no_pipelines > 0
+            else 100.0
+        )
 
 
 @dataclass(frozen=False)
@@ -552,27 +584,40 @@ class Organization:
         name: Organization name
         total_no_projects: Total count of projects in the organization
         compliant_projects: List of projects that use tracked templates
+        non_compliant_projects: List of projects that do not use tracked templates
         total_no_repositories: Total count of repositories in the organization
         compliant_repositories: List of repositories that use tracked templates
+        non_compliant_repositories: List of repositories that do not use tracked templates
         total_no_pipelines: Total count of pipelines in the organization
         compliant_pipelines: List of pipelines that use tracked templates
+        non_compliant_pipelines: List of pipelines that do not use tracked templates
     """
 
     name: str
 
     total_no_projects: int = 0
     compliant_projects: list["Project"] = field(default_factory=list)
+    non_compliant_projects: list["Project"] = field(default_factory=list)
 
     total_no_repositories: int = 0
     compliant_repositories: list["Repository"] = field(default_factory=list)
+    non_compliant_repositories: list["Repository"] = field(default_factory=list)
 
     total_no_pipelines: int = 0
     compliant_pipelines: list["Pipeline"] = field(default_factory=list)
+    non_compliant_pipelines: list["Pipeline"] = field(default_factory=list)
 
     @property
     def project_adoption_rate(self) -> float:
         """Calculate project adoption rate as percentage."""
         return (len(self.compliant_projects) / self.total_no_projects) * 100 if self.total_no_projects > 0 else 0.0
+
+    @property
+    def project_non_compliance_rate(self) -> float:
+        """Calculate non-compliant project rate as percentage."""
+        return (
+            (len(self.non_compliant_projects) / self.total_no_projects) * 100 if self.total_no_projects > 0 else 100.0
+        )
 
     @property
     def repository_adoption_rate(self) -> float:
@@ -584,9 +629,27 @@ class Organization:
         )
 
     @property
+    def repository_non_compliance_rate(self) -> float:
+        """Calculate non-compliant repository rate as percentage."""
+        return (
+            (len(self.non_compliant_repositories) / self.total_no_repositories) * 100
+            if self.total_no_repositories > 0
+            else 100.0
+        )
+
+    @property
     def pipeline_adoption_rate(self) -> float:
         """Calculate pipeline adoption rate as percentage."""
         return (len(self.compliant_pipelines) / self.total_no_pipelines) * 100 if self.total_no_pipelines > 0 else 0.0
+
+    @property
+    def pipeline_non_compliance_rate(self) -> float:
+        """Calculate non-compliant pipeline rate as percentage."""
+        return (
+            (len(self.non_compliant_pipelines) / self.total_no_pipelines) * 100
+            if self.total_no_pipelines > 0
+            else 100.0
+        )
 
     def is_compliant(self, mode: ComplianceMode) -> bool:
         """
@@ -707,16 +770,20 @@ class ViewMode(Enum):
         TARGET: Results organized by project/repository/pipeline hierarchy
         SOURCE: Results organized by template usage and coverage
         OVERVIEW: Overall metrics, trends and compliance status
+        NON_COMPLIANT: Results filtered to show non-compliant resources
     """
 
     TARGET = "target"  # View by ADO hierarchy
     SOURCE = "source"  # View by template usage
     OVERVIEW = "overview"  # View overall metrics
+    NON_COMPLIANT = "non_compliant"  # View non-compliant pipelines
 
     @classmethod
     def from_string(cls, value: str) -> "ViewMode":
         """Convert a string to a ViewMode enum."""
         try:
+            if value == "non-compliant":
+                return cls.NON_COMPLIANT
             return cls[value.upper()]
         except KeyError as e:
             valid = ", ".join(m.name.lower() for m in cls)
