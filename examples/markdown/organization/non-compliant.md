@@ -5,7 +5,7 @@
 - Compliance Mode: ANY
 - Scope: ORGANIZATION
 - Status: Compliant
-- Processing Time: 30.14s
+- Processing Time: 27.88s
 
 ### Non-Compliance Statistics
 

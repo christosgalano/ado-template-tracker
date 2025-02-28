@@ -8,5 +8,5 @@
 │ Template Statistics    │ Total Templates       │ 1         │ 1 total use(s)       │
 │                        │ terraform/deploy.yaml │ 1 use(s)  │ Single pipeline view │
 ├────────────────────────┼───────────────────────┼───────────┼──────────────────────┤
-│ Performance            │ Processing Time       │ 0.13s     │                      │
+│ Performance            │ Processing Time       │ 0.12s     │                      │
 └────────────────────────┴───────────────────────┴───────────┴──────────────────────┘

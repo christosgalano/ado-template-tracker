@@ -42,4 +42,4 @@ Pipelines: 1
 
 Total Templates: 5
 Total Uses: 48
-Processing Time: 30.14s
+Processing Time: 27.88s

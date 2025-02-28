@@ -13,5 +13,5 @@
 │ Adoption Metrics       │ Pipeline Adoption            │ 44.4%     │ 8 of 18 pipelines            │
 │                        │ Repository Adoption          │ 33.3%     │ 3 of 9 repositories          │
 ├────────────────────────┼──────────────────────────────┼───────────┼──────────────────────────────┤
-│ Performance            │ Processing Time              │ 0.80s     │                              │
+│ Performance            │ Processing Time              │ 0.62s     │                              │
 └────────────────────────┴──────────────────────────────┴───────────┴──────────────────────────────┘

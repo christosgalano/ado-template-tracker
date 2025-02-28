@@ -4,7 +4,7 @@
 - Compliance Status: Compliant
 - Compliant Pipelines: 50.0% (6/12)
 
-# administration
+## administration
 
 Compliant Pipelines: 50.0% (6/12)
 

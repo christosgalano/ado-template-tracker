@@ -6,7 +6,7 @@ Name: administration
 Scope: REPOSITORY
 Compliance Mode: ANY
 Compliance Status: Compliant
-Processing Time: 0.52s
+Processing Time: 0.66s
 
 Non-Compliance Statistics:
 - Non-Compliant Pipelines: 50.0% (6/12)

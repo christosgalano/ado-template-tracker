@@ -1468,6 +1468,7 @@ class AdoptionMarkdownPrinter(AdoptionPrinter):
             self._print_overview()
         else:
             self._print_non_compliant()
+        self._write("")
 
     def _print_organization(self, organization: Organization) -> None:  # pragma: no cover
         """Print organization adoption data as Markdown."""
@@ -1547,7 +1548,7 @@ class AdoptionMarkdownPrinter(AdoptionPrinter):
 
         # Repository details sections
         for repo in project.compliant_repositories:
-            self._print_repository_details(repo, lines, is_subsection=True)
+            self._print_repository_details(repo, lines, header_level="###")
 
         if write_output:
             self._write("\n".join(lines))
@@ -1570,11 +1571,9 @@ class AdoptionMarkdownPrinter(AdoptionPrinter):
         self,
         repository: Repository,
         lines: list[str],
-        is_subsection: bool = False,  # noqa: FBT001, FBT002
+        header_level: str = "##",
     ) -> None:
         """Print repository details as Markdown section."""
-        header_level = "###" if is_subsection else "#"
-
         lines.extend(
             [
                 f"{header_level} {repository.name}",
