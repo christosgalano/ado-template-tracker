@@ -1,0 +1,163 @@
+# File: track-pipeline-library-adoption.yaml
+#
+# Description:
+# This pipeline tracks the adoption of pipeline templates across various Azure DevOps scopes.
+# It analyzes template usage from a source repository and generates reports on adoption
+# status across target projects, repositories or specific pipelines.
+#
+# Requirements:
+# - The pipeline can be triggered manually or scheduled to run periodically
+# - It must be executed on an agent with:
+#   - Python 3.12 or later
+#   - Network access to Azure DevOps API endpoints
+#   - Permission to read pipeline definitions from target projects
+# - A variable group named 'ado-template-tracker' must be linked to the pipeline with:
+#   - ADO_ORGANIZATION: Azure DevOps organization name
+#   - ADO_TOKEN: PAT token with read access to repositories and pipelines
+#
+# Outputs:
+# - JSON and Markdown reports showing template adoption metrics
+# - Reports are published as artifacts for later analysis
+
+trigger: none
+
+# schedules:
+# - cron: "0 0 * * 0" # Weekly on Sunday at midnight
+#   displayName: Weekly template adoption tracking
+#   branches:
+#     include:
+#     - main
+#   always: true
+
+pool:
+  vmImage: ubuntu-latest
+
+parameters:
+  - name: organization
+    displayName: Azure DevOps Organization
+    type: string
+
+  - name: target_project
+    displayName: Target Project (optional)
+    type: string
+    default: '-'
+
+  - name: target_repository
+    displayName: Target Repository (optional)
+    type: string
+    default: '-'
+
+  - name: target_pipeline_id
+    displayName: Target Pipeline ID (optional)
+    type: number
+    default: 0
+
+  - name: compliance_mode
+    displayName: Compliance Mode
+    type: string
+    default: 'any'
+    values:
+      - any
+      - majority
+      - all
+
+  - name: view_mode
+    displayName: View Mode
+    type: string
+    default: 'target'
+    values:
+      - target
+      - source
+      - overview
+      - non-compliant
+
+  - name: source_project
+    displayName: Template Source Project
+    type: string
+
+  - name: source_repository
+    displayName: Template Source Repository
+    type: string
+
+  - name: source_template
+    displayName: Template Source Path (optional, relative to repository root)
+    type: string
+    default: '-'
+
+  - name: source_branch
+    displayName: Template Source Branch
+    type: string
+    default: 'main'
+
+jobs:
+  - job: track_template_adoption
+    displayName: Track Template Adoption
+    variables:
+      OUTPUT_DIR: '$(Build.ArtifactStagingDirectory)/tracking-results'
+    steps:
+      - script: |
+          # Display debug info
+          echo "Python version: $(python --version)"
+          echo "Working directory: $(pwd)"
+
+          # Set up Python environment
+          sudo apt install python3-venv -y
+          python -m venv .venv
+          source .venv/bin/activate
+
+          # Install the package
+          pip install --upgrade pip
+          pip install -e PATH/TO/ADO-TEMPLATE-TRACKER
+
+          # Create output dir
+          mkdir -p "$(OUTPUT_DIR)"
+        displayName: Set up Python environment
+
+      - script: |
+          source .venv/bin/activate
+
+          CMD="ado-template-tracker --organization \"${{ parameters.organization }}\""
+
+          # Add source parameters (all required except template)
+          CMD="$CMD --source-project \"${{ parameters.source_project }}\""
+          CMD="$CMD --source-repository \"${{ parameters.source_repository }}\""
+          CMD="$CMD --source-branch \"${{ parameters.source_branch }}\""
+
+          # Add source template if specified
+          if [ -n "${{ parameters.source_template }}" ] && [ "${{ parameters.source_template }}" != "-" ]; then
+            CMD="$CMD --source-template \"${{ parameters.source_template }}\""
+          fi
+
+          # Add target parameters (all optional)
+          if [ -n "${{ parameters.target_project }}" ] && [ "${{ parameters.target_project }}" != "-" ]; then
+            CMD="$CMD --target-project \"${{ parameters.target_project }}\""
+          fi
+
+          if [ -n "${{ parameters.target_repository }}" ] && [ "${{ parameters.target_repository }}" != "-" ]; then
+            CMD="$CMD --target-repository \"${{ parameters.target_repository }}\""
+          fi
+
+          if [ "${{ parameters.target_pipeline_id }}" -ne 0 ]; then
+            CMD="$CMD --target-pipeline-id ${{ parameters.target_pipeline_id }}"
+          fi
+
+          # Add compliance and view mode
+          CMD="$CMD --compliance-mode \"${{ parameters.compliance_mode }}\""
+          CMD="$CMD --output-view \"${{ parameters.view_mode }}\""
+
+          # Add output formats and files
+          CMD="$CMD --output-format json markdown"
+          CMD="$CMD --output-file $(OUTPUT_DIR)/adoption-report.json $(OUTPUT_DIR)/adoption-report.md"
+
+          # Execute the command
+          eval "$CMD"
+        displayName: Track template adoption
+
+      - script: rm -rf .venv
+        displayName: Clean up
+
+      - task: PublishBuildArtifacts@1
+        inputs:
+          pathToPublish: $(OUTPUT_DIR)
+          artifactName: template-adoption-report
+        displayName: Publish results

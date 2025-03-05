@@ -241,13 +241,16 @@ def parse_args() -> argparse.Namespace:
     output_group.add_argument(
         "--output-format",
         choices=["plain", "rich", "json", "markdown"],
-        default="rich",
-        help="Output format for results (default: rich)",
+        nargs="+",  # Allow multiple choices
+        default=["rich"],  # Default to rich output only
+        help="Output format(s) for results (default: rich). Multiple formats can be specified.",
     )
     output_group.add_argument(
         "--output-file",
         default=None,
-        help="Output file (optional, default: stdout)",
+        help="Output file (only used when a single output format is specified). When multiple formats are requested, "
+        "standard outputs are used for plain/rich formats, and adoption-report.[json|md] files are created for "
+        "file-based formats.",
     )
     output_group.add_argument(
         "--output-view",
@@ -310,19 +313,40 @@ async def run(args: argparse.Namespace) -> None:
 
         view_mode = create_view_mode(args.output_view)
 
-        printer_cls = {
-            "plain": AdoptionPlainPrinter,
-            "rich": AdoptionRichPrinter,
-            "json": AdoptionJSONPrinter,
-            "markdown": AdoptionMarkdownPrinter,
-        }.get(args.output_format)
+        # Handle multiple output formats
+        for output_format in args.output_format:
+            printer_cls = {
+                "plain": AdoptionPlainPrinter,
+                "rich": AdoptionRichPrinter,
+                "json": AdoptionJSONPrinter,
+                "markdown": AdoptionMarkdownPrinter,
+            }.get(output_format)
 
-        if printer_cls is None:
-            error_message = f"Invalid output format: {args.output_format}. Must be one of: plain, rich, json, markdown"
-            raise ValueError(error_message)
+            if printer_cls is None:
+                error_message = f"Invalid output format: {output_format}. Must be one of: plain, rich, json, markdown"
+                raise ValueError(error_message)
 
-        printer = printer_cls(result, metrics)
-        printer.print(view_mode=view_mode, output_file=args.output_file)
+            # And then in the run function, update the comment and logic:
+            # Determine output destination based on format and number of requested formats
+            output_file = None
+            if len(args.output_format) > 1:
+                # When multiple formats are requested, ignore any output_file argument
+                # and use standard conventions:
+                # - plain/rich go to stdout
+                # - json/markdown go to default filenames in current directory
+                if output_format in ["json", "markdown"]:
+                    output_file = f"adoption-report.{output_format}"
+                # plain/rich implicitly go to stdout (output_file = None)
+            else:
+                # Single format requested - respect the output_file if provided
+                output_file = args.output_file
+
+                # If no output file is provided but format needs a file, use default naming
+                if output_file is None and output_format in ["json", "markdown"]:
+                    output_file = f"adoption-report.{output_format}"
+
+            printer = printer_cls(result, metrics)
+            printer.print(view_mode=view_mode, output_file=output_file)
 
 
 def main() -> None:
