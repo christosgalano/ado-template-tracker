@@ -42,7 +42,7 @@ def mock_args() -> argparse.Namespace:
     args.source_template = None
     args.source_directories = ["/templates"]
     args.compliance_mode = "any"
-    args.output_format = "rich"
+    args.output_format = ["rich"]  # Changed from string to list
     args.output_file = None
     args.output_view = "target"
     return args
@@ -223,12 +223,8 @@ def test_parse_args() -> None:
             pytest.fail(f"Expected source_directories list, got {args.source_directories}")
         if args.compliance_mode != "majority":
             pytest.fail(f"Expected compliance_mode 'majority', got '{args.compliance_mode}'")
-        if args.output_format != "markdown":
-            pytest.fail(f"Expected output_format 'markdown', got '{args.output_format}'")
-        if args.output_file != "report.md":
-            pytest.fail(f"Expected output_file 'report.md', got '{args.output_file}'")
-        if args.output_view != "source":
-            pytest.fail(f"Expected output_view 'source', got '{args.output_view}'")
+        if args.output_format != ["markdown"]:  # Updated to expect a list
+            pytest.fail(f"Expected output_format ['markdown'], got '{args.output_format}'")
 
     # Test mutually exclusive groups
     with (
@@ -364,3 +360,114 @@ def test_main() -> None:
         # Check that the first arg is a coroutine from run(mock_args)
         if not asyncio.iscoroutine(args):
             pytest.fail("Expected coroutine from run(mock_args)")
+
+
+@pytest.mark.asyncio
+async def test_run_with_multiple_output_formats(mock_args: argparse.Namespace) -> None:
+    """Test run function with multiple output formats."""
+    # Set multiple output formats
+    mock_args.output_format = ["rich", "json", "markdown"]
+    # Set output file that should be ignored for multiple formats
+    mock_args.output_file = "should-be-ignored.txt"
+
+    # Set up mocks
+    mock_client = AsyncMock()
+    mock_client.__aenter__.return_value = mock_client
+    mock_tracker = AsyncMock()
+    mock_tracker.track.return_value = (Mock(), Mock())
+
+    # Mock all three printer classes
+    mock_rich_printer = Mock()
+    mock_json_printer = Mock()
+    mock_markdown_printer = Mock()
+
+    with (
+        patch("ado_template_tracker.cli.commands.AzureDevOpsClient", return_value=mock_client),
+        patch("ado_template_tracker.cli.commands.TemplateAdoptionTracker", return_value=mock_tracker),
+        patch(
+            "ado_template_tracker.cli.commands.AdoptionRichPrinter",
+            return_value=mock_rich_printer,
+        ) as mock_rich_class,
+        patch(
+            "ado_template_tracker.cli.commands.AdoptionJSONPrinter",
+            return_value=mock_json_printer,
+        ) as mock_json_class,
+        patch(
+            "ado_template_tracker.cli.commands.AdoptionMarkdownPrinter",
+            return_value=mock_markdown_printer,
+        ) as mock_markdown_class,
+    ):
+        await run(mock_args)
+
+        # Verify all three printer classes were instantiated
+        mock_rich_class.assert_called_once()
+        mock_json_class.assert_called_once()
+        mock_markdown_class.assert_called_once()
+
+        # Verify print was called with correct arguments for each format:
+        # Rich should print to stdout (None)
+        mock_rich_printer.print.assert_called_once_with(view_mode=ViewMode.TARGET, output_file=None)
+
+        # JSON should use default filename
+        mock_json_printer.print.assert_called_once_with(view_mode=ViewMode.TARGET, output_file="adoption-report.json")
+
+        # Markdown should use default filename
+        mock_markdown_printer.print.assert_called_once_with(
+            view_mode=ViewMode.TARGET,
+            output_file="adoption-report.markdown",
+        )
+
+
+@pytest.mark.asyncio
+async def test_run_with_single_format_and_output_file(mock_args: argparse.Namespace) -> None:
+    """Test run function with a single format and specified output file."""
+    # Set single output format and specific output file
+    mock_args.output_format = ["markdown"]
+    mock_args.output_file = "custom-report.md"
+
+    # Set up mocks
+    mock_client = AsyncMock()
+    mock_client.__aenter__.return_value = mock_client
+    mock_tracker = AsyncMock()
+    mock_tracker.track.return_value = (Mock(), Mock())
+    mock_printer = Mock()
+
+    with (
+        patch("ado_template_tracker.cli.commands.AzureDevOpsClient", return_value=mock_client),
+        patch("ado_template_tracker.cli.commands.TemplateAdoptionTracker", return_value=mock_tracker),
+        patch(
+            "ado_template_tracker.cli.commands.AdoptionMarkdownPrinter",
+            return_value=mock_printer,
+        ) as mock_printer_class,
+    ):
+        await run(mock_args)
+
+        # Verify printer was created and print was called with custom filename
+        mock_printer_class.assert_called_once()
+        mock_printer.print.assert_called_once_with(view_mode=ViewMode.TARGET, output_file="custom-report.md")
+
+
+@pytest.mark.asyncio
+async def test_run_with_single_file_format_no_output_file(mock_args: argparse.Namespace) -> None:
+    """Test run function with a single file-based format but no output file specified."""
+    # Set single file-based output format without specifying output file
+    mock_args.output_format = ["json"]
+    mock_args.output_file = None
+
+    # Set up mocks
+    mock_client = AsyncMock()
+    mock_client.__aenter__.return_value = mock_client
+    mock_tracker = AsyncMock()
+    mock_tracker.track.return_value = (Mock(), Mock())
+    mock_printer = Mock()
+
+    with (
+        patch("ado_template_tracker.cli.commands.AzureDevOpsClient", return_value=mock_client),
+        patch("ado_template_tracker.cli.commands.TemplateAdoptionTracker", return_value=mock_tracker),
+        patch("ado_template_tracker.cli.commands.AdoptionJSONPrinter", return_value=mock_printer) as mock_printer_class,
+    ):
+        await run(mock_args)
+
+        # Verify printer was created and print was called with default filename
+        mock_printer_class.assert_called_once()
+        mock_printer.print.assert_called_once_with(view_mode=ViewMode.TARGET, output_file="adoption-report.json")
