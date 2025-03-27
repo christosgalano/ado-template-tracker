@@ -215,6 +215,62 @@ def test_compliance_mode_from_string() -> None:
         ComplianceMode.from_string("invalid")
 
 
+def test_adoption_get_unique_templates() -> None:
+    """Test Adoption.get_unique_templates method returns unique templates."""
+    # Create a few templates
+    template1 = Template(
+        name="template1.yaml",
+        path="templates/template1.yaml",
+        repository="repo",
+        project="project",
+    )
+
+    template2 = Template(
+        name="template2.yaml",
+        path="templates/template2.yaml",
+        repository="repo",
+        project="project",
+    )
+
+    # Create duplicate of template1 (same path, project, repository)
+    template1_duplicate = Template(
+        name="template1.yaml",
+        path="templates/template1.yaml",
+        repository="repo",
+        project="project",
+    )
+
+    # Create adoption with duplicate templates
+    adoption = Adoption(
+        usage_type=UsageType.INCLUDE,
+        templates=[template1, template2, template1_duplicate],
+    )
+
+    # Get unique templates
+    unique_templates = adoption.get_unique_templates()
+
+    # Check count of unique templates
+    if len(unique_templates) != 2:
+        pytest.fail(f"Expected 2 unique templates, got {len(unique_templates)}")
+
+    # Check that each unique template is in the result
+    template_paths = [t.path for t in unique_templates]
+    if "templates/template1.yaml" not in template_paths:
+        pytest.fail("Expected template1.yaml to be in the unique templates")
+    if "templates/template2.yaml" not in template_paths:
+        pytest.fail("Expected template2.yaml to be in the unique templates")
+
+    # Verify that uniqueness is based on the object's equality (path, repository, project)
+    # Create a different instance but with same values
+    adoption2 = Adoption(
+        usage_type=UsageType.EXTEND,
+        templates=[template1, template1],
+    )
+    unique_templates2 = adoption2.get_unique_templates()
+    if len(unique_templates2) != 1:
+        pytest.fail(f"Expected 1 unique template when using identical templates, got {len(unique_templates2)}")
+
+
 def test_adoption_metrics_add_template_usage() -> None:
     """Test AdoptionMetrics template usage tracking."""
     target = AdoptionTarget(organization="TestOrg", project="TestProject")

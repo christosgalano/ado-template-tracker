@@ -244,7 +244,7 @@ class AdoptionPlainPrinter(AdoptionPrinter):
                 for pipeline in repo.compliant_pipelines:
                     if pipeline.adoption:
                         self._write(f"\n    Pipeline: {format_pipeline_path(pipeline)}")
-                        for template in pipeline.adoption.templates:
+                        for template in pipeline.adoption.get_unique_templates():
                             self._write(f"      Template: {format_template_path(template)}")
                         self._write(f"      Usage: {pipeline.adoption.usage_type.value}")
 
@@ -285,7 +285,7 @@ class AdoptionPlainPrinter(AdoptionPrinter):
             for pipeline in repo.compliant_pipelines:
                 if pipeline.adoption:
                     self._write(f"\n  Pipeline: {format_pipeline_path(pipeline)}")
-                    for template in pipeline.adoption.templates:
+                    for template in pipeline.adoption.get_unique_templates():
                         self._write(f"    Template: {format_template_path(template)}")
                     self._write(f"    Usage: {pipeline.adoption.usage_type.value}")
             self._write()
@@ -307,7 +307,7 @@ class AdoptionPlainPrinter(AdoptionPrinter):
         for pipeline in repository.compliant_pipelines:
             if pipeline.adoption:
                 self._write(f"\nPipeline: {format_pipeline_path(pipeline)}")
-                for template in pipeline.adoption.templates:
+                for template in pipeline.adoption.get_unique_templates():
                     self._write(f"  Template: {format_template_path(template)}")
                 self._write(f"  Usage: {pipeline.adoption.usage_type.value}")
             self._write()
@@ -323,7 +323,7 @@ class AdoptionPlainPrinter(AdoptionPrinter):
         self._write("=" * 80)
 
         if pipeline.adoption:
-            for template in pipeline.adoption.templates:
+            for template in pipeline.adoption.get_unique_templates():
                 usage_count = self.metrics.template_usage.get(template.path, 0)
                 self._write(f"Template: {format_template_path(template)}")
                 self._write(f"Usage Type: {pipeline.adoption.usage_type.value}")
@@ -478,7 +478,7 @@ class AdoptionPlainPrinter(AdoptionPrinter):
             if pipeline.is_compliant():
                 if pipeline.adoption:
                     self._write(f"Templates ({pipeline.adoption.usage_type.value}):")
-                    for template in pipeline.adoption.templates:
+                    for template in pipeline.adoption.get_unique_templates():
                         self._write(f"- {format_template_path(template)}")
             else:
                 self._write("This pipeline is non-compliant.")
@@ -607,7 +607,7 @@ class AdoptionRichPrinter(AdoptionPrinter):
                 first_pipeline = True
                 for pipeline in repo.compliant_pipelines:
                     if pipeline.adoption:
-                        template_paths = [format_template_path(t) for t in pipeline.adoption.templates]
+                        template_paths = [format_template_path(t) for t in pipeline.adoption.get_unique_templates()]
 
                         table.add_row(
                             project.name if first_repository else "",
@@ -657,7 +657,7 @@ class AdoptionRichPrinter(AdoptionPrinter):
             first_pipeline = True
             for pipeline in repo.compliant_pipelines:
                 if pipeline.adoption:
-                    template_paths = [format_template_path(t) for t in pipeline.adoption.templates]
+                    template_paths = [format_template_path(t) for t in pipeline.adoption.get_unique_templates()]
 
                     table.add_row(
                         repo.name if first_pipeline else "",
@@ -708,7 +708,7 @@ class AdoptionRichPrinter(AdoptionPrinter):
 
         for pipeline in repository.compliant_pipelines:
             if pipeline.adoption:
-                template_paths = [format_template_path(t) for t in pipeline.adoption.templates]
+                template_paths = [format_template_path(t) for t in pipeline.adoption.get_unique_templates()]
 
                 table.add_row(
                     format_pipeline_path(pipeline),
@@ -737,7 +737,7 @@ class AdoptionRichPrinter(AdoptionPrinter):
         table.add_column("Template Usage", style="yellow", justify="right")
 
         if pipeline.adoption:
-            for template in pipeline.adoption.templates:
+            for template in pipeline.adoption.get_unique_templates():
                 usage_count = self.metrics.template_usage.get(template.path, 0)
                 table.add_row(
                     template.path,
@@ -963,7 +963,7 @@ class AdoptionRichPrinter(AdoptionPrinter):
                 status_table.add_column("Usage Type", style="yellow")
                 templates = []
                 if pipeline.adoption:
-                    for template in pipeline.adoption.templates:
+                    for template in pipeline.adoption.get_unique_templates():
                         templates.extend([format_template_path(template)])
                 status_table.add_row("\n".join(templates), pipeline.adoption.usage_type.value)
                 self._write(status_table)
@@ -1274,7 +1274,7 @@ class AdoptionJSONPrinter(AdoptionPrinter):
                             "path": format_template_path(t),
                             "usage_type": pipeline.adoption.usage_type.value,
                         }
-                        for t in pipeline.adoption.templates
+                        for t in pipeline.adoption.get_unique_templates()
                     ]
                     if pipeline.adoption
                     else [],
@@ -1587,7 +1587,7 @@ class AdoptionMarkdownPrinter(AdoptionPrinter):
 
         for pipeline in repository.compliant_pipelines:
             if pipeline.adoption:
-                templates = "<br>".join(format_template_path(t) for t in pipeline.adoption.templates)
+                templates = "<br>".join(format_template_path(t) for t in pipeline.adoption.get_unique_templates())
                 lines.append(
                     f"| {format_pipeline_path(pipeline)} | {templates} | {pipeline.adoption.usage_type.value} |",
                 )
@@ -1613,7 +1613,7 @@ class AdoptionMarkdownPrinter(AdoptionPrinter):
                 ],
             )
 
-            for template in pipeline.adoption.templates:
+            for template in pipeline.adoption.get_unique_templates():
                 usage_count = self.metrics.template_usage.get(template.path, 0)
                 lines.append(
                     f"| {format_template_path(template)} | {pipeline.adoption.usage_type.value} | {usage_count} pipeline(s) |",
@@ -1841,7 +1841,7 @@ class AdoptionMarkdownPrinter(AdoptionPrinter):
                         "|----------|------------|",
                     ],
                 )
-                for template in pipeline.adoption.templates:
+                for template in pipeline.adoption.get_unique_templates():
                     lines.extend([f"| {format_template_path(template)} | {pipeline.adoption.usage_type.value} |"])
                 lines.append("")
 

@@ -342,6 +342,16 @@ class Template:
     project: str
     content: str | None = None
 
+    def __eq__(self, other: object) -> bool:
+        """Determine if two templates are the same based on path, repository, and project."""
+        if not isinstance(other, Template):
+            return False
+        return self.path == other.path and self.repository == other.repository and self.project == other.project
+
+    def __hash__(self) -> int:
+        """Hash based on path, repository, and project."""
+        return hash((self.path, self.repository, self.project))
+
 
 class UsageType(Enum):
     """Represents the type of pipeline library usage."""
@@ -360,6 +370,10 @@ class Adoption:
 
     usage_type: UsageType
     templates: list[Template]
+
+    def get_unique_templates(self) -> list[Template]:
+        """Return a list of unique templates."""
+        return list(set(self.templates))
 
 
 @dataclass(frozen=False)
