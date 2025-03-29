@@ -1,8 +1,0 @@
-[
-  {
-    "template": "terraform/deploy.yaml",
-    "usage_count": 6,
-    "usage_percent": 100.0,
-    "pipeline_count": 6
-  }
-]
