@@ -1,0 +1,43 @@
+
+administration
+Scope: Repository
+Mode: Majority
+Status: Non-Compliant
+Pipeline Adoption Rate: 46.2% (6/13)
+================================================================================
+
+Pipeline: administration/aad-group-myomada-creation
+  Template: pipeline-library/terraform/deploy.yaml
+  Usage: include
+
+--------------------------------------------------------------------------------
+
+Pipeline: administration/create-application-registration
+  Template: pipeline-library/terraform/deploy.yaml
+  Usage: include
+
+--------------------------------------------------------------------------------
+
+Pipeline: administration/create-project
+  Template: pipeline-library/terraform/deploy.yaml
+  Usage: extend
+
+--------------------------------------------------------------------------------
+
+Pipeline: administration/create-repository
+  Template: pipeline-library/terraform/deploy.yaml
+  Usage: include
+
+--------------------------------------------------------------------------------
+
+Pipeline: administration/create-self-hosted-agent
+  Template: pipeline-library/terraform/deploy.yaml
+  Usage: include
+
+--------------------------------------------------------------------------------
+
+Pipeline: administration/create-template-repository
+  Template: pipeline-library/terraform/deploy.yaml
+  Usage: include
+
+--------------------------------------------------------------------------------

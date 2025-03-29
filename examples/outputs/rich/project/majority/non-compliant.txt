@@ -1,0 +1,42 @@
+          Non-Compliance Report
+ Scope            PROJECT
+ Name             CCHBC-Governance-Center
+ Mode             MAJORITY
+ Status           Non-Compliant
+ Processing Time  0.66s
+
+              Non-Compliance Statistics
+┏━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━┳━━━━━━━┳━━━━━━━━━━━━┓
+┃ Resource Type ┃ Non-Compliant ┃ Total ┃ Percentage ┃
+┡━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━╇━━━━━━━╇━━━━━━━━━━━━┩
+│ Repositories  │             7 │     9 │      77.8% │
+│ Pipelines     │            11 │    19 │      57.9% │
+└───────────────┴───────────────┴───────┴────────────┘
+        Non-Compliant Repositories
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃ Repository                              ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┩
+│ administration                          │
+│ knowledge-base                          │
+│ knowledge-base-cloud-automation         │
+│ Reporting                               │
+│ resource-protection                     │
+│ terraform-module-template-repo          │
+│ terraform-structure-example-with-tfvars │
+└─────────────────────────────────────────┘
+                               Non-Compliant Pipelines
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃ Pipeline                                                                          ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┩
+│ administration/add-repository-pipelines                                           │
+│ administration/get-aad-applications                                               │
+│ administration/get-pipelines-by-pool                                              │
+│ knowledge-base-cloud-automation/knowledge-base-cloud-automation-replicate-to-wiki │
+│ knowledge-base/knowledge-base-replicate-to-wiki                                   │
+│ policy-library/policy-library-push-policy-bundle                                  │
+│ resource-protection/resource-protection-add-protection-checks                     │
+│ administration/run-repository-pipelines                                           │
+│ administration/test-self-hosted-agent                                             │
+│ administration/track-pipeline-library-adoption                                    │
+│ administration/update-self-hosted-agent                                           │
+└───────────────────────────────────────────────────────────────────────────────────┘

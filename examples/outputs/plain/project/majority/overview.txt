@@ -1,0 +1,23 @@
+
+Adoption Overview
+================================================================================
+
+Name: CCHBC-Governance-Center
+Scope: Project
+Mode: Majority
+Status: Non-Compliant
+
+Template Statistics:
+Total Templates: 3
+Usage Count: 8
+
+Most Used Templates:
+  - terraform/deploy.yaml: 6 use(s) (75.0% of compliant pipelines)
+  - tools/install-tools.yaml: 1 use(s) (12.5% of compliant pipelines)
+  - terraform/generate-docs.yaml: 1 use(s) (12.5% of compliant pipelines)
+
+Adoption Rates:
+Pipeline Adoption Rate: 42.1% (8/19)
+Repository Adoption Rate: 22.2% (2/9)
+
+Processing Time: 0.66s

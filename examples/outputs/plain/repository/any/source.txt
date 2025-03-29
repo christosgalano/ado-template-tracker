@@ -1,0 +1,15 @@
+
+Template Statistics
+================================================================================
+
+Template Usage (by pipelines)
+--------------------------------------------------------------------------------
+
+Template: terraform/deploy.yaml
+Usage Count: 6 (100.00% of total usage)
+Pipelines: 6
+------------------------------------------------------------
+
+Total Templates: 1
+Usage Count: 6
+Processing Time: 0.54s

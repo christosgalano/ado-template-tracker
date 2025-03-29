@@ -1,0 +1,18 @@
+                                      Adoption Overview for CCHBC
+┏━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃ Category               ┃ Metric                       ┃ Value         ┃ Details                      ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┩
+│ Compliance Information │ Mode                         │ MAJORITY      │ Scope: ORGANIZATION          │
+│                        │ Status                       │ Non-Compliant │ Based on MAJORITY mode       │
+├────────────────────────┼──────────────────────────────┼───────────────┼──────────────────────────────┤
+│ Template Statistics    │ Total Templates              │ 4             │ 38 total use(s)              │
+│                        │ terraform/deploy.yaml        │ 17 use(s)     │ 44.7% of compliant pipelines │
+│                        │ terraform/generate-docs.yaml │ 10 use(s)     │ 26.3% of compliant pipelines │
+│                        │ terraform/destroy.yaml       │ 10 use(s)     │ 26.3% of compliant pipelines │
+├────────────────────────┼──────────────────────────────┼───────────────┼──────────────────────────────┤
+│ Adoption Rates         │ Pipeline Adoption            │ 4.5%          │ 38 of 848 pipelines          │
+│                        │ Repository Adoption          │ 3.2%          │ 13 of 404 repositories       │
+│                        │ Project Adoption             │ 0.0%          │ 0 of 4 projects              │
+├────────────────────────┼──────────────────────────────┼───────────────┼──────────────────────────────┤
+│ Performance            │ Processing Time              │ 30.04s        │                              │
+└────────────────────────┴──────────────────────────────┴───────────────┴──────────────────────────────┘

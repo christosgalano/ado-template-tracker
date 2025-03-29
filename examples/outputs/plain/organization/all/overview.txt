@@ -1,0 +1,24 @@
+
+Adoption Overview
+================================================================================
+
+Name: CCHBC
+Scope: Organization
+Mode: All
+Status: Non-Compliant
+
+Template Statistics:
+Total Templates: 4
+Usage Count: 38
+
+Most Used Templates:
+  - terraform/deploy.yaml: 17 use(s) (44.7% of compliant pipelines)
+  - terraform/generate-docs.yaml: 10 use(s) (26.3% of compliant pipelines)
+  - terraform/destroy.yaml: 10 use(s) (26.3% of compliant pipelines)
+
+Adoption Rates:
+Pipeline Adoption Rate: 4.5% (38/848)
+Repository Adoption Rate: 3.0% (12/404)
+Project Adoption Rate: 0.0% (0/4)
+
+Processing Time: 30.10s

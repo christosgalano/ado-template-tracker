@@ -1,0 +1,14 @@
+                             Adoption Overview for administration
+┏━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃ Category               ┃ Metric                ┃ Value     ┃ Details                       ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┩
+│ Compliance Information │ Mode                  │ ANY       │ Scope: REPOSITORY             │
+│                        │ Status                │ Compliant │ Based on ANY mode             │
+├────────────────────────┼───────────────────────┼───────────┼───────────────────────────────┤
+│ Template Statistics    │ Total Templates       │ 1         │ 6 total use(s)                │
+│                        │ terraform/deploy.yaml │ 6 use(s)  │ 100.0% of compliant pipelines │
+├────────────────────────┼───────────────────────┼───────────┼───────────────────────────────┤
+│ Adoption Rates         │ Pipeline Adoption     │ 46.2%     │ 6 of 13 pipelines             │
+├────────────────────────┼───────────────────────┼───────────┼───────────────────────────────┤
+│ Performance            │ Processing Time       │ 0.54s     │                               │
+└────────────────────────┴───────────────────────┴───────────┴───────────────────────────────┘

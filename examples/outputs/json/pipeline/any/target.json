@@ -1,0 +1,11 @@
+{
+  "name": "aad-group-myomada-creation",
+  "is_compliant": true,
+  "path": "administration/aad-group-myomada-creation",
+  "templates": [
+    {
+      "path": "pipeline-library/terraform/deploy.yaml",
+      "usage_type": "include"
+    }
+  ]
+}

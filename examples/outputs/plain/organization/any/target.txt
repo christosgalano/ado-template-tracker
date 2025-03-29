@@ -1,0 +1,227 @@
+
+CCHBC
+Scope: Organization
+Mode: Any
+Status: Compliant
+Project Adoption Rate: 50.0% (2/4)
+Repository Adoption Rate: 3.5% (14/404)
+Pipeline Adoption Rate: 4.5% (38/848)
+================================================================================
+
+Project: CCHBC-Governance-Center
+Repository Adoption Rate: 33.3% (3/9)
+Pipeline Adoption Rate: 42.1% (8/19)
+
+  Repository: administration
+  Pipeline Adoption Rate: 46.2% (6/13)
+
+    Pipeline: administration/aad-group-myomada-creation
+      Template: pipeline-library/terraform/deploy.yaml
+      Usage: include
+
+    Pipeline: administration/create-application-registration
+      Template: pipeline-library/terraform/deploy.yaml
+      Usage: include
+
+    Pipeline: administration/create-project
+      Template: pipeline-library/terraform/deploy.yaml
+      Usage: extend
+
+    Pipeline: administration/create-repository
+      Template: pipeline-library/terraform/deploy.yaml
+      Usage: include
+
+    Pipeline: administration/create-self-hosted-agent
+      Template: pipeline-library/terraform/deploy.yaml
+      Usage: include
+
+    Pipeline: administration/create-template-repository
+      Template: pipeline-library/terraform/deploy.yaml
+      Usage: include
+
+
+  Repository: policy-library
+  Pipeline Adoption Rate: 50.0% (1/2)
+
+    Pipeline: policy-library/policy-library-ci
+      Template: pipeline-library/tools/install-tools.yaml
+      Usage: include
+
+
+  Repository: terraform-template-repo
+  Pipeline Adoption Rate: 100.0% (1/1)
+
+    Pipeline: terraform-template-repo/terraform-template-repo-generate-docs
+      Template: pipeline-library/terraform/generate-docs.yaml
+      Usage: extend
+
+--------------------------------------------------------------------------------
+
+Project: CCH SAFe Portfolio
+Repository Adoption Rate: 3.0% (11/369)
+Pipeline Adoption Rate: 3.7% (30/817)
+
+  Repository: detp-vmi-infrastructure
+  Pipeline Adoption Rate: 100.0% (3/3)
+
+    Pipeline: DETP/detp-vmi-infrastructure/detp-vmi-infrastructure-deploy
+      Template: pipeline-library/terraform/deploy.yaml
+      Usage: extend
+
+    Pipeline: DETP/detp-vmi-infrastructure/detp-vmi-infrastructure-destroy
+      Template: pipeline-library/terraform/destroy.yaml
+      Usage: extend
+
+    Pipeline: DETP/detp-vmi-infrastructure/detp-vmi-infrastructure-generate-docs
+      Template: pipeline-library/terraform/generate-docs.yaml
+      Usage: extend
+
+
+  Repository: dtso-ai-brainbank
+  Pipeline Adoption Rate: 100.0% (3/3)
+
+    Pipeline: DTSO/dtso-ai-brainbank/dtso-ai-brainbank-deploy
+      Template: pipeline-library/terraform/deploy.yaml
+      Usage: extend
+
+    Pipeline: DTSO/dtso-ai-brainbank/dtso-ai-brainbank-destroy
+      Template: pipeline-library/terraform/destroy.yaml
+      Usage: extend
+
+    Pipeline: DTSO/dtso-ai-brainbank/dtso-ai-brainbank-generate-docs
+      Template: pipeline-library/terraform/generate-docs.yaml
+      Usage: extend
+
+
+  Repository: tecs-cloud-cloudformation-terraform
+  Pipeline Adoption Rate: 100.0% (3/3)
+
+    Pipeline: TECS/tecs-cloud-cloudformation-terraform/tecs-cloud-cloudformation-terraform-deploy
+      Template: pipeline-library/terraform/deploy.yaml
+      Usage: extend
+
+    Pipeline: TECS/tecs-cloud-cloudformation-terraform/tecs-cloud-cloudformation-terraform-destroy
+      Template: pipeline-library/terraform/destroy.yaml
+      Usage: extend
+
+    Pipeline: TECS/tecs-cloud-cloudformation-terraform/tecs-cloud-cloudformation-terraform-generate-docs
+      Template: pipeline-library/terraform/generate-docs.yaml
+      Usage: extend
+
+
+  Repository: tecs-cloud-itdcmint
+  Pipeline Adoption Rate: 100.0% (3/3)
+
+    Pipeline: TECS/tecs-cloud-itdcmint/tecs-cloud-itdcmint-deploy
+      Template: pipeline-library/terraform/deploy.yaml
+      Usage: extend
+
+    Pipeline: TECS/tecs-cloud-itdcmint/tecs-cloud-itdcmint-destroy
+      Template: pipeline-library/terraform/destroy.yaml
+      Usage: extend
+
+    Pipeline: TECS/tecs-cloud-itdcmint/tecs-cloud-itdcmint-generate-docs
+      Template: pipeline-library/terraform/generate-docs.yaml
+      Usage: extend
+
+
+  Repository: tecs-cloud-ot-lz
+  Pipeline Adoption Rate: 100.0% (3/3)
+
+    Pipeline: TECS/Cloud Services/OT-LZ/tecs-cloud-ot-lz-deploy
+      Template: pipeline-library/terraform/deploy.yaml
+      Usage: extend
+
+    Pipeline: TECS/Cloud Services/OT-LZ/tecs-cloud-ot-lz-destroy
+      Template: pipeline-library/terraform/destroy.yaml
+      Usage: extend
+
+    Pipeline: TECS/Cloud Services/OT-LZ/tecs-cloud-ot-lz-generate-docs
+      Template: pipeline-library/terraform/generate-docs.yaml
+      Usage: extend
+
+
+  Repository: tecs-cloud-sap-bw
+  Pipeline Adoption Rate: 100.0% (3/3)
+
+    Pipeline: TECS/Cloud Services/SAP-BW/tecs-cloud-sap-bw-deploy
+      Template: pipeline-library/terraform/deploy.yaml
+      Usage: extend
+
+    Pipeline: TECS/Cloud Services/SAP-BW/tecs-cloud-sap-bw-destroy
+      Template: pipeline-library/terraform/destroy.yaml
+      Usage: extend
+
+    Pipeline: TECS/Cloud Services/SAP-BW/tecs-cloud-sap-bw-generate-docs
+      Template: pipeline-library/terraform/generate-docs.yaml
+      Usage: extend
+
+
+  Repository: tecs-cloud-sap-bwjava
+  Pipeline Adoption Rate: 100.0% (3/3)
+
+    Pipeline: TECS/Cloud Services/SAP-BWJAVA/tecs-cloud-sap-bwjava-generate-docs
+      Template: pipeline-library/terraform/generate-docs.yaml
+      Usage: extend
+
+    Pipeline: TECS/Cloud Services/SAP-BWJAVA/tecs-cloud-sap-bwjava-terraform-deploy
+      Template: pipeline-library/terraform/deploy.yaml
+      Usage: extend
+
+    Pipeline: TECS/Cloud Services/SAP-BWJAVA/tecs-cloud-sap-bwjava-terraform-destroy
+      Template: pipeline-library/terraform/destroy.yaml
+      Usage: extend
+
+
+  Repository: tecs-cloud-sap-crm
+  Pipeline Adoption Rate: 100.0% (2/2)
+
+    Pipeline: TECS/Cloud Services/SAP-CRM/tecs-cloud-sap-crm-terraform-deploy
+      Template: pipeline-library/terraform/deploy.yaml
+      Usage: extend
+
+    Pipeline: TECS/Cloud Services/SAP-CRM/tecs-cloud-sap-crm-terraform-destroy
+      Template: pipeline-library/terraform/destroy.yaml
+      Usage: extend
+
+
+  Repository: tecs-cloud-saplumira
+  Pipeline Adoption Rate: 100.0% (3/3)
+
+    Pipeline: TECS/tecs-cloud-saplumira/tecs-cloud-saplumira-deploy
+      Template: pipeline-library/terraform/deploy.yaml
+      Usage: extend
+
+    Pipeline: TECS/tecs-cloud-saplumira/tecs-cloud-saplumira-destroy
+      Template: pipeline-library/terraform/destroy.yaml
+      Usage: extend
+
+    Pipeline: TECS/tecs-cloud-saplumira/tecs-cloud-saplumira-generate-docs
+      Template: pipeline-library/terraform/generate-docs.yaml
+      Usage: extend
+
+
+  Repository: tecs-cloud-sap-s4
+  Pipeline Adoption Rate: 100.0% (3/3)
+
+    Pipeline: TECS/Cloud Services/SAP-S4/tecs-cloud-sap-s4-generate-docs
+      Template: pipeline-library/terraform/generate-docs.yaml
+      Usage: extend
+
+    Pipeline: TECS/Cloud Services/SAP-S4/tecs-cloud-sap-s4-terraform-deploy
+      Template: pipeline-library/terraform/deploy.yaml
+      Usage: extend
+
+    Pipeline: TECS/Cloud Services/SAP-S4/tecs-cloud-sap-s4-terraform-destroy
+      Template: pipeline-library/terraform/destroy.yaml
+      Usage: extend
+
+
+  Repository: tecs-cloud-sap-slt
+  Pipeline Adoption Rate: 100.0% (1/1)
+
+    Pipeline: TECS/Cloud Services/SAP-SLT/tecs-cloud-sap-slt-terraform-deploy
+      Template: pipeline-library/terraform/deploy.yaml
+      Usage: extend
+
+--------------------------------------------------------------------------------

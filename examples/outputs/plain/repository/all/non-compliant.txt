@@ -1,0 +1,21 @@
+
+Non-Compliance Report
+================================================================================
+
+Name: administration
+Scope: Repository
+Mode: All
+Status: Non-Compliant
+Processing Time: 0.51s
+
+Non-Compliance Statistics:
+- Non-Compliant Pipelines: 53.8% (7/13)
+
+Non-Compliant Pipelines:
+- administration/add-repository-pipelines
+- administration/get-aad-applications
+- administration/get-pipelines-by-pool
+- administration/run-repository-pipelines
+- administration/test-self-hosted-agent
+- administration/track-pipeline-library-adoption
+- administration/update-self-hosted-agent

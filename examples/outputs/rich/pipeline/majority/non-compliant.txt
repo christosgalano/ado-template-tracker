@@ -1,0 +1,13 @@
+            Non-Compliance Report
+ Scope            PIPELINE
+ Name             aad-group-myomada-creation
+ Mode             MAJORITY
+ Status           Compliant
+ Processing Time  0.08s
+
+                  Compliance Details
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━┓
+┃ Templates                              ┃ Usage Type ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━┩
+│ pipeline-library/terraform/deploy.yaml │ include    │
+└────────────────────────────────────────┴────────────┘

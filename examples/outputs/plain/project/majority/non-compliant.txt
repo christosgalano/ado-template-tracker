@@ -1,0 +1,35 @@
+
+Non-Compliance Report
+================================================================================
+
+Name: CCHBC-Governance-Center
+Scope: Project
+Mode: Majority
+Status: Non-Compliant
+Processing Time: 0.66s
+
+Non-Compliance Statistics:
+- Non-Compliant Repositories: 77.8% (7/9)
+- Non-Compliant Pipelines: 57.9% (11/19)
+
+Non-Compliant Repositories:
+- administration
+- knowledge-base
+- knowledge-base-cloud-automation
+- Reporting
+- resource-protection
+- terraform-module-template-repo
+- terraform-structure-example-with-tfvars
+
+Non-Compliant Pipelines:
+- administration/add-repository-pipelines
+- administration/get-aad-applications
+- administration/get-pipelines-by-pool
+- knowledge-base-cloud-automation/knowledge-base-cloud-automation-replicate-to-wiki
+- knowledge-base/knowledge-base-replicate-to-wiki
+- policy-library/policy-library-push-policy-bundle
+- resource-protection/resource-protection-add-protection-checks
+- administration/run-repository-pipelines
+- administration/test-self-hosted-agent
+- administration/track-pipeline-library-adoption
+- administration/update-self-hosted-agent

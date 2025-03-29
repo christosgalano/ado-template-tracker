@@ -1,0 +1,21 @@
+{
+  "name": "CCHBC",
+  "compliance_mode": "ALL",
+  "is_compliant": false,
+  "project_adoption": {
+    "adoption_rate": 0.0,
+    "compliant_projects": 0,
+    "total_projects": 4
+  },
+  "repository_adoption": {
+    "adoption_rate": 2.97,
+    "compliant_repositories": 12,
+    "total_repositories": 404
+  },
+  "pipeline_adoption": {
+    "adoption_rate": 4.48,
+    "compliant_pipelines": 38,
+    "total_pipelines": 848
+  },
+  "compliant_projects": []
+}

@@ -1,0 +1,19 @@
+
+Adoption Overview
+================================================================================
+
+Name: aad-group-myomada-creation
+Scope: Pipeline
+Mode: Majority
+Status: Compliant
+
+Template Statistics:
+Total Templates: 1
+Usage Count: 1
+
+Most Used Templates:
+  - terraform/deploy.yaml: 1 use(s)
+
+Adoption Rates:
+
+Processing Time: 0.08s

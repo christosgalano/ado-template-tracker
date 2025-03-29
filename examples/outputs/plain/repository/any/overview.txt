@@ -1,0 +1,20 @@
+
+Adoption Overview
+================================================================================
+
+Name: administration
+Scope: Repository
+Mode: Any
+Status: Compliant
+
+Template Statistics:
+Total Templates: 1
+Usage Count: 6
+
+Most Used Templates:
+  - terraform/deploy.yaml: 6 use(s) (100.0% of compliant pipelines)
+
+Adoption Rates:
+Pipeline Adoption Rate: 46.2% (6/13)
+
+Processing Time: 0.54s

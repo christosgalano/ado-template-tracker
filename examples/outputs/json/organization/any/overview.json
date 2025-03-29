@@ -1,0 +1,47 @@
+{
+  "name": "CCHBC",
+  "compliance": {
+    "mode": "ANY",
+    "scope": "ORGANIZATION",
+    "status": "Compliant"
+  },
+  "template_statistics": {
+    "total_templates": 4,
+    "total_uses": 38,
+    "most_used": [
+      {
+        "template": "terraform/deploy.yaml",
+        "usage_count": 17,
+        "usage_percent": 44.74
+      },
+      {
+        "template": "terraform/generate-docs.yaml",
+        "usage_count": 10,
+        "usage_percent": 26.32
+      },
+      {
+        "template": "terraform/destroy.yaml",
+        "usage_count": 10,
+        "usage_percent": 26.32
+      }
+    ]
+  },
+  "pipeline_adoption": {
+    "adoption_rate": 4.48,
+    "compliant_pipelines": 38,
+    "total_pipelines": 848
+  },
+  "repository_adoption": {
+    "adoption_rate": 3.47,
+    "compliant_repositories": 14,
+    "total_repositories": 404
+  },
+  "project_adoption": {
+    "adoption_rate": 50.0,
+    "compliant_projects": 2,
+    "total_projects": 4
+  },
+  "performance": {
+    "processing_time": 29.39
+  }
+}

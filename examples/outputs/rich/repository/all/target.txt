@@ -1,0 +1,16 @@
+                       Repository 'administration' - Non-Compliant (ALL mode)
+                                   Pipeline Adoption: 46.2% (6/13)
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━┓
+┃ Pipeline                                       ┃ Template(s)                            ┃  Usage  ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━┩
+│ administration/aad-group-myomada-creation      │ pipeline-library/terraform/deploy.yaml │ include │
+│ administration/create-application-registration │ pipeline-library/terraform/deploy.yaml │ include │
+│ administration/create-project                  │ pipeline-library/terraform/deploy.yaml │ extend  │
+│ administration/create-repository               │ pipeline-library/terraform/deploy.yaml │ include │
+│ administration/create-self-hosted-agent        │ pipeline-library/terraform/deploy.yaml │ include │
+│ administration/create-template-repository      │ pipeline-library/terraform/deploy.yaml │ include │
+└────────────────────────────────────────────────┴────────────────────────────────────────┴─────────┘
+
+Additional Metrics
+ Most Used Templates:  terraform/deploy.yaml (6 use(s))
+ Processing Time:      0.51s

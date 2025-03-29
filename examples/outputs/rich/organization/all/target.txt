@@ -1,0 +1,12 @@
+     Organization 'CCHBC' - Non-Compliant (ALL mode)
+            Pipeline Adoption: 4.5% (38/848)
+           Repository Adoption: 3.0% (12/404)
+              Project Adoption: 0.0% (0/4)
+┏━━━━━━━━━┳━━━━━━━━━━━━┳━━━━━━━━━━┳━━━━━━━━━━━━━┳━━━━━━━┓
+┃ Project ┃ Repository ┃ Pipeline ┃ Template(s) ┃ Usage ┃
+┡━━━━━━━━━╇━━━━━━━━━━━━╇━━━━━━━━━━╇━━━━━━━━━━━━━╇━━━━━━━┩
+└─────────┴────────────┴──────────┴─────────────┴───────┘
+
+Additional Metrics
+ Most Used Templates:  terraform/deploy.yaml (17 use(s)), terraform/generate-docs.yaml (10 use(s)), terraform/destroy.yaml (10 use(s))
+ Processing Time:      30.10s

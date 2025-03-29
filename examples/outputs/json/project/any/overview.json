@@ -1,0 +1,42 @@
+{
+  "name": "CCHBC-Governance-Center",
+  "compliance": {
+    "mode": "ANY",
+    "scope": "PROJECT",
+    "status": "Compliant"
+  },
+  "template_statistics": {
+    "total_templates": 3,
+    "total_uses": 8,
+    "most_used": [
+      {
+        "template": "terraform/deploy.yaml",
+        "usage_count": 6,
+        "usage_percent": 75.0
+      },
+      {
+        "template": "tools/install-tools.yaml",
+        "usage_count": 1,
+        "usage_percent": 12.5
+      },
+      {
+        "template": "terraform/generate-docs.yaml",
+        "usage_count": 1,
+        "usage_percent": 12.5
+      }
+    ]
+  },
+  "pipeline_adoption": {
+    "adoption_rate": 42.11,
+    "compliant_pipelines": 8,
+    "total_pipelines": 19
+  },
+  "repository_adoption": {
+    "adoption_rate": 33.33,
+    "compliant_repositories": 3,
+    "total_repositories": 9
+  },
+  "performance": {
+    "processing_time": 0.69
+  }
+}

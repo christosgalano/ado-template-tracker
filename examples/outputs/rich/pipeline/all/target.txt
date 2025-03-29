@@ -1,0 +1,11 @@
+  Pipeline 'aad-group-myomada-creation' - Compliant (ALL
+                           mode)
+┏━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━┓
+┃ Template              ┃  Usage  ┃        Template Usage ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━┩
+│ terraform/deploy.yaml │ include │ Used in 1 pipeline(s) │
+└───────────────────────┴─────────┴───────────────────────┘
+
+Additional Metrics
+ Most Used Templates:  terraform/deploy.yaml (1 use(s))
+ Processing Time:      0.11s

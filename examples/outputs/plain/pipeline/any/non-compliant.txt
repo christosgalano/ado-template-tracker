@@ -1,0 +1,12 @@
+
+Non-Compliance Report
+================================================================================
+
+Name: aad-group-myomada-creation
+Scope: Pipeline
+Mode: Any
+Status: Compliant
+Processing Time: 0.11s
+
+Templates (include):
+- pipeline-library/terraform/deploy.yaml

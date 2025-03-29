@@ -1,0 +1,55 @@
+
+CCHBC-Governance-Center
+Scope: Project
+Mode: Any
+Status: Compliant
+Repository Adoption Rate: 33.3% (3/9)
+Pipeline Adoption Rate: 42.1% (8/19)
+================================================================================
+
+Repository: administration
+Pipeline Adoption Rate: 46.2% (6/13)
+
+  Pipeline: administration/aad-group-myomada-creation
+    Template: pipeline-library/terraform/deploy.yaml
+    Usage: include
+
+  Pipeline: administration/create-application-registration
+    Template: pipeline-library/terraform/deploy.yaml
+    Usage: include
+
+  Pipeline: administration/create-project
+    Template: pipeline-library/terraform/deploy.yaml
+    Usage: extend
+
+  Pipeline: administration/create-repository
+    Template: pipeline-library/terraform/deploy.yaml
+    Usage: include
+
+  Pipeline: administration/create-self-hosted-agent
+    Template: pipeline-library/terraform/deploy.yaml
+    Usage: include
+
+  Pipeline: administration/create-template-repository
+    Template: pipeline-library/terraform/deploy.yaml
+    Usage: include
+
+--------------------------------------------------------------------------------
+
+Repository: policy-library
+Pipeline Adoption Rate: 50.0% (1/2)
+
+  Pipeline: policy-library/policy-library-ci
+    Template: pipeline-library/tools/install-tools.yaml
+    Usage: include
+
+--------------------------------------------------------------------------------
+
+Repository: terraform-template-repo
+Pipeline Adoption Rate: 100.0% (1/1)
+
+  Pipeline: terraform-template-repo/terraform-template-repo-generate-docs
+    Template: pipeline-library/terraform/generate-docs.yaml
+    Usage: extend
+
+--------------------------------------------------------------------------------

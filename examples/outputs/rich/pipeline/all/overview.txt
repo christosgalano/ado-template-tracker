@@ -1,0 +1,12 @@
+                  Adoption Overview for aad-group-myomada-creation
+┏━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━┓
+┃ Category               ┃ Metric                ┃ Value     ┃ Details              ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━┩
+│ Compliance Information │ Mode                  │ ALL       │ Scope: PIPELINE      │
+│                        │ Status                │ Compliant │ Based on ALL mode    │
+├────────────────────────┼───────────────────────┼───────────┼──────────────────────┤
+│ Template Statistics    │ Total Templates       │ 1         │ 1 total use(s)       │
+│                        │ terraform/deploy.yaml │ 1 use(s)  │ Single pipeline view │
+├────────────────────────┼───────────────────────┼───────────┼──────────────────────┤
+│ Performance            │ Processing Time       │ 0.11s     │                      │
+└────────────────────────┴───────────────────────┴───────────┴──────────────────────┘

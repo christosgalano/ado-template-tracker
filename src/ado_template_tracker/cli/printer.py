@@ -195,27 +195,28 @@ class AdoptionPlainPrinter(AdoptionPrinter):
         organization = self.result
 
         # Organization header with compliance
-        self._write(f"\nOrganization: {organization.name}")
-        self._write(f"Compliance Mode: {self.metrics.compliance_mode.name}")
+        self._write(f"\n{organization.name}")
+        self._write(f"Scope: {self._scope.name.title()}")
+        self._write(f"Mode: {self.metrics.compliance_mode.name.title()}")
         self._write(
-            f"Compliance Status: {'Compliant' if organization.is_compliant(self.metrics.compliance_mode) else 'Non-Compliant'}",
+            f"Status: {'Compliant' if organization.is_compliant(self.metrics.compliance_mode) else 'Non-Compliant'}",
         )
 
         # Project adoption
         self._write(
-            f"Compliant Projects: {organization.project_adoption_rate:.1f}% "
+            f"Project Adoption Rate: {organization.project_adoption_rate:.1f}% "
             f"({len(organization.compliant_projects)}/{organization.total_no_projects})",
         )
 
         # Repository adoption
         self._write(
-            f"Compliant Repositories: {organization.repository_adoption_rate:.1f}% "
+            f"Repository Adoption Rate: {organization.repository_adoption_rate:.1f}% "
             f"({len(organization.compliant_repositories)}/{organization.total_no_repositories})",
         )
 
         # Pipeline adoption
         self._write(
-            f"Compliant Pipelines: {organization.pipeline_adoption_rate:.1f}% "
+            f"Pipeline Adoption Rate: {organization.pipeline_adoption_rate:.1f}% "
             f"({len(organization.compliant_pipelines)}/{organization.total_no_pipelines})",
         )
         self._write("=" * 80)
@@ -224,11 +225,11 @@ class AdoptionPlainPrinter(AdoptionPrinter):
         for project in organization.compliant_projects:
             self._write(f"\nProject: {project.name}")
             self._write(
-                f"Compliant Repositories: {project.repository_adoption_rate:.1f}% "
+                f"Repository Adoption Rate: {project.repository_adoption_rate:.1f}% "
                 f"({len(project.compliant_repositories)}/{project.total_no_repositories})",
             )
             self._write(
-                f"Compliant Pipelines: {project.pipeline_adoption_rate:.1f}% "
+                f"Pipeline Adoption Rate: {project.pipeline_adoption_rate:.1f}% "
                 f"({len(project.compliant_pipelines)}/{project.total_no_pipelines})",
             )
 
@@ -236,7 +237,7 @@ class AdoptionPlainPrinter(AdoptionPrinter):
             for repo in project.compliant_repositories:
                 self._write(f"\n  Repository: {repo.name}")
                 self._write(
-                    f"  Compliant Pipelines: {repo.pipeline_adoption_rate:.1f}% "
+                    f"  Pipeline Adoption Rate: {repo.pipeline_adoption_rate:.1f}% "
                     f"({len(repo.compliant_pipelines)}/{repo.total_no_pipelines})",
                 )
 
@@ -257,21 +258,22 @@ class AdoptionPlainPrinter(AdoptionPrinter):
         project = self.result
 
         # Project header with compliance
-        self._write(f"\nProject: {project.name}")
-        self._write(f"Compliance Mode: {self.metrics.compliance_mode.name}")
+        self._write(f"\n{project.name}")
+        self._write(f"Scope: {self._scope.name.title()}")
+        self._write(f"Mode: {self.metrics.compliance_mode.name.title()}")
         self._write(
-            f"Compliance Status: {'Compliant' if project.is_compliant(self.metrics.compliance_mode) else 'Non-Compliant'}",
+            f"Status: {'Compliant' if project.is_compliant(self.metrics.compliance_mode) else 'Non-Compliant'}",
         )
 
         # Repository adoption
         self._write(
-            f"Compliant Repositories: {project.repository_adoption_rate:.1f}% "
+            f"Repository Adoption Rate: {project.repository_adoption_rate:.1f}% "
             f"({len(project.compliant_repositories)}/{project.total_no_repositories})",
         )
 
         # Pipeline adoption
         self._write(
-            f"Compliant Pipelines: {project.pipeline_adoption_rate:.1f}% "
+            f"Pipeline Adoption Rate: {project.pipeline_adoption_rate:.1f}% "
             f"({len(project.compliant_pipelines)}/{project.total_no_pipelines})",
         )
         self._write("=" * 80)
@@ -279,7 +281,7 @@ class AdoptionPlainPrinter(AdoptionPrinter):
         for repo in project.compliant_repositories:
             self._write(f"\nRepository: {repo.name}")
             self._write(
-                f"Compliant Pipelines: {repo.pipeline_adoption_rate:.1f}% ({len(repo.compliant_pipelines)}/{repo.total_no_pipelines})",
+                f"Pipeline Adoption Rate: {repo.pipeline_adoption_rate:.1f}% ({len(repo.compliant_pipelines)}/{repo.total_no_pipelines})",
             )
 
             for pipeline in repo.compliant_pipelines:
@@ -294,13 +296,14 @@ class AdoptionPlainPrinter(AdoptionPrinter):
     def _print_repository(self) -> None:  # pragma: no cover
         """Print repository adoption data as text."""
         repository = self.result
-        self._write(f"\nRepository: {repository.name}")
-        self._write(f"Compliance Mode: {self.metrics.compliance_mode.name}")
+        self._write(f"\n{repository.name}")
+        self._write(f"Scope: {self._scope.name.title()}")
+        self._write(f"Mode: {self.metrics.compliance_mode.name.title()}")
         self._write(
-            f"Compliance Status: {'Compliant' if repository.is_compliant(self.metrics.compliance_mode) else 'Non-Compliant'}",
+            f"Status: {'Compliant' if repository.is_compliant(self.metrics.compliance_mode) else 'Non-Compliant'}",
         )
         self._write(
-            f"Compliant Pipelines: {repository.pipeline_adoption_rate:.1f}% ({len(repository.compliant_pipelines)}/{repository.total_no_pipelines})",
+            f"Pipeline Adoption Rate: {repository.pipeline_adoption_rate:.1f}% ({len(repository.compliant_pipelines)}/{repository.total_no_pipelines})",
         )
         self._write("=" * 80)
 
@@ -316,9 +319,10 @@ class AdoptionPlainPrinter(AdoptionPrinter):
     def _print_pipeline(self) -> None:  # pragma: no cover
         """Print pipeline adoption data as text."""
         pipeline = self.result
-        self._write(f"\nPipeline: {format_pipeline_path(pipeline)}")
+        self._write(f"\n{format_pipeline_path(pipeline)}")
+        self._write(f"Scope: {self._scope.name.title()}")
         self._write(
-            f"Compliance Status: {'Compliant' if pipeline.is_compliant() else 'Non-compliant'}\n",
+            f"Status: {'Compliant' if pipeline.is_compliant() else 'Non-compliant'}\n",
         )
         self._write("=" * 80)
 
@@ -333,7 +337,7 @@ class AdoptionPlainPrinter(AdoptionPrinter):
 
     def _print_source(self) -> None:  # pragma: no cover
         """Print template-centric view of adoption as text."""
-        self._write("\nTemplate Usage Analysis")
+        self._write("\nTemplate Statistics")
         self._write("=" * 80)
 
         total_uses = sum(self.metrics.template_usage.values())
@@ -381,34 +385,34 @@ class AdoptionPlainPrinter(AdoptionPrinter):
 
         # Print summary
         self._write(f"\nTotal Templates: {len(self.metrics.template_usage)}")
-        self._write(f"Total Uses: {total_uses}")
+        self._write(f"Usage Count: {total_uses}")
         self._write(f"Processing Time: {self.metrics.processing_time:.2f}s")
 
     def _print_overview(self) -> None:  # pragma: no cover
         """Print overview data as text."""
-        self._write("\nAdoption Statistics Overview")
+        self._write("\nAdoption Overview")
         self._write("=" * 80)
 
         # Compliance Information
         self._write(f"\nName: {self.result.name}")
-        self._write(f"Scope: {self._scope.name}")
-        self._write(f"Compliance Mode: {self.metrics.compliance_mode.name}")
+        self._write(f"Scope: {self._scope.name.title()}")
+        self._write(f"Mode: {self.metrics.compliance_mode.name.title()}")
 
         total_compliant = 0
         if self._scope == TargetScope.PIPELINE:
             self._write(
-                f"Compliance Status: {'Compliant' if self.result.is_compliant() else 'Non-Compliant'}",
+                f"Status: {'Compliant' if self.result.is_compliant() else 'Non-Compliant'}",
             )
         else:
             self._write(
-                f"Compliance Status: {'Compliant' if self.result.is_compliant(self.metrics.compliance_mode) else 'Non-Compliant'}",
+                f"Status: {'Compliant' if self.result.is_compliant(self.metrics.compliance_mode) else 'Non-Compliant'}",
             )
             total_compliant = len(self.result.compliant_pipelines)
 
         # Template Statistics
         self._write("\nTemplate Statistics:")
         self._write(f"Total Templates: {len(self.metrics.template_usage)}")
-        self._write(f"Total Uses: {sum(self.metrics.template_usage.values())}")
+        self._write(f"Usage Count: {sum(self.metrics.template_usage.values())}")
 
         # Most used templates
         self._write("\nMost Used Templates:")
@@ -426,26 +430,26 @@ class AdoptionPlainPrinter(AdoptionPrinter):
                 self._write(f"  - {template}: {count} use(s)")
 
         # Adoption metrics (scope-specific)
-        self._write("\nAdoption Metrics:")
+        self._write("\nAdoption Rates:")
 
         # Always show pipeline metrics for non-pipeline scopes
         if self._scope != TargetScope.PIPELINE:
             self._write(
-                f"Pipeline Adoption: {self.result.pipeline_adoption_rate:.1f}% "
+                f"Pipeline Adoption Rate: {self.result.pipeline_adoption_rate:.1f}% "
                 f"({len(self.result.compliant_pipelines)}/{self.result.total_no_pipelines})",
             )
 
         # Show repository metrics for organization and project scopes
         if self._scope not in {TargetScope.REPOSITORY, TargetScope.PIPELINE}:
             self._write(
-                f"Repository Adoption: {self.result.repository_adoption_rate:.1f}% "
+                f"Repository Adoption Rate: {self.result.repository_adoption_rate:.1f}% "
                 f"({len(self.result.compliant_repositories)}/{self.result.total_no_repositories})",
             )
 
         # Show project metrics for organization scope
         if self._scope == TargetScope.ORGANIZATION:
             self._write(
-                f"Project Adoption: {self.result.project_adoption_rate:.1f}% "
+                f"Project Adoption Rate: {self.result.project_adoption_rate:.1f}% "
                 f"({len(self.result.compliant_projects)}/{self.result.total_no_projects})",
             )
 
@@ -459,16 +463,16 @@ class AdoptionPlainPrinter(AdoptionPrinter):
 
         # Basic compliance information
         self._write(f"\nName: {self.result.name}")
-        self._write(f"Scope: {self._scope.name}")
-        self._write(f"Compliance Mode: {self.metrics.compliance_mode.name}")
+        self._write(f"Scope: {self._scope.name.title()}")
+        self._write(f"Mode: {self.metrics.compliance_mode.name.title()}")
 
-        # Check compliance status with appropriate method based on scope
+        # Check Status with appropriate method based on scope
         if self._scope == TargetScope.PIPELINE:
             is_compliant = self.result.is_compliant()
         else:
             is_compliant = self.result.is_compliant(self.metrics.compliance_mode)
 
-        self._write(f"Compliance Status: {'Compliant' if is_compliant else 'Non-Compliant'}")
+        self._write(f"Status: {'Compliant' if is_compliant else 'Non-Compliant'}")
         self._write(f"Processing Time: {self.metrics.processing_time:.2f}s")
         self._write()
 
@@ -579,18 +583,18 @@ class AdoptionRichPrinter(AdoptionPrinter):
         """Print adoption report for an entire organization with metrics."""
         organization = self.result
 
-        # Organization header with compliance status
+        # Organization header with Status
         table = Table(
             title=(
                 f"Organization '{organization.name}' - "
                 f"[{'green' if organization.is_compliant(self.metrics.compliance_mode) else 'red'}]"
                 f"{'Compliant' if organization.is_compliant(self.metrics.compliance_mode) else 'Non-Compliant'}[/] "
                 f"({self.metrics.compliance_mode.name} mode)\n"
-                f"Compliant Pipelines: {organization.pipeline_adoption_rate:.1f}% "
+                f"Pipeline Adoption: {organization.pipeline_adoption_rate:.1f}% "
                 f"({len(organization.compliant_pipelines)}/{organization.total_no_pipelines})\n"
-                f"Compliant Repositories: {organization.repository_adoption_rate:.1f}% "
+                f"Repository Adoption: {organization.repository_adoption_rate:.1f}% "
                 f"({len(organization.compliant_repositories)}/{organization.total_no_repositories})\n"
-                f"Compliant Projects: {organization.project_adoption_rate:.1f}% "
+                f"Project Adoption: {organization.project_adoption_rate:.1f}% "
                 f"({len(organization.compliant_projects)}/{organization.total_no_projects})"
             ),
         )
@@ -633,16 +637,16 @@ class AdoptionRichPrinter(AdoptionPrinter):
         """Print adoption report for an entire project with metrics."""
         project = self.result
 
-        # Project header with compliance status
+        # Project header with Status
         table = Table(
             title=(
                 f"Project '{project.name}' - "
                 f"[{'green' if project.is_compliant(self.metrics.compliance_mode) else 'red'}]"
                 f"{'Compliant' if project.is_compliant(self.metrics.compliance_mode) else 'Non-Compliant'}[/] "
                 f"({self.metrics.compliance_mode.name} mode)\n"
-                f"Compliant Pipelines: {project.pipeline_adoption_rate:.1f}% "
+                f"Pipeline Adoption: {project.pipeline_adoption_rate:.1f}% "
                 f"({len(project.compliant_pipelines)}/{project.total_no_pipelines})\n"
-                f"Compliant Repositories: {project.repository_adoption_rate:.1f}% "
+                f"Repository Adoption: {project.repository_adoption_rate:.1f}% "
                 f"({len(project.compliant_repositories)}/{project.total_no_repositories})"
             ),
         )
@@ -697,7 +701,7 @@ class AdoptionRichPrinter(AdoptionPrinter):
                 f"[{'green' if is_compliant else 'red'}]"
                 f"{'Compliant' if is_compliant else 'Non-Compliant'}[/] "
                 f"({self.metrics.compliance_mode.name} mode)\n"
-                f"Compliant Pipelines: {repository.pipeline_adoption_rate:.1f}% "
+                f"Pipeline Adoption: {repository.pipeline_adoption_rate:.1f}% "
                 f"({len(repository.compliant_pipelines)}/{repository.total_no_pipelines})"
             ),
         )
@@ -772,7 +776,7 @@ class AdoptionRichPrinter(AdoptionPrinter):
 
     def _print_source(self) -> None:  # pragma: no cover
         """Print template-centric view of adoption."""
-        table = Table(title="Template Usage Analysis")
+        table = Table(title="Template Statistics")
 
         # Always add these columns
         table.add_column("Template", style="cyan")
@@ -831,7 +835,7 @@ class AdoptionRichPrinter(AdoptionPrinter):
         table.add_column("Value", style="green")
         table.add_column("Details", style="yellow")
 
-        # Compliance Status Section
+        # Status Section
         table.add_row(
             "[bold]Compliance Information[/bold]",
             "Mode",
@@ -896,7 +900,7 @@ class AdoptionRichPrinter(AdoptionPrinter):
         if self._scope != TargetScope.PIPELINE:
             table.add_section()
             table.add_row(
-                "[bold]Adoption Metrics[/bold]",
+                "[bold]Adoption Rates[/bold]",
                 "Pipeline Adoption",
                 f"{self.result.pipeline_adoption_rate:.1f}%",
                 f"{len(self.result.compliant_pipelines)} of {self.result.total_no_pipelines} pipelines",
@@ -940,7 +944,7 @@ class AdoptionRichPrinter(AdoptionPrinter):
         info_table.add_column("Property", style="cyan")
         info_table.add_column("Value", style="yellow")
 
-        # Check compliance status with appropriate method based on scope
+        # Check Status with appropriate method based on scope
         if self._scope == TargetScope.PIPELINE:
             is_compliant = self.result.is_compliant()
         else:
@@ -949,8 +953,8 @@ class AdoptionRichPrinter(AdoptionPrinter):
 
         info_table.add_row("Scope", self._scope.name)
         info_table.add_row("Name", self.result.name)
-        info_table.add_row("Compliance Mode", self.metrics.compliance_mode.name)
-        info_table.add_row("Compliance Status", compliance_status)
+        info_table.add_row("Mode", self.metrics.compliance_mode.name)
+        info_table.add_row("Status", compliance_status)
         info_table.add_row("Processing Time", f"{self.metrics.processing_time:.2f}s")
         info_table.add_row("", "")
         self._write(info_table)
@@ -1355,7 +1359,7 @@ class AdoptionJSONPrinter(AdoptionPrinter):
                         "most_used": [
                             {
                                 "template": t,
-                                "use(s)": c,
+                                "usage_count": c,
                             }
                             for t, c in sorted(
                                 self.metrics.template_usage.items(),
@@ -1382,7 +1386,7 @@ class AdoptionJSONPrinter(AdoptionPrinter):
                         "most_used": [
                             {
                                 "template": t,
-                                "use(s)": c,
+                                "usage_count": c,
                                 "usage_percent": round(
                                     c / len(self.result.compliant_pipelines) * 100,
                                     2,
@@ -1796,7 +1800,7 @@ class AdoptionMarkdownPrinter(AdoptionPrinter):
                     "## Template Statistics",
                     "",
                     f"- Total Templates: {len(self.metrics.template_usage)}",
-                    f"- Total Uses: {sum(self.metrics.template_usage.values())}",
+                    f"- Usage Count: {sum(self.metrics.template_usage.values())}",
                     "",
                     "### Most Used Templates",
                     "",
@@ -1820,7 +1824,7 @@ class AdoptionMarkdownPrinter(AdoptionPrinter):
                     "## Template Statistics",
                     "",
                     f"- Total Templates: {len(self.metrics.template_usage)}",
-                    f"- Total Uses: {sum(self.metrics.template_usage.values())}",
+                    f"- Usage Count: {sum(self.metrics.template_usage.values())}",
                     "",
                     "### Most Used Templates",
                     "",
@@ -1852,7 +1856,7 @@ class AdoptionMarkdownPrinter(AdoptionPrinter):
             f"- Mode: {self.metrics.compliance_mode.name.title()}",
         ]
 
-        # Check compliance status with appropriate method based on scope
+        # Check Status with appropriate method based on scope
         if self._scope == TargetScope.PIPELINE:
             is_compliant = self.result.is_compliant()
         else:

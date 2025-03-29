@@ -1,0 +1,38 @@
+
+Template Statistics
+================================================================================
+
+Template Usage (by projects, repositories, and pipelines)
+--------------------------------------------------------------------------------
+
+Template: terraform/deploy.yaml
+Usage Count: 17 (44.74% of total usage)
+Projects: 2
+Repositories: 12
+Pipelines: 17
+------------------------------------------------------------
+
+Template: terraform/generate-docs.yaml
+Usage Count: 10 (26.32% of total usage)
+Projects: 2
+Repositories: 10
+Pipelines: 10
+------------------------------------------------------------
+
+Template: terraform/destroy.yaml
+Usage Count: 10 (26.32% of total usage)
+Projects: 1
+Repositories: 10
+Pipelines: 10
+------------------------------------------------------------
+
+Template: tools/install-tools.yaml
+Usage Count: 1 (2.63% of total usage)
+Projects: 1
+Repositories: 1
+Pipelines: 1
+------------------------------------------------------------
+
+Total Templates: 4
+Usage Count: 38
+Processing Time: 30.04s

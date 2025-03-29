@@ -1,0 +1,57 @@
+{
+  "name": "CCHBC-Governance-Center",
+  "compliance_mode": "MAJORITY",
+  "is_compliant": false,
+  "repository_adoption": {
+    "adoption_rate": 22.22,
+    "compliant_repositories": 2,
+    "total_repositories": 9
+  },
+  "pipeline_adoption": {
+    "adoption_rate": 42.11,
+    "compliant_pipelines": 8,
+    "total_pipelines": 19
+  },
+  "compliant_repositories": [
+    {
+      "name": "policy-library",
+      "adoption": {
+        "adoption_rate": 50.0,
+        "compliant_pipelines": 1,
+        "total_pipelines": 2
+      },
+      "compliant_pipelines": [
+        {
+          "name": "policy-library-ci",
+          "path": "policy-library/policy-library-ci",
+          "templates": [
+            {
+              "path": "pipeline-library/tools/install-tools.yaml",
+              "usage_type": "include"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "terraform-template-repo",
+      "adoption": {
+        "adoption_rate": 100.0,
+        "compliant_pipelines": 1,
+        "total_pipelines": 1
+      },
+      "compliant_pipelines": [
+        {
+          "name": "terraform-template-repo-generate-docs",
+          "path": "terraform-template-repo/terraform-template-repo-generate-docs",
+          "templates": [
+            {
+              "path": "pipeline-library/terraform/generate-docs.yaml",
+              "usage_type": "extend"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

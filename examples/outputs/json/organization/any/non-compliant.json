@@ -1,0 +1,346 @@
+{
+  "name": "CCHBC",
+  "compliance_mode": "ANY",
+  "is_compliant": true,
+  "project_non_compliance": {
+    "non_compliance_rate": 50.0,
+    "non_compliant_projects": 2,
+    "total_projects": 4
+  },
+  "repository_non_compliance": {
+    "non_compliance_rate": 96.53,
+    "non_compliant_repositories": 390,
+    "total_repositories": 404
+  },
+  "pipeline_non_compliance": {
+    "non_compliance_rate": 95.52,
+    "non_compliant_pipelines": 810,
+    "total_pipelines": 848
+  },
+  "non_compliant_projects": [
+    {
+      "name": "CCH_SAFe_Portfolio_Clone",
+      "repository_non_compliance": {
+        "non_compliance_rate": 100.0,
+        "non_compliant_repositories": 8,
+        "total_repositories": 8
+      },
+      "pipeline_non_compliance": {
+        "non_compliance_rate": 100.0,
+        "non_compliant_pipelines": 1,
+        "total_pipelines": 1
+      },
+      "non_compliant_repositories": [
+        {
+          "name": "CCH_SAFe_Portfolio_Clone",
+          "non_compliance": {
+            "non_compliance_rate": 100.0,
+            "non_compliant_pipelines": 0,
+            "total_pipelines": 0
+          },
+          "non_compliant_pipelines": []
+        },
+        {
+          "name": "CCH_Test_Repo",
+          "non_compliance": {
+            "non_compliance_rate": 100.0,
+            "non_compliant_pipelines": 0,
+            "total_pipelines": 0
+          },
+          "non_compliant_pipelines": []
+        },
+        {
+          "name": "cch-templates",
+          "non_compliance": {
+            "non_compliance_rate": 100.0,
+            "non_compliant_pipelines": 0,
+            "total_pipelines": 0
+          },
+          "non_compliant_pipelines": []
+        },
+        {
+          "name": "cch-valsar-tst",
+          "non_compliance": {
+            "non_compliance_rate": 100.0,
+            "non_compliant_pipelines": 0,
+            "total_pipelines": 0
+          },
+          "non_compliant_pipelines": []
+        },
+        {
+          "name": "dtso-innovation-brainbank-template-test",
+          "non_compliance": {
+            "non_compliance_rate": 100.0,
+            "non_compliant_pipelines": 0,
+            "total_pipelines": 0
+          },
+          "non_compliant_pipelines": []
+        },
+        {
+          "name": "tecs-platformengineering-vmp",
+          "non_compliance": {
+            "non_compliance_rate": 100.0,
+            "non_compliant_pipelines": 0,
+            "total_pipelines": 0
+          },
+          "non_compliant_pipelines": []
+        },
+        {
+          "name": "test_repo-10thjan",
+          "non_compliance": {
+            "non_compliance_rate": 100.0,
+            "non_compliant_pipelines": 0,
+            "total_pipelines": 0
+          },
+          "non_compliant_pipelines": []
+        },
+        {
+          "name": "Test-trigger",
+          "non_compliance": {
+            "non_compliance_rate": 100.0,
+            "non_compliant_pipelines": 1,
+            "total_pipelines": 1
+          },
+          "non_compliant_pipelines": [
+            {
+              "name": "Test-trigger",
+              "path": "/Test-trigger"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "CCHBC-Terraform-Module-Library",
+      "repository_non_compliance": {
+        "non_compliance_rate": 100.0,
+        "non_compliant_repositories": 18,
+        "total_repositories": 18
+      },
+      "pipeline_non_compliance": {
+        "non_compliance_rate": 100.0,
+        "non_compliant_pipelines": 11,
+        "total_pipelines": 11
+      },
+      "non_compliant_repositories": [
+        {
+          "name": "cat-tf-modules",
+          "non_compliance": {
+            "non_compliance_rate": 100.0,
+            "non_compliant_pipelines": 0,
+            "total_pipelines": 0
+          },
+          "non_compliant_pipelines": []
+        },
+        {
+          "name": "cat-tf-modules2",
+          "non_compliance": {
+            "non_compliance_rate": 100.0,
+            "non_compliant_pipelines": 0,
+            "total_pipelines": 0
+          },
+          "non_compliant_pipelines": []
+        },
+        {
+          "name": "cat-tf-vnet-module",
+          "non_compliance": {
+            "non_compliance_rate": 100.0,
+            "non_compliant_pipelines": 0,
+            "total_pipelines": 0
+          },
+          "non_compliant_pipelines": []
+        },
+        {
+          "name": "cchbc-vmi-terraform-modules",
+          "non_compliance": {
+            "non_compliance_rate": 100.0,
+            "non_compliant_pipelines": 0,
+            "total_pipelines": 0
+          },
+          "non_compliant_pipelines": []
+        },
+        {
+          "name": "pipeline-managed-identity",
+          "non_compliance": {
+            "non_compliance_rate": 100.0,
+            "non_compliant_pipelines": 0,
+            "total_pipelines": 0
+          },
+          "non_compliant_pipelines": []
+        },
+        {
+          "name": "tecs-cloud-cloudautomation-terraform",
+          "non_compliance": {
+            "non_compliance_rate": 100.0,
+            "non_compliant_pipelines": 1,
+            "total_pipelines": 1
+          },
+          "non_compliant_pipelines": [
+            {
+              "name": "tecs-cloud-cloudautomation-terraform (1381)",
+              "path": "/tecs-cloud-cloudautomation-terraform (1381)"
+            }
+          ]
+        },
+        {
+          "name": "terraform-azuread-application-registration",
+          "non_compliance": {
+            "non_compliance_rate": 100.0,
+            "non_compliant_pipelines": 1,
+            "total_pipelines": 1
+          },
+          "non_compliant_pipelines": [
+            {
+              "name": "terraform-azuread-application-registration-ci",
+              "path": "terraform-azuread-application-registration/terraform-azuread-application-registration-ci"
+            }
+          ]
+        },
+        {
+          "name": "terraform-azuredevops-elastic-pool",
+          "non_compliance": {
+            "non_compliance_rate": 100.0,
+            "non_compliant_pipelines": 1,
+            "total_pipelines": 1
+          },
+          "non_compliant_pipelines": [
+            {
+              "name": "terraform-azuredevops-elastic-pool-ci",
+              "path": "terraform-azuredevops-elastic-pool/terraform-azuredevops-elastic-pool-ci"
+            }
+          ]
+        },
+        {
+          "name": "terraform-azuredevops-git-repository",
+          "non_compliance": {
+            "non_compliance_rate": 100.0,
+            "non_compliant_pipelines": 1,
+            "total_pipelines": 1
+          },
+          "non_compliant_pipelines": [
+            {
+              "name": "terraform-azuredevops-git-repository-ci",
+              "path": "terraform-azuredevops-git-repository/terraform-azuredevops-git-repository-ci"
+            }
+          ]
+        },
+        {
+          "name": "terraform-azuredevops-project",
+          "non_compliance": {
+            "non_compliance_rate": 100.0,
+            "non_compliant_pipelines": 1,
+            "total_pipelines": 1
+          },
+          "non_compliant_pipelines": [
+            {
+              "name": "terraform-azuredevops-project-ci",
+              "path": "terraform-azuredevops-project/terraform-azuredevops-project-ci"
+            }
+          ]
+        },
+        {
+          "name": "terraform-azuredevops-self-hosted-agent",
+          "non_compliance": {
+            "non_compliance_rate": 100.0,
+            "non_compliant_pipelines": 0,
+            "total_pipelines": 0
+          },
+          "non_compliant_pipelines": []
+        },
+        {
+          "name": "terraform-azurerm-app-service",
+          "non_compliance": {
+            "non_compliance_rate": 100.0,
+            "non_compliant_pipelines": 1,
+            "total_pipelines": 1
+          },
+          "non_compliant_pipelines": [
+            {
+              "name": "terraform-azurerm-app-service-ci",
+              "path": "terraform-azurerm-app-service/terraform-azurerm-app-service-ci"
+            }
+          ]
+        },
+        {
+          "name": "terraform-azurerm-container-registry",
+          "non_compliance": {
+            "non_compliance_rate": 100.0,
+            "non_compliant_pipelines": 1,
+            "total_pipelines": 1
+          },
+          "non_compliant_pipelines": [
+            {
+              "name": "terraform-azurerm-container-registry-ci",
+              "path": "terraform-azurerm-container-registry/terraform-azurerm-container-registry-ci"
+            }
+          ]
+        },
+        {
+          "name": "terraform-azurerm-key-vault",
+          "non_compliance": {
+            "non_compliance_rate": 100.0,
+            "non_compliant_pipelines": 1,
+            "total_pipelines": 1
+          },
+          "non_compliant_pipelines": [
+            {
+              "name": "terraform-azurerm-key-vault-ci",
+              "path": "terraform-azurerm-key-vault/terraform-azurerm-key-vault-ci"
+            }
+          ]
+        },
+        {
+          "name": "terraform-azurerm-linux-virtual-machine-scale-set",
+          "non_compliance": {
+            "non_compliance_rate": 100.0,
+            "non_compliant_pipelines": 1,
+            "total_pipelines": 1
+          },
+          "non_compliant_pipelines": [
+            {
+              "name": "terraform-azurerm-linux-virtual-machine-scale-set-ci",
+              "path": "terraform-azurerm-linux-virtual-machine-scale-set/terraform-azurerm-linux-virtual-machine-scale-set-ci"
+            }
+          ]
+        },
+        {
+          "name": "terraform-azurerm-storage-account",
+          "non_compliance": {
+            "non_compliance_rate": 100.0,
+            "non_compliant_pipelines": 1,
+            "total_pipelines": 1
+          },
+          "non_compliant_pipelines": [
+            {
+              "name": "terraform-azurerm-storage-account-ci",
+              "path": "terraform-azurerm-storage-account/terraform-azurerm-storage-account-ci"
+            }
+          ]
+        },
+        {
+          "name": "terraform-azurerm-windows-virtual-machine-scale-set",
+          "non_compliance": {
+            "non_compliance_rate": 100.0,
+            "non_compliant_pipelines": 0,
+            "total_pipelines": 0
+          },
+          "non_compliant_pipelines": []
+        },
+        {
+          "name": "vm-based-pipeline-test",
+          "non_compliance": {
+            "non_compliance_rate": 100.0,
+            "non_compliant_pipelines": 1,
+            "total_pipelines": 1
+          },
+          "non_compliant_pipelines": [
+            {
+              "name": "umi-vm-pipeline",
+              "path": "/umi-vm-pipeline"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

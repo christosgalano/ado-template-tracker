@@ -1,0 +1,13 @@
+                                     Template Statistics
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━┳━━━━━━━━━┳━━━━━━━━━━┳━━━━━━━━━━━━━━┳━━━━━━━━━━━┓
+┃ Template                     ┃ Usage Count ┃ Usage % ┃ Projects ┃ Repositories ┃ Pipelines ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━╇━━━━━━━━━╇━━━━━━━━━━╇━━━━━━━━━━━━━━╇━━━━━━━━━━━┩
+│ terraform/deploy.yaml        │          17 │   44.7% │        2 │           12 │        17 │
+│ terraform/generate-docs.yaml │          10 │   26.3% │        2 │           10 │        10 │
+│ terraform/destroy.yaml       │          10 │   26.3% │        1 │           10 │        10 │
+│ tools/install-tools.yaml     │           1 │    2.6% │        1 │            1 │         1 │
+└──────────────────────────────┴─────────────┴─────────┴──────────┴──────────────┴───────────┘
+
+Additional Metrics
+ Most Used Templates:  terraform/deploy.yaml (17 use(s)), terraform/generate-docs.yaml (10 use(s)), terraform/destroy.yaml (10 use(s))
+ Processing Time:      29.39s

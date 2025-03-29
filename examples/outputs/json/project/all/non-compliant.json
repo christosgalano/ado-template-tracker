@@ -1,0 +1,138 @@
+{
+  "name": "CCHBC-Governance-Center",
+  "compliance_mode": "ALL",
+  "is_compliant": false,
+  "repository_non_compliance": {
+    "non_compliance_rate": 88.89,
+    "non_compliant_repositories": 8,
+    "total_repositories": 9
+  },
+  "pipeline_non_compliance": {
+    "non_compliance_rate": 57.89,
+    "non_compliant_pipelines": 11,
+    "total_pipelines": 19
+  },
+  "non_compliant_repositories": [
+    {
+      "name": "administration",
+      "non_compliance": {
+        "non_compliance_rate": 53.85,
+        "non_compliant_pipelines": 7,
+        "total_pipelines": 13
+      },
+      "non_compliant_pipelines": [
+        {
+          "name": "add-repository-pipelines",
+          "path": "administration/add-repository-pipelines"
+        },
+        {
+          "name": "get-aad-applications",
+          "path": "administration/get-aad-applications"
+        },
+        {
+          "name": "get-pipelines-by-pool",
+          "path": "administration/get-pipelines-by-pool"
+        },
+        {
+          "name": "run-repository-pipelines",
+          "path": "administration/run-repository-pipelines"
+        },
+        {
+          "name": "test-self-hosted-agent",
+          "path": "administration/test-self-hosted-agent"
+        },
+        {
+          "name": "track-pipeline-library-adoption",
+          "path": "administration/track-pipeline-library-adoption"
+        },
+        {
+          "name": "update-self-hosted-agent",
+          "path": "administration/update-self-hosted-agent"
+        }
+      ]
+    },
+    {
+      "name": "knowledge-base",
+      "non_compliance": {
+        "non_compliance_rate": 100.0,
+        "non_compliant_pipelines": 1,
+        "total_pipelines": 1
+      },
+      "non_compliant_pipelines": [
+        {
+          "name": "knowledge-base-replicate-to-wiki",
+          "path": "knowledge-base/knowledge-base-replicate-to-wiki"
+        }
+      ]
+    },
+    {
+      "name": "knowledge-base-cloud-automation",
+      "non_compliance": {
+        "non_compliance_rate": 100.0,
+        "non_compliant_pipelines": 1,
+        "total_pipelines": 1
+      },
+      "non_compliant_pipelines": [
+        {
+          "name": "knowledge-base-cloud-automation-replicate-to-wiki",
+          "path": "knowledge-base-cloud-automation/knowledge-base-cloud-automation-replicate-to-wiki"
+        }
+      ]
+    },
+    {
+      "name": "policy-library",
+      "non_compliance": {
+        "non_compliance_rate": 50.0,
+        "non_compliant_pipelines": 1,
+        "total_pipelines": 2
+      },
+      "non_compliant_pipelines": [
+        {
+          "name": "policy-library-push-policy-bundle",
+          "path": "policy-library/policy-library-push-policy-bundle"
+        }
+      ]
+    },
+    {
+      "name": "Reporting",
+      "non_compliance": {
+        "non_compliance_rate": 100.0,
+        "non_compliant_pipelines": 0,
+        "total_pipelines": 0
+      },
+      "non_compliant_pipelines": []
+    },
+    {
+      "name": "resource-protection",
+      "non_compliance": {
+        "non_compliance_rate": 100.0,
+        "non_compliant_pipelines": 1,
+        "total_pipelines": 1
+      },
+      "non_compliant_pipelines": [
+        {
+          "name": "resource-protection-add-protection-checks",
+          "path": "resource-protection/resource-protection-add-protection-checks"
+        }
+      ]
+    },
+    {
+      "name": "terraform-module-template-repo",
+      "non_compliance": {
+        "non_compliance_rate": 100.0,
+        "non_compliant_pipelines": 0,
+        "total_pipelines": 0
+      },
+      "non_compliant_pipelines": []
+    },
+    {
+      "name": "terraform-structure-example-with-tfvars",
+      "non_compliance": {
+        "non_compliance_rate": 100.0,
+        "non_compliant_pipelines": 0,
+        "total_pipelines": 0
+      },
+      "non_compliant_pipelines": []
+    }
+  ]
+}

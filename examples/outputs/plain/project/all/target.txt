@@ -1,0 +1,17 @@
+
+CCHBC-Governance-Center
+Scope: Project
+Mode: All
+Status: Non-Compliant
+Repository Adoption Rate: 11.1% (1/9)
+Pipeline Adoption Rate: 42.1% (8/19)
+================================================================================
+
+Repository: terraform-template-repo
+Pipeline Adoption Rate: 100.0% (1/1)
+
+  Pipeline: terraform-template-repo/terraform-template-repo-generate-docs
+    Template: pipeline-library/terraform/generate-docs.yaml
+    Usage: extend
+
+--------------------------------------------------------------------------------

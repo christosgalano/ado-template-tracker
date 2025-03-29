@@ -1,0 +1,10 @@
+               Template Statistics
+┏━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━┳━━━━━━━━━┓
+┃ Template              ┃ Usage Count ┃ Usage % ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━╇━━━━━━━━━┩
+│ terraform/deploy.yaml │           1 │  100.0% │
+└───────────────────────┴─────────────┴─────────┘
+
+Additional Metrics
+ Most Used Templates:  terraform/deploy.yaml (1 use(s))
+ Processing Time:      0.11s

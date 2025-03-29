@@ -1,0 +1,11 @@
+
+administration/aad-group-myomada-creation
+Scope: Pipeline
+Status: Compliant
+
+================================================================================
+Template: pipeline-library/terraform/deploy.yaml
+Usage Type: include
+Usage Count: Used in 1 pipeline(s)
+
+--------------------------------------------------------------------------------
