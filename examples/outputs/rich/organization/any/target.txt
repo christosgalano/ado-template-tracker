@@ -1,16 +1,16 @@
-                                                            Organization 'CCHBC' - Compliant (ANY mode)
+                                                            Organization 'Dunder-Mifflin' - Compliant (ANY mode)
                                                                   Pipeline Adoption: 4.5% (38/848)
                                                                  Repository Adoption: 3.5% (14/404)
                                                                    Project Adoption: 50.0% (2/4)
 ┏━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━┓
 ┃ Project                 ┃ Repository                          ┃ Pipeline                                  ┃ Template(s)                                ┃  Usage  ┃
 ┡━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━┩
-│ CCHBC-Governance-Center │ administration                      │ administration/aad-group-myomada-creation │ pipeline-library/terraform/deploy.yaml     │ include │
-│ CCHBC-Governance-Center │                                     │ administration/create-application-regist… │ pipeline-library/terraform/deploy.yaml     │ include │
-│ CCHBC-Governance-Center │                                     │ administration/create-project             │ pipeline-library/terraform/deploy.yaml     │ extend  │
-│ CCHBC-Governance-Center │                                     │ administration/create-repository          │ pipeline-library/terraform/deploy.yaml     │ include │
-│ CCHBC-Governance-Center │                                     │ administration/create-self-hosted-agent   │ pipeline-library/terraform/deploy.yaml     │ include │
-│ CCHBC-Governance-Center │                                     │ administration/create-template-repository │ pipeline-library/terraform/deploy.yaml     │ include │
+│ Dunder-Mifflin-Governance-Center │ administration                      │ administration/aad-group-myomada-creation │ pipeline-library/terraform/deploy.yaml     │ include │
+│ Dunder-Mifflin-Governance-Center │                                     │ administration/create-application-regist… │ pipeline-library/terraform/deploy.yaml     │ include │
+│ Dunder-Mifflin-Governance-Center │                                     │ administration/create-project             │ pipeline-library/terraform/deploy.yaml     │ extend  │
+│ Dunder-Mifflin-Governance-Center │                                     │ administration/create-repository          │ pipeline-library/terraform/deploy.yaml     │ include │
+│ Dunder-Mifflin-Governance-Center │                                     │ administration/create-self-hosted-agent   │ pipeline-library/terraform/deploy.yaml     │ include │
+│ Dunder-Mifflin-Governance-Center │                                     │ administration/create-template-repository │ pipeline-library/terraform/deploy.yaml     │ include │
 │                         │                                     │                                           │                                            │         │
 │                         │ policy-library                      │ policy-library/policy-library-ci          │ pipeline-library/tools/install-tools.yaml  │ include │
 │                         │                                     │                                           │                                            │         │
@@ -18,61 +18,61 @@
 │                         │                                     │                                           │                                            │         │
 │                         │                                     │                                           │                                            │         │
 │                         │                                     │                                           │                                            │         │
-│ CCH SAFe Portfolio      │ detp-vmi-infrastructure             │ DETP/detp-vmi-infrastructure/detp-vmi-in… │ pipeline-library/terraform/deploy.yaml     │ extend  │
-│ CCH SAFe Portfolio      │                                     │ DETP/detp-vmi-infrastructure/detp-vmi-in… │ pipeline-library/terraform/destroy.yaml    │ extend  │
-│ CCH SAFe Portfolio      │                                     │ DETP/detp-vmi-infrastructure/detp-vmi-in… │ pipeline-library/terraform/generate-docs.… │ extend  │
+│ Project-X      │ ruiet-vmi-infrastructure             │ RUIET/ruiet-vmi-infrastructure/ruiet-vmi-in… │ pipeline-library/terraform/deploy.yaml     │ extend  │
+│ Project-X      │                                     │ RUIET/ruiet-vmi-infrastructure/ruiet-vmi-in… │ pipeline-library/terraform/destroy.yaml    │ extend  │
+│ Project-X      │                                     │ RUIET/ruiet-vmi-infrastructure/ruiet-vmi-in… │ pipeline-library/terraform/generate-docs.… │ extend  │
 │                         │                                     │                                           │                                            │         │
-│                         │ dtso-ai-brainbank                   │ DTSO/dtso-ai-brainbank/dtso-ai-brainbank… │ pipeline-library/terraform/deploy.yaml     │ extend  │
-│                         │                                     │ DTSO/dtso-ai-brainbank/dtso-ai-brainbank… │ pipeline-library/terraform/destroy.yaml    │ extend  │
-│                         │                                     │ DTSO/dtso-ai-brainbank/dtso-ai-brainbank… │ pipeline-library/terraform/generate-docs.… │ extend  │
+│                         │ drew-ai-phoenix                   │ DTT/drew-ai-phoenix/drew-ai-phoenix… │ pipeline-library/terraform/deploy.yaml     │ extend  │
+│                         │                                     │ DTT/drew-ai-phoenix/drew-ai-phoenix… │ pipeline-library/terraform/destroy.yaml    │ extend  │
+│                         │                                     │ DTT/drew-ai-phoenix/drew-ai-phoenix… │ pipeline-library/terraform/generate-docs.… │ extend  │
 │                         │                                     │                                           │                                            │         │
-│                         │ tecs-cloud-cloudformation-terraform │ TECS/tecs-cloud-cloudformation-terraform… │ pipeline-library/terraform/deploy.yaml     │ extend  │
-│                         │                                     │ TECS/tecs-cloud-cloudformation-terraform… │ pipeline-library/terraform/destroy.yaml    │ extend  │
-│                         │                                     │ TECS/tecs-cloud-cloudformation-terraform… │ pipeline-library/terraform/generate-docs.… │ extend  │
+│                         │ th-cloud-cloudformation-terraform │ agg/th-cloud-cloudformation-terraform… │ pipeline-library/terraform/deploy.yaml     │ extend  │
+│                         │                                     │ agg/th-cloud-cloudformation-terraform… │ pipeline-library/terraform/destroy.yaml    │ extend  │
+│                         │                                     │ agg/th-cloud-cloudformation-terraform… │ pipeline-library/terraform/generate-docs.… │ extend  │
 │                         │                                     │                                           │                                            │         │
-│                         │ tecs-cloud-itdcmint                 │ TECS/tecs-cloud-itdcmint/tecs-cloud-itdc… │ pipeline-library/terraform/deploy.yaml     │ extend  │
-│                         │                                     │ TECS/tecs-cloud-itdcmint/tecs-cloud-itdc… │ pipeline-library/terraform/destroy.yaml    │ extend  │
-│                         │                                     │ TECS/tecs-cloud-itdcmint/tecs-cloud-itdc… │ pipeline-library/terraform/generate-docs.… │ extend  │
+│                         │ th-cloud-itdcmint                 │ agg/th-cloud-itdcmint/th-cloud-itdc… │ pipeline-library/terraform/deploy.yaml     │ extend  │
+│                         │                                     │ agg/th-cloud-itdcmint/th-cloud-itdc… │ pipeline-library/terraform/destroy.yaml    │ extend  │
+│                         │                                     │ agg/th-cloud-itdcmint/th-cloud-itdc… │ pipeline-library/terraform/generate-docs.… │ extend  │
 │                         │                                     │                                           │                                            │         │
-│                         │ tecs-cloud-ot-lz                    │ TECS/Cloud                                │ pipeline-library/terraform/deploy.yaml     │ extend  │
-│                         │                                     │ Services/OT-LZ/tecs-cloud-ot-lz-deploy    │                                            │         │
-│                         │                                     │ TECS/Cloud                                │ pipeline-library/terraform/destroy.yaml    │ extend  │
-│                         │                                     │ Services/OT-LZ/tecs-cloud-ot-lz-destroy   │                                            │         │
-│                         │                                     │ TECS/Cloud                                │ pipeline-library/terraform/generate-docs.… │ extend  │
-│                         │                                     │ Services/OT-LZ/tecs-cloud-ot-lz-generate… │                                            │         │
+│                         │ th-cloud-ot-lz                    │ agg/Cloud                                │ pipeline-library/terraform/deploy.yaml     │ extend  │
+│                         │                                     │ Services/OT-LZ/th-cloud-ot-lz-deploy    │                                            │         │
+│                         │                                     │ agg/Cloud                                │ pipeline-library/terraform/destroy.yaml    │ extend  │
+│                         │                                     │ Services/OT-LZ/th-cloud-ot-lz-destroy   │                                            │         │
+│                         │                                     │ agg/Cloud                                │ pipeline-library/terraform/generate-docs.… │ extend  │
+│                         │                                     │ Services/OT-LZ/th-cloud-ot-lz-generate… │                                            │         │
 │                         │                                     │                                           │                                            │         │
-│                         │ tecs-cloud-sap-bw                   │ TECS/Cloud                                │ pipeline-library/terraform/deploy.yaml     │ extend  │
-│                         │                                     │ Services/SAP-BW/tecs-cloud-sap-bw-deploy  │                                            │         │
-│                         │                                     │ TECS/Cloud                                │ pipeline-library/terraform/destroy.yaml    │ extend  │
-│                         │                                     │ Services/SAP-BW/tecs-cloud-sap-bw-destroy │                                            │         │
-│                         │                                     │ TECS/Cloud                                │ pipeline-library/terraform/generate-docs.… │ extend  │
-│                         │                                     │ Services/SAP-BW/tecs-cloud-sap-bw-genera… │                                            │         │
+│                         │ th-cloud-pus-bw                   │ agg/Cloud                                │ pipeline-library/terraform/deploy.yaml     │ extend  │
+│                         │                                     │ Services/SAP-BW/th-cloud-pus-bw-deploy  │                                            │         │
+│                         │                                     │ agg/Cloud                                │ pipeline-library/terraform/destroy.yaml    │ extend  │
+│                         │                                     │ Services/SAP-BW/th-cloud-pus-bw-destroy │                                            │         │
+│                         │                                     │ agg/Cloud                                │ pipeline-library/terraform/generate-docs.… │ extend  │
+│                         │                                     │ Services/SAP-BW/th-cloud-pus-bw-genera… │                                            │         │
 │                         │                                     │                                           │                                            │         │
-│                         │ tecs-cloud-sap-bwjava               │ TECS/Cloud                                │ pipeline-library/terraform/generate-docs.… │ extend  │
-│                         │                                     │ Services/SAP-BWJAVA/tecs-cloud-sap-bwjav… │                                            │         │
-│                         │                                     │ TECS/Cloud                                │ pipeline-library/terraform/deploy.yaml     │ extend  │
-│                         │                                     │ Services/SAP-BWJAVA/tecs-cloud-sap-bwjav… │                                            │         │
-│                         │                                     │ TECS/Cloud                                │ pipeline-library/terraform/destroy.yaml    │ extend  │
-│                         │                                     │ Services/SAP-BWJAVA/tecs-cloud-sap-bwjav… │                                            │         │
+│                         │ th-cloud-pus-bwjava               │ agg/Cloud                                │ pipeline-library/terraform/generate-docs.… │ extend  │
+│                         │                                     │ Services/SAP-BWJAVA/th-cloud-pus-bwjav… │                                            │         │
+│                         │                                     │ agg/Cloud                                │ pipeline-library/terraform/deploy.yaml     │ extend  │
+│                         │                                     │ Services/SAP-BWJAVA/th-cloud-pus-bwjav… │                                            │         │
+│                         │                                     │ agg/Cloud                                │ pipeline-library/terraform/destroy.yaml    │ extend  │
+│                         │                                     │ Services/SAP-BWJAVA/th-cloud-pus-bwjav… │                                            │         │
 │                         │                                     │                                           │                                            │         │
-│                         │ tecs-cloud-sap-crm                  │ TECS/Cloud                                │ pipeline-library/terraform/deploy.yaml     │ extend  │
-│                         │                                     │ Services/SAP-CRM/tecs-cloud-sap-crm-terr… │                                            │         │
-│                         │                                     │ TECS/Cloud                                │ pipeline-library/terraform/destroy.yaml    │ extend  │
-│                         │                                     │ Services/SAP-CRM/tecs-cloud-sap-crm-terr… │                                            │         │
+│                         │ th-cloud-pus-crm                  │ agg/Cloud                                │ pipeline-library/terraform/deploy.yaml     │ extend  │
+│                         │                                     │ Services/SAP-CRM/th-cloud-pus-crm-terr… │                                            │         │
+│                         │                                     │ agg/Cloud                                │ pipeline-library/terraform/destroy.yaml    │ extend  │
+│                         │                                     │ Services/SAP-CRM/th-cloud-pus-crm-terr… │                                            │         │
 │                         │                                     │                                           │                                            │         │
-│                         │ tecs-cloud-saplumira                │ TECS/tecs-cloud-saplumira/tecs-cloud-sap… │ pipeline-library/terraform/deploy.yaml     │ extend  │
-│                         │                                     │ TECS/tecs-cloud-saplumira/tecs-cloud-sap… │ pipeline-library/terraform/destroy.yaml    │ extend  │
-│                         │                                     │ TECS/tecs-cloud-saplumira/tecs-cloud-sap… │ pipeline-library/terraform/generate-docs.… │ extend  │
+│                         │ th-cloud-saplumira                │ agg/th-cloud-saplumira/th-cloud-pus… │ pipeline-library/terraform/deploy.yaml     │ extend  │
+│                         │                                     │ agg/th-cloud-saplumira/th-cloud-pus… │ pipeline-library/terraform/destroy.yaml    │ extend  │
+│                         │                                     │ agg/th-cloud-saplumira/th-cloud-pus… │ pipeline-library/terraform/generate-docs.… │ extend  │
 │                         │                                     │                                           │                                            │         │
-│                         │ tecs-cloud-sap-s4                   │ TECS/Cloud                                │ pipeline-library/terraform/generate-docs.… │ extend  │
-│                         │                                     │ Services/SAP-S4/tecs-cloud-sap-s4-genera… │                                            │         │
-│                         │                                     │ TECS/Cloud                                │ pipeline-library/terraform/deploy.yaml     │ extend  │
-│                         │                                     │ Services/SAP-S4/tecs-cloud-sap-s4-terraf… │                                            │         │
-│                         │                                     │ TECS/Cloud                                │ pipeline-library/terraform/destroy.yaml    │ extend  │
-│                         │                                     │ Services/SAP-S4/tecs-cloud-sap-s4-terraf… │                                            │         │
+│                         │ th-cloud-pus-s4                   │ agg/Cloud                                │ pipeline-library/terraform/generate-docs.… │ extend  │
+│                         │                                     │ Services/SAP-S4/th-cloud-pus-s4-genera… │                                            │         │
+│                         │                                     │ agg/Cloud                                │ pipeline-library/terraform/deploy.yaml     │ extend  │
+│                         │                                     │ Services/SAP-S4/th-cloud-pus-s4-terraf… │                                            │         │
+│                         │                                     │ agg/Cloud                                │ pipeline-library/terraform/destroy.yaml    │ extend  │
+│                         │                                     │ Services/SAP-S4/th-cloud-pus-s4-terraf… │                                            │         │
 │                         │                                     │                                           │                                            │         │
-│                         │ tecs-cloud-sap-slt                  │ TECS/Cloud                                │ pipeline-library/terraform/deploy.yaml     │ extend  │
-│                         │                                     │ Services/SAP-SLT/tecs-cloud-sap-slt-terr… │                                            │         │
+│                         │ th-cloud-pus-slt                  │ agg/Cloud                                │ pipeline-library/terraform/deploy.yaml     │ extend  │
+│                         │                                     │ Services/SAP-SLT/th-cloud-pus-slt-terr… │                                            │         │
 │                         │                                     │                                           │                                            │         │
 │                         │                                     │                                           │                                            │         │
 │                         │                                     │                                           │                                            │         │

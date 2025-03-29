@@ -1,4 +1,4 @@
-  Organization 'CCHBC' - Non-Compliant (MAJORITY mode)
+  Organization 'Dunder-Mifflin' - Non-Compliant (MAJORITY mode)
             Pipeline Adoption: 4.5% (38/848)
            Repository Adoption: 3.2% (13/404)
               Project Adoption: 0.0% (0/4)

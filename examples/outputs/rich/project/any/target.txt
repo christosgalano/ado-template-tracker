@@ -1,4 +1,4 @@
-                                                      Project 'CCHBC-Governance-Center' - Compliant (ANY mode)
+                                                      Project 'Dunder-Mifflin-Governance-Center' - Compliant (ANY mode)
                                                                   Pipeline Adoption: 42.1% (8/19)
                                                                   Repository Adoption: 33.3% (3/9)
 ┏━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━┳━━━━━━━━━━━━━━━┓

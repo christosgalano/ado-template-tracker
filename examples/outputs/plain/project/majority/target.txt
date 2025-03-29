@@ -1,5 +1,5 @@
 
-CCHBC-Governance-Center
+Dunder-Mifflin-Governance-Center
 Scope: Project
 Mode: Majority
 Status: Non-Compliant

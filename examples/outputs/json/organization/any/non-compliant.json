@@ -1,5 +1,5 @@
 {
-  "name": "CCHBC",
+  "name": "Dunder-Mifflin",
   "compliance_mode": "ANY",
   "is_compliant": true,
   "project_non_compliance": {
@@ -50,7 +50,7 @@
           "non_compliant_pipelines": []
         },
         {
-          "name": "cch-templates",
+          "name": "dunder-miflin-templates",
           "non_compliance": {
             "non_compliance_rate": 100.0,
             "non_compliant_pipelines": 0,
@@ -59,7 +59,7 @@
           "non_compliant_pipelines": []
         },
         {
-          "name": "cch-valsar-tst",
+          "name": "dunder-miflin-vulr-tst",
           "non_compliance": {
             "non_compliance_rate": 100.0,
             "non_compliant_pipelines": 0,
@@ -68,7 +68,7 @@
           "non_compliant_pipelines": []
         },
         {
-          "name": "dtso-innovation-brainbank-template-test",
+          "name": "drew-innovation-phoenix-template-test",
           "non_compliance": {
             "non_compliance_rate": 100.0,
             "non_compliant_pipelines": 0,
@@ -77,7 +77,7 @@
           "non_compliant_pipelines": []
         },
         {
-          "name": "tecs-platformengineering-vmp",
+          "name": "th-platformengineering-vmp",
           "non_compliance": {
             "non_compliance_rate": 100.0,
             "non_compliant_pipelines": 0,
@@ -111,7 +111,7 @@
       ]
     },
     {
-      "name": "CCHBC-Terraform-Module-Library",
+      "name": "Dunder-Mifflin-Terraform-Module-Library",
       "repository_non_compliance": {
         "non_compliance_rate": 100.0,
         "non_compliant_repositories": 18,
@@ -151,7 +151,7 @@
           "non_compliant_pipelines": []
         },
         {
-          "name": "cchbc-vmi-terraform-modules",
+          "name": "dunder-miflinbc-vmi-terraform-modules",
           "non_compliance": {
             "non_compliance_rate": 100.0,
             "non_compliant_pipelines": 0,
@@ -169,7 +169,7 @@
           "non_compliant_pipelines": []
         },
         {
-          "name": "tecs-cloud-cloudautomation-terraform",
+          "name": "th-cloud-cloudautomation-terraform",
           "non_compliance": {
             "non_compliance_rate": 100.0,
             "non_compliant_pipelines": 1,
@@ -177,8 +177,8 @@
           },
           "non_compliant_pipelines": [
             {
-              "name": "tecs-cloud-cloudautomation-terraform (1381)",
-              "path": "/tecs-cloud-cloudautomation-terraform (1381)"
+              "name": "th-cloud-cloudautomation-terraform (1381)",
+              "path": "/th-cloud-cloudautomation-terraform (1381)"
             }
           ]
         },

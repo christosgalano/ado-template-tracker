@@ -1,5 +1,5 @@
 {
-  "name": "CCHBC",
+  "name": "Dunder-Mifflin",
   "compliance_mode": "ANY",
   "is_compliant": true,
   "project_adoption": {
@@ -19,7 +19,7 @@
   },
   "compliant_projects": [
     {
-      "name": "CCHBC-Governance-Center",
+      "name": "Dunder-Mifflin-Governance-Center",
       "repository_adoption": {
         "adoption_rate": 33.33,
         "compliant_repositories": 3,
@@ -144,7 +144,7 @@
       ]
     },
     {
-      "name": "CCH SAFe Portfolio",
+      "name": "Project-X",
       "repository_adoption": {
         "adoption_rate": 2.98,
         "compliant_repositories": 11,
@@ -157,7 +157,7 @@
       },
       "compliant_repositories": [
         {
-          "name": "detp-vmi-infrastructure",
+          "name": "ruiet-vmi-infrastructure",
           "adoption": {
             "adoption_rate": 100.0,
             "compliant_pipelines": 3,
@@ -165,8 +165,8 @@
           },
           "compliant_pipelines": [
             {
-              "name": "detp-vmi-infrastructure-deploy",
-              "path": "DETP/detp-vmi-infrastructure/detp-vmi-infrastructure-deploy",
+              "name": "ruiet-vmi-infrastructure-deploy",
+              "path": "RUIET/ruiet-vmi-infrastructure/ruiet-vmi-infrastructure-deploy",
               "templates": [
                 {
                   "path": "pipeline-library/terraform/deploy.yaml",
@@ -175,8 +175,8 @@
               ]
             },
             {
-              "name": "detp-vmi-infrastructure-destroy",
-              "path": "DETP/detp-vmi-infrastructure/detp-vmi-infrastructure-destroy",
+              "name": "ruiet-vmi-infrastructure-destroy",
+              "path": "RUIET/ruiet-vmi-infrastructure/ruiet-vmi-infrastructure-destroy",
               "templates": [
                 {
                   "path": "pipeline-library/terraform/destroy.yaml",
@@ -185,8 +185,8 @@
               ]
             },
             {
-              "name": "detp-vmi-infrastructure-generate-docs",
-              "path": "DETP/detp-vmi-infrastructure/detp-vmi-infrastructure-generate-docs",
+              "name": "ruiet-vmi-infrastructure-generate-docs",
+              "path": "RUIET/ruiet-vmi-infrastructure/ruiet-vmi-infrastructure-generate-docs",
               "templates": [
                 {
                   "path": "pipeline-library/terraform/generate-docs.yaml",
@@ -197,7 +197,7 @@
           ]
         },
         {
-          "name": "dtso-ai-brainbank",
+          "name": "drew-ai-phoenix",
           "adoption": {
             "adoption_rate": 100.0,
             "compliant_pipelines": 3,
@@ -205,8 +205,8 @@
           },
           "compliant_pipelines": [
             {
-              "name": "dtso-ai-brainbank-deploy",
-              "path": "DTSO/dtso-ai-brainbank/dtso-ai-brainbank-deploy",
+              "name": "drew-ai-phoenix-deploy",
+              "path": "DTT/drew-ai-phoenix/drew-ai-phoenix-deploy",
               "templates": [
                 {
                   "path": "pipeline-library/terraform/deploy.yaml",
@@ -215,8 +215,8 @@
               ]
             },
             {
-              "name": "dtso-ai-brainbank-destroy",
-              "path": "DTSO/dtso-ai-brainbank/dtso-ai-brainbank-destroy",
+              "name": "drew-ai-phoenix-destroy",
+              "path": "DTT/drew-ai-phoenix/drew-ai-phoenix-destroy",
               "templates": [
                 {
                   "path": "pipeline-library/terraform/destroy.yaml",
@@ -225,8 +225,8 @@
               ]
             },
             {
-              "name": "dtso-ai-brainbank-generate-docs",
-              "path": "DTSO/dtso-ai-brainbank/dtso-ai-brainbank-generate-docs",
+              "name": "drew-ai-phoenix-generate-docs",
+              "path": "DTT/drew-ai-phoenix/drew-ai-phoenix-generate-docs",
               "templates": [
                 {
                   "path": "pipeline-library/terraform/generate-docs.yaml",
@@ -237,7 +237,7 @@
           ]
         },
         {
-          "name": "tecs-cloud-cloudformation-terraform",
+          "name": "th-cloud-cloudformation-terraform",
           "adoption": {
             "adoption_rate": 100.0,
             "compliant_pipelines": 3,
@@ -245,8 +245,8 @@
           },
           "compliant_pipelines": [
             {
-              "name": "tecs-cloud-cloudformation-terraform-deploy",
-              "path": "TECS/tecs-cloud-cloudformation-terraform/tecs-cloud-cloudformation-terraform-deploy",
+              "name": "th-cloud-cloudformation-terraform-deploy",
+              "path": "agg/th-cloud-cloudformation-terraform/th-cloud-cloudformation-terraform-deploy",
               "templates": [
                 {
                   "path": "pipeline-library/terraform/deploy.yaml",
@@ -255,8 +255,8 @@
               ]
             },
             {
-              "name": "tecs-cloud-cloudformation-terraform-destroy",
-              "path": "TECS/tecs-cloud-cloudformation-terraform/tecs-cloud-cloudformation-terraform-destroy",
+              "name": "th-cloud-cloudformation-terraform-destroy",
+              "path": "agg/th-cloud-cloudformation-terraform/th-cloud-cloudformation-terraform-destroy",
               "templates": [
                 {
                   "path": "pipeline-library/terraform/destroy.yaml",
@@ -265,8 +265,8 @@
               ]
             },
             {
-              "name": "tecs-cloud-cloudformation-terraform-generate-docs",
-              "path": "TECS/tecs-cloud-cloudformation-terraform/tecs-cloud-cloudformation-terraform-generate-docs",
+              "name": "th-cloud-cloudformation-terraform-generate-docs",
+              "path": "agg/th-cloud-cloudformation-terraform/th-cloud-cloudformation-terraform-generate-docs",
               "templates": [
                 {
                   "path": "pipeline-library/terraform/generate-docs.yaml",
@@ -277,7 +277,7 @@
           ]
         },
         {
-          "name": "tecs-cloud-itdcmint",
+          "name": "th-cloud-itdcmint",
           "adoption": {
             "adoption_rate": 100.0,
             "compliant_pipelines": 3,
@@ -285,8 +285,8 @@
           },
           "compliant_pipelines": [
             {
-              "name": "tecs-cloud-itdcmint-deploy",
-              "path": "TECS/tecs-cloud-itdcmint/tecs-cloud-itdcmint-deploy",
+              "name": "th-cloud-itdcmint-deploy",
+              "path": "agg/th-cloud-itdcmint/th-cloud-itdcmint-deploy",
               "templates": [
                 {
                   "path": "pipeline-library/terraform/deploy.yaml",
@@ -295,8 +295,8 @@
               ]
             },
             {
-              "name": "tecs-cloud-itdcmint-destroy",
-              "path": "TECS/tecs-cloud-itdcmint/tecs-cloud-itdcmint-destroy",
+              "name": "th-cloud-itdcmint-destroy",
+              "path": "agg/th-cloud-itdcmint/th-cloud-itdcmint-destroy",
               "templates": [
                 {
                   "path": "pipeline-library/terraform/destroy.yaml",
@@ -305,8 +305,8 @@
               ]
             },
             {
-              "name": "tecs-cloud-itdcmint-generate-docs",
-              "path": "TECS/tecs-cloud-itdcmint/tecs-cloud-itdcmint-generate-docs",
+              "name": "th-cloud-itdcmint-generate-docs",
+              "path": "agg/th-cloud-itdcmint/th-cloud-itdcmint-generate-docs",
               "templates": [
                 {
                   "path": "pipeline-library/terraform/generate-docs.yaml",
@@ -317,7 +317,7 @@
           ]
         },
         {
-          "name": "tecs-cloud-ot-lz",
+          "name": "th-cloud-ot-lz",
           "adoption": {
             "adoption_rate": 100.0,
             "compliant_pipelines": 3,
@@ -325,8 +325,8 @@
           },
           "compliant_pipelines": [
             {
-              "name": "tecs-cloud-ot-lz-deploy",
-              "path": "TECS/Cloud Services/OT-LZ/tecs-cloud-ot-lz-deploy",
+              "name": "th-cloud-ot-lz-deploy",
+              "path": "agg/Cloud Services/OT-LZ/th-cloud-ot-lz-deploy",
               "templates": [
                 {
                   "path": "pipeline-library/terraform/deploy.yaml",
@@ -335,8 +335,8 @@
               ]
             },
             {
-              "name": "tecs-cloud-ot-lz-destroy",
-              "path": "TECS/Cloud Services/OT-LZ/tecs-cloud-ot-lz-destroy",
+              "name": "th-cloud-ot-lz-destroy",
+              "path": "agg/Cloud Services/OT-LZ/th-cloud-ot-lz-destroy",
               "templates": [
                 {
                   "path": "pipeline-library/terraform/destroy.yaml",
@@ -345,8 +345,8 @@
               ]
             },
             {
-              "name": "tecs-cloud-ot-lz-generate-docs",
-              "path": "TECS/Cloud Services/OT-LZ/tecs-cloud-ot-lz-generate-docs",
+              "name": "th-cloud-ot-lz-generate-docs",
+              "path": "agg/Cloud Services/OT-LZ/th-cloud-ot-lz-generate-docs",
               "templates": [
                 {
                   "path": "pipeline-library/terraform/generate-docs.yaml",
@@ -357,7 +357,7 @@
           ]
         },
         {
-          "name": "tecs-cloud-sap-bw",
+          "name": "th-cloud-pus-bw",
           "adoption": {
             "adoption_rate": 100.0,
             "compliant_pipelines": 3,
@@ -365,8 +365,8 @@
           },
           "compliant_pipelines": [
             {
-              "name": "tecs-cloud-sap-bw-deploy",
-              "path": "TECS/Cloud Services/SAP-BW/tecs-cloud-sap-bw-deploy",
+              "name": "th-cloud-pus-bw-deploy",
+              "path": "agg/Cloud Services/SAP-BW/th-cloud-pus-bw-deploy",
               "templates": [
                 {
                   "path": "pipeline-library/terraform/deploy.yaml",
@@ -375,8 +375,8 @@
               ]
             },
             {
-              "name": "tecs-cloud-sap-bw-destroy",
-              "path": "TECS/Cloud Services/SAP-BW/tecs-cloud-sap-bw-destroy",
+              "name": "th-cloud-pus-bw-destroy",
+              "path": "agg/Cloud Services/SAP-BW/th-cloud-pus-bw-destroy",
               "templates": [
                 {
                   "path": "pipeline-library/terraform/destroy.yaml",
@@ -385,8 +385,8 @@
               ]
             },
             {
-              "name": "tecs-cloud-sap-bw-generate-docs",
-              "path": "TECS/Cloud Services/SAP-BW/tecs-cloud-sap-bw-generate-docs",
+              "name": "th-cloud-pus-bw-generate-docs",
+              "path": "agg/Cloud Services/SAP-BW/th-cloud-pus-bw-generate-docs",
               "templates": [
                 {
                   "path": "pipeline-library/terraform/generate-docs.yaml",
@@ -397,7 +397,7 @@
           ]
         },
         {
-          "name": "tecs-cloud-sap-bwjava",
+          "name": "th-cloud-pus-bwjava",
           "adoption": {
             "adoption_rate": 100.0,
             "compliant_pipelines": 3,
@@ -405,8 +405,8 @@
           },
           "compliant_pipelines": [
             {
-              "name": "tecs-cloud-sap-bwjava-generate-docs",
-              "path": "TECS/Cloud Services/SAP-BWJAVA/tecs-cloud-sap-bwjava-generate-docs",
+              "name": "th-cloud-pus-bwjava-generate-docs",
+              "path": "agg/Cloud Services/SAP-BWJAVA/th-cloud-pus-bwjava-generate-docs",
               "templates": [
                 {
                   "path": "pipeline-library/terraform/generate-docs.yaml",
@@ -415,8 +415,8 @@
               ]
             },
             {
-              "name": "tecs-cloud-sap-bwjava-terraform-deploy",
-              "path": "TECS/Cloud Services/SAP-BWJAVA/tecs-cloud-sap-bwjava-terraform-deploy",
+              "name": "th-cloud-pus-bwjava-terraform-deploy",
+              "path": "agg/Cloud Services/SAP-BWJAVA/th-cloud-pus-bwjava-terraform-deploy",
               "templates": [
                 {
                   "path": "pipeline-library/terraform/deploy.yaml",
@@ -425,8 +425,8 @@
               ]
             },
             {
-              "name": "tecs-cloud-sap-bwjava-terraform-destroy",
-              "path": "TECS/Cloud Services/SAP-BWJAVA/tecs-cloud-sap-bwjava-terraform-destroy",
+              "name": "th-cloud-pus-bwjava-terraform-destroy",
+              "path": "agg/Cloud Services/SAP-BWJAVA/th-cloud-pus-bwjava-terraform-destroy",
               "templates": [
                 {
                   "path": "pipeline-library/terraform/destroy.yaml",
@@ -437,7 +437,7 @@
           ]
         },
         {
-          "name": "tecs-cloud-sap-crm",
+          "name": "th-cloud-pus-crm",
           "adoption": {
             "adoption_rate": 100.0,
             "compliant_pipelines": 2,
@@ -445,8 +445,8 @@
           },
           "compliant_pipelines": [
             {
-              "name": "tecs-cloud-sap-crm-terraform-deploy",
-              "path": "TECS/Cloud Services/SAP-CRM/tecs-cloud-sap-crm-terraform-deploy",
+              "name": "th-cloud-pus-crm-terraform-deploy",
+              "path": "agg/Cloud Services/SAP-CRM/th-cloud-pus-crm-terraform-deploy",
               "templates": [
                 {
                   "path": "pipeline-library/terraform/deploy.yaml",
@@ -455,8 +455,8 @@
               ]
             },
             {
-              "name": "tecs-cloud-sap-crm-terraform-destroy",
-              "path": "TECS/Cloud Services/SAP-CRM/tecs-cloud-sap-crm-terraform-destroy",
+              "name": "th-cloud-pus-crm-terraform-destroy",
+              "path": "agg/Cloud Services/SAP-CRM/th-cloud-pus-crm-terraform-destroy",
               "templates": [
                 {
                   "path": "pipeline-library/terraform/destroy.yaml",
@@ -467,7 +467,7 @@
           ]
         },
         {
-          "name": "tecs-cloud-saplumira",
+          "name": "th-cloud-saplumira",
           "adoption": {
             "adoption_rate": 100.0,
             "compliant_pipelines": 3,
@@ -475,8 +475,8 @@
           },
           "compliant_pipelines": [
             {
-              "name": "tecs-cloud-saplumira-deploy",
-              "path": "TECS/tecs-cloud-saplumira/tecs-cloud-saplumira-deploy",
+              "name": "th-cloud-saplumira-deploy",
+              "path": "agg/th-cloud-saplumira/th-cloud-saplumira-deploy",
               "templates": [
                 {
                   "path": "pipeline-library/terraform/deploy.yaml",
@@ -485,8 +485,8 @@
               ]
             },
             {
-              "name": "tecs-cloud-saplumira-destroy",
-              "path": "TECS/tecs-cloud-saplumira/tecs-cloud-saplumira-destroy",
+              "name": "th-cloud-saplumira-destroy",
+              "path": "agg/th-cloud-saplumira/th-cloud-saplumira-destroy",
               "templates": [
                 {
                   "path": "pipeline-library/terraform/destroy.yaml",
@@ -495,8 +495,8 @@
               ]
             },
             {
-              "name": "tecs-cloud-saplumira-generate-docs",
-              "path": "TECS/tecs-cloud-saplumira/tecs-cloud-saplumira-generate-docs",
+              "name": "th-cloud-saplumira-generate-docs",
+              "path": "agg/th-cloud-saplumira/th-cloud-saplumira-generate-docs",
               "templates": [
                 {
                   "path": "pipeline-library/terraform/generate-docs.yaml",
@@ -507,7 +507,7 @@
           ]
         },
         {
-          "name": "tecs-cloud-sap-s4",
+          "name": "th-cloud-pus-s4",
           "adoption": {
             "adoption_rate": 100.0,
             "compliant_pipelines": 3,
@@ -515,8 +515,8 @@
           },
           "compliant_pipelines": [
             {
-              "name": "tecs-cloud-sap-s4-generate-docs",
-              "path": "TECS/Cloud Services/SAP-S4/tecs-cloud-sap-s4-generate-docs",
+              "name": "th-cloud-pus-s4-generate-docs",
+              "path": "agg/Cloud Services/SAP-S4/th-cloud-pus-s4-generate-docs",
               "templates": [
                 {
                   "path": "pipeline-library/terraform/generate-docs.yaml",
@@ -525,8 +525,8 @@
               ]
             },
             {
-              "name": "tecs-cloud-sap-s4-terraform-deploy",
-              "path": "TECS/Cloud Services/SAP-S4/tecs-cloud-sap-s4-terraform-deploy",
+              "name": "th-cloud-pus-s4-terraform-deploy",
+              "path": "agg/Cloud Services/SAP-S4/th-cloud-pus-s4-terraform-deploy",
               "templates": [
                 {
                   "path": "pipeline-library/terraform/deploy.yaml",
@@ -535,8 +535,8 @@
               ]
             },
             {
-              "name": "tecs-cloud-sap-s4-terraform-destroy",
-              "path": "TECS/Cloud Services/SAP-S4/tecs-cloud-sap-s4-terraform-destroy",
+              "name": "th-cloud-pus-s4-terraform-destroy",
+              "path": "agg/Cloud Services/SAP-S4/th-cloud-pus-s4-terraform-destroy",
               "templates": [
                 {
                   "path": "pipeline-library/terraform/destroy.yaml",
@@ -547,7 +547,7 @@
           ]
         },
         {
-          "name": "tecs-cloud-sap-slt",
+          "name": "th-cloud-pus-slt",
           "adoption": {
             "adoption_rate": 100.0,
             "compliant_pipelines": 1,
@@ -555,8 +555,8 @@
           },
           "compliant_pipelines": [
             {
-              "name": "tecs-cloud-sap-slt-terraform-deploy",
-              "path": "TECS/Cloud Services/SAP-SLT/tecs-cloud-sap-slt-terraform-deploy",
+              "name": "th-cloud-pus-slt-terraform-deploy",
+              "path": "agg/Cloud Services/SAP-SLT/th-cloud-pus-slt-terraform-deploy",
               "templates": [
                 {
                   "path": "pipeline-library/terraform/deploy.yaml",

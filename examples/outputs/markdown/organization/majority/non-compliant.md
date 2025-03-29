@@ -1,4 +1,4 @@
-# CCHBC
+# Dunder-Mifflin
 
 ## Adoption Summary
 
@@ -18,26 +18,26 @@
 ### Non-Compliant Projects
 
 - CCH_SAFe_Portfolio_Clone
-- CCHBC-Terraform-Module-Library
-- CCHBC-Governance-Center
-- CCH SAFe Portfolio
+- Dunder-Mifflin-Terraform-Module-Library
+- Dunder-Mifflin-Governance-Center
+- Project-X
 
 ### Non-Compliant Repositories
 
 - CCH_SAFe_Portfolio_Clone
 - CCH_Test_Repo
-- cch-templates
-- cch-valsar-tst
-- dtso-innovation-brainbank-template-test
-- tecs-platformengineering-vmp
+- dunder-miflin-templates
+- dunder-miflin-vulr-tst
+- drew-innovation-phoenix-template-test
+- th-platformengineering-vmp
 - test_repo-10thjan
 - Test-trigger
 - cat-tf-modules
 - cat-tf-modules2
 - cat-tf-vnet-module
-- cchbc-vmi-terraform-modules
+- dunder-miflinbc-vmi-terraform-modules
 - pipeline-managed-identity
-- tecs-cloud-cloudautomation-terraform
+- th-cloud-cloudautomation-terraform
 - terraform-azuread-application-registration
 - terraform-azuredevops-elastic-pool
 - terraform-azuredevops-git-repository
@@ -59,367 +59,367 @@
 - terraform-structure-example-with-tfvars
 - Azure Landing Zone
 - AzureDevOps.Automation.Pipeline.Templates.v2.git
-- bambi-solution-example
-- bu-digitalcommerce-valserservice-legacy
-- bu-digitalcommerce-valserservice-vsreboot
-- CCH SAFe Portfolio
-- cchbc-templates
-- cch-template-repo
-- CSM_AzureHybridUseBenefit
-- cspp-cyberprotection-zscaler-ote-fncapp
-- daar-aa-connected-coolers-de
-- daar-aa-cpro-adf
-- daar-aa-cpro-processes
-- daar-aa-cpro-udm
-- daar-aa-cpt-adb
-- daar-aa-cpt-adf
-- daar-aa-cpt-it-sql
-- daar-aa-cpt-sql
-- daar-aa-cpt-web-api
-- daar-aa-cpt-web-api-it
-- daar-aa-cpt-web-app
-- daar-aa-cpt-web-app-it
-- daar-aa-df-adf
-- daar-aa-df-ds
-- daar-aa-df-fti-sql
-- daar-aa-df-fti-web-api
-- daar-aa-df-fti-web-app
-- daar-aa-df-internalutilities
-- daar-aa-df-pbi-dashboard
-- daar-aa-df-unified-data-model
-- daar-aa-digitalcommerce-eretail-eredfsa-downloader-job
-- daar-aa-digitalcommerce-eretail-eredfsa-drink-headers-job
-- daar-aa-digitalcommerce-eretail-eredfsa-matching-job
-- daar-aa-digitalcommerce-eretail-eredfsa-powerbi
-- daar-aa-digitalcommerce-eretail-eredfsa-pre-matching-job
-- daar-aa-digitalcommerce-eretail-eredfsa-sql
-- daar-aa-digitalcommerce-eretail-eredfsa-update-matching-job
-- daar-aa-digitalcommerce-eretail-eredfsa-web-app
-- daar-aa-dt-adf
-- daar-aa-dt-cipco
-- daar-aa-dt-common
-- daar-aa-dt-dtui
-- daar-aa-dt-energy
-- daar-aa-dt-epl-opl
-- daar-aa-dt-unified-data-model
-- daar-aa-edge-web-api
-- daar-aa-edge-web-app
-- daar-aa-feature-store
-- daar-aa-genai-brainbank
-- daar-aa-genai-brainbank-adf
-- daar-aa-genai-brainbank-nl2sql
-- daar-aa-genai-customer-balance-confirmation
-- daar-aa-genai-dev
-- daar-aa-genai-lm-evalution-lib
-- daar-aa-genai-pbi-steward
-- daar-aa-genai-pfp-automation
-- daar-aa-genai-wms-virtual-labels
-- daar-aa-hermes-adf
-- daar-aa-hermes-automation
-- daar-aa-image-recognition-de
-- daar-aa-inc-adbconn
-- daar-aa-inc-adf
-- daar-aa-inc-core
-- daar-aa-inc-ds
-- daar-aa-inc-graphql
-- daar-aa-inc-udm
-- daar-aa-inc-ui
-- daar-aa-mlops-common
-- daar-aa-oxygen-dp-adb
-- daar-aa-oxygen-dp-adf
-- daar-aa-oxygen-dp-sql
-- daar-aa-paat-adf
-- daar-aa-paat-de-adm
-- daar-aa-paat-de-postprocessing
-- daar-aa-paat-de-preprocessing
-- daar-aa-paat-de-utils
-- daar-aa-paat-ds-modeling
-- daar-aa-platform-data-availability
-- daar-aa-platform-data-quality
-- daar-aa-rgm-adf
-- daar-aa-rgmanalytics-digital-commerce
-- daar-aa-rgmanalytics-eretailer-service
-- daar-aa-rgmanalytics-paat-dq
-- daar-aa-rgm-de
-- daar-aa-rgm-ds
-- daar-aa-rgm-finance-cde-audit-app
-- daar-aa-rgm-sql
-- daar-aa-rgm-web-api
-- daar-aa-rgm-web-app
-- daar-aa-segmex-adf
-- daar-aa-segmex-alerting-mechanism
-- daar-aa-segmex-alerting-mechanism-excel-creator
-- daar-aa-segmex-alerting-mechanism-mail-send-logapp
-- daar-aa-segmex-alerting-mechanism-pbi-refresh-logapp
-- daar-aa-segmex-alerting-mechanism-xls-loader-logapp
-- daar-aa-segmex-assortment
-- daar-aa-segmex-assortment-uplift
-- daar-aa-segmex-cls
-- daar-aa-segmex-coffee-segmentation
-- daar-aa-segmex-common
-- daar-aa-segmex-customer-portal-telesales
-- daar-aa-segmex-customer-universe-scanner
-- daar-aa-segmex-e2e-multicategory
-- daar-aa-segmex-egypt-adf
-- daar-aa-segmex-egypt-assortment
-- daar-aa-segmex-egypt-data-quality-kpi
-- daar-aa-segmex-egypt-microsegmentation
-- daar-aa-segmex-egypt-potential-value-per-outlet
-- daar-aa-segmex-egypt-recommended-activities
-- daar-aa-segmex-egypt-trade-area-analysis
-- daar-aa-segmex-egypt-unified-data-model
-- daar-aa-segmex-ETL
-- daar-aa-segmex-ETL-adf
-- daar-aa-segmex-micro-segmentation
-- daar-aa-segmex-potential-value-per-outlet
-- daar-aa-segmex-recommended-activities
-- daar-aa-segmex-recommended-activities-uplift
-- daar-aa-segmex-rtm-ai-dev
-- daar-aa-segmex-trade-area-analysis-v2
-- daar-aa-segmex-unified-data-model
-- daar-aa-segmex-v1-adf
-- daar-aa-segmex-v1-de
-- daar-aa-segmex-v1-web-api
-- daar-aa-segmex-v1-web-api-cic
-- daar-aa-segmex-v1-web-api-tg
-- daar-aa-segmex-v1-web-app
-- daar-aa-segmex-v1-web-app-cic
-- daar-aa-segmex-visit-frequency-routing
-- daar-aa-SegmEx-WEBUI-API-v2
-- daar-aa-SegmEx-WEBUI-azure-functions-v2
-- daar-aa-SegmEx-WEBUI-ETL-v2
-- daar-aa-SegmEx-WEBUI-FE-v2
-- daar-aa-segmex-wholesalers
-- daar-aa-tracking-tool
-- daar-aa-value360-adf
-- daar-aa-value360-application-model
-- daar-automationplatform-oxygen-uipath
-- daar-automationplatform-powerplatform
-- daar-automationplatform-uipath
-- daar-bir-edge-management
-- daar-bir-edge-operational-comm
-- daar-bir-edge-operational-fi
-- daar-bir-edge-operational-sc
-- daar-bir-rf-exploratory-work
-- daar-datagovernance-dqcl-informatica
-- daar-datamesh-architecture
-- daar-datamesh-common
-- daar-datamesh-control-tower-pbi
-- daar-datamesh-data-io
-- daar-datamesh-datalake-adf
-- daar-datamesh-datalake-adf-2
-- daar-datamesh-datalake-adf-3
-- daar-datamesh-datalake-adf-4
-- daar-datamesh-datalake-curated
-- daar-datamesh-datalake-dt-adf
-- daar-datamesh-datalake-dt-func
-- daar-datamesh-datalake-kbi
-- daar-datamesh-datalake-metadata
-- daar-datamesh-datalake-schema
-- daar-datamesh-datalake-sql
-- daar-datamesh-datalake-synapse
-- daar-datamesh-datalake-udm
-- daar-datamesh-devops-tools
-- daar-datamesh-infrastructure
-- daar-datamesh-landing-zone-002-adb
-- daar-datamesh-landing-zone-002-adf
-- daar-datamesh-landing-zone-003-adb
-- daar-datamesh-landing-zone-003-adf
-- daar-datamesh-landing-zone-adb
-- daar-datamesh-landing-zone-adf
-- daar-datamesh-orchestration-service
-- daar-datamesh-transformation
-- daar-data-quality-analytics-ai-cleansing-customer
-- daar-data-quality-analytics-ai-cleansing-material
-- daar-data-quality-analytics-conv-ai-academy-bot
-- daar-data-quality-analytics-conv-ai-dcc-bot
-- daar-data-quality-analytics-product-sku-naming
-- daar-dg-dqss-web-app
-- daar-dg-md-quality
-- daar-governance-data-quality-adf
-- daar-governance-data-quality-processes
-- daar-governance-data-quality-sql
-- dccp-app-sdo-integrationservice-api
+- bmb-solution-example
+- bu-dgc-velr-legacy
+- bu-dgc-velr-vsreboot
+- Project-X
+- dunder-miflinbc-templates
+- dunder-miflin-template-repo
+- AzureHybridUseBenefit
+- psc-cyberprotection-zsc-oxw-fncapp
+- dert-aa-concol-de
+- dert-aa-crpo-dik
+- dert-aa-crpo-processes
+- dert-aa-crpo-umd
+- dert-aa-cpt-adb
+- dert-aa-cpt-dik
+- dert-aa-cpt-it-sql
+- dert-aa-cpt-sql
+- dert-aa-cpt-web-api
+- dert-aa-cpt-web-api-it
+- dert-aa-cpt-web-app
+- dert-aa-cpt-web-app-it
+- dert-aa-df-dik
+- dert-aa-df-ds
+- dert-aa-df-fti-sql
+- dert-aa-df-fti-web-api
+- dert-aa-df-fti-web-app
+- dert-aa-df-internalutilities
+- dert-aa-df-pbi-dashboard
+- dert-aa-df-umda
+- dert-aa-dgc-eret-eredfsa-downj
+- dert-aa-dgc-eret-eredfsa-dheaf-job
+- dert-aa-dgc-eret-eredfsa-matching-job
+- dert-aa-dgc-eret-eredfsa-powerbi
+- dert-aa-dgc-eret-eredfsa-pre-matching-job
+- dert-aa-dgc-eret-eredfsa-sql
+- dert-aa-dgc-eret-eredfsa-update-matching-job
+- dert-aa-dgc-eret-eredfsa-web-app
+- dert-aa-dt-dik
+- dert-aa-dt-pico
+- dert-aa-dtc
+- dert-aa-dt-dtui
+- dert-aa-dt-erg
+- dert-aa-dt-epl-opl
+- dert-aa-dt-umda
+- dert-aa-edge-web-api
+- dert-aa-edge-web-app
+- dert-aa-gsf
+- dert-aa-gn-phoenix
+- dert-aa-gn-phoenix-dik
+- dert-aa-gn-phoenix-nl2sql
+- dert-aa-gn-customer-balance-confirmation
+- dert-aa-gn-dev
+- dert-aa-gn-lm-evalution-lib
+- dert-aa-gn-pbi-steward
+- dert-aa-gn-pfp-automation
+- dert-aa-gn-wms-virtual-labels
+- dert-aa-zeus-dik
+- dert-aa-zeus-automation
+- dert-aa-img-recognition-de
+- dert-aa-inc-cnbda
+- dert-aa-inc-dik
+- dert-aa-inc-core
+- dert-aa-inc-ds
+- dert-aa-inc-graphql
+- dert-aa-inc-umd
+- dert-aa-inc-ui
+- dert-aa-mlops-common
+- dert-aa-oxygen-dp-adb
+- dert-aa-oxygen-dp-dik
+- dert-aa-oxygen-dp-sql
+- dert-aa-paat-dik
+- dert-aa-paat-de-adm
+- dert-aa-paat-de-postprocessing
+- dert-aa-paat-de-preprocessing
+- dert-aa-paat-de-utils
+- dert-aa-paat-ds-modeling
+- dert-aa-platform-data-availability
+- dert-aa-platform-data-quality
+- dert-aa-rgm-dik
+- dert-aa-rgfe-digital-commerce
+- dert-aa-rgfe-eretailer-service
+- dert-aa-rgfe-paat-dq
+- dert-aa-rgm-de
+- dert-aa-rgm-ds
+- dert-aa-rgm-finance-cde-audit-app
+- dert-aa-rgm-sql
+- dert-aa-rgm-web-api
+- dert-aa-rgm-web-app
+- dert-aa-segmex-dik
+- dert-aa-segmex-alerting-mechanism
+- dert-aa-segmex-alerting-mechanism-excel-creator
+- dert-aa-segmex-alerting-mechanism-mail-send-logapp
+- dert-aa-segmex-alerting-mechanism-pbi-refresh-logapp
+- dert-aa-segmex-alerting-mechanism-xls-loader-logapp
+- dert-aa-segmex-assortment
+- dert-aa-segmex-assortment-uplift
+- dert-aa-segmex-cls
+- dert-aa-scgs
+- dert-aa-segmex-common
+- dert-aa-segmex-customer-portal-telesales
+- dert-aa-segmex-customer-universe-scanner
+- dert-aa-segmex-e2e-multicategory
+- dert-aa-segmex-egt-dik
+- dert-aa-segmex-eas
+- dert-aa-segmex-egt-dqk
+- dert-aa-segmex-eme
+- dert-aa-segmex-egt-pvpo
+- dert-aa-segmex-egt-ra
+- dert-aa-segmex-egt-taa
+- dert-aa-segmex-egt-umda
+- dert-aa-segmex-ETL
+- dert-aa-segmex-ETL-dik
+- dert-aa-segmex-micro-segmentation
+- dert-aa-segmex-pvpo
+- dert-aa-segmex-ra
+- dert-aa-segmex-ra-uplift
+- dert-aa-segmex-rtm-ai-dev
+- dert-aa-segmex-taa-v2
+- dert-aa-segmex-umda
+- dert-aa-segmex-v1-dik
+- dert-aa-segmex-v1-de
+- dert-aa-segmex-v1-web-api
+- dert-aa-segmex-v1-web-api-cic
+- dert-aa-segmex-v1-web-api-tg
+- dert-aa-segmex-v1-web-app
+- dert-aa-segmex-v1-web-app-cic
+- dert-aa-segmex-visit-frequency-routing
+- dert-aa-SegmEx-WEBUI-API-v2
+- dert-aa-SegmEx-WEBUI-azure-functions-v2
+- dert-aa-SegmEx-webuev
+- dert-aa-sebuev
+- dert-aa-segmex-whs
+- dert-aa-tracking-tool
+- dert-aa-360v-dik
+- dert-aa-360v-application-model
+- dert-automationplatform-oxygen-uipath
+- dert-automationplatform-powerplatform
+- dert-automationplatform-uipath
+- dert-beer-edge-management
+- dert-beer-edge-operational-comm
+- dert-beer-edge-operational-fi
+- dert-beer-edge-operational-sc
+- dert-beer-rf-exploratory-work
+- dert-datagovernance-dqcl-informatica
+- dert-datamesh-architecture
+- dert-datamesh-common
+- dert-datamesh-control-tower-pbi
+- dert-datamesh-data-io
+- dert-datamesh-datalake-dik
+- dert-datamesh-datalake-dik-2
+- dert-datamesh-datalake-dik-3
+- dert-datamesh-datalake-dik-4
+- dert-datamesh-datalake-curated
+- dert-datamesh-datalake-dt-dik
+- dert-datamesh-datalake-dt-func
+- dert-datamesh-datalake-kbi
+- dert-datamesh-datalake-metadata
+- dert-datamesh-datalake-schema
+- dert-datamesh-datalake-sql
+- dert-datamesh-datalake-synapse
+- dert-datamesh-datalake-umd
+- dert-datamesh-devops-tools
+- dert-datamesh-infrastructure
+- dert-datamesh-landing-zone-002-adb
+- dert-datamesh-landing-zone-002-dik
+- dert-datamesh-landing-zone-003-adb
+- dert-datamesh-landing-zone-003-dik
+- dert-datamesh-landing-zone-adb
+- dert-datamesh-landing-zone-dik
+- dert-datamesh-orchestration-service
+- dert-datamesh-transformation
+- dert-data-quality-analytics-ai-cleansing-customer
+- dert-data-quality-analytics-ai-cleansing-material
+- dert-data-quality-analytics-conv-ai-academy-bot
+- dert-data-quality-analytics-conv-ai-dcc-bot
+- dert-data-quality-analytics-product-sku-naming
+- dert-dg-dqss-web-app
+- dert-dg-md-quality
+- dert-governance-data-quality-dik
+- dert-governance-data-quality-processes
+- dert-governance-data-quality-sql
+- dccp-app-dupe-integrationservice-api
 - dccp-crm-ccc-testautomation
-- dccp-crm-d365
-- dccp-crm-d365-ServicesDevOpsBuild
-- dccp-d2c-qwell-backend
-- dccp-d2c-qwell-frontend
-- dccp-d2c-qwell-infrastructure
-- dccp-d365-calllist-testautomation
-- dccp-d365-casemanagement-testautomation
-- dccp-d365-CDC-testautomation
-- dccp-d365-integrations
-- dccp-d365-L2O-testautomation
-- dccp-d365-playwright-automated-tests
-- dccp-d365-test-UI-performance
+- dccp-crm-deryq
+- dccp-crm-deryq-ServicesDevOpsBuild
+- dccp-cuni-welta-backend
+- dccp-cuni-welta-frontend
+- dccp-cuni-welta-infrastructure
+- dccp-deryq-calllist-testautomation
+- dccp-deryq-casemanagement-testautomation
+- dccp-deryq-CDC-testautomation
+- dccp-deryq-integrations
+- dccp-deryq-L2O-testautomation
+- dccp-deryq-playwright-automated-tests
+- dccp-deryq-test-UI-performance
 - dccp-df-businessclub
 - dccp-df-callcenter-conversationintelligence
 - dccp-df-conversationalcommerce
 - dccp-df-digitalfactory-wiki
-- dccp-df-salesacademy
-- dccp-df-salesacademy-InteractionDesignPrototypes
-- dccp-df-salesacademy-wiki
+- dccp-df-cads
+- dccp-df-cads-InteractionDesignPrototypes
+- dccp-df-cads-wiki
 - dccp-df-sandbox-apps
 - dccp-df-sandbox-infra
-- dccp-df-sirvis-catalogintelligence
-- dccp-digitalcommerce-b2b-multicategory-platform
-- dccp-digitalcommerce-b2b-multicategory-platform-lfs
-- dccp-digitalcommerce-customerportal
-- dccp-digitalcommerce-customerportal-automation-tests
-- dccp-digitalcommerce-customerportal-hybris
-- dccp-digitalcommerce-customerportal-lfs
-- dccp-digitalcommerce-customerportal-mobile-app
-- dccp-digitalcommerce-customerportal-performance-tests
-- dccp-digitalcommerce-customerportal-react
-- dccp-digitalcommerce-eretail-eredfsa
-- dccp-digitalcommerce-sirvis
-- dccp-digitalcommerce-sirvis-testautomation
-- dccp-digitalfieldsales-advisorapp
-- dccp-digitalfieldsales-sfaadministrationtool
-- dccp-digitalfieldsales-sfa-bdaamonitoring
-- dccp-digitalfieldsales-sfa-bdtracer
-- dccp-digitalfieldsales-sfa-collaborationportal
-- dccp-digitalfieldsales-sfa-datafactory
-- dccp-digitalfieldsales-sfa-iraudittool
-- dccp-digitalfieldsales-sfa-masterdataservices
-- dccp-digitalfieldsales-sfa-mobilescan
-- dccp-digitalfieldsales-sfa-monitoring
-- dccp-digitalfieldsales-sfa-obppctool
-- dccp-digitalfieldsales-sfa-onsactivitiesmonitor
-- dccp-digitalfieldsales-sfa-redaudittool
-- dccp-digitalfieldsales-sfa-redpfp
-- dccp-digitalfieldsales-sfa-redwebui
-- dccp-digitalfieldsales-sfa-replicationservices
-- dccp-digitalfieldsales-sfa-sapatpinterface
-- dccp-digitalfieldsales-sfa-services
-- dccp-digitalfieldsales-sfa-sfaactivations
-- dccp-digitalfieldsales-sfa-sfaadmintool
-- dccp-digitalfieldsales-sfa-sfaazurestorage
-- dccp-digitalfieldsales-sfa-sfaclient
-- dccp-digitalfieldsales-sfa-sfadb
-- dccp-digitalfieldsales-sfa-sfadb-azure
-- dccp-digitalfieldsales-sfa-sfamatrix
-- dccp-digitalfieldsales-sfa-sfamonitoring
-- dccp-digitalfieldsales-sfa-sfauploadsharepoint
-- dccp-digitalfieldsales-sfa-sync
-- dccp-digitalfieldsales-sfa-TestAutomation
-- dccp-digitalfieldsales-sfa-webservice
-- dccp-rgmandcde-sdo-apps
-- dccp-rgmandcde-sdo-db
-- dccp-sdo-adf
-- dccp-sdo-infrastructure
-- dccp-sfa-adf
-- dccp-sfa-infrastructure
-- dccp-warehousemanagement-mwms
-- deep-ee-chatbot-helen
-- deep-ee-chatbot-helen-infrastructure
-- deep-ee-nextgenintranet
-- deep-hr-workday-inputfiles
-- deep-hr-workday-testautomation
+- dccp-df-rain-catalogintelligence
+- dccp-dgc-b2b-multicategory-platform
+- dccp-dgc-b2b-multicategory-platform-lfs
+- dccp-dgc-portc
+- dccp-dgc-portc-automation-tests
+- dccp-dgc-portc-rbise
+- dccp-dgc-portc-lfs
+- dccp-dgc-portc-mobile-app
+- dccp-dgc-portc-performance-tests
+- dccp-dgc-portc-react
+- dccp-dgc-eret-eredfsa
+- dccp-dgc-rain
+- dccp-dgc-rain-testautomation
+- dccp-dsafasf-helperapp
+- dccp-dsafasf-tlda
+- dccp-dsafasf-rie-gfsd
+- dccp-dsafasf-rie-bdtracer
+- dccp-dsafasf-rie-wqre
+- dccp-dsafasf-rie-datafactory
+- dccp-dsafasf-rie-kgyg
+- dccp-dsafasf-rie-makgygfsddataservices
+- dccp-dsafasf-rie-mobilescan
+- dccp-dsafasf-rie-monitoring
+- dccp-dsafasf-rie-obppctool
+- dccp-dsafasf-rie-pitueq
+- dccp-dsafasf-rie-kilhgb
+- dccp-dsafasf-rie-redpfp
+- dccp-dsafasf-rie-webgren
+- dccp-dsafasf-rie-opkopda
+- dccp-dsafasf-rie-opkop
+- dccp-dsafasf-rie-services
+- dccp-dsafasf-rie-rieactivations
+- dccp-dsafasf-rie-riehelper
+- dccp-dsafasf-rie-rieazurestorage
+- dccp-dsafasf-rie-riecustm
+- dccp-dsafasf-rie-riedb
+- dccp-dsafasf-rie-riedb-azure
+- dccp-dsafasf-rie-riematrix
+- dccp-dsafasf-rie-riemonitoring
+- dccp-dsafasf-rie-rieuploadsharepoint
+- dccp-dsafasf-rie-sync
+- dccp-dsafasf-rie-TestAutomation
+- dccp-dsafasf-rie-webservice
+- dccp-rgmandcde-dupe-apps
+- dccp-rgmandcde-dupe-db
+- dccp-dupe-dik
+- dccp-dupe-infrastructure
+- dccp-rie-dik
+- dccp-rie-infrastructure
+- dccp-warehousemanagement-sad
+- pult-smthie
+- pult-smthie-infrastructure
+- pult-ntintra
+- pult-rhw-inputfiles
+- pult-rhw-testautomation
 - demo-pipelines-javascript-docker
-- detp-financeandlegal-cms
-- detp-financelegal-cad-da
-- detp-financelegal-cms
-- detp-financelegal-cms-testautomation
-- detp-financelegal-cms-testautomation-playwright
-- detp-financelegal-cms-v2
-- detp-financelegal-integratedplanning-cep
-- detp-legal-cobc-pbi
-- detp-legal-cobc-portal
-- detp-legal-cobc-requestordata-job
-- detp-legal-cobc-sql
-- detp-legal-cobc-syncjobs
-- detp-legal-cobc-terraforms
-- detp-legal-corporateaudit-observation-backend-api
-- detp-legal-corporateaudit-observation-job
-- detp-legal-corporateaudit-observation-mobile-app
-- detp-legal-corporateaudit-observation-mobile-power-bi
-- detp-legal-corporateaudit-observation-mobile-sql
-- detp-legal-corporateaudit-observation-mobile-Terraforms
-- detp-legal-corporateaudit-observation-web-app
-- detp-legal-InternalAuditandControl
-- detp-legal-poc-terraforms
-- detp-mam-batch-management-general
-- detp-mam-sp-managment-optimization-backend
-- detp-mam-sp-managment-optimization-frontend
-- detp-mam-vr-training-general
-- detp-planningmanufacturing-connectedworker-dashboards
-- detp-planningmanufacturing-connectedworker-onestopshop
-- detp-planningmanufacturing-connectedworker-onestopshop-frontend
-- detp-planningmanufacturing-connectedworker-onestopshop-powerbi
-- detp-plnmanufact-cnnworker-onestopshop-production-plan-job
-- detp-plnmanufact-cnnworker-onestopshop-reporting-job
-- detp-plnmanufact-cnnworker-onestshop-odp-remnd-job
-- detp-qse-auditmanagement-backend-api
-- detp-qse-auditmanagement-job
-- detp-qse-auditmanagement-mobile-app
-- detp-qse-auditmanagement-power-bi
-- detp-qse-auditmanagement-sql
-- detp-qse-auditmanagement-Terraforms
-- detp-qse-auditmanagement-web-app
-- detp-qse-spc-extractor
-- detp-qse-spc-laboratory
-- detp-vmi-web-api
-- detp-vmi-web-app
-- devops-detp-financelegal-cms
+- ruiet-flga-cms
+- ruiet-flg-cad-da
+- ruiet-flg-cms
+- ruiet-flg-cms-testautomation
+- ruiet-flg-cms-testautomation-playwright
+- ruiet-flg-cms-v2
+- ruiet-flg-integratedplanning-cep
+- ruiet-lga-cobc-pbi
+- ruiet-lga-cobc-portal
+- ruiet-lga-cobc-requestordata-job
+- ruiet-lga-cobc-sql
+- ruiet-lga-cobc-syncjobs
+- ruiet-lga-cobc-terraforms
+- ruiet-lga-dadq-observation-backend-api
+- ruiet-lga-dadq-observation-job
+- ruiet-lga-dadq-observation-mobile-app
+- ruiet-lga-dadq-observation-mobile-power-bi
+- ruiet-lga-dadq-observation-mobile-sql
+- ruiet-lga-dadq-observation-mobile-Terraforms
+- ruiet-lga-dadq-observation-web-app
+- ruiet-lga-dadqda
+- ruiet-lga-poc-terraforms
+- ruiet-mam-batch-management-general
+- ruiet-mam-sp-managment-optimization-backend
+- ruiet-mam-sp-managment-optimization-frontend
+- ruiet-mam-vr-training-general
+- ruiet-ilol-connectedworker-dashboards
+- ruiet-ilolui
+- ruiet-ilolui-frontend
+- ruiet-ilolui-powerbi
+- ruiet-dsa-iloloiu-production-plan-job
+- ruiet-dsa-iloloiu-reporting-job
+- ruiet-dsa-cnnworker-onestshop-odp-remnd-job
+- ruiet-pvuie-amg-backend-api
+- ruiet-pvuie-amg-job
+- ruiet-pvuie-amg-mobile-app
+- ruiet-pvuie-amg-power-bi
+- ruiet-pvuie-amg-sql
+- ruiet-pvuie-amg-Terraforms
+- ruiet-pvuie-amg-web-app
+- ruiet-pvuie-spc-extractor
+- ruiet-pvuie-spc-laboratory
+- ruiet-vmi-web-api
+- ruiet-vmi-web-app
+- devops-ruiet-flg-cms
 - dia-ds-ai-digital
 - dia-ds-ai-segmented-execution
-- dtso-ai-khub-app
-- dtso-ai-khub-infra
-- dtso-automation-samples
-- dtso-demo-testautomation
-- dtso-ea-blueprints
-- dtso-ea-blueprints-samples
-- dtso-ea-devbox-configuration
-- dtso-ea-invoicedispute
-- dtso-innovation-brainbank
-- dtso-sonar-scanning-examples
-- dtso-testautomation-exploration
-- dtso-testautomation-performance
-- dtso-ux-designsystem
-- tecs_sap_devops
-- tecs-apicenter-portal
-- tecs-businesscontinuity-fso-sre
-- tecs-businesscontinuity-fso-sre-infra
-- tecs-cloud-avd-infrastructure
-- tecs-cloud-felix
-- tecs-cloud-infraautomation
-- tecs-cloud-sapfiori
-- tecs-cloud-sapmodules
-- tecs-cloud-sappipo
-- tecs-cloud-sap-vmansibleplaybooks
-- tecs-cloud-subcreation
-- tecs-integration-mulesoft-account-proc-cch-api
-- tecs-integration-mulesoft-dispatcher-proc-cch-api
-- tecs-integration-mulesoft-order-proc-cch-api
-- tecs-integration-mulesoft-poc
-- tecs-integration-mulesoft-product-proc-cch-api
-- tecs-integration-mulesoft-salesforce-exp-cch-api
-- tecs-integration-mulesoft-salesforce-sys-cch-api
-- tecs-integration-mulesoft-sap-cch-exp-api
-- tecs-integration-mulesoft-sap-exp-cch-api
-- tecs-integration-mulesoft-sap-sys-cch-api
-- tecs-platformengineering-newrepo-001
-- tecs-Pmo-TestAutomation-D365-CIC
-- tecs-pmo-TestAutomation-D365-CICMigration
-- tecs-Pmo-TestAutomation-E2E-D365-S4
-- tecs-pmo-testautomation-IOM-playright
-- tecs-pmo-testautomation-SAP-Pricing-Rebate
-- tecs-smdo-testautomation
-- tecs-testautomation-poc-perf
-- tecs-zscaler-backup-configuration-scripts
-- temp-clone-daar-bir-edge-operational-sc
+- drew-ai-khub-app
+- drew-ai-khub-infra
+- drew-automation-samples
+- drew-demo-testautomation
+- drew-ea-blueprints
+- drew-ea-blueprints-samples
+- drew-ea-devbox-configuration
+- drew-ea-invoicedispute
+- drew-innovation-phoenix
+- drew-sonar-scanning-examples
+- drew-testautomation-exploration
+- drew-testautomation-performance
+- drew-ux-designsystem
+- th_sap_devops
+- th-apicenter-portal
+- th-businesscontinuity-fso-sre
+- th-businesscontinuity-fso-sre-infra
+- th-cloud-avd-infrastructure
+- th-cloud-felix
+- th-cloud-infraautomation
+- th-cloud-sapfiori
+- th-cloud-sapmodules
+- th-cloud-sappipo
+- th-cloud-pus-vmansibleplaybooks
+- th-cloud-subcreation
+- th-integration-dsafgf-account-proc-dunder-miflin-api
+- th-integration-dsafgf-dispatcher-proc-dunder-miflin-api
+- th-integration-dsafgf-order-proc-dunder-miflin-api
+- th-integration-dsafgf-poc
+- th-integration-dsafgf-product-proc-dunder-miflin-api
+- th-integration-dsafgf-salesforce-exp-dunder-miflin-api
+- th-integration-dsafgf-salesforce-sys-dunder-miflin-api
+- th-integration-dsafgf-pus-dunder-miflin-exp-api
+- th-integration-dsafgf-pus-exp-dunder-miflin-api
+- th-integration-dsafgf-pus-sys-dunder-miflin-api
+- th-platformengineering-newrepo-001
+- th-Pmo-TestAutomation-DERYQ-CIC
+- th-pmo-TestAutomation-DERYQ-CICMigration
+- th-Pmo-TestAutomation-E2E-DERYQ-S4
+- th-pmo-testautomation-IOM-playright
+- th-pmo-testautomation-SAP-Pricing-Rebate
+- th-smdo-testautomation
+- th-testautomation-poc-perf
+- th-zsc-backup-configuration-scripts
+- temp-clone-dert-beer-edge-operational-sc
 - Testrepo
 - wiki-buplatforms-ruby
-- wiki-cchbc-devops
-- wiki-cspp-docs
+- wiki-dunder-miflinbc-devops
+- wiki-psc-docs
 - wiki-integration-architecture
 
 ### Non-Compliant Pipelines
 
 - /Test-trigger
-- /tecs-cloud-cloudautomation-terraform (1381)
+- /th-cloud-cloudautomation-terraform (1381)
 - terraform-azuread-application-registration/terraform-azuread-application-registration-ci
 - terraform-azuredevops-elastic-pool/terraform-azuredevops-elastic-pool-ci
 - terraform-azuredevops-git-repository/terraform-azuredevops-git-repository-ci
@@ -442,789 +442,789 @@
 - administration/track-pipeline-library-adoption
 - administration/update-self-hosted-agent
 - ADO Automation/Wiki/ado-automation-wiki-createproductwikispace
-- TECS/Cloud Services/Automation/azure-vm-deploy-configure-windows
-- DTSO/cchbc-security-scan-aqua
-- DAAR/aa/genai/brainbank/adf/daar-aa-brainbank-adf-artifact
-- DAAR/aa/genai/brainbank/adf/daar-aa-brainbank-adf-deploy
-- DAAR/aa/connected-coolers/daar-aa-connected-coolers-de-artifact
-- DAAR/aa/connected-coolers/daar-aa-connected-coolers-de-build
-- DAAR/aa/connected-coolers/daar-aa-connected-coolers-de-deploy
-- DAAR/aa/cpro/adf/daar-aa-cpro-adf-artifact
-- DAAR/aa/cpro/adf/daar-aa-cpro-adf-build
-- DAAR/aa/cpro/adf/daar-aa-cpro-adf-deploy
-- DAAR/aa/cpro/processes/daar-aa-cpro-processes-artifact
-- DAAR/aa/cpro/processes/daar-aa-cpro-processes-build
-- DAAR/aa/cpro/processes/daar-aa-cpro-processes-deploy
-- DAAR/aa/cpro/udm/daar-aa-cpro-udm-artifact
-- DAAR/aa/cpro/udm/daar-aa-cpro-udm-build
-- DAAR/aa/cpro/udm/daar-aa-cpro-udm-deploy
-- DAAR/aa/cpt/adf/daar-aa-cpt-adf-artifact
-- DAAR/aa/cpt/adf/daar-aa-cpt-adf-build
-- DAAR/aa/cpt/adf/daar-aa-cpt-adf-deploy
-- DAAR/aa/cpt/de/daar-aa-cpt-de-artifact
-- DAAR/aa/cpt/de/daar-aa-cpt-de-build
-- DAAR/aa/cpt/de/daar-aa-cpt-de-deploy
-- DAAR/aa/cpt/sql/cpt-it/daar-aa-cpt-it-sql-artifact
-- DAAR/aa/cpt/sql/cpt-it/daar-aa-cpt-it-sql-build
-- DAAR/aa/cpt/sql/cpt-it/daar-aa-cpt-it-sql-deploy
-- DAAR/aa/cpt/sql/daar-aa-cpt-sql-artifact
-- DAAR/aa/cpt/sql/daar-aa-cpt-sql-build
-- DAAR/aa/cpt/sql/daar-aa-cpt-sql-deploy
-- DAAR/aa/cpt/web/api-cpt/daar-aa-cpt-web-api-artifact
-- DAAR/aa/cpt/web/api-cpt/daar-aa-cpt-web-api-build
-- DAAR/aa/cpt/web/api-cpt/daar-aa-cpt-web-api-deploy
-- DAAR/aa/cpt/web/api-cpt/cpt-it/daar-aa-cpt-web-api-it-artifact
-- DAAR/aa/cpt/web/api-cpt/cpt-it/daar-aa-cpt-web-api-it-build
-- DAAR/aa/cpt/web/api-cpt/cpt-it/daar-aa-cpt-web-api-it-deploy
-- DAAR/aa/cpt/web/app-cpt/daar-aa-cpt-web-app-artifact
-- DAAR/aa/cpt/web/app-cpt/daar-aa-cpt-web-app-build
-- DAAR/aa/cpt/web/app-cpt/daar-aa-cpt-web-app-deploy
-- DAAR/aa/cpt/web/app-cpt/app-it/daar-aa-cpt-web-app-it-artifact
-- DAAR/aa/cpt/web/app-cpt/app-it/daar-aa-cpt-web-app-it-build
-- DAAR/aa/cpt/web/app-cpt/app-it/daar-aa-cpt-web-app-it-deploy
-- DAAR/aa/df/adf/daar-aa-df-adf-artifact
-- DAAR/aa/df/adf/daar-aa-df-adf-build
-- DAAR/aa/df/adf/daar-aa-df-adf-deploy
-- DAAR/aa/df/ds/daar-aa-df-ds-artifact
-- DAAR/aa/df/ds/daar-aa-df-ds-build
-- DAAR/aa/df/ds/daar-aa-df-ds-deployment
-- DAAR/aa/df/fti/sql/daar-aa-df-fti-sql-artifact
-- DAAR/aa/df/fti/sql/daar-aa-df-fti-sql-build
-- DAAR/aa/df/fti/sql/daar-aa-df-fti-sql-deploy
-- DAAR/aa/df/fti/web/api-df/daar-aa-df-fti-web-api-artifact
-- DAAR/aa/df/fti/web/api-df/daar-aa-df-fti-web-api-build
-- DAAR/aa/df/fti/web/api-df/daar-aa-df-fti-web-api-deploy
-- DAAR/aa/df/fti/web/app-df/daar-aa-df-fti-web-app-artifact
-- DAAR/aa/df/fti/web/app-df/daar-aa-df-fti-web-app-build
-- DAAR/aa/df/fti/web/app-df/daar-aa-df-fti-web-app-deploy
-- DAAR/aa/df/unified-data-model/daar-aa-df-processes-build
-- DAAR/aa/df/unified-data-model/daar-aa-df-unified-data-model-artifact
-- DAAR/aa/df/unified-data-model/daar-aa-df-unified-data-model-deployment
-- DAAR/aa/eREDFSA/downloader-job/daar-aa-digitalcommerce-eretail-eredfsa-downloader-job-artifact
-- DAAR/aa/eREDFSA/downloader-job/daar-aa-digitalcommerce-eretail-eredfsa-downloader-job-build
-- DAAR/aa/eREDFSA/downloader-job/daar-aa-digitalcommerce-eretail-eredfsa-downloader-job-deployment-artifact
-- DAAR/aa/eREDFSA/downloader-job/daar-aa-digitalcommerce-eretail-eredfsa-downloader-job-deployment
-- DAAR/aa/eREDFSA/drink-headers-job/daar-aa-digitalcommerce-eretail-eredfsa-drink-headers-job-artifact
-- DAAR/aa/eREDFSA/drink-headers-job/daar-aa-digitalcommerce-eretail-eredfsa-drink-headers-job-build
-- DAAR/aa/eREDFSA/drink-headers-job/daar-aa-digitalcommerce-eretail-eredfsa-drink-headers-job-deployment-artifact
-- DAAR/aa/eREDFSA/matching-job/daar-aa-digitalcommerce-eretail-eredfsa-matching-job-artifact
-- DAAR/aa/eREDFSA/matching-job/daar-aa-digitalcommerce-eretail-eredfsa-matching-job-build
-- DAAR/aa/eREDFSA/matching-job/daar-aa-digitalcommerce-eretail-eredfsa-matching-job-deployment-artifact
-- DAAR/aa/eREDFSA/matching-job/daar-aa-digitalcommerce-eretail-eredfsa-matching-job-deployment
-- DAAR/aa/eREDFSA/pre-matching-job/daar-aa-digitalcommerce-eretail-eredfsa-pre-matching-job-artifact
-- DAAR/aa/eREDFSA/pre-matching-job/daar-aa-digitalcommerce-eretail-eredfsa-pre-matching-job-deployment-artifact
-- DAAR/aa/eREDFSA/pre-matching-job/daar-aa-digitalcommerce-eretail-eredfsa-pre-matching-job-deployment
-- DAAR/aa/eREDFSA/sql/daar-aa-digitalcommerce-eretail-eredfsa-sql-artifact
-- DAAR/aa/eREDFSA/sql/daar-aa-digitalcommerce-eretail-eredfsa-sql-build
-- DAAR/aa/eREDFSA/sql/daar-aa-digitalcommerce-eretail-eredfsa-sql-deploy
-- DAAR/aa/eREDFSA/web-app/daar-aa-digitalcommerce-eretail-eredfsa-web-app-build
-- DAAR/aa/dt/adf/daar-aa-dt-adf-artifact
-- DAAR/aa/dt/adf/daar-aa-dt-adf-build-security
-- DAAR/aa/dt/adf/daar-aa-dt-adf-deployment
-- DAAR/aa/dt/cipco/daar-aa-dt-cipco-artifact
-- DAAR/aa/dt/cipco/daar-aa-dt-cipco-build
-- DAAR/aa/dt/cipco/daar-aa-dt-cipco-deployment
-- DAAR/aa/dt/dt_common/daar-aa-dt-common-artifact
-- DAAR/aa/dt/dt_common/daar-aa-dt-common-build
-- DAAR/aa/dt/dt_common/daar-aa-dt-common-deployment
-- DAAR/aa/dt/energy/daar-aa-dt-energy-artifact
-- DAAR/aa/dt/energy/daar-aa-dt-energy-build
-- DAAR/aa/dt/energy/daar-aa-dt-energy-deployment
-- DAAR/aa/dt/epl-opl/daar-aa-dt-epl-opl-artifact
-- DAAR/aa/dt/epl-opl/daar-aa-dt-epl-opl-build
-- DAAR/aa/dt/epl-opl/daar-aa-dt-epl-opl-deployment
-- DAAR/aa/dt/udm/daar-aa-dt-unified-data-model-artifact
-- DAAR/aa/dt/udm/daar-aa-dt-unified-data-model-build
-- DAAR/aa/dt/udm/daar-aa-dt-unified-data-model-deployment
-- DAAR/aa/EDGE/web-api/daar-aa-edge-web-api-artifact
-- DAAR/aa/EDGE/web-api/daar-aa-edge-web-api-build
-- DAAR/aa/EDGE/web-api/daar-aa-edge-web-api-deploy
-- DAAR/aa/EDGE/web-app/daar-aa-edge-web-app-artifact
-- DAAR/aa/EDGE/web-app/daar-aa-edge-web-app-build
-- DAAR/aa/EDGE/web-app/daar-aa-edge-web-app-deploy
-- DAAR/aa/feature-store/daar-aa-feature-store-artifact
-- DAAR/aa/feature-store/daar-aa-feature-store-build
-- DAAR/aa/feature-store/daar-aa-feature-store-deploy
-- DAAR/aa/genai/brainbank/adf/daar-aa-genai-ai-brainbank-adf-TEST
-- DAAR/aa/genai/brainbank/adf/daar-aa-genai-brainbank-adf-build
-- DAAR/aa/segmex/genai/daar-aa-genai-dev-artifact
-- DAAR/aa/genai/daar-aa-genai-dev-build - sample
-- DAAR/aa/segmex/genai/daar-aa-genai-dev-build
-- DAAR/aa/genai/daar-aa-genai-dev-deploy - sample
-- DAAR/aa/segmex/genai/daar-aa-genai-dev-deployment
-- DAAR/aa/hermes/adf/daar-aa-hermes-adf-artifact
-- DAAR/aa/hermes/adf/daar-aa-hermes-adf-build
-- DAAR/aa/hermes/adf/daar-aa-hermes-adf-deployment
-- DAAR/aa/hermes/automation/daar-aa-hermes-automation-artifact
-- DAAR/aa/hermes/automation/daar-aa-hermes-automation-build
-- DAAR/aa/hermes/automation/daar-aa-hermes-automation-deploy
-- DAAR/aa/image_recognition/daar-aa-image-recognition-de-artifact
-- DAAR/aa/image_recognition/daar-aa-image-recognition-de-build
-- DAAR/aa/image_recognition/daar-aa-image-recognition-de-deploy
-- DAAR/aa/inc/adbconn/daar-aa-inc-adbconn
-- DAAR/aa/inc/adf/daar-aa-inc-adf-artifact
-- DAAR/aa/inc/adf/daar-aa-inc-adf-build
-- DAAR/aa/inc/adf/daar-aa-inc-adf-deploy
-- DAAR/aa/inc/core/daar-aa-inc-core artifact
-- DAAR/aa/inc/core/daar-aa-inc-core build
-- DAAR/aa/inc/core/daar-aa-inc-core deploy
-- DAAR/aa/inc/ds/daar-aa-inc-ds-artifact
-- DAAR/aa/inc/ds/daar-aa-inc-ds-build
-- DAAR/aa/inc/ds/daar-aa-inc-ds-deploy
-- DAAR/aa/inc/api/daar-aa-inc-graphql artifact
-- DAAR/aa/inc/api/daar-aa-inc-graphql build
-- DAAR/aa/inc/api/daar-aa-inc-graphql deploy
-- DAAR/aa/inc/search_skill/daar-aa-inc-ocrskill build
-- DAAR/aa/inc/search_skill/daar-aa-inc-ocrskill deploy
-- DAAR/aa/inc/udm/daar-aa-inc-udm-artifact
-- DAAR/aa/inc/udm/daar-aa-inc-udm-build
-- DAAR/aa/inc/udm/daar-aa-inc-udm-deploy
-- DAAR/aa/inc/ui/daar-aa-inc-ui artifact
-- DAAR/aa/inc/ui/daar-aa-inc-ui build
-- DAAR/aa/inc/ui/daar-aa-inc-ui deploy
-- DAAR/aa/mlops/common/daar-aa-mlops-common-artifact
-- DAAR/aa/mlops/common/daar-aa-mlops-common-build
-- DAAR/aa/mlops/common/daar-aa-mlops-common-deploy
-- DAAR/aa/paat/adf/daar-aa-paat-adf-artifact
-- DAAR/aa/paat/adf/daar-aa-paat-adf-build
-- DAAR/aa/paat/adf/daar-aa-paat-adf-deploy
-- DAAR/aa/paat/de-adm/daar-aa-paat-de-adm-artifact
-- DAAR/aa/paat/de-adm/daar-aa-paat-de-adm-build
-- DAAR/aa/paat/de-adm/daar-aa-paat-de-adm-deploy
-- DAAR/aa/paat/de-postprocessing/daar-aa-paat-de-postprocessing-artifact
-- DAAR/aa/paat/de-postprocessing/daar-aa-paat-de-postprocessing-build
-- DAAR/aa/paat/de-postprocessing/daar-aa-paat-de-postprocessing-deploy
-- DAAR/aa/paat/de-preprocessing/daar-aa-paat-de-preprocessing-artifact
-- DAAR/aa/paat/de-preprocessing/daar-aa-paat-de-preprocessing-build
-- DAAR/aa/paat/de-preprocessing/daar-aa-paat-de-preprocessing-deploy
-- DAAR/aa/paat/de-utils/daar-aa-paat-de-utils-artifact
-- DAAR/aa/paat/de-utils/daar-aa-paat-de-utils-build
-- DAAR/aa/paat/ds-modeling/daar-aa-paat-ds-modeling-artifact
-- DAAR/aa/paat/ds-modeling/daar-aa-paat-ds-modeling-build
-- DAAR/aa/paat/ds-modeling/daar-aa-paat-ds-modeling-deploy
-- DAAR/aa/platform/data-availability/daar-aa-platform-data-availability-artifact
-- DAAR/aa/platform/data-availability/daar-aa-platform-data-availability-build
-- DAAR/aa/platform/data-availability/daar-aa-platform-data-availability-deploy
-- DAAR/aa/platform/data-quality/daar-aa-platform-data-quality-artifact
-- DAAR/aa/platform/data-quality/daar-aa-platform-data-quality-build
-- DAAR/aa/platform/data-quality/daar-aa-platform-data-quality-deploy
-- DAAR/aa/rgm/adf/daar-aa-rgm-adf-artifact
-- DAAR/aa/rgm/adf/daar-aa-rgm-adf-build
-- DAAR/aa/rgm/adf/daar-aa-rgm-adf-deploy
-- DAAR/aa/rgm/de/daar-aa-rgm-de-artifact
-- DAAR/aa/rgm/de/daar-aa-rgm-de-build
-- DAAR/aa/rgm/de/daar-aa-rgm-de-deploy
-- DAAR/aa/rgm/ds/daar-aa-rgm-ds-artifact
-- DAAR/aa/rgm/ds/daar-aa-rgm-ds-build
-- DAAR/aa/rgm/ds/daar-aa-rgm-ds-deploy
-- DAAR/aa/rgm/sql/daar-aa-rgm-sql-artifact
-- DAAR/aa/rgm/sql/daar-aa-rgm-sql-build
-- DAAR/aa/rgm/sql/daar-aa-rgm-sql-deploy
-- DAAR/aa/rgm/web/api-rgm/daar-aa-rgm-web-api-artifact
-- DAAR/aa/rgm/web/api-rgm/daar-aa-rgm-web-api-build
-- DAAR/aa/rgm/web/api-rgm/daar-aa-rgm-web-api-deploy
-- DAAR/aa/rgm/web/app-rgm/daar-aa-rgm-web-app-artifact
-- DAAR/aa/rgm/web/app-rgm/daar-aa-rgm-web-app-build
-- DAAR/aa/rgm/web/app-rgm/daar-aa-rgm-web-app-deploy
-- DAAR/aa/rgmanalytics/digital-commerce/daar-aa-rgmanalytics-digital-commerce-artifact
-- DAAR/aa/rgmanalytics/digital-commerce/daar-aa-rgmanalytics-digital-commerce-build
-- DAAR/aa/rgmanalytics/digital-commerce/daar-aa-rgmanalytics-digital-commerce-deploy
-- DAAR/aa/paat/dq/daar-aa-rgmanalytics-paat-dq-artifact
-- DAAR/aa/paat/dq/daar-aa-rgmanalytics-paat-dq-build
-- DAAR/aa/paat/dq/daar-aa-rgmanalytics-paat-dq-deploy
-- DAAR/aa/segmex/adf/daar-aa-segmex-adf-artifact
-- DAAR/aa/segmex/adf/daar-aa-segmex-adf-build
-- DAAR/aa/segmex/adf/daar-aa-segmex-adf-deploy
-- DAAR/aa/segmex/alerting-mechanism-web-app/daar-aa-segmex-alerting-mechanism-api-deploy
-- DAAR/aa/segmex/alerting-mechanism/daar-aa-segmex-alerting-mechanism-excel-creator-artifact
-- DAAR/aa/segmex/alerting-mechanism/daar-aa-segmex-alerting-mechanism-excel-creator-build
-- DAAR/aa/segmex/alerting-mechanism/daar-aa-segmex-alerting-mechanism-excel-creator-deploy
-- DAAR/aa/segmex/daar-aa-segmex-alerting-mechanism-mail-send-logapp/daar-aa-segmex-alerting-mechanism-mail-send-logapp-deploy
-- DAAR/aa/segmex/daar-aa-segmex-alerting-mechanism-mail-send-logapp/daar-aa-segmex-alerting-mechanism-mail-send-logapp
-- DAAR/aa/segmex/alerting-mechanism-web-app/daar-aa-segmex-alerting-mechanism-ui-deploy
-- DAAR/aa/segmex/alerting-mechanism-web-app/daar-aa-segmex-alerting-mechanism
-- DAAR/aa/segmex/assortment/daar-aa-segmex-assortment-artifact
-- DAAR/aa/segmex/assortment/daar-aa-segmex-assortment-build
-- DAAR/aa/segmex/assortment/daar-aa-segmex-assortment-deploy
-- DAAR/aa/segmex/assortment-uplift/daar-aa-segmex-assortment-uplift-artifact
-- DAAR/aa/segmex/assortment-uplift/daar-aa-segmex-assortment-uplift-build
-- DAAR/aa/segmex/assortment-uplift/daar-aa-segmex-assortment-uplift-deploy
-- DAAR/aa/segmex/cls/daar-aa-segmex-cls-artifact
-- DAAR/aa/segmex/cls/daar-aa-segmex-cls-build
-- DAAR/aa/segmex/cls/daar-aa-segmex-cls-deploy
-- DAAR/aa/segmex/coffee-segmentation/daar-aa-segmex-coffee-segmentation-artifact
-- DAAR/aa/segmex/coffee-segmentation/daar-aa-segmex-coffee-segmentation-build
-- DAAR/aa/segmex/coffee-segmentation/daar-aa-segmex-coffee-segmentation-deploy
-- DAAR/aa/segmex/common/daar-aa-segmex-common-artifact
-- DAAR/aa/segmex/common/daar-aa-segmex-common-build
-- DAAR/aa/segmex/common/daar-aa-segmex-common-deploy
-- DAAR/aa/segmex/e2e-multicategory/daar-aa-segmex-e2e-multicategory-artifact
-- DAAR/aa/segmex/e2e-multicategory/daar-aa-segmex-e2e-multicategory-build
-- DAAR/aa/segmex/e2e-multicategory/daar-aa-segmex-e2e-multicategory-deploy
-- DAAR/aa/segmex-egypt/adf/daar-aa-segmex-egypt-adf-artifact
-- DAAR/aa/segmex-egypt/adf/daar-aa-segmex-egypt-adf-build
-- DAAR/aa/segmex-egypt/adf/daar-aa-segmex-egypt-adf-deploy
-- DAAR/aa/segmex-egypt/assortment/daar-aa-segmex-egypt-assortment-artifact
-- DAAR/aa/segmex-egypt/assortment/daar-aa-segmex-egypt-assortment-build
-- DAAR/aa/segmex-egypt/assortment/daar-aa-segmex-egypt-assortment-deploy
-- DAAR/aa/segmex-egypt/data-quality-kpi/daar-aa-segmex-egypt-data-quality-kpi-artifact
-- DAAR/aa/segmex-egypt/data-quality-kpi/daar-aa-segmex-egypt-data-quality-kpi-build
-- DAAR/aa/segmex-egypt/data-quality-kpi/daar-aa-segmex-egypt-data-quality-kpi-deploy
-- DAAR/aa/segmex-egypt/micro-segmentation/daar-aa-segmex-egypt-microsegmentation-artifact
-- DAAR/aa/segmex-egypt/micro-segmentation/daar-aa-segmex-egypt-microsegmentation-build
-- DAAR/aa/segmex-egypt/micro-segmentation/daar-aa-segmex-egypt-microsegmentation-deploy
-- DAAR/aa/segmex-egypt/potential-value-per-outlet/daar-aa-segmex-egypt-potential-value-per-outlet-artifact
-- DAAR/aa/segmex-egypt/potential-value-per-outlet/daar-aa-segmex-egypt-potential-value-per-outlet-build
-- DAAR/aa/segmex-egypt/potential-value-per-outlet/daar-aa-segmex-egypt-potential-value-per-outlet-deploy
-- DAAR/aa/segmex-egypt/recommended-activities/daar-aa-segmex-egypt-recommended-activities-artifact
-- DAAR/aa/segmex-egypt/recommended-activities/daar-aa-segmex-egypt-recommended-activities-build
-- DAAR/aa/segmex-egypt/recommended-activities/daar-aa-segmex-egypt-recommended-activities-deploy
-- DAAR/aa/segmex-egypt/trade-area-analysis/daar-aa-segmex-egypt-trade-area-analysis-artifact
-- DAAR/aa/segmex-egypt/trade-area-analysis/daar-aa-segmex-egypt-trade-area-analysis-build
-- DAAR/aa/segmex-egypt/trade-area-analysis/daar-aa-segmex-egypt-trade-area-analysis-deploy
-- DAAR/aa/segmex-egypt/unified-data-model/daar-aa-segmex-egypt-unified-data-model-artifact
-- DAAR/aa/segmex-egypt/unified-data-model/daar-aa-segmex-egypt-unified-data-model-build
-- DAAR/aa/segmex-egypt/unified-data-model/daar-aa-segmex-egypt-unified-data-model-deploy
-- DAAR/aa/segmex/adf-etl/daar-aa-segmex-ETL-adf-artifact
-- DAAR/aa/segmex/adf-etl/daar-aa-segmex-ETL-adf-build
-- DAAR/aa/segmex/adf-etl/daar-aa-segmex-ETL-adf-deploy
-- DAAR/aa/segmex/etl/daar-aa-segmex-ETL-artifact
-- DAAR/aa/segmex/etl/daar-aa-segmex-ETL-build
-- DAAR/aa/segmex/etl/daar-aa-segmex-ETL-deploy
-- DAAR/aa/segmex/micro-segmentation/daar-aa-segmex-micro-segmentation-artifact
-- DAAR/aa/segmex/micro-segmentation/daar-aa-segmex-micro-segmentation-build
-- DAAR/aa/segmex/micro-segmentation/daar-aa-segmex-micro-segmentation-deploy
-- DAAR/aa/segmex/potential-value-per-outlet/daar-aa-segmex-potential-value-per-outlet-artifact
-- DAAR/aa/segmex/potential-value-per-outlet/daar-aa-segmex-potential-value-per-outlet-build
-- DAAR/aa/segmex/potential-value-per-outlet/daar-aa-segmex-potential-value-per-outlet-deploy
-- DAAR/aa/segmex/recommended-activities/daar-aa-segmex-recommended-activities-artifact
-- DAAR/aa/segmex/recommended-activities/daar-aa-segmex-recommended-activities-build
-- DAAR/aa/segmex/recommended-activities/daar-aa-segmex-recommended-activities-deploy
-- DAAR/aa/segmex/recommended-activities-uplift/daar-aa-segmex-recommended-activities-uplift-artifact
-- DAAR/aa/segmex/recommended-activities-uplift/daar-aa-segmex-recommended-activities-uplift-build
-- DAAR/aa/segmex/recommended-activities-uplift/daar-aa-segmex-recommended-activities-uplift-deploy
-- DAAR/aa/segmex/rtm/daar-aa-segmex-rtm-ai-dev-artifact
-- DAAR/aa/segmex/rtm/daar-aa-segmex-rtm-ai-dev-build
-- DAAR/aa/segmex/rtm/daar-aa-segmex-rtm-ai-dev-deploy
-- DAAR/aa/segmex/trade-area-analysis-v2/daar-aa-segmex-trade-area-analysis-v2-artifact
-- DAAR/aa/segmex/trade-area-analysis-v2/daar-aa-segmex-trade-area-analysis-v2-build
-- DAAR/aa/segmex/trade-area-analysis-v2/daar-aa-segmex-trade-area-analysis-v2-deploy
-- DAAR/aa/segmex/unified-data-model/daar-aa-segmex-unified-data-model-artifact
-- DAAR/aa/segmex/unified-data-model/daar-aa-segmex-unified-data-model-build
-- DAAR/aa/segmex/unified-data-model/daar-aa-segmex-unified-data-model-deploy
-- DAAR/aa/segmex1.0/de/daar-aa-segmex-v1-de-artifact
-- DAAR/aa/segmex1.0/de/daar-aa-segmex-v1-de-build
-- DAAR/aa/segmex1.0/de/daar-aa-segmex-v1-de-deploy
-- DAAR/aa/segmex1.0/web/api/daar-aa-segmex-v1-web-api-artifact
-- DAAR/aa/segmex1.0/web/api/daar-aa-segmex-v1-web-api-build
-- DAAR/aa/segmex1.0/web/api-cic/daar-aa-segmex-v1-web-api-cic-artifact
-- DAAR/aa/segmex1.0/web/api-cic/daar-aa-segmex-v1-web-api-cic-build
-- DAAR/aa/segmex1.0/web/api-cic/daar-aa-segmex-v1-web-api-cic-deploy
-- DAAR/aa/segmex1.0/web/api/daar-aa-segmex-v1-web-api-deploy
-- DAAR/aa/segmex1.0/web/api-tg/daar-aa-segmex-v1-web-api-tg-artifact
-- DAAR/aa/segmex1.0/web/api-tg/daar-aa-segmex-v1-web-api-tg-build
-- DAAR/aa/segmex1.0/web/api-tg/daar-aa-segmex-v1-web-api-tg-deploy
-- DAAR/aa/segmex1.0/web/app/daar-aa-segmex-v1-web-app-artifact
-- DAAR/aa/segmex1.0/web/app/daar-aa-segmex-v1-web-app-build
-- DAAR/aa/segmex1.0/web/app-cic/daar-aa-segmex-v1-web-app-cic-artifact
-- DAAR/aa/segmex1.0/web/app-cic/daar-aa-segmex-v1-web-app-cic-build
-- DAAR/aa/segmex1.0/web/app-cic/daar-aa-segmex-v1-web-app-cic-deploy
-- DAAR/aa/segmex1.0/web/app/daar-aa-segmex-v1-web-app-deploy
-- DAAR/aa/segmex/visit-frequency-routing/daar-aa-segmex-visit-frequency-routing-artifact
-- DAAR/aa/segmex/visit-frequency-routing/daar-aa-segmex-visit-frequency-routing-build
-- DAAR/aa/segmex/visit-frequency-routing/daar-aa-segmex-visit-frequency-routing-deploy
-- DAAR/aa/webui/api/daar-aa-SegmEx-WEBUI-API-v2-artifact
-- DAAR/aa/webui/api/daar-aa-SegmEx-WEBUI-API-v2-build
-- DAAR/aa/webui/api/daar-aa-SegmEx-WEBUI-API-v2-deploy
-- DAAR/aa/webui/az-func/daar-aa-SegmEx-WEBUI-azure-functions-v2-artifact
-- DAAR/aa/webui/az-func/daar-aa-SegmEx-WEBUI-azure-functions-v2-build
-- DAAR/aa/webui/az-func/daar-aa-SegmEx-WEBUI-azure-functions-v2-deploy
-- DAAR/aa/webui/etl/daar-aa-SegmEx-WEBUI-ETL-v2-artifact
-- DAAR/aa/webui/etl/daar-aa-SegmEx-WEBUI-ETL-v2-build
-- DAAR/aa/webui/etl/daar-aa-SegmEx-WEBUI-ETL-v2-deploy
-- DAAR/aa/webui/app/daar-aa-SegmEx-WEBUI-FE-v2-artifact
-- DAAR/aa/webui/app/daar-aa-SegmEx-WEBUI-FE-v2-build
-- DAAR/aa/webui/app/daar-aa-SegmEx-WEBUI-FE-v2-deploy
-- DAAR/aa/segmex/wholesalers/daar-aa-segmex-wholesalers-artifacts
-- DAAR/aa/segmex/wholesalers/daar-aa-segmex-wholesalers-build
-- DAAR/aa/segmex/wholesalers/daar-aa-segmex-wholesalers-deploy
-- DAAR/aa/segmex1.0/adf/daar-aa-segmex1-adf-artifact
-- DAAR/aa/segmex1.0/adf/daar-aa-segmex1-adf-build
-- DAAR/aa/segmex1.0/adf/daar-aa-segmex1-adf-deploy
-- DAAR/aa/value360/adf/daar-aa-value360-adf-artifact
-- DAAR/aa/value360/adf/daar-aa-value360-adf-build
-- DAAR/aa/value360/adf/daar-aa-value360-adf-deploy
-- DAAR/aa/value360/application-model/daar-aa-value360-application-model-artifacts
-- DAAR/aa/value360/application-model/daar-aa-value360-application-model-build
-- DAAR/aa/value360/application-model/daar-aa-value360-application-model-deploy
-- DAAR/aa/genai/brainbank/askai/daar-askai-awardinsight
-- DAAR/aa/genai/brainbank/askai/daar-askai-botqueueprocessor-code
-- DAAR/aa/genai/brainbank/askai/daar-askai-botservice-code
-- DAAR/aa/genai/brainbank/askai/daar-askai-contentingestion-code
-- DAAR/aa/genai/brainbank/askai/daar-askai-contractinsight
-- DAAR/aa/genai/brainbank/askai/daar-askai-infra
-- DAAR/aa/genai/brainbank/askai/daar-askai-queryorchestrator-code
-- DAAR/aa/genai/brainbank/askai/daar-askai-sharedfilemanager
-- DAAR/aa/genai/brainbank/askai/daar-askai-spendinginsightservice-code
-- DAAR/aa/genai/brainbank/askai/daar-askai-supplierinsight-code
-- DAAR/aa/genai/brainbank/askai/daar-askai-utilityservice-code
-- DAAR/bir/edge-management/daar-bir-edge-management-artifact
-- DAAR/bir/edge-management/daar-bir-edge-management-calculate-repos-size
-- DAAR/bir/edge-management/daar-bir-edge-management-delete-resource
-- DAAR/bir/edge-management/daar-bir-edge-management-delete-tags
-- DAAR/bir/edge-management/daar-bir-edge-management-deploy
-- DAAR/bir/edge-operational-comm/daar-bir-edge-operational-comm-artifact
-- DAAR/bir/edge-operational-comm/daar-bir-edge-operational-comm-delete-resource
-- DAAR/bir/edge-operational-comm/daar-bir-edge-operational-comm-delete-tags
-- DAAR/bir/edge-operational-comm/daar-bir-edge-operational-comm-deploy
-- DAAR/bir/edge-operational-fi/daar-bir-edge-operational-fi-artifact
-- DAAR/bir/edge-operational-fi/daar-bir-edge-operational-fi-delete-resource
-- DAAR/bir/edge-operational-fi/daar-bir-edge-operational-fi-delete-tags
-- DAAR/bir/edge-operational-fi/daar-bir-edge-operational-fi-deploy
-- DAAR/bir/edge-operational-sc/daar-bir-edge-operational-sc-artifact
-- DAAR/bir/edge-operational-sc/daar-bir-edge-operational-sc-delete-resource
-- DAAR/bir/edge-operational-sc/daar-bir-edge-operational-sc-delete-tags
-- DAAR/bir/edge-operational-sc/daar-bir-edge-operational-sc-deploy
-- DAAR/bir/rf-exploratory-work/daar-bir-rf-exploratory-work-artifact
-- DAAR/bir/rf-exploratory-work/daar-bir-rf-exploratory-work-delete-resource
-- DAAR/bir/rf-exploratory-work/daar-bir-rf-exploratory-work-delete-tags
-- DAAR/bir/rf-exploratory-work/daar-bir-rf-exploratory-work-deploy
-- DAAR/datamesh/architecture/daar-datamesh-architecture-artifact
-- DAAR/datamesh/architecture/daar-datamesh-architecture-build
-- DAAR/datamesh/common/daar-datamesh-common-artifact
-- DAAR/datamesh/common/daar-datamesh-common-build-security
-- DAAR/datamesh/common/daar-datamesh-common-build
-- DAAR/datamesh/control-tower/daar-datamesh-control-tower-pbi-build
-- DAAR/datamesh/control-tower/daar-datamesh-control-tower-pbi-security
-- DAAR/datamesh/data-io/daar-datamesh-data-io-artifact
-- DAAR/datamesh/data-io/daar-datamesh-data-io-build-security
-- DAAR/datamesh/data-io/daar-datamesh-data-io-build
-- DAAR/datamesh/data-io/daar-datamesh-data-io-deploy
-- DAAR/datamesh/datalake/adf/adf-002/daar-datamesh-datalake-adf-2-artifact
-- DAAR/datamesh/datalake/adf/adf-002/daar-datamesh-datalake-adf-2-build-security
-- DAAR/datamesh/datalake/adf/adf-002/daar-datamesh-datalake-adf-2-build
-- DAAR/datamesh/datalake/adf/adf-002/daar-datamesh-datalake-adf-2-deploy
-- DAAR/datamesh/datalake/adf/adf-003/daar-datamesh-datalake-adf-3-artifact
-- DAAR/datamesh/datalake/adf/adf-003/daar-datamesh-datalake-adf-3-build-security
-- DAAR/datamesh/datalake/adf/adf-003/daar-datamesh-datalake-adf-3-build
-- DAAR/datamesh/datalake/adf/adf-003/daar-datamesh-datalake-adf-3-deploy
-- DAAR/datamesh/datalake/adf/adf-004/daar-datamesh-datalake-adf-4-artifact
-- DAAR/datamesh/datalake/adf/adf-004/daar-datamesh-datalake-adf-4-build-security
-- DAAR/datamesh/datalake/adf/adf-004/daar-datamesh-datalake-adf-4-build
-- DAAR/datamesh/datalake/adf/adf-004/daar-datamesh-datalake-adf-4-deploy
-- DAAR/datamesh/datalake/adf/adf-001/daar-datamesh-datalake-adf-artifact
-- DAAR/datamesh/datalake/adf/adf-001/daar-datamesh-datalake-adf-build-security
-- DAAR/datamesh/datalake/adf/adf-001/daar-datamesh-datalake-adf-build
-- DAAR/datamesh/datalake/adf/adf-001/daar-datamesh-datalake-adf-deploy
-- DAAR/datamesh/datalake/curated/daar-datamesh-datalake-curated-artifact
-- DAAR/datamesh/datalake/curated/daar-datamesh-datalake-curated-build-security
-- DAAR/datamesh/datalake/curated/daar-datamesh-datalake-curated-build
-- DAAR/datamesh/datalake/curated/daar-datamesh-datalake-curated-deploy
-- DAAR/datamesh/digitaltwin/adf/daar-datamesh-datalake-dt-adf-artifact
-- DAAR/datamesh/digitaltwin/adf/daar-datamesh-datalake-dt-adf-build
-- DAAR/datamesh/digitaltwin/adf/daar-datamesh-datalake-dt-adf-deploy
-- DAAR/datamesh/digitaltwin/enableLoads/daar-datamesh-datalake-dt-adf-enableLoads
-- DAAR/datamesh/digitaltwin/adf/daar-datamesh-datalake-dt-adf-security
-- DAAR/datamesh/digitaltwin/functionapp/daar-datamesh-datalake-dt-func-deploy
-- DAAR/datamesh/digitaltwin/functionapp/daar-datamesh-datalake-dt-func-security
-- DAAR/datamesh/digitaltwin/sql/daar-datamesh-datalake-dt-sql-artifact
-- DAAR/datamesh/digitaltwin/sql/daar-datamesh-datalake-dt-sql-build
-- DAAR/datamesh/digitaltwin/sql/daar-datamesh-datalake-dt-sql-deploy
-- DAAR/datamesh/kbi/daar-datamesh-datalake-kbi-artifact
-- DAAR/datamesh/kbi/daar-datamesh-datalake-kbi-build-security
-- DAAR/datamesh/kbi/daar-datamesh-datalake-kbi-build
-- DAAR/datamesh/kbi/daar-datamesh-datalake-kbi-deploy
-- DAAR/datamesh/datalake/schema/daar-datamesh-datalake-schema-artifact
-- DAAR/datamesh/datalake/schema/daar-datamesh-datalake-schema-build
-- DAAR/datamesh/datalake/schema/daar-datamesh-datalake-schema-security
-- DAAR/datamesh/datalake/sql/daar-datamesh-datalake-sql-artifact
-- DAAR/datamesh/datalake/sql/daar-datamesh-datalake-sql-build
-- DAAR/datamesh/datalake/sql/daar-datamesh-datalake-sql-deploy
-- DAAR/datamesh/datalake/sql/daar-datamesh-datalake-sql-security
-- DAAR/datamesh/datalake/synapse/daar-datamesh-datalake-synapse-artifact
-- DAAR/datamesh/datalake/synapse/daar-datamesh-datalake-synapse-deploy
-- DAAR/datamesh/datalake/synapse/daar-datamesh-datalake-synapse-security
-- DAAR/datamesh/datalake/udm/daar-datamesh-datalake-udm-artifact
-- DAAR/datamesh/datalake/udm/daar-datamesh-datalake-udm-build-security
-- DAAR/datamesh/datalake/udm/daar-datamesh-datalake-udm-build
-- DAAR/datamesh/datalake/udm/daar-datamesh-datalake-udm-deploy
-- DAAR/datamesh/devops/daar-datamesh-devops-build
-- DAAR/datamesh/devops/daar-datamesh-devops-tools-adf-triggers
-- DAAR/datamesh/devops/daar-datamesh-devops-tools-azure-resource-inventory
-- DAAR/datamesh/devops/daar-datamesh-devops-tools-delete-containers
-- DAAR/datamesh/devops/daar-datamesh-devops-tools-delete-stale-branches
-- DAAR/datamesh/devops/daar-datamesh-devops-tools-delete-synapse-database
-- DAAR/datamesh/devops/daar-datamesh-devops-tools-PAT-automation
-- DAAR/datamesh/devops/daar-datamesh-devops-tools-security
-- DAAR/datamesh/devops/daar-datamesh-devops-tools-sql-scaling-down
-- DAAR/datamesh/devops/daar-datamesh-devops-tools-sql-scaling-up
-- DAAR/datamesh/infrastructure/daar-datamesh-infrastructure-ado-docker-agent-build
-- DAAR/datamesh/infrastructure/daar-datamesh-infrastructure-build-security
-- DAAR/datamesh/infrastructure/daar-datamesh-infrastructure-build
-- DAAR/datamesh/infrastructure/daar-datamesh-infrastructure-deploy
-- DAAR/datamesh/infrastructure/daar-datamesh-infrastructure
-- DAAR/datamesh/landing_zone/daar-datamesh-landing-zone-002-adb-security
-- DAAR/datamesh/landing_zone/daar-datamesh-landing-zone-002-adf-security
-- DAAR/datamesh/landing_zone/daar-datamesh-landing-zone-003-adb-security
-- DAAR/datamesh/landing_zone/daar-datamesh-landing-zone-003-adf-security
-- DAAR/datamesh/landing_zone/daar-datamesh-landing-zone-adb-security
-- DAAR/datamesh/landing_zone/daar-datamesh-landing-zone-adf-security
-- DAAR/datamesh/orchestration/service/daar-datamesh-orchestration-service-artifact
-- DAAR/datamesh/orchestration/service/daar-datamesh-orchestration-service-build
-- DAAR/datamesh/orchestration/service/daar-datamesh-orchestration-service-deploy
-- DAAR/datamesh/orchestration/service/daar-datamesh-orchestration-service-security
-- DAAR/datamesh/transformation/daar-datamesh-transformation-artifact
-- DAAR/datamesh/transformation/daar-datamesh-transformation-build-security
-- DAAR/datamesh/transformation/daar-datamesh-transformation-build
-- DAAR/datamesh/transformation/daar-datamesh-transformation-deploy
-- DAAR/dqss/daar-dg-dqss-web-app
-- DAAR/governance/daar-governance-data-quality-adf-artifact
-- DAAR/governance/daar-governance-data-quality-adf-build
-- DAAR/governance/daar-governance-data-quality-adf-deploy
-- DAAR/governance/data-quality/daar-governance-data-quality-processes-artifact
-- DAAR/governance/data-quality/daar-governance-data-quality-processes-build
-- DAAR/governance/data-quality/daar-governance-data-quality-processes-deploy
-- DAAR/governance/daar-governance-data-quality-processes_aqua
-- DCCP/SDO/IntegrationService-API/dccp-app-sdo-integrationservice-api-artifact
-- DCCP/SDO/IntegrationService-API/dccp-app-sdo-integrationservice-api-build-v2
-- DCCP/SDO/IntegrationService-API/dccp-app-sdo-integrationservice-api-build
-- DCCP/SDO/IntegrationService-API/dccp-app-sdo-integrationservice-api-deploy
-- DCCP/CRM and Order Management/d365-testautomation/D365/dccp-crm-ccc-testautomation
-- DCCP/CRM and Order Management/v2/dccp-crm-d365-cicd-unified
-- DCCP/CRM and Order Management/v2/dccp-crm-d365-dataverse-deploy-prod
-- DCCP/CRM and Order Management/v2/dccp-crm-d365-dataverse-deploy
-- DCCP/CRM and Order Management/v2/dccp-crm-d365-dataverse-guard
-- DCCP/CRM and Order Management/v2/dccp-crm-d365-deploy-customizations
-- DCCP/CRM and Order Management/dccc-crm-d365-azure-code-deployment/dccp-crm-d365-function-code-deploy
-- DCCP/D2C/Qwell/dccp-d2c-qwell-backend-build
-- DCCP/D2C/Qwell/dccp-d2c-qwell-backend-dev-deploy
-- DCCP/D2C/Qwell/dccp-d2c-qwell-backend-prod-deploy
-- DCCP/D2C/Qwell/dccp-d2c-qwell-frontend-build
-- DCCP/D2C/Qwell/dccp-d2c-qwell-frontend-dev-deploy
-- DCCP/D2C/Qwell/dccp-d2c-qwell-frontend-prod-deploy
-- DCCP/D2C/Qwell/dccp-d2c-qwell-infrastructure-dev
-- DCCP/D2C/Qwell/dccp-d2c-qwell-infrastructure-prod
-- DCCP/CRM and Order Management/d365-testautomation/D365/dccp-d365-calllist-testautomation
-- DCCP/CRM and Order Management/d365-testautomation/D365/dccp-d365-casemanagement-testautomation
-- DCCP/CRM and Order Management/d365-testautomation/D365/dccp-d365-CDC-testautomation-Regression
-- DCCP/CRM and Order Management/d365-testautomation/D365/dccp-d365-CDC-testautomation-testcase
-- DCCP/CRM and Order Management/d365-testautomation/D365/dccp-d365-CDC-testautomation
-- DCCP/CRM and Order Management/d365-integration/az-functions/dccp-d365-integrations-az-functions-build-pr
-- DCCP/CRM and Order Management/d365-integration/az-functions/dccp-d365-integrations-az-functions-deploy-dev
-- DCCP/CRM and Order Management/d365-integration/az-functions/dccp-d365-integrations-az-functions-deploy-prod
-- DCCP/CRM and Order Management/d365-integration/az-functions/dccp-d365-integrations-az-functions-deploy-regular
-- DCCP/CRM and Order Management/d365-integration/az-functions/dccp-d365-integrations-az-functions-deploy-uat
-- DCCP/CRM and Order Management/d365-integration/d365/dccp-d365-integrations-d365-build-pr
-- DCCP/CRM and Order Management/d365-integration/d365/dccp-d365-integrations-d365-build-test
-- DCCP/CRM and Order Management/d365-integration/d365/dccp-d365-integrations-d365-deploy-prod
-- DCCP/CRM and Order Management/d365-integration/d365/dccp-d365-integrations-d365-deploy-regular
-- DCCP/CRM and Order Management/d365-integration/d365/dccp-d365-integrations-d365-deploy-release
-- DCCP/CRM and Order Management/d365-integration/dataverse-data/dccp-d365-integrations-data-build-pr
-- DCCP/CRM and Order Management/d365-integration/dataverse-data/dccp-d365-integrations-data-deploy-prod
-- DCCP/CRM and Order Management/d365-integration/dataverse-data/dccp-d365-integrations-data-deploy-regular
-- DCCP/CRM and Order Management/d365-testautomation/D365/dccp-d365-L2O-testautomation-Regression
-- DCCP/CRM and Order Management/d365-testautomation/D365/dccp-d365-L2O-testautomation
-- DCCP/Digital Factory/Business Club/Infra/dccp-df-businessclub-infra-terraform-dev
-- DCCP/Digital Factory/Business Club/Infra/dccp-df-businessclub-infra-terraform-prod
-- DCCP/Digital Factory/Business Club/Translations/dccp-df-businessclub-translations-build
-- DCCP/Digital Factory/Business Club/App/dccp-df-businessclub-webapp-build-dtso
-- DCCP/Digital Factory/Business Club/App/dccp-df-businessclub-webapp-deploy-dev
-- DCCP/Digital Factory/Business Club/App/dccp-df-businessclub-webapp-deploy-prod
-- DCCP/Digital Factory/Sandbox/Azure/Apps/LC25-Chatbot/dccp-df-conversationalcommerce-lc25-api-dev
-- DCCP/Digital Factory/Sandbox/Azure/Apps/LC25-Chatbot/dccp-df-conversationalcommerce-lc25-fe-dev
-- DCCP/Digital Factory/Sales Academy/AppService/dccp-df-salesacademy-build-app-dtso
-- DCCP/Digital Factory/Sales Academy/AppService/dccp-df-salesacademy-build-app-release
-- DCCP/Digital Factory/Sales Academy/AppService/dccp-df-salesacademy-build-app
-- DCCP/Digital Factory/Sales Academy/Client/dccp-df-salesacademy-build-ios-alpha
-- DCCP/Digital Factory/Sales Academy/Client/dccp-df-salesacademy-build-ios-beta
-- DCCP/Digital Factory/Sales Academy/Client/dccp-df-salesacademy-build-ios-prod
-- DCCP/Digital Factory/Sales Academy/Client/dccp-df-salesacademy-build-vr-alpha
-- DCCP/Digital Factory/Sales Academy/Client/dccp-df-salesacademy-build-vr-beta
-- DCCP/Digital Factory/Sales Academy/Client/dccp-df-salesacademy-build-vr-prod
-- DCCP/Digital Factory/Sales Academy/LLM/Experiment/dccp-df-salesacademy-create-new-index
-- DCCP/Digital Factory/Sales Academy/LLM/DataIngestion/dccp-df-salesacademy-data-ingestion-release
-- DCCP/Digital Factory/Sales Academy/LLM/DataIngestion/dccp-df-salesacademy-data-ingestion
-- DCCP/Digital Factory/Sales Academy/AppService/dccp-df-salesacademy-deploy-app
-- DCCP/Digital Factory/Sales Academy/Infra/dccp-df-salesacademy-deploy-infra-release
-- DCCP/Digital Factory/Sales Academy/Infra/dccp-df-salesacademy-deploy-infra
-- DCCP/Digital Factory/Sales Academy/LLM/dccp-df-salesacademy-deploy-llm-promptflow
-- DCCP/Digital Factory/Sales Academy/Client/AppCenter/dccp-df-salesacademy-distribute-ios-alpha
-- DCCP/Digital Factory/Sales Academy/Client/AppCenter/dccp-df-salesacademy-distribute-ios-beta
-- DCCP/Digital Factory/Sales Academy/Client/AppCenter/dccp-df-salesacademy-distribute-ios-prod
-- DCCP/Digital Factory/Sales Academy/Client/Oculus/dccp-df-salesacademy-distribute-vr-alpha
-- DCCP/Digital Factory/Sales Academy/Client/Oculus/dccp-df-salesacademy-distribute-vr-beta
-- DCCP/Digital Factory/Sales Academy/Client/Oculus/dccp-df-salesacademy-distribute-vr-prod
-- DCCP/Digital Factory/Sales Academy/LLM/dccp-df-salesacademy-llm-daily-midnight-run
-- DCCP/Digital Factory/Sales Academy/LLM/Experiment/dccp-df-salesacademy-llm-experiment
-- DCCP/Digital Factory/Sales Academy/LLM/PR/dccp-df-salesacademy-llm-pr-check
-- DCCP/Digital Factory/Sales Academy/AppService/dccp-df-salesacademy-publish-dll
-- DCCP/Digital Factory/Sales Academy/LLM/PR/dccp-df-salesacademy-python-linting
-- DCCP/Digital Factory/Sales Academy/Tests/E2E/dccp-df-salesacademy-run-end-to-end-tests
-- DCCP/Digital Factory/Sales Academy/Materials/dccp-df-salesacademy-upload-materials-release
-- DCCP/Digital Factory/Sales Academy/Materials/dccp-df-salesacademy-upload-materials
-- DCCP/Digital Factory/Sandbox/CCH/EPIM/dccp-df-sandbox-apps-integrations-epim-api-tests
-- DCCP/Digital Factory/Sirvis Catalog Intelligence/App/API/dccp-df-sirvis-catalogintelligence-api-deploy-dev
-- DCCP/Digital Factory/Sirvis Catalog Intelligence/Tests/dccp-df-sirvis-catalogintelligence-api-tests-dev-gemini-2.0-flash-001
-- DCCP/Digital Factory/Sirvis Catalog Intelligence/Tests/dccp-df-sirvis-catalogintelligence-api-tests-dev-gpt-4o
-- DCCP/Digital Factory/Sirvis Catalog Intelligence/App/dccp-df-sirvis-catalogintelligence-dtso-dev
-- DCCP/Digital Factory/Sirvis Catalog Intelligence/App/Frontend/dccp-df-sirvis-catalogintelligence-frontend-deploy-dev
-- DCCP/Digital Factory/Sirvis Catalog Intelligence/Infra/dccp-df-sirvis-catalogintelligence-infra-deploy-dev
-- DCCP/Digital Commerce/B2C Multicategory/dccp-digitalcommerce-b2b-multicategory-platform
-- DCCP/Digital Commerce/B2C Multicategory/dccp-digitalcommerce-b2b-multicategory-platform_build
-- DCCP/Digital Commerce/B2B Customer Portal/TestAutomation/dccp-digitalcommerce-customerportal-automation-Regression
-- DCCP/Digital Commerce/B2B Customer Portal/TestAutomation/dccp-digitalcommerce-customerportal-automation-Smoke
-- TECS/Service Management/Test Automation/HybrisGUI/dccp-digitalcommerce-customerportal-automation-tests
-- DCCP/Digital Commerce/B2B Customer Portal/dccp-digitalcommerce-customerportal-hybris CD Docker
-- DCCP/Digital Commerce/B2B Customer Portal/dccp-digitalcommerce-customerportal-hybris CI Docker
-- DCCP/Digital Commerce/B2B Customer Portal/dccp-digitalcommerce-customerportal-hybris-build
-- DCCP/Digital Commerce/B2B Customer Portal/dccp-digitalcommerce-customerportal-hybris-deploy-cvv2
-- DCCP/Digital Commerce/B2B Customer Portal/dccp-digitalcommerce-customerportal-hybris-deploy
-- DCCP/Digital Commerce/B2B Customer Portal/dccp-digitalcommerce-customerportal
-- DCCP/Digital Commerce/B2B Customer Portal/dccp-digitalcommerce-customerportal_deploy
-- DCCP/Digital Commerce/SIRVIS/dccp-digitalcommerce-sirvis-app-preparation
-- DCCP/Digital Commerce/SIRVIS/dccp-digitalcommerce-sirvis-daily
-- DCCP/Digital Commerce/SIRVIS/dccp-digitalcommerce-sirvis-deploy-core-infra
-- DCCP/Digital Commerce/SIRVIS/dccp-digitalcommerce-sirvis-destroy
-- DCCP/Digital Commerce/SIRVIS/dccp-digitalcommerce-sirvis-initialize-app
-- TECS/Service Management/Test Automation/Sirvis/dccp-digitalcommerce-sirvis-testautomation
-- DCCP/Digital Commerce/SIRVIS/dccp-digitalcommerce-sirvis-tint
-- DCCP/Digital Field Sales/SFA/Advisor/admin-backend/dccp-digitalfieldsales-advisorapp-artifact
-- DCCP/Digital Field Sales/SFA/Advisor/admin-backend/dccp-digitalfieldsales-advisorapp-build
-- DCCP/Digital Field Sales/SFA/Advisor/admin-backend/dccp-digitalfieldsales-advisorapp-cd-dev
-- DCCP/Digital Field Sales/SFA/Advisor/admin-backend/dccp-digitalfieldsales-advisorapp-cd-qlty-prod
-- DCCP/Digital Field Sales/SFA/Advisor/admin-frontend/dccp-digitalfieldsales-advisorapp-front-end-artifact
-- DCCP/Digital Field Sales/SFA/Advisor/admin-frontend/dccp-digitalfieldsales-advisorapp-front-end-build
-- DCCP/Digital Field Sales/SFA/Advisor/admin-frontend/dccp-digitalfieldsales-advisorapp-front-end-cd-dev
-- DCCP/Digital Field Sales/SFA/Advisor/admin-frontend/dccp-digitalfieldsales-advisorapp-front-end-cd-qlty-prod
-- DCCP/Digital Field Sales/SFA/Advisor/mobile-backend/dccp-digitalfieldsales-advisorapp-mobile-back-end-artifact
-- DCCP/Digital Field Sales/SFA/Advisor/mobile-backend/dccp-digitalfieldsales-advisorapp-mobile-back-end-build
-- DCCP/Digital Field Sales/SFA/Advisor/mobile-backend/dccp-digitalfieldsales-advisorapp-mobile-back-end-cd-dev
-- DCCP/Digital Field Sales/SFA/Advisor/mobile-backend/dccp-digitalfieldsales-advisorapp-mobile-back-end-cd-qlty-prod
-- DCCP/Digital Field Sales/SFA/Advisor/sap-service/dccp-digitalfieldsales-advisorapp-sap-service-artifact
-- DCCP/Digital Field Sales/SFA/Advisor/sap-service/dccp-digitalfieldsales-advisorapp-sap-service-build
-- DCCP/Digital Field Sales/SFA/Advisor/sap-service/dccp-digitalfieldsales-advisorapp-sap-service-cd-dev
-- DCCP/Digital Field Sales/SFA/Advisor/sap-service/dccp-digitalfieldsales-advisorapp-sap-service-cd-qlty-prod
-- DCCP/Digital Field Sales/SFA/Advisor/mobile-client-legacy/dccp-digitalfieldsales-advisorapp-stores
-- DCCP/Digital Field Sales/SFA/Advisor/mobile-client-legacy/dccp-digitalfieldsales-advisorapp
-- DCCP/Digital Field Sales/SFA/BDAAMonitoring/backend/dccp-digitalfieldsales-sfa-bdaamonitoring-artifact
-- DCCP/Digital Field Sales/SFA/BDAAMonitoring/backend/dccp-digitalfieldsales-sfa-bdaamonitoring-build
-- DCCP/Digital Field Sales/SFA/BDAAMonitoring/backend/dccp-digitalfieldsales-sfa-bdaamonitoring-cd-dev
-- DCCP/Digital Field Sales/SFA/BDAAMonitoring/backend/dccp-digitalfieldsales-sfa-bdaamonitoring-cd-qlty-prod
-- DCCP/Digital Field Sales/SFA/BDAAMonitoring/frontend/dccp-digitalfieldsales-sfa-bdaamonitoring-front-end-artifact
-- DCCP/Digital Field Sales/SFA/BDAAMonitoring/frontend/dccp-digitalfieldsales-sfa-bdaamonitoring-front-end-build
-- DCCP/Digital Field Sales/SFA/BDAAMonitoring/frontend/dccp-digitalfieldsales-sfa-bdaamonitoring-front-end-cd-dev
-- DCCP/Digital Field Sales/SFA/BDAAMonitoring/frontend/dccp-digitalfieldsales-sfa-bdaamonitoring-front-end-cd-qlty-prod
-- DCCP/Digital Field Sales/SFA/CollaborationPortal/backend/dccp-digitalfieldsales-sfa-collaborationportal-artifact
-- DCCP/Digital Field Sales/SFA/CollaborationPortal/backend/dccp-digitalfieldsales-sfa-collaborationportal-build
-- DCCP/Digital Field Sales/SFA/CollaborationPortal/backend/dccp-digitalfieldsales-sfa-collaborationportal-cd-dev
-- DCCP/Digital Field Sales/SFA/CollaborationPortal/backend/dccp-digitalfieldsales-sfa-collaborationportal-cd-qlty-prod
-- DCCP/Digital Field Sales/SFA/CollaborationPortal/frontend/dccp-digitalfieldsales-sfa-collaborationportal-front-end-artifact
-- DCCP/Digital Field Sales/SFA/CollaborationPortal/frontend/dccp-digitalfieldsales-sfa-collaborationportal-front-end-build
-- DCCP/Digital Field Sales/SFA/CollaborationPortal/frontend/dccp-digitalfieldsales-sfa-collaborationportal-front-end-cd-dev
-- DCCP/Digital Field Sales/SFA/CollaborationPortal/frontend/dccp-digitalfieldsales-sfa-collaborationportal-front-end-cd-qlty-prod
-- DCCP/Digital Field Sales/SFA/IRAuditTool/backend/dccp-digitalfieldsales-sfa-iraudittool-artifact
-- DCCP/Digital Field Sales/SFA/IRAuditTool/backend/dccp-digitalfieldsales-sfa-iraudittool-build
-- DCCP/Digital Field Sales/SFA/IRAuditTool/backend/dccp-digitalfieldsales-sfa-iraudittool-cd-dev
-- DCCP/Digital Field Sales/SFA/IRAuditTool/frontend/dccp-digitalfieldsales-sfa-iraudittool-cd-dev
-- DCCP/Digital Field Sales/SFA/IRAuditTool/frontend/dccp-digitalfieldsales-sfa-iraudittool-cd-qlty-prod
-- DCCP/Digital Field Sales/SFA/IRAuditTool/backend/dccp-digitalfieldsales-sfa-iraudittool-cd-qlty-prod
-- DCCP/Digital Field Sales/SFA/IRAuditTool/frontend/dccp-digitalfieldsales-sfa-iraudittool-front-end-artifact
-- DCCP/Digital Field Sales/SFA/IRAuditTool/frontend/dccp-digitalfieldsales-sfa-iraudittool-front-end-build
-- DCCP/Digital Field Sales/SFA/MasterdataServices/dccp-digitalfieldsales-sfa-masterdataservices-artifact
-- DCCP/Digital Field Sales/SFA/MasterdataServices/dccp-digitalfieldsales-sfa-masterdataservices-build
-- DCCP/Digital Field Sales/SFA/MasterdataServices/dccp-digitalfieldsales-sfa-masterdataservices-cd-dev
-- DCCP/Digital Field Sales/SFA/MasterdataServices/dccp-digitalfieldsales-sfa-masterdataservices-cd-qlty-prod
-- DCCP/Digital Field Sales/SFA/MasterdataServices/Legacy/dccp-digitalfieldsales-sfa-masterdataservices
-- DCCP/Digital Field Sales/SFA/ActivitiesMonitor/dccp-digitalfieldsales-sfa-onsactivitiesmonitor-artifact
-- DCCP/Digital Field Sales/SFA/ActivitiesMonitor/dccp-digitalfieldsales-sfa-onsactivitiesmonitor-build
-- DCCP/Digital Field Sales/SFA/ActivitiesMonitor/dccp-digitalfieldsales-sfa-onsactivitiesmonitor-cd-dev
-- DCCP/Digital Field Sales/SFA/ActivitiesMonitor/dccp-digitalfieldsales-sfa-onsactivitiesmonitor-cd-qlty-prod
-- DCCP/Digital Field Sales/SFA/Ons/dccp-digitalfieldsales-sfa-onsactivitiesmonitor
-- DCCP/Digital Field Sales/SFA/RedAuditTool/backend/dccp-digitalfieldsales-sfa-redaudittool-artifact
-- DCCP/Digital Field Sales/SFA/RedAuditTool/Legacy/dccp-digitalfieldsales-sfa-redaudittool-backend
-- DCCP/Digital Field Sales/SFA/RedAuditTool/backend/dccp-digitalfieldsales-sfa-redaudittool-build
-- DCCP/Digital Field Sales/SFA/RedAuditTool/backend/dccp-digitalfieldsales-sfa-redaudittool-cd-dev
-- DCCP/Digital Field Sales/SFA/RedAuditTool/backend/dccp-digitalfieldsales-sfa-redaudittool-cd-qlty-prod
-- DCCP/Digital Field Sales/SFA/RedAuditTool/frontend/dccp-digitalfieldsales-sfa-redaudittool-front-end-artifact
-- DCCP/Digital Field Sales/SFA/RedAuditTool/frontend/dccp-digitalfieldsales-sfa-redaudittool-front-end-build
-- DCCP/Digital Field Sales/SFA/RedAuditTool/frontend/dccp-digitalfieldsales-sfa-redaudittool-front-end-cd-dev
-- DCCP/Digital Field Sales/SFA/RedAuditTool/frontend/dccp-digitalfieldsales-sfa-redaudittool-front-end-cd-qlty-prod
-- DCCP/Digital Field Sales/SFA/RedAuditTool/Legacy/dccp-digitalfieldsales-sfa-redaudittool-frontend
-- DCCP/Digital Field Sales/SFA/REDPfp/unified/dccp-digitalfieldsales-sfa-redpfp-artifact
-- DCCP/Digital Field Sales/SFA/REDPfp/unified/dccp-digitalfieldsales-sfa-redpfp-build
-- DCCP/Digital Field Sales/SFA/REDPfp/unified/dccp-digitalfieldsales-sfa-redpfp-cd-dev
-- DCCP/Digital Field Sales/SFA/REDPfp/unified/dccp-digitalfieldsales-sfa-redpfp-cd-qlty-prod
-- DCCP/Digital Field Sales/SFA/REDPfp/frontend/dccp-digitalfieldsales-sfa-redpfp-front-end-build
-- DCCP/Digital Field Sales/SFA/REDWebUI/unified/dccp-digitalfieldsales-sfa-redwebui-artifact
-- DCCP/Digital Field Sales/SFA/REDWebUI/unified/dccp-digitalfieldsales-sfa-redwebui-build
-- DCCP/Digital Field Sales/SFA/REDWebUI/unified/dccp-digitalfieldsales-sfa-redwebui-cd-dev
-- DCCP/Digital Field Sales/SFA/REDWebUI/unified/dccp-digitalfieldsales-sfa-redwebui-cd-qlty-prod
-- DCCP/Digital Field Sales/SFA/Services/dccp-digitalfieldsales-sfa-services-artifact
-- DCCP/Digital Field Sales/SFA/Services/dccp-digitalfieldsales-sfa-services-build
-- DCCP/Digital Field Sales/SFA/Services/dccp-digitalfieldsales-sfa-services-cd-dev
-- DCCP/Digital Field Sales/SFA/Services/dccp-digitalfieldsales-sfa-services-cd-qlty-prod
-- DCCP/Digital Field Sales/SFA/Services/order-replication/dccp-digitalfieldsales-sfa-services-order-replication-artifact
-- DCCP/Digital Field Sales/SFA/Services/order-replication/dccp-digitalfieldsales-sfa-services-order-replication-build
-- DCCP/Digital Field Sales/SFA/Services/order-replication/dccp-digitalfieldsales-sfa-services-order-replication-cd-dev
-- DCCP/Digital Field Sales/SFA/Services/order-replication/dccp-digitalfieldsales-sfa-services-order-replication-cd-qlty-prod
-- DCCP/Digital Field Sales/SFA/Services/Legacy/dccp-digitalfieldsales-sfa-services
-- DCCP/Digital Field Sales/SFA/AdminTool/dccp-digitalfieldsales-sfa-sfaadmintool-artifact
-- DCCP/Digital Field Sales/SFA/AdminTool/dccp-digitalfieldsales-sfa-sfaadmintool-build
-- DCCP/Digital Field Sales/SFA/AdminTool/dccp-digitalfieldsales-sfa-sfaadmintool-cd-dev
-- DCCP/Digital Field Sales/SFA/AdminTool/dccp-digitalfieldsales-sfa-sfaadmintool-cd-qlty-prod
-- DCCP/Digital Field Sales/SFA/AdminTool/Legacy/dccp-digitalfieldsales-sfa-sfaadmintool
-- DCCP/Digital Field Sales/SFA/Clients/dccp-digitalfieldsales-sfa-sfaclient-ci-ms-sql-server
-- DCCP/Digital Field Sales/SFA/Clients/dccp-digitalfieldsales-sfa-sfaclient-CI
-- DCCP/Digital Field Sales/SFA/Clients/MAUI/dccp-digitalfieldsales-sfa-sfaclient-maui-beta
-- DCCP/Digital Field Sales/SFA/Clients/MAUI/dccp-digitalfieldsales-sfa-sfaclient-maui-release
-- DCCP/Digital Field Sales/SFA/Clients/dccp-digitalfieldsales-sfa-sfaclient-ms-sql-server-OfficialRelease
-- DCCP/Digital Field Sales/SFA/Clients/dccp-digitalfieldsales-sfa-sfaclient-OfficialRelease
-- DCCP/Digital Field Sales/SFA/Clients/dccp-digitalfieldsales-sfa-sfaclient-uwp-sideload-official
-- DCCP/Digital Field Sales/SFA/Matrix/dccp-digitalfieldsales-sfa-sfamatrix-artifact
-- DCCP/Digital Field Sales/SFA/Matrix/dccp-digitalfieldsales-sfa-sfamatrix-build
-- DCCP/Digital Field Sales/SFA/Matrix/dccp-digitalfieldsales-sfa-sfamatrix-cd-dev
-- DCCP/Digital Field Sales/SFA/Matrix/dccp-digitalfieldsales-sfa-sfamatrix-cd-qlty-prod
-- DCCP/Digital Field Sales/SFA/iFSAUpload/dccp-digitalfieldsales-sfa-sfauploadsharepoint-artifact
-- DCCP/Digital Field Sales/SFA/iFSAUpload/dccp-digitalfieldsales-sfa-sfauploadsharepoint-build
-- DCCP/Digital Field Sales/SFA/iFSAUpload/dccp-digitalfieldsales-sfa-sfauploadsharepoint-cd-dev
-- DCCP/Digital Field Sales/SFA/iFSAUpload/dccp-digitalfieldsales-sfa-sfauploadsharepoint-cd-qlty-prod
-- DCCP/Digital Field Sales/SFA/Test_Automation/dccp-digitalfieldsales-sfa-TestAutomation-smoke
-- DCCP/Digital Field Sales/SFA/Test_Automation/dccp-digitalfieldsales-sfa-TestAutomation
-- DCCP/Digital Field Sales/SFA/WebService/dccp-digitalfieldsales-sfa-webservice-api-artifact
-- DCCP/Digital Field Sales/SFA/WebService/dccp-digitalfieldsales-sfa-webservice-api-build
-- DCCP/Digital Field Sales/SFA/WebService/dccp-digitalfieldsales-sfa-webservice-api-cd-dev
-- DCCP/Digital Field Sales/SFA/WebService/dccp-digitalfieldsales-sfa-webservice-api-cd-qlty-prod
-- DCCP/Digital Field Sales/SFA/ATP/dccp-digitalfieldsales-sfa-webservice-artifact
-- DCCP/Digital Field Sales/SFA/ATP/dccp-digitalfieldsales-sfa-webservice-build
-- DCCP/Digital Field Sales/SFA/ATP/dccp-digitalfieldsales-sfa-webservice-cd-dev
-- DCCP/Digital Field Sales/SFA/ATP/dccp-digitalfieldsales-sfa-webservice-cd-qlty-prod
-- DCCP/Digital Field Sales/SFA/AdministrationTool/backend/dccp-digitalfieldsales-sfaadministrationtool-artifact
-- DCCP/Digital Field Sales/SFA/AdministrationTool/backend/dccp-digitalfieldsales-sfaadministrationtool-build
-- DCCP/Digital Field Sales/SFA/AdministrationTool/backend/dccp-digitalfieldsales-sfaadministrationtool-cd-dev
-- DCCP/Digital Field Sales/SFA/AdministrationTool/backend/dccp-digitalfieldsales-sfaadministrationtool-cd-qlty-prod
-- DCCP/Digital Field Sales/SFA/AdministrationTool/frontend/dccp-digitalfieldsales-sfaadministrationtool-frontend-artifact
-- DCCP/Digital Field Sales/SFA/AdministrationTool/frontend/dccp-digitalfieldsales-sfaadministrationtool-frontend-build
-- DCCP/Digital Field Sales/SFA/AdministrationTool/frontend/dccp-digitalfieldsales-sfaadministrationtool-frontend-cd-dev
-- DCCP/Digital Field Sales/SFA/AdministrationTool/frontend/dccp-digitalfieldsales-sfaadministrationtool-frontend-cd-qlty-prod
-- DCCP/SDO/rgmandcde/dccp-rgmandcde-sdo-apps-build
-- DCCP/SDO/ADF/dccp-sdo-adf-artifact
-- DCCP/SDO/ADF/dccp-sdo-adf-build
-- DCCP/SDO/ADF/dccp-sdo-adf-deploy
-- DCCP/Digital Field Sales/SFA/ADF/dccp-sfa-adf-artifact-dev
-- DCCP/Digital Field Sales/SFA/ADF/dccp-sfa-adf-artifact-master
-- DCCP/SFA/dccp-sfa-adf-artifact
-- DCCP/SFA/dccp-sfa-adf-build
-- DCCP/Digital Field Sales/SFA/ADF/dccp-sfa-adf-cd-dev
-- DCCP/Digital Field Sales/SFA/ADF/dccp-sfa-adf-cd-qlty-prod-dr
-- DCCP/SFA/dccp-sfa-adf-deploy
-- DCCP/Digital Field Sales/SFA/ADF/dccp-sfa-adf-pr-build
-- DCCP/SFA/dccp-sfa-adf
-- DCCP/SFA/infrastructure/dccp-sfa-infrastructure
-- DEEP/Employee Experience/deep-ee-chatbot-helen-dev
-- DEEP/Chatbot/_archive/deep-ee-chatbot-helen-infrastructure-v2-cchbc-template
-- DEEP/Chatbot/_archive/deep-ee-chatbot-helen-infrastructure
-- DEEP/Employee Experience/deep-ee-chatbot-helen-pilot
-- DEEP/Employee Experience/deep-ee-chatbot-helen-prod
-- DEEP/NextGen Intranet/deep-ee-nextgenintranet-Build SP Components
-- DEEP/NextGen Intranet/deep-ee-nextgenintranet-Deploy Azure Functions to UAT
-- DEEP/NextGen Intranet/Archive/deep-ee-nextgenintranet-Deploy Azure Fx to PROD
-- DEEP/NextGen Intranet/deep-ee-nextgenintranet-Deploy to DEV
-- DEEP/NextGen Intranet/Archive/deep-ee-nextgenintranet-Deploy to PROD
-- DEEP/NextGen Intranet/deep-ee-nextgenintranet-Deploy to QA
-- DEEP/NextGen Intranet/deep-ee-nextgenintranet-Deploy to UAT
-- DEEP/NextGen Intranet/deep-ee-nextgenintranet-TEST
-- DEEP/NextGen Intranet/deep-ee-nextgenintranet-TestBuild
-- DEEP/NextGen Intranet/Archive/deep-ee-nextgenintranet
-- DEEP/HR/workday/testautomation/deep-hr-workday-testautomation
-- DTSO/EA/Examples/demo-pipelines-javascript-docker
-- DCCP/Digital Field Sales/SFA/AdministrationTool/frontend/v2/DEMO-V2-dccp-digitalfieldsales-sfaadministrationtool-frontend-ci
-- DEEP/Chatbot/deploy-infrastructure
-- DEEP/Chatbot/destroy-infrastructure
-- DETP/DETP-Finance&Legal/v2/detp-cms-v2-cicd
-- DETP/DETP-Finance&Legal/CMS/detp-financelegal-cms-testautomation-playwright
-- DETP/detp-legal-cobc/portal/detp-legal-cobc-portal-build
-- DETP/detp-legal-cobc/portal/detp-legal-cobc-portal-deploy-artifact
-- DETP/detp-legal-cobc/portal/detp-legal-cobc-portal-deployment
-- DETP/detp-legal-cobc/portal/detp-legal-cobc-portal-publish-artifact
-- DETP/detp-legal-cobc/syncjob/detp-legal-cobc-syncjobs
-- DETP/DETP-Finance&Legal/Observation Tracking/detp-legal-corporateaudit-observation-mobile-backend
-- DETP/DETP-Finance&Legal/Observation Tracking/detp-legal-corporateaudit-observation-web-app
-- DETP/DETP-Finance&Legal/Observation Tracking/detp-legal-corporateaudit-observation-web-job
-- DCCP/Digital Field Sales/detp-mam-batch-management-general
-- DETP/detp-mam-spir/dev/detp-mam-sp-managment-optimization-backend-aqua
-- DETP/detp-mam-spir/dev/detp-mam-sp-managment-optimization-backend
-- DETP/detp-mam-spir/dev/detp-mam-spir-backend-ci-dev
-- DETP/detp-mam-spir/prod/detp-mam-spir-backend-ci-prod
-- DETP/detp-mam-spir/dev/detp-mam-spir-embedding-ci-dev
-- DETP/detp-mam-spir/prod/detp-mam-spir-embedding-ci-prod
-- DETP/detp-mam-spir/dev/detp-mam-spir-frontend-ci-dev
-- DETP/detp-mam-spir/prod/detp-mam-spir-frontend-ci-prod
-- DETP/detp-mam-spir/dev/detp-mam-spir-infrastructure-dev
-- DETP/detp-mam-spir/prod/detp-mam-spir-infrastructure-prod
-- DETP/detp-mam-spir/dev/detp-mam-spir-model-cd-dev
-- DETP/detp-mam-spir/prod/detp-mam-spir-model-cd-prod
-- DETP/detp-mam-spir/dev/detp-mam-spir-training-ci-dev
-- DETP/detp-mam-spir/prod/detp-mam-spir-training-ci-prod
-- DETP/detp-planningmanufacturing/detp-planningmanufacturing-connectedworker-dashboards
-- DETP/detp-planningmanufacturing/connected-worker-onestopshop/detp-planningmanufacturing-connectedworker-onestopshop-frontend
-- DETP/detp-planningmanufacturing/connected-worker-onestopshop/detp-planningmanufacturing-connectedworker-onestopshop
-- DETP/detp-planningmanufacturing/connected-worker-onestopshop/detp-plnmanufact-cnnworker-onestopshop-production-plan-job
-- DETP/detp-planningmanufacturing/connected-worker-onestopshop/detp-plnmanufact-cnnworker-onestopshop-reporting-job
-- DETP/detp-planningmanufacturing/connected-worker-onestopshop/detp-plnmanufact-cnnworker-onestshop-odp-remnd-job
-- DETP/QSE/auditmanagement/webapp/detp-qse-auditmanagement-web-app
-- DETP/QSE/auditmanagement/backendapi/detp-qse-auditmanagement-web-backend-api
-- DETP/QSE/auditmanagement/jobs/detp-qse-auditmanagement-web-jobs
-- DETP/QSE/detp-qse-spc-extractor
-- DETP/QSE/detp-qse-spc-laboratory
-- DCCP/VMI/detp-vmi-web-api/detp-vmi-web-api-artifact
-- DCCP/VMI/detp-vmi-web-api/detp-vmi-web-api-build
-- DCCP/VMI/detp-vmi-web-api/detp-vmi-web-api-cd-dev
-- DCCP/VMI/detp-vmi-web-api/detp-vmi-web-api-cd-prod-dr
-- DCCP/VMI/detp-vmi-web-app/detp-vmi-web-app-artifact
-- DCCP/VMI/detp-vmi-web-app/detp-vmi-web-app-build
-- DCCP/VMI/detp-vmi-web-app/detp-vmi-web-app-cd-dev
-- DCCP/VMI/detp-vmi-web-app/detp-vmi-web-app-cd-prod-dr
-- DTSO/dtso-automation-samples
-- DTSO/EA/Prototyping/Test Automation/dtso-demo-testautomation-customerportal
-- DTSO/Innovation/InvoiceDispute/dtso-ea-invoicedispute-deploy-code-function-app
-- DTSO/Innovation/brAInbank/ai-brainbank/dtso-innovation-ai-brainbank-deploy-chat
-- DTSO/Innovation/brAInbank/ai-brainbank/dtso-innovation-ai-brainbank-deploy-frontend
-- DTSO/Innovation/brAInbank/ai-brainbank/dtso-innovation-ai-brainbank-deploy-func-kpi-analytics
-- DTSO/Innovation/brAInbank/ai-brainbank/dtso-innovation-ai-brainbank-deploy-func-parsing
-- DTSO/Innovation/brAInbank/ai-brainbank/dtso-innovation-ai-brainbank-deploy-func-qas
-- DTSO/Innovation/brAInbank/ai-brainbank/dtso-innovation-ai-brainbank-deploy-func-skill
-- DTSO/Innovation/brAInbank/ai-brainbank/dtso-innovation-ai-brainbank-deploy-func-video-parser
-- DTSO/Innovation/brAInbank/ai-brainbank/dtso-innovation-ai-brainbank-deploy-search
-- DTSO/Innovation/brAInbank/dtso-innovation-brainbank-app-lsf
-- DTSO/Innovation/brAInbank/dtso-innovation-brainbank-app-snitaf
-- DTSO/Innovation/brAInbank/dtso-innovation-brainbank-app-spi
-- DTSO/Innovation/brAInbank/dtso-innovation-brainbank-app-videoparsing (1077)
-- DTSO/Innovation/brAInbank/dtso-innovation-brainbank-app
-- DTSO/Innovation/brAInbank/dtso-innovation-brainbank-deploy-chat-2
-- DTSO/Innovation/brAInbank/dtso-innovation-brainbank-deploy-frontend-2
-- DTSO/Innovation/brAInbank/dtso-innovation-brainbank-deploy-func-kpi-analytics-2
-- DTSO/Innovation/brAInbank/dtso-innovation-brainbank-deploy-func-parsing-2
-- DTSO/Innovation/brAInbank/dtso-innovation-brainbank-deploy-func-qas-2
-- DTSO/Innovation/brAInbank/dtso-innovation-brainbank-deploy-func-skill-2
-- DTSO/Innovation/brAInbank/dtso-innovation-brainbank-deploy-func-video-parser-2
-- DTSO/Innovation/brAInbank/dtso-innovation-brainbank-deploy-search-2
-- DTSO/Innovation/brAInbank/dtso-innovation-brainbank-lapp-psf
-- DTSO/Innovation/brAInbank/dtso-innovation-brainbank-sonar-linters-check-temp
-- DTSO/EA/Examples/dtso-sonar-scanning-example-dotnetconsole
-- DCCP/Digital Commerce/valserservice/int_deploy_on_push
-- DCCP/Digital Commerce/valserservice/int_redeploy_nightly
-- TECS/Cloud Services/Automation/Infrastructure as Code/new-linux-vm-deploy-configure-with-disk
-- DCCP/Digital Commerce/valserservice/PR_validation_on_INT_sandbox
-- TECS/Sandbox/tecs-devops-pipelines
-- TECS/Integration Framework/MuleSoft PoC/tecs-integration-mulesoft-dispatcher-proc-cch-api
-- TECS/Integration Framework/MuleSoft PoC/tecs-integration-mulesoft-sap-exp-cch-api
-- TECS/Service Management/Test Automation/PlayWright/D365 Order_Taking/tecs-pmo-TestAutomation-D365-CICMigration
-- TECS/Service Management/Test Automation/PlayWright/SAP FIORI-IOM/tecs-pmo-testautomation-IOM-playright
-- TECS/Service Management/Test Automation/SAP-PRICING-REBATE/tecs-pmo-testautomation-SAP-Pricing-Rebate
-- TECS/SAP/tecs_sap_devops_main
+- agg/Cloud Services/Automation/azure-vm-deploy-configure-windows
+- DTT/dunder-miflinbc-security-scan-aqua
+- DERT/aa/gn/phoenix/dik/dert-aa-phoenix-dik-artifact
+- DERT/aa/gn/phoenix/dik/dert-aa-phoenix-dik-deploy
+- DERT/aa/concol/dert-aa-concol-de-artifact
+- DERT/aa/concol/dert-aa-concol-de-build
+- DERT/aa/concol/dert-aa-concol-de-deploy
+- DERT/aa/crpo/dik/dert-aa-crpo-dik-artifact
+- DERT/aa/crpo/dik/dert-aa-crpo-dik-build
+- DERT/aa/crpo/dik/dert-aa-crpo-dik-deploy
+- DERT/aa/crpo/processes/dert-aa-crpo-processes-artifact
+- DERT/aa/crpo/processes/dert-aa-crpo-processes-build
+- DERT/aa/crpo/processes/dert-aa-crpo-processes-deploy
+- DERT/aa/crpo/umd/dert-aa-crpo-umd-artifact
+- DERT/aa/crpo/umd/dert-aa-crpo-umd-build
+- DERT/aa/crpo/umd/dert-aa-crpo-umd-deploy
+- DERT/aa/cpt/dik/dert-aa-cpt-dik-artifact
+- DERT/aa/cpt/dik/dert-aa-cpt-dik-build
+- DERT/aa/cpt/dik/dert-aa-cpt-dik-deploy
+- DERT/aa/cpt/de/dert-aa-cpt-de-artifact
+- DERT/aa/cpt/de/dert-aa-cpt-de-build
+- DERT/aa/cpt/de/dert-aa-cpt-de-deploy
+- DERT/aa/cpt/sql/cpt-it/dert-aa-cpt-it-sql-artifact
+- DERT/aa/cpt/sql/cpt-it/dert-aa-cpt-it-sql-build
+- DERT/aa/cpt/sql/cpt-it/dert-aa-cpt-it-sql-deploy
+- DERT/aa/cpt/sql/dert-aa-cpt-sql-artifact
+- DERT/aa/cpt/sql/dert-aa-cpt-sql-build
+- DERT/aa/cpt/sql/dert-aa-cpt-sql-deploy
+- DERT/aa/cpt/web/api-cpt/dert-aa-cpt-web-api-artifact
+- DERT/aa/cpt/web/api-cpt/dert-aa-cpt-web-api-build
+- DERT/aa/cpt/web/api-cpt/dert-aa-cpt-web-api-deploy
+- DERT/aa/cpt/web/api-cpt/cpt-it/dert-aa-cpt-web-api-it-artifact
+- DERT/aa/cpt/web/api-cpt/cpt-it/dert-aa-cpt-web-api-it-build
+- DERT/aa/cpt/web/api-cpt/cpt-it/dert-aa-cpt-web-api-it-deploy
+- DERT/aa/cpt/web/app-cpt/dert-aa-cpt-web-app-artifact
+- DERT/aa/cpt/web/app-cpt/dert-aa-cpt-web-app-build
+- DERT/aa/cpt/web/app-cpt/dert-aa-cpt-web-app-deploy
+- DERT/aa/cpt/web/app-cpt/app-it/dert-aa-cpt-web-app-it-artifact
+- DERT/aa/cpt/web/app-cpt/app-it/dert-aa-cpt-web-app-it-build
+- DERT/aa/cpt/web/app-cpt/app-it/dert-aa-cpt-web-app-it-deploy
+- DERT/aa/df/dik/dert-aa-df-dik-artifact
+- DERT/aa/df/dik/dert-aa-df-dik-build
+- DERT/aa/df/dik/dert-aa-df-dik-deploy
+- DERT/aa/df/ds/dert-aa-df-ds-artifact
+- DERT/aa/df/ds/dert-aa-df-ds-build
+- DERT/aa/df/ds/dert-aa-df-ds-deployment
+- DERT/aa/df/fti/sql/dert-aa-df-fti-sql-artifact
+- DERT/aa/df/fti/sql/dert-aa-df-fti-sql-build
+- DERT/aa/df/fti/sql/dert-aa-df-fti-sql-deploy
+- DERT/aa/df/fti/web/api-df/dert-aa-df-fti-web-api-artifact
+- DERT/aa/df/fti/web/api-df/dert-aa-df-fti-web-api-build
+- DERT/aa/df/fti/web/api-df/dert-aa-df-fti-web-api-deploy
+- DERT/aa/df/fti/web/app-df/dert-aa-df-fti-web-app-artifact
+- DERT/aa/df/fti/web/app-df/dert-aa-df-fti-web-app-build
+- DERT/aa/df/fti/web/app-df/dert-aa-df-fti-web-app-deploy
+- DERT/aa/df/umda/dert-aa-df-processes-build
+- DERT/aa/df/umda/dert-aa-df-umda-artifact
+- DERT/aa/df/umda/dert-aa-df-umda-deployment
+- DERT/aa/erfsa/downj/dert-aa-dgc-eret-eredfsa-downj-artifact
+- DERT/aa/erfsa/downj/dert-aa-dgc-eret-eredfsa-downj-build
+- DERT/aa/erfsa/downj/dert-aa-dgc-eret-eredfsa-downj-deployment-artifact
+- DERT/aa/erfsa/downj/dert-aa-dgc-eret-eredfsa-downj-deployment
+- DERT/aa/erfsa/dheaf-job/dert-aa-dgc-eret-eredfsa-dheaf-job-artifact
+- DERT/aa/erfsa/dheaf-job/dert-aa-dgc-eret-eredfsa-dheaf-job-build
+- DERT/aa/erfsa/dheaf-job/dert-aa-dgc-eret-eredfsa-dheaf-job-deployment-artifact
+- DERT/aa/erfsa/matching-job/dert-aa-dgc-eret-eredfsa-matching-job-artifact
+- DERT/aa/erfsa/matching-job/dert-aa-dgc-eret-eredfsa-matching-job-build
+- DERT/aa/erfsa/matching-job/dert-aa-dgc-eret-eredfsa-matching-job-deployment-artifact
+- DERT/aa/erfsa/matching-job/dert-aa-dgc-eret-eredfsa-matching-job-deployment
+- DERT/aa/erfsa/pre-matching-job/dert-aa-dgc-eret-eredfsa-pre-matching-job-artifact
+- DERT/aa/erfsa/pre-matching-job/dert-aa-dgc-eret-eredfsa-pre-matching-job-deployment-artifact
+- DERT/aa/erfsa/pre-matching-job/dert-aa-dgc-eret-eredfsa-pre-matching-job-deployment
+- DERT/aa/erfsa/sql/dert-aa-dgc-eret-eredfsa-sql-artifact
+- DERT/aa/erfsa/sql/dert-aa-dgc-eret-eredfsa-sql-build
+- DERT/aa/erfsa/sql/dert-aa-dgc-eret-eredfsa-sql-deploy
+- DERT/aa/erfsa/web-app/dert-aa-dgc-eret-eredfsa-web-app-build
+- DERT/aa/dt/dik/dert-aa-dt-dik-artifact
+- DERT/aa/dt/dik/dert-aa-dt-dik-build-security
+- DERT/aa/dt/dik/dert-aa-dt-dik-deployment
+- DERT/aa/dt/pico/dert-aa-dt-pico-artifact
+- DERT/aa/dt/pico/dert-aa-dt-pico-build
+- DERT/aa/dt/pico/dert-aa-dt-pico-deployment
+- DERT/aa/dt/dtc/dert-aa-dtc-artifact
+- DERT/aa/dt/dtc/dert-aa-dtc-build
+- DERT/aa/dt/dtc/dert-aa-dtc-deployment
+- DERT/aa/dt/erg/dert-aa-dt-erg-artifact
+- DERT/aa/dt/erg/dert-aa-dt-erg-build
+- DERT/aa/dt/erg/dert-aa-dt-erg-deployment
+- DERT/aa/dt/epl-opl/dert-aa-dt-epl-opl-artifact
+- DERT/aa/dt/epl-opl/dert-aa-dt-epl-opl-build
+- DERT/aa/dt/epl-opl/dert-aa-dt-epl-opl-deployment
+- DERT/aa/dt/umd/dert-aa-dt-umda-artifact
+- DERT/aa/dt/umd/dert-aa-dt-umda-build
+- DERT/aa/dt/umd/dert-aa-dt-umda-deployment
+- DERT/aa/dge/web-api/dert-aa-edge-web-api-artifact
+- DERT/aa/dge/web-api/dert-aa-edge-web-api-build
+- DERT/aa/dge/web-api/dert-aa-edge-web-api-deploy
+- DERT/aa/dge/web-app/dert-aa-edge-web-app-artifact
+- DERT/aa/dge/web-app/dert-aa-edge-web-app-build
+- DERT/aa/dge/web-app/dert-aa-edge-web-app-deploy
+- DERT/aa/gsf/dert-aa-gsf-artifact
+- DERT/aa/gsf/dert-aa-gsf-build
+- DERT/aa/gsf/dert-aa-gsf-deploy
+- DERT/aa/gn/phoenix/dik/dert-aa-gn-ai-phoenix-dik-TEST
+- DERT/aa/gn/phoenix/dik/dert-aa-gn-phoenix-dik-build
+- DERT/aa/segmex/gn/dert-aa-gn-dev-artifact
+- DERT/aa/gn/dert-aa-gn-dev-build - sample
+- DERT/aa/segmex/gn/dert-aa-gn-dev-build
+- DERT/aa/gn/dert-aa-gn-dev-deploy - sample
+- DERT/aa/segmex/gn/dert-aa-gn-dev-deployment
+- DERT/aa/zeus/dik/dert-aa-zeus-dik-artifact
+- DERT/aa/zeus/dik/dert-aa-zeus-dik-build
+- DERT/aa/zeus/dik/dert-aa-zeus-dik-deployment
+- DERT/aa/zeus/automation/dert-aa-zeus-automation-artifact
+- DERT/aa/zeus/automation/dert-aa-zeus-automation-build
+- DERT/aa/zeus/automation/dert-aa-zeus-automation-deploy
+- DERT/aa/image_recognition/dert-aa-img-recognition-de-artifact
+- DERT/aa/image_recognition/dert-aa-img-recognition-de-build
+- DERT/aa/image_recognition/dert-aa-img-recognition-de-deploy
+- DERT/aa/inc/cnbda/dert-aa-inc-cnbda
+- DERT/aa/inc/dik/dert-aa-inc-dik-artifact
+- DERT/aa/inc/dik/dert-aa-inc-dik-build
+- DERT/aa/inc/dik/dert-aa-inc-dik-deploy
+- DERT/aa/inc/core/dert-aa-inc-core artifact
+- DERT/aa/inc/core/dert-aa-inc-core build
+- DERT/aa/inc/core/dert-aa-inc-core deploy
+- DERT/aa/inc/ds/dert-aa-inc-ds-artifact
+- DERT/aa/inc/ds/dert-aa-inc-ds-build
+- DERT/aa/inc/ds/dert-aa-inc-ds-deploy
+- DERT/aa/inc/api/dert-aa-inc-graphql artifact
+- DERT/aa/inc/api/dert-aa-inc-graphql build
+- DERT/aa/inc/api/dert-aa-inc-graphql deploy
+- DERT/aa/inc/search_skill/dert-aa-inc-ocrskill build
+- DERT/aa/inc/search_skill/dert-aa-inc-ocrskill deploy
+- DERT/aa/inc/umd/dert-aa-inc-umd-artifact
+- DERT/aa/inc/umd/dert-aa-inc-umd-build
+- DERT/aa/inc/umd/dert-aa-inc-umd-deploy
+- DERT/aa/inc/ui/dert-aa-inc-ui artifact
+- DERT/aa/inc/ui/dert-aa-inc-ui build
+- DERT/aa/inc/ui/dert-aa-inc-ui deploy
+- DERT/aa/mlops/common/dert-aa-mlops-common-artifact
+- DERT/aa/mlops/common/dert-aa-mlops-common-build
+- DERT/aa/mlops/common/dert-aa-mlops-common-deploy
+- DERT/aa/paat/dik/dert-aa-paat-dik-artifact
+- DERT/aa/paat/dik/dert-aa-paat-dik-build
+- DERT/aa/paat/dik/dert-aa-paat-dik-deploy
+- DERT/aa/paat/de-adm/dert-aa-paat-de-adm-artifact
+- DERT/aa/paat/de-adm/dert-aa-paat-de-adm-build
+- DERT/aa/paat/de-adm/dert-aa-paat-de-adm-deploy
+- DERT/aa/paat/de-postprocessing/dert-aa-paat-de-postprocessing-artifact
+- DERT/aa/paat/de-postprocessing/dert-aa-paat-de-postprocessing-build
+- DERT/aa/paat/de-postprocessing/dert-aa-paat-de-postprocessing-deploy
+- DERT/aa/paat/de-preprocessing/dert-aa-paat-de-preprocessing-artifact
+- DERT/aa/paat/de-preprocessing/dert-aa-paat-de-preprocessing-build
+- DERT/aa/paat/de-preprocessing/dert-aa-paat-de-preprocessing-deploy
+- DERT/aa/paat/de-utils/dert-aa-paat-de-utils-artifact
+- DERT/aa/paat/de-utils/dert-aa-paat-de-utils-build
+- DERT/aa/paat/ds-modeling/dert-aa-paat-ds-modeling-artifact
+- DERT/aa/paat/ds-modeling/dert-aa-paat-ds-modeling-build
+- DERT/aa/paat/ds-modeling/dert-aa-paat-ds-modeling-deploy
+- DERT/aa/platform/data-availability/dert-aa-platform-data-availability-artifact
+- DERT/aa/platform/data-availability/dert-aa-platform-data-availability-build
+- DERT/aa/platform/data-availability/dert-aa-platform-data-availability-deploy
+- DERT/aa/platform/data-quality/dert-aa-platform-data-quality-artifact
+- DERT/aa/platform/data-quality/dert-aa-platform-data-quality-build
+- DERT/aa/platform/data-quality/dert-aa-platform-data-quality-deploy
+- DERT/aa/rgm/dik/dert-aa-rgm-dik-artifact
+- DERT/aa/rgm/dik/dert-aa-rgm-dik-build
+- DERT/aa/rgm/dik/dert-aa-rgm-dik-deploy
+- DERT/aa/rgm/de/dert-aa-rgm-de-artifact
+- DERT/aa/rgm/de/dert-aa-rgm-de-build
+- DERT/aa/rgm/de/dert-aa-rgm-de-deploy
+- DERT/aa/rgm/ds/dert-aa-rgm-ds-artifact
+- DERT/aa/rgm/ds/dert-aa-rgm-ds-build
+- DERT/aa/rgm/ds/dert-aa-rgm-ds-deploy
+- DERT/aa/rgm/sql/dert-aa-rgm-sql-artifact
+- DERT/aa/rgm/sql/dert-aa-rgm-sql-build
+- DERT/aa/rgm/sql/dert-aa-rgm-sql-deploy
+- DERT/aa/rgm/web/api-rgm/dert-aa-rgm-web-api-artifact
+- DERT/aa/rgm/web/api-rgm/dert-aa-rgm-web-api-build
+- DERT/aa/rgm/web/api-rgm/dert-aa-rgm-web-api-deploy
+- DERT/aa/rgm/web/app-rgm/dert-aa-rgm-web-app-artifact
+- DERT/aa/rgm/web/app-rgm/dert-aa-rgm-web-app-build
+- DERT/aa/rgm/web/app-rgm/dert-aa-rgm-web-app-deploy
+- DERT/aa/rgfe/digital-commerce/dert-aa-rgfe-digital-commerce-artifact
+- DERT/aa/rgfe/digital-commerce/dert-aa-rgfe-digital-commerce-build
+- DERT/aa/rgfe/digital-commerce/dert-aa-rgfe-digital-commerce-deploy
+- DERT/aa/paat/dq/dert-aa-rgfe-paat-dq-artifact
+- DERT/aa/paat/dq/dert-aa-rgfe-paat-dq-build
+- DERT/aa/paat/dq/dert-aa-rgfe-paat-dq-deploy
+- DERT/aa/segmex/dik/dert-aa-segmex-dik-artifact
+- DERT/aa/segmex/dik/dert-aa-segmex-dik-build
+- DERT/aa/segmex/dik/dert-aa-segmex-dik-deploy
+- DERT/aa/segmex/alerting-mechanism-web-app/dert-aa-segmex-alerting-mechanism-api-deploy
+- DERT/aa/segmex/alerting-mechanism/dert-aa-segmex-alerting-mechanism-excel-creator-artifact
+- DERT/aa/segmex/alerting-mechanism/dert-aa-segmex-alerting-mechanism-excel-creator-build
+- DERT/aa/segmex/alerting-mechanism/dert-aa-segmex-alerting-mechanism-excel-creator-deploy
+- DERT/aa/segmex/dert-aa-segmex-alerting-mechanism-mail-send-logapp/dert-aa-segmex-alerting-mechanism-mail-send-logapp-deploy
+- DERT/aa/segmex/dert-aa-segmex-alerting-mechanism-mail-send-logapp/dert-aa-segmex-alerting-mechanism-mail-send-logapp
+- DERT/aa/segmex/alerting-mechanism-web-app/dert-aa-segmex-alerting-mechanism-ui-deploy
+- DERT/aa/segmex/alerting-mechanism-web-app/dert-aa-segmex-alerting-mechanism
+- DERT/aa/segmex/assortment/dert-aa-segmex-assortment-artifact
+- DERT/aa/segmex/assortment/dert-aa-segmex-assortment-build
+- DERT/aa/segmex/assortment/dert-aa-segmex-assortment-deploy
+- DERT/aa/segmex/assortment-uplift/dert-aa-segmex-assortment-uplift-artifact
+- DERT/aa/segmex/assortment-uplift/dert-aa-segmex-assortment-uplift-build
+- DERT/aa/segmex/assortment-uplift/dert-aa-segmex-assortment-uplift-deploy
+- DERT/aa/segmex/cls/dert-aa-segmex-cls-artifact
+- DERT/aa/segmex/cls/dert-aa-segmex-cls-build
+- DERT/aa/segmex/cls/dert-aa-segmex-cls-deploy
+- DERT/aa/segmex/cgs/dert-aa-scgs-artifact
+- DERT/aa/segmex/cgs/dert-aa-scgs-build
+- DERT/aa/segmex/cgs/dert-aa-scgs-deploy
+- DERT/aa/segmex/common/dert-aa-segmex-common-artifact
+- DERT/aa/segmex/common/dert-aa-segmex-common-build
+- DERT/aa/segmex/common/dert-aa-segmex-common-deploy
+- DERT/aa/segmex/e2e-multicategory/dert-aa-segmex-e2e-multicategory-artifact
+- DERT/aa/segmex/e2e-multicategory/dert-aa-segmex-e2e-multicategory-build
+- DERT/aa/segmex/e2e-multicategory/dert-aa-segmex-e2e-multicategory-deploy
+- DERT/aa/segmex-egt/dik/dert-aa-segmex-egt-dik-artifact
+- DERT/aa/segmex-egt/dik/dert-aa-segmex-egt-dik-build
+- DERT/aa/segmex-egt/dik/dert-aa-segmex-egt-dik-deploy
+- DERT/aa/segmex-egt/assortment/dert-aa-segmex-eas-artifact
+- DERT/aa/segmex-egt/assortment/dert-aa-segmex-eas-build
+- DERT/aa/segmex-egt/assortment/dert-aa-segmex-eas-deploy
+- DERT/aa/segmex-egt/dqk/dert-aa-segmex-egt-dqk-artifact
+- DERT/aa/segmex-egt/dqk/dert-aa-segmex-egt-dqk-build
+- DERT/aa/segmex-egt/dqk/dert-aa-segmex-egt-dqk-deploy
+- DERT/aa/segmex-e/ms/dert-aa-segmex-eme-artifact
+- DERT/aa/segmex-e/ms/dert-aa-segmex-eme-build
+- DERT/aa/segmex-e/ms/dert-aa-segmex-eme-deploy
+- DERT/aa/segmex-egt/pvpo/dert-aa-segmex-egt-pvpo-artifact
+- DERT/aa/segmex-egt/pvpo/dert-aa-segmex-egt-pvpo-build
+- DERT/aa/segmex-egt/pvpo/dert-aa-segmex-egt-pvpo-deploy
+- DERT/aa/segmex-egt/ra/dert-aa-segmex-egt-ra-artifact
+- DERT/aa/segmex-egt/ra/dert-aa-segmex-egt-ra-build
+- DERT/aa/segmex-egt/ra/dert-aa-segmex-egt-ra-deploy
+- DERT/aa/segmex-egt/taa/dert-aa-segmex-egt-taa-artifact
+- DERT/aa/segmex-egt/taa/dert-aa-segmex-egt-taa-build
+- DERT/aa/segmex-egt/taa/dert-aa-segmex-egt-taa-deploy
+- DERT/aa/segmex-egt/umda/dert-aa-segmex-egt-umda-artifact
+- DERT/aa/segmex-egt/umda/dert-aa-segmex-egt-umda-build
+- DERT/aa/segmex-egt/umda/dert-aa-segmex-egt-umda-deploy
+- DERT/aa/segmex/dik-etl/dert-aa-segmex-ETL-dik-artifact
+- DERT/aa/segmex/dik-etl/dert-aa-segmex-ETL-dik-build
+- DERT/aa/segmex/dik-etl/dert-aa-segmex-ETL-dik-deploy
+- DERT/aa/segmex/etl/dert-aa-segmex-ETL-artifact
+- DERT/aa/segmex/etl/dert-aa-segmex-ETL-build
+- DERT/aa/segmex/etl/dert-aa-segmex-ETL-deploy
+- DERT/aa/segmex/micro-segmentation/dert-aa-segmex-micro-segmentation-artifact
+- DERT/aa/segmex/micro-segmentation/dert-aa-segmex-micro-segmentation-build
+- DERT/aa/segmex/micro-segmentation/dert-aa-segmex-micro-segmentation-deploy
+- DERT/aa/segmex/pvpo/dert-aa-segmex-pvpo-artifact
+- DERT/aa/segmex/pvpo/dert-aa-segmex-pvpo-build
+- DERT/aa/segmex/pvpo/dert-aa-segmex-pvpo-deploy
+- DERT/aa/segmex/ra/dert-aa-segmex-ra-artifact
+- DERT/aa/segmex/ra/dert-aa-segmex-ra-build
+- DERT/aa/segmex/ra/dert-aa-segmex-ra-deploy
+- DERT/aa/segmex/ra-uplift/dert-aa-segmex-ra-uplift-artifact
+- DERT/aa/segmex/ra-uplift/dert-aa-segmex-ra-uplift-build
+- DERT/aa/segmex/ra-uplift/dert-aa-segmex-ra-uplift-deploy
+- DERT/aa/segmex/rtm/dert-aa-segmex-rtm-ai-dev-artifact
+- DERT/aa/segmex/rtm/dert-aa-segmex-rtm-ai-dev-build
+- DERT/aa/segmex/rtm/dert-aa-segmex-rtm-ai-dev-deploy
+- DERT/aa/segmex/taa-v2/dert-aa-segmex-taa-v2-artifact
+- DERT/aa/segmex/taa-v2/dert-aa-segmex-taa-v2-build
+- DERT/aa/segmex/taa-v2/dert-aa-segmex-taa-v2-deploy
+- DERT/aa/segmex/umda/dert-aa-segmex-umda-artifact
+- DERT/aa/segmex/umda/dert-aa-segmex-umda-build
+- DERT/aa/segmex/umda/dert-aa-segmex-umda-deploy
+- DERT/aa/segmex1.0/de/dert-aa-segmex-v1-de-artifact
+- DERT/aa/segmex1.0/de/dert-aa-segmex-v1-de-build
+- DERT/aa/segmex1.0/de/dert-aa-segmex-v1-de-deploy
+- DERT/aa/segmex1.0/web/api/dert-aa-segmex-v1-web-api-artifact
+- DERT/aa/segmex1.0/web/api/dert-aa-segmex-v1-web-api-build
+- DERT/aa/segmex1.0/web/api-cic/dert-aa-segmex-v1-web-api-cic-artifact
+- DERT/aa/segmex1.0/web/api-cic/dert-aa-segmex-v1-web-api-cic-build
+- DERT/aa/segmex1.0/web/api-cic/dert-aa-segmex-v1-web-api-cic-deploy
+- DERT/aa/segmex1.0/web/api/dert-aa-segmex-v1-web-api-deploy
+- DERT/aa/segmex1.0/web/api-tg/dert-aa-segmex-v1-web-api-tg-artifact
+- DERT/aa/segmex1.0/web/api-tg/dert-aa-segmex-v1-web-api-tg-build
+- DERT/aa/segmex1.0/web/api-tg/dert-aa-segmex-v1-web-api-tg-deploy
+- DERT/aa/segmex1.0/web/app/dert-aa-segmex-v1-web-app-artifact
+- DERT/aa/segmex1.0/web/app/dert-aa-segmex-v1-web-app-build
+- DERT/aa/segmex1.0/web/app-cic/dert-aa-segmex-v1-web-app-cic-artifact
+- DERT/aa/segmex1.0/web/app-cic/dert-aa-segmex-v1-web-app-cic-build
+- DERT/aa/segmex1.0/web/app-cic/dert-aa-segmex-v1-web-app-cic-deploy
+- DERT/aa/segmex1.0/web/app/dert-aa-segmex-v1-web-app-deploy
+- DERT/aa/segmex/visit-frequency-routing/dert-aa-segmex-visit-frequency-routing-artifact
+- DERT/aa/segmex/visit-frequency-routing/dert-aa-segmex-visit-frequency-routing-build
+- DERT/aa/segmex/visit-frequency-routing/dert-aa-segmex-visit-frequency-routing-deploy
+- DERT/aa/webui/api/dert-aa-SegmEx-WEBUI-API-v2-artifact
+- DERT/aa/webui/api/dert-aa-SegmEx-WEBUI-API-v2-build
+- DERT/aa/webui/api/dert-aa-SegmEx-WEBUI-API-v2-deploy
+- DERT/aa/webui/az-func/dert-aa-SegmEx-WEBUI-azure-functions-v2-artifact
+- DERT/aa/webui/az-func/dert-aa-SegmEx-WEBUI-azure-functions-v2-build
+- DERT/aa/webui/az-func/dert-aa-SegmEx-WEBUI-azure-functions-v2-deploy
+- DERT/aa/webui/etl/dert-aa-SegmEx-webuev-artifact
+- DERT/aa/webui/etl/dert-aa-SegmEx-webuev-build
+- DERT/aa/webui/etl/dert-aa-SegmEx-webuev-deploy
+- DERT/aa/webui/app/dert-aa-sebuev-artifact
+- DERT/aa/webui/app/dert-aa-sebuev-build
+- DERT/aa/webui/app/dert-aa-sebuev-deploy
+- DERT/aa/segmex/whs/dert-aa-segmex-whs-artifacts
+- DERT/aa/segmex/whs/dert-aa-segmex-whs-build
+- DERT/aa/segmex/whs/dert-aa-segmex-whs-deploy
+- DERT/aa/segmex1.0/dik/dert-aa-segmex1-dik-artifact
+- DERT/aa/segmex1.0/dik/dert-aa-segmex1-dik-build
+- DERT/aa/segmex1.0/dik/dert-aa-segmex1-dik-deploy
+- DERT/aa/360v/dik/dert-aa-360v-dik-artifact
+- DERT/aa/360v/dik/dert-aa-360v-dik-build
+- DERT/aa/360v/dik/dert-aa-360v-dik-deploy
+- DERT/aa/360v/application-model/dert-aa-360v-application-model-artifacts
+- DERT/aa/360v/application-model/dert-aa-360v-application-model-build
+- DERT/aa/360v/application-model/dert-aa-360v-application-model-deploy
+- DERT/aa/gn/phoenix/ksa/dert-ksa-awardinsight
+- DERT/aa/gn/phoenix/ksa/dert-ksa-botqueueprocessor-code
+- DERT/aa/gn/phoenix/ksa/dert-ksa-botservice-code
+- DERT/aa/gn/phoenix/ksa/dert-ksa-contentingestion-code
+- DERT/aa/gn/phoenix/ksa/dert-ksa-contractinsight
+- DERT/aa/gn/phoenix/ksa/dert-ksa-infra
+- DERT/aa/gn/phoenix/ksa/dert-ksa-queryorchestrator-code
+- DERT/aa/gn/phoenix/ksa/dert-ksa-sharedfilemanager
+- DERT/aa/gn/phoenix/ksa/dert-ksa-spendinginsightservice-code
+- DERT/aa/gn/phoenix/ksa/dert-ksa-supplierinsight-code
+- DERT/aa/gn/phoenix/ksa/dert-ksa-utilityservice-code
+- DERT/beer/edge-management/dert-beer-edge-management-artifact
+- DERT/beer/edge-management/dert-beer-edge-management-calculate-repos-size
+- DERT/beer/edge-management/dert-beer-edge-management-delete-resource
+- DERT/beer/edge-management/dert-beer-edge-management-delete-tags
+- DERT/beer/edge-management/dert-beer-edge-management-deploy
+- DERT/beer/edge-operational-comm/dert-beer-edge-operational-comm-artifact
+- DERT/beer/edge-operational-comm/dert-beer-edge-operational-comm-delete-resource
+- DERT/beer/edge-operational-comm/dert-beer-edge-operational-comm-delete-tags
+- DERT/beer/edge-operational-comm/dert-beer-edge-operational-comm-deploy
+- DERT/beer/edge-operational-fi/dert-beer-edge-operational-fi-artifact
+- DERT/beer/edge-operational-fi/dert-beer-edge-operational-fi-delete-resource
+- DERT/beer/edge-operational-fi/dert-beer-edge-operational-fi-delete-tags
+- DERT/beer/edge-operational-fi/dert-beer-edge-operational-fi-deploy
+- DERT/beer/edge-operational-sc/dert-beer-edge-operational-sc-artifact
+- DERT/beer/edge-operational-sc/dert-beer-edge-operational-sc-delete-resource
+- DERT/beer/edge-operational-sc/dert-beer-edge-operational-sc-delete-tags
+- DERT/beer/edge-operational-sc/dert-beer-edge-operational-sc-deploy
+- DERT/beer/rf-exploratory-work/dert-beer-rf-exploratory-work-artifact
+- DERT/beer/rf-exploratory-work/dert-beer-rf-exploratory-work-delete-resource
+- DERT/beer/rf-exploratory-work/dert-beer-rf-exploratory-work-delete-tags
+- DERT/beer/rf-exploratory-work/dert-beer-rf-exploratory-work-deploy
+- DERT/datamesh/architecture/dert-datamesh-architecture-artifact
+- DERT/datamesh/architecture/dert-datamesh-architecture-build
+- DERT/datamesh/common/dert-datamesh-common-artifact
+- DERT/datamesh/common/dert-datamesh-common-build-security
+- DERT/datamesh/common/dert-datamesh-common-build
+- DERT/datamesh/control-tower/dert-datamesh-control-tower-pbi-build
+- DERT/datamesh/control-tower/dert-datamesh-control-tower-pbi-security
+- DERT/datamesh/data-io/dert-datamesh-data-io-artifact
+- DERT/datamesh/data-io/dert-datamesh-data-io-build-security
+- DERT/datamesh/data-io/dert-datamesh-data-io-build
+- DERT/datamesh/data-io/dert-datamesh-data-io-deploy
+- DERT/datamesh/datalake/dik/dik-002/dert-datamesh-datalake-dik-2-artifact
+- DERT/datamesh/datalake/dik/dik-002/dert-datamesh-datalake-dik-2-build-security
+- DERT/datamesh/datalake/dik/dik-002/dert-datamesh-datalake-dik-2-build
+- DERT/datamesh/datalake/dik/dik-002/dert-datamesh-datalake-dik-2-deploy
+- DERT/datamesh/datalake/dik/dik-003/dert-datamesh-datalake-dik-3-artifact
+- DERT/datamesh/datalake/dik/dik-003/dert-datamesh-datalake-dik-3-build-security
+- DERT/datamesh/datalake/dik/dik-003/dert-datamesh-datalake-dik-3-build
+- DERT/datamesh/datalake/dik/dik-003/dert-datamesh-datalake-dik-3-deploy
+- DERT/datamesh/datalake/dik/dik-004/dert-datamesh-datalake-dik-4-artifact
+- DERT/datamesh/datalake/dik/dik-004/dert-datamesh-datalake-dik-4-build-security
+- DERT/datamesh/datalake/dik/dik-004/dert-datamesh-datalake-dik-4-build
+- DERT/datamesh/datalake/dik/dik-004/dert-datamesh-datalake-dik-4-deploy
+- DERT/datamesh/datalake/dik/dik-001/dert-datamesh-datalake-dik-artifact
+- DERT/datamesh/datalake/dik/dik-001/dert-datamesh-datalake-dik-build-security
+- DERT/datamesh/datalake/dik/dik-001/dert-datamesh-datalake-dik-build
+- DERT/datamesh/datalake/dik/dik-001/dert-datamesh-datalake-dik-deploy
+- DERT/datamesh/datalake/curated/dert-datamesh-datalake-curated-artifact
+- DERT/datamesh/datalake/curated/dert-datamesh-datalake-curated-build-security
+- DERT/datamesh/datalake/curated/dert-datamesh-datalake-curated-build
+- DERT/datamesh/datalake/curated/dert-datamesh-datalake-curated-deploy
+- DERT/datamesh/gwd/dik/dert-datamesh-datalake-dt-dik-artifact
+- DERT/datamesh/gwd/dik/dert-datamesh-datalake-dt-dik-build
+- DERT/datamesh/gwd/dik/dert-datamesh-datalake-dt-dik-deploy
+- DERT/datamesh/gwd/enableLoads/dert-datamesh-datalake-dt-dik-enableLoads
+- DERT/datamesh/gwd/dik/dert-datamesh-datalake-dt-dik-security
+- DERT/datamesh/gwd/functionapp/dert-datamesh-datalake-dt-func-deploy
+- DERT/datamesh/gwd/functionapp/dert-datamesh-datalake-dt-func-security
+- DERT/datamesh/gwd/sql/dert-datamesh-datalake-dt-sql-artifact
+- DERT/datamesh/gwd/sql/dert-datamesh-datalake-dt-sql-build
+- DERT/datamesh/gwd/sql/dert-datamesh-datalake-dt-sql-deploy
+- DERT/datamesh/kbi/dert-datamesh-datalake-kbi-artifact
+- DERT/datamesh/kbi/dert-datamesh-datalake-kbi-build-security
+- DERT/datamesh/kbi/dert-datamesh-datalake-kbi-build
+- DERT/datamesh/kbi/dert-datamesh-datalake-kbi-deploy
+- DERT/datamesh/datalake/schema/dert-datamesh-datalake-schema-artifact
+- DERT/datamesh/datalake/schema/dert-datamesh-datalake-schema-build
+- DERT/datamesh/datalake/schema/dert-datamesh-datalake-schema-security
+- DERT/datamesh/datalake/sql/dert-datamesh-datalake-sql-artifact
+- DERT/datamesh/datalake/sql/dert-datamesh-datalake-sql-build
+- DERT/datamesh/datalake/sql/dert-datamesh-datalake-sql-deploy
+- DERT/datamesh/datalake/sql/dert-datamesh-datalake-sql-security
+- DERT/datamesh/datalake/synapse/dert-datamesh-datalake-synapse-artifact
+- DERT/datamesh/datalake/synapse/dert-datamesh-datalake-synapse-deploy
+- DERT/datamesh/datalake/synapse/dert-datamesh-datalake-synapse-security
+- DERT/datamesh/datalake/umd/dert-datamesh-datalake-umd-artifact
+- DERT/datamesh/datalake/umd/dert-datamesh-datalake-umd-build-security
+- DERT/datamesh/datalake/umd/dert-datamesh-datalake-umd-build
+- DERT/datamesh/datalake/umd/dert-datamesh-datalake-umd-deploy
+- DERT/datamesh/devops/dert-datamesh-devops-build
+- DERT/datamesh/devops/dert-datamesh-devops-tools-dik-triggers
+- DERT/datamesh/devops/dert-datamesh-devops-tools-azure-resource-inventory
+- DERT/datamesh/devops/dert-datamesh-devops-tools-delete-containers
+- DERT/datamesh/devops/dert-datamesh-devops-tools-delete-stale-branches
+- DERT/datamesh/devops/dert-datamesh-devops-tools-delete-synapse-database
+- DERT/datamesh/devops/dert-datamesh-devops-tools-PAT-automation
+- DERT/datamesh/devops/dert-datamesh-devops-tools-security
+- DERT/datamesh/devops/dert-datamesh-devops-tools-sql-scaling-down
+- DERT/datamesh/devops/dert-datamesh-devops-tools-sql-scaling-up
+- DERT/datamesh/infrastructure/dert-datamesh-infrastructure-ado-docker-agent-build
+- DERT/datamesh/infrastructure/dert-datamesh-infrastructure-build-security
+- DERT/datamesh/infrastructure/dert-datamesh-infrastructure-build
+- DERT/datamesh/infrastructure/dert-datamesh-infrastructure-deploy
+- DERT/datamesh/infrastructure/dert-datamesh-infrastructure
+- DERT/datamesh/landing_zone/dert-datamesh-landing-zone-002-adb-security
+- DERT/datamesh/landing_zone/dert-datamesh-landing-zone-002-dik-security
+- DERT/datamesh/landing_zone/dert-datamesh-landing-zone-003-adb-security
+- DERT/datamesh/landing_zone/dert-datamesh-landing-zone-003-dik-security
+- DERT/datamesh/landing_zone/dert-datamesh-landing-zone-adb-security
+- DERT/datamesh/landing_zone/dert-datamesh-landing-zone-dik-security
+- DERT/datamesh/orchestration/service/dert-datamesh-orchestration-service-artifact
+- DERT/datamesh/orchestration/service/dert-datamesh-orchestration-service-build
+- DERT/datamesh/orchestration/service/dert-datamesh-orchestration-service-deploy
+- DERT/datamesh/orchestration/service/dert-datamesh-orchestration-service-security
+- DERT/datamesh/transformation/dert-datamesh-transformation-artifact
+- DERT/datamesh/transformation/dert-datamesh-transformation-build-security
+- DERT/datamesh/transformation/dert-datamesh-transformation-build
+- DERT/datamesh/transformation/dert-datamesh-transformation-deploy
+- DERT/dqss/dert-dg-dqss-web-app
+- DERT/governance/dert-governance-data-quality-dik-artifact
+- DERT/governance/dert-governance-data-quality-dik-build
+- DERT/governance/dert-governance-data-quality-dik-deploy
+- DERT/governance/data-quality/dert-governance-data-quality-processes-artifact
+- DERT/governance/data-quality/dert-governance-data-quality-processes-build
+- DERT/governance/data-quality/dert-governance-data-quality-processes-deploy
+- DERT/governance/dert-governance-data-quality-processes_aqua
+- DPC/DOQ/IntegrationService-API/dccp-app-dupe-integrationservice-api-artifact
+- DPC/DOQ/IntegrationService-API/dccp-app-dupe-integrationservice-api-build-v2
+- DPC/DOQ/IntegrationService-API/dccp-app-dupe-integrationservice-api-build
+- DPC/DOQ/IntegrationService-API/dccp-app-dupe-integrationservice-api-deploy
+- DPC/CAOM/deryq-testautomation/DERYQ/dccp-crm-ccc-testautomation
+- DPC/CAOM/v2/dccp-crm-deryq-cicd-unified
+- DPC/CAOM/v2/dccp-crm-deryq-dataverse-deploy-prod
+- DPC/CAOM/v2/dccp-crm-deryq-dataverse-deploy
+- DPC/CAOM/v2/dccp-crm-deryq-dataverse-guard
+- DPC/CAOM/v2/dccp-crm-deryq-deploy-customizations
+- DPC/CAOM/dccc-crm-deryq-azure-code-deployment/dccp-crm-deryq-function-code-deploy
+- DPC/CUNI/welta/dccp-cuni-welta-backend-build
+- DPC/CUNI/welta/dccp-cuni-welta-backend-dev-deploy
+- DPC/CUNI/welta/dccp-cuni-welta-backend-prod-deploy
+- DPC/CUNI/welta/dccp-cuni-welta-frontend-build
+- DPC/CUNI/welta/dccp-cuni-welta-frontend-dev-deploy
+- DPC/CUNI/welta/dccp-cuni-welta-frontend-prod-deploy
+- DPC/CUNI/welta/dccp-cuni-welta-infrastructure-dev
+- DPC/CUNI/welta/dccp-cuni-welta-infrastructure-prod
+- DPC/CAOM/deryq-testautomation/DERYQ/dccp-deryq-calllist-testautomation
+- DPC/CAOM/deryq-testautomation/DERYQ/dccp-deryq-casemanagement-testautomation
+- DPC/CAOM/deryq-testautomation/DERYQ/dccp-deryq-CDC-testautomation-Regression
+- DPC/CAOM/deryq-testautomation/DERYQ/dccp-deryq-CDC-testautomation-testcase
+- DPC/CAOM/deryq-testautomation/DERYQ/dccp-deryq-CDC-testautomation
+- DPC/CAOM/deryq-integration/az-functions/dccp-deryq-integrations-az-functions-build-pr
+- DPC/CAOM/deryq-integration/az-functions/dccp-deryq-integrations-az-functions-deploy-dev
+- DPC/CAOM/deryq-integration/az-functions/dccp-deryq-integrations-az-functions-deploy-prod
+- DPC/CAOM/deryq-integration/az-functions/dccp-deryq-integrations-az-functions-deploy-regular
+- DPC/CAOM/deryq-integration/az-functions/dccp-deryq-integrations-az-functions-deploy-uat
+- DPC/CAOM/deryq-integration/deryq/dccp-deryq-integrations-deryq-build-pr
+- DPC/CAOM/deryq-integration/deryq/dccp-deryq-integrations-deryq-build-test
+- DPC/CAOM/deryq-integration/deryq/dccp-deryq-integrations-deryq-deploy-prod
+- DPC/CAOM/deryq-integration/deryq/dccp-deryq-integrations-deryq-deploy-regular
+- DPC/CAOM/deryq-integration/deryq/dccp-deryq-integrations-deryq-deploy-release
+- DPC/CAOM/deryq-integration/dataverse-data/dccp-deryq-integrations-data-build-pr
+- DPC/CAOM/deryq-integration/dataverse-data/dccp-deryq-integrations-data-deploy-prod
+- DPC/CAOM/deryq-integration/dataverse-data/dccp-deryq-integrations-data-deploy-regular
+- DPC/CAOM/deryq-testautomation/DERYQ/dccp-deryq-L2O-testautomation-Regression
+- DPC/CAOM/deryq-testautomation/DERYQ/dccp-deryq-L2O-testautomation
+- DPC/dfat/Business Club/Infra/dccp-df-businessclub-infra-terraform-dev
+- DPC/dfat/Business Club/Infra/dccp-df-businessclub-infra-terraform-prod
+- DPC/dfat/Business Club/Translations/dccp-df-businessclub-translations-build
+- DPC/dfat/Business Club/App/dccp-df-businessclub-webapp-build-drew
+- DPC/dfat/Business Club/App/dccp-df-businessclub-webapp-deploy-dev
+- DPC/dfat/Business Club/App/dccp-df-businessclub-webapp-deploy-prod
+- DPC/dfat/Sandbox/Azure/Apps/LC25-Chatbot/dccp-df-conversationalcommerce-lc25-api-dev
+- DPC/dfat/Sandbox/Azure/Apps/LC25-Chatbot/dccp-df-conversationalcommerce-lc25-fe-dev
+- DPC/dfat/cads/AppService/dccp-df-cads-build-app-drew
+- DPC/dfat/cads/AppService/dccp-df-cads-build-app-release
+- DPC/dfat/cads/AppService/dccp-df-cads-build-app
+- DPC/dfat/cads/Client/dccp-df-cads-build-ios-alpha
+- DPC/dfat/cads/Client/dccp-df-cads-build-ios-beta
+- DPC/dfat/cads/Client/dccp-df-cads-build-ios-prod
+- DPC/dfat/cads/Client/dccp-df-cads-build-vr-alpha
+- DPC/dfat/cads/Client/dccp-df-cads-build-vr-beta
+- DPC/dfat/cads/Client/dccp-df-cads-build-vr-prod
+- DPC/dfat/cads/LLM/Experiment/dccp-df-cads-create-new-index
+- DPC/dfat/cads/LLM/DataIngestion/dccp-df-cads-data-ingestion-release
+- DPC/dfat/cads/LLM/DataIngestion/dccp-df-cads-data-ingestion
+- DPC/dfat/cads/AppService/dccp-df-cads-deploy-app
+- DPC/dfat/cads/Infra/dccp-df-cads-deploy-infra-release
+- DPC/dfat/cads/Infra/dccp-df-cads-deploy-infra
+- DPC/dfat/cads/LLM/dccp-df-cads-deploy-llm-promptflow
+- DPC/dfat/cads/Client/AppCenter/dccp-df-cads-distribute-ios-alpha
+- DPC/dfat/cads/Client/AppCenter/dccp-df-cads-distribute-ios-beta
+- DPC/dfat/cads/Client/AppCenter/dccp-df-cads-distribute-ios-prod
+- DPC/dfat/cads/Client/culos/dccp-df-cads-distribute-vr-alpha
+- DPC/dfat/cads/Client/culos/dccp-df-cads-distribute-vr-beta
+- DPC/dfat/cads/Client/culos/dccp-df-cads-distribute-vr-prod
+- DPC/dfat/cads/LLM/dccp-df-cads-llm-daily-midnight-run
+- DPC/dfat/cads/LLM/Experiment/dccp-df-cads-llm-experiment
+- DPC/dfat/cads/LLM/PR/dccp-df-cads-llm-pr-check
+- DPC/dfat/cads/AppService/dccp-df-cads-publish-dll
+- DPC/dfat/cads/LLM/PR/dccp-df-cads-python-linting
+- DPC/dfat/cads/Tests/E2E/dccp-df-cads-run-end-to-end-tests
+- DPC/dfat/cads/Materials/dccp-df-cads-upload-materials-release
+- DPC/dfat/cads/Materials/dccp-df-cads-upload-materials
+- DPC/dfat/Sandbox/dunder/puna/dccp-df-sandbox-apps-integrations-epim-api-tests
+- DPC/dfat/rci/App/API/dccp-df-rain-catalogintelligence-api-deploy-dev
+- DPC/dfat/rci/Tests/dccp-df-rain-catalogintelligence-api-tests-dev-gemini-2.0-flash-001
+- DPC/dfat/rci/Tests/dccp-df-rain-catalogintelligence-api-tests-dev-gpt-4o
+- DPC/dfat/rci/App/dccp-df-rain-catalogintelligence-drew-dev
+- DPC/dfat/rci/App/Frontend/dccp-df-rain-catalogintelligence-frontend-deploy-dev
+- DPC/dfat/rci/Infra/dccp-df-rain-catalogintelligence-infra-deploy-dev
+- DPC/DGC/B2C Multicategory/dccp-dgc-b2b-multicategory-platform
+- DPC/DGC/B2C Multicategory/dccp-dgc-b2b-multicategory-platform_build
+- DPC/DGC/v2bcp/TestAutomation/dccp-dgc-portc-automation-Regression
+- DPC/DGC/v2bcp/TestAutomation/dccp-dgc-portc-automation-Smoke
+- agg/Service Management/Test Automation/HybrisGUI/dccp-dgc-portc-automation-tests
+- DPC/DGC/v2bcp/dccp-dgc-portc-rbise CD Docker
+- DPC/DGC/v2bcp/dccp-dgc-portc-rbise CI Docker
+- DPC/DGC/v2bcp/dccp-dgc-portc-rbise-build
+- DPC/DGC/v2bcp/dccp-dgc-portc-rbise-deploy-cvv2
+- DPC/DGC/v2bcp/dccp-dgc-portc-rbise-deploy
+- DPC/DGC/v2bcp/dccp-dgc-portc
+- DPC/DGC/v2bcp/dccp-dgc-customerportal_deploy
+- DPC/DGC/SIRVIS/dccp-dgc-rain-app-preparation
+- DPC/DGC/SIRVIS/dccp-dgc-rain-daily
+- DPC/DGC/SIRVIS/dccp-dgc-rain-deploy-core-infra
+- DPC/DGC/SIRVIS/dccp-dgc-rain-destroy
+- DPC/DGC/SIRVIS/dccp-dgc-rain-initialize-app
+- agg/Service Management/Test Automation/Rain/dccp-dgc-rain-testautomation
+- DPC/DGC/SIRVIS/dccp-dgc-rain-tint
+- DPC/DSAFSAF/kgygfsd/helper/admin-backend/dccp-dsafasf-helperapp-artifact
+- DPC/DSAFSAF/kgygfsd/helper/admin-backend/dccp-dsafasf-helperapp-build
+- DPC/DSAFSAF/kgygfsd/helper/admin-backend/dccp-dsafasf-helperapp-cd-dev
+- DPC/DSAFSAF/kgygfsd/helper/admin-backend/dccp-dsafasf-helperapp-cd-qlty-prod
+- DPC/DSAFSAF/kgygfsd/helper/admin-frontend/dccp-dsafasf-helperapp-front-end-artifact
+- DPC/DSAFSAF/kgygfsd/helper/admin-frontend/dccp-dsafasf-helperapp-front-end-build
+- DPC/DSAFSAF/kgygfsd/helper/admin-frontend/dccp-dsafasf-helperapp-front-end-cd-dev
+- DPC/DSAFSAF/kgygfsd/helper/admin-frontend/dccp-dsafasf-helperapp-front-end-cd-qlty-prod
+- DPC/DSAFSAF/kgygfsd/helper/mobile-backend/dccp-dsafasf-helperapp-mobile-back-end-artifact
+- DPC/DSAFSAF/kgygfsd/helper/mobile-backend/dccp-dsafasf-helperapp-mobile-back-end-build
+- DPC/DSAFSAF/kgygfsd/helper/mobile-backend/dccp-dsafasf-helperapp-mobile-back-end-cd-dev
+- DPC/DSAFSAF/kgygfsd/helper/mobile-backend/dccp-dsafasf-helperapp-mobile-back-end-cd-qlty-prod
+- DPC/DSAFSAF/kgygfsd/helper/pus-service/dccp-dsafasf-helperapp-pus-service-artifact
+- DPC/DSAFSAF/kgygfsd/helper/pus-service/dccp-dsafasf-helperapp-pus-service-build
+- DPC/DSAFSAF/kgygfsd/helper/pus-service/dccp-dsafasf-helperapp-pus-service-cd-dev
+- DPC/DSAFSAF/kgygfsd/helper/pus-service/dccp-dsafasf-helperapp-pus-service-cd-qlty-prod
+- DPC/DSAFSAF/kgygfsd/helper/mobile-client-legacy/dccp-dsafasf-helperapp-stores
+- DPC/DSAFSAF/kgygfsd/helper/mobile-client-legacy/dccp-dsafasf-helperapp
+- DPC/DSAFSAF/kgygfsd/gfsd/backend/dccp-dsafasf-rie-gfsd-artifact
+- DPC/DSAFSAF/kgygfsd/gfsd/backend/dccp-dsafasf-rie-gfsd-build
+- DPC/DSAFSAF/kgygfsd/gfsd/backend/dccp-dsafasf-rie-gfsd-cd-dev
+- DPC/DSAFSAF/kgygfsd/gfsd/backend/dccp-dsafasf-rie-gfsd-cd-qlty-prod
+- DPC/DSAFSAF/kgygfsd/gfsd/frontend/dccp-dsafasf-rie-gfsd-front-end-artifact
+- DPC/DSAFSAF/kgygfsd/gfsd/frontend/dccp-dsafasf-rie-gfsd-front-end-build
+- DPC/DSAFSAF/kgygfsd/gfsd/frontend/dccp-dsafasf-rie-gfsd-front-end-cd-dev
+- DPC/DSAFSAF/kgygfsd/gfsd/frontend/dccp-dsafasf-rie-gfsd-front-end-cd-qlty-prod
+- DPC/DSAFSAF/kgygfsd/WQRE/backend/dccp-dsafasf-rie-wqre-artifact
+- DPC/DSAFSAF/kgygfsd/WQRE/backend/dccp-dsafasf-rie-wqre-build
+- DPC/DSAFSAF/kgygfsd/WQRE/backend/dccp-dsafasf-rie-wqre-cd-dev
+- DPC/DSAFSAF/kgygfsd/WQRE/backend/dccp-dsafasf-rie-wqre-cd-qlty-prod
+- DPC/DSAFSAF/kgygfsd/WQRE/frontend/dccp-dsafasf-rie-wqre-front-end-artifact
+- DPC/DSAFSAF/kgygfsd/WQRE/frontend/dccp-dsafasf-rie-wqre-front-end-build
+- DPC/DSAFSAF/kgygfsd/WQRE/frontend/dccp-dsafasf-rie-wqre-front-end-cd-dev
+- DPC/DSAFSAF/kgygfsd/WQRE/frontend/dccp-dsafasf-rie-wqre-front-end-cd-qlty-prod
+- DPC/DSAFSAF/kgygfsd/kgyg/backend/dccp-dsafasf-rie-kgyg-artifact
+- DPC/DSAFSAF/kgygfsd/kgyg/backend/dccp-dsafasf-rie-kgyg-build
+- DPC/DSAFSAF/kgygfsd/kgyg/backend/dccp-dsafasf-rie-kgyg-cd-dev
+- DPC/DSAFSAF/kgygfsd/kgyg/frontend/dccp-dsafasf-rie-kgyg-cd-dev
+- DPC/DSAFSAF/kgygfsd/kgyg/frontend/dccp-dsafasf-rie-kgyg-cd-qlty-prod
+- DPC/DSAFSAF/kgygfsd/kgyg/backend/dccp-dsafasf-rie-kgyg-cd-qlty-prod
+- DPC/DSAFSAF/kgygfsd/kgyg/frontend/dccp-dsafasf-rie-kgyg-front-end-artifact
+- DPC/DSAFSAF/kgygfsd/kgyg/frontend/dccp-dsafasf-rie-kgyg-front-end-build
+- DPC/DSAFSAF/kgygfsd/MakgygfsddataServices/dccp-dsafasf-rie-makgygfsddataservices-artifact
+- DPC/DSAFSAF/kgygfsd/MakgygfsddataServices/dccp-dsafasf-rie-makgygfsddataservices-build
+- DPC/DSAFSAF/kgygfsd/MakgygfsddataServices/dccp-dsafasf-rie-makgygfsddataservices-cd-dev
+- DPC/DSAFSAF/kgygfsd/MakgygfsddataServices/dccp-dsafasf-rie-makgygfsddataservices-cd-qlty-prod
+- DPC/DSAFSAF/kgygfsd/MakgygfsddataServices/Legacy/dccp-dsafasf-rie-makgygfsddataservices
+- DPC/DSAFSAF/kgygfsd/PITEUQ/dccp-dsafasf-rie-pitueq-artifact
+- DPC/DSAFSAF/kgygfsd/PITEUQ/dccp-dsafasf-rie-pitueq-build
+- DPC/DSAFSAF/kgygfsd/PITEUQ/dccp-dsafasf-rie-pitueq-cd-dev
+- DPC/DSAFSAF/kgygfsd/PITEUQ/dccp-dsafasf-rie-pitueq-cd-qlty-prod
+- DPC/DSAFSAF/kgygfsd/Ons/dccp-dsafasf-rie-pitueq
+- DPC/DSAFSAF/kgygfsd/kilhgb/backend/dccp-dsafasf-rie-kilhgb-artifact
+- DPC/DSAFSAF/kgygfsd/kilhgb/Legacy/dccp-dsafasf-rie-kilhgb-backend
+- DPC/DSAFSAF/kgygfsd/kilhgb/backend/dccp-dsafasf-rie-kilhgb-build
+- DPC/DSAFSAF/kgygfsd/kilhgb/backend/dccp-dsafasf-rie-kilhgb-cd-dev
+- DPC/DSAFSAF/kgygfsd/kilhgb/backend/dccp-dsafasf-rie-kilhgb-cd-qlty-prod
+- DPC/DSAFSAF/kgygfsd/kilhgb/frontend/dccp-dsafasf-rie-kilhgb-front-end-artifact
+- DPC/DSAFSAF/kgygfsd/kilhgb/frontend/dccp-dsafasf-rie-kilhgb-front-end-build
+- DPC/DSAFSAF/kgygfsd/kilhgb/frontend/dccp-dsafasf-rie-kilhgb-front-end-cd-dev
+- DPC/DSAFSAF/kgygfsd/kilhgb/frontend/dccp-dsafasf-rie-kilhgb-front-end-cd-qlty-prod
+- DPC/DSAFSAF/kgygfsd/kilhgb/Legacy/dccp-dsafasf-rie-kilhgb-frontend
+- DPC/DSAFSAF/kgygfsd/REDPfp/unified/dccp-dsafasf-rie-redpfp-artifact
+- DPC/DSAFSAF/kgygfsd/REDPfp/unified/dccp-dsafasf-rie-redpfp-build
+- DPC/DSAFSAF/kgygfsd/REDPfp/unified/dccp-dsafasf-rie-redpfp-cd-dev
+- DPC/DSAFSAF/kgygfsd/REDPfp/unified/dccp-dsafasf-rie-redpfp-cd-qlty-prod
+- DPC/DSAFSAF/kgygfsd/REDPfp/frontend/dccp-dsafasf-rie-redpfp-front-end-build
+- DPC/DSAFSAF/kgygfsd/webgren/unified/dccp-dsafasf-rie-webgren-artifact
+- DPC/DSAFSAF/kgygfsd/webgren/unified/dccp-dsafasf-rie-webgren-build
+- DPC/DSAFSAF/kgygfsd/webgren/unified/dccp-dsafasf-rie-webgren-cd-dev
+- DPC/DSAFSAF/kgygfsd/webgren/unified/dccp-dsafasf-rie-webgren-cd-qlty-prod
+- DPC/DSAFSAF/kgygfsd/Services/dccp-dsafasf-rie-services-artifact
+- DPC/DSAFSAF/kgygfsd/Services/dccp-dsafasf-rie-services-build
+- DPC/DSAFSAF/kgygfsd/Services/dccp-dsafasf-rie-services-cd-dev
+- DPC/DSAFSAF/kgygfsd/Services/dccp-dsafasf-rie-services-cd-qlty-prod
+- DPC/DSAFSAF/kgygfsd/Services/order-replication/dccp-dsafasf-rie-services-order-replication-artifact
+- DPC/DSAFSAF/kgygfsd/Services/order-replication/dccp-dsafasf-rie-services-order-replication-build
+- DPC/DSAFSAF/kgygfsd/Services/order-replication/dccp-dsafasf-rie-services-order-replication-cd-dev
+- DPC/DSAFSAF/kgygfsd/Services/order-replication/dccp-dsafasf-rie-services-order-replication-cd-qlty-prod
+- DPC/DSAFSAF/kgygfsd/Services/Legacy/dccp-dsafasf-rie-services
+- DPC/DSAFSAF/kgygfsd/helper/dccp-dsafasf-rie-riehelper-artifact
+- DPC/DSAFSAF/kgygfsd/helper/dccp-dsafasf-rie-riehelper-build
+- DPC/DSAFSAF/kgygfsd/helper/dccp-dsafasf-rie-riehelper-cd-dev
+- DPC/DSAFSAF/kgygfsd/helper/dccp-dsafasf-rie-riehelper-cd-qlty-prod
+- DPC/DSAFSAF/kgygfsd/helper/Legacy/dccp-dsafasf-rie-riehelper
+- DPC/DSAFSAF/kgygfsd/custm/dccp-dsafasf-rie-riecustm-ci-ms-sql-server
+- DPC/DSAFSAF/kgygfsd/custm/dccp-dsafasf-rie-riecustm-CI
+- DPC/DSAFSAF/kgygfsd/custm/MAUI/dccp-dsafasf-rie-riecustm-maui-beta
+- DPC/DSAFSAF/kgygfsd/custm/MAUI/dccp-dsafasf-rie-riecustm-maui-release
+- DPC/DSAFSAF/kgygfsd/custm/dccp-dsafasf-rie-riecustm-ms-sql-server-OfficialRelease
+- DPC/DSAFSAF/kgygfsd/custm/dccp-dsafasf-rie-riecustm-OfficialRelease
+- DPC/DSAFSAF/kgygfsd/custm/dccp-dsafasf-rie-riecustm-uwp-sideload-official
+- DPC/DSAFSAF/kgygfsd/Matrix/dccp-dsafasf-rie-riematrix-artifact
+- DPC/DSAFSAF/kgygfsd/Matrix/dccp-dsafasf-rie-riematrix-build
+- DPC/DSAFSAF/kgygfsd/Matrix/dccp-dsafasf-rie-riematrix-cd-dev
+- DPC/DSAFSAF/kgygfsd/Matrix/dccp-dsafasf-rie-riematrix-cd-qlty-prod
+- DPC/DSAFSAF/kgygfsd/upldaq/dccp-dsafasf-rie-rieuploadsharepoint-artifact
+- DPC/DSAFSAF/kgygfsd/upldaq/dccp-dsafasf-rie-rieuploadsharepoint-build
+- DPC/DSAFSAF/kgygfsd/upldaq/dccp-dsafasf-rie-rieuploadsharepoint-cd-dev
+- DPC/DSAFSAF/kgygfsd/upldaq/dccp-dsafasf-rie-rieuploadsharepoint-cd-qlty-prod
+- DPC/DSAFSAF/kgygfsd/Test_Automation/dccp-dsafasf-rie-TestAutomation-smoke
+- DPC/DSAFSAF/kgygfsd/Test_Automation/dccp-dsafasf-rie-TestAutomation
+- DPC/DSAFSAF/kgygfsd/WebService/dccp-dsafasf-rie-webservice-api-artifact
+- DPC/DSAFSAF/kgygfsd/WebService/dccp-dsafasf-rie-webservice-api-build
+- DPC/DSAFSAF/kgygfsd/WebService/dccp-dsafasf-rie-webservice-api-cd-dev
+- DPC/DSAFSAF/kgygfsd/WebService/dccp-dsafasf-rie-webservice-api-cd-qlty-prod
+- DPC/DSAFSAF/kgygfsd/ATP/dccp-dsafasf-rie-webservice-artifact
+- DPC/DSAFSAF/kgygfsd/ATP/dccp-dsafasf-rie-webservice-build
+- DPC/DSAFSAF/kgygfsd/ATP/dccp-dsafasf-rie-webservice-cd-dev
+- DPC/DSAFSAF/kgygfsd/ATP/dccp-dsafasf-rie-webservice-cd-qlty-prod
+- DPC/DSAFSAF/kgygfsd/tlda/backend/dccp-dsafasf-tlda-artifact
+- DPC/DSAFSAF/kgygfsd/tlda/backend/dccp-dsafasf-tlda-build
+- DPC/DSAFSAF/kgygfsd/tlda/backend/dccp-dsafasf-tlda-cd-dev
+- DPC/DSAFSAF/kgygfsd/tlda/backend/dccp-dsafasf-tlda-cd-qlty-prod
+- DPC/DSAFSAF/kgygfsd/tlda/frontend/dccp-dsafasf-tlda-frontend-artifact
+- DPC/DSAFSAF/kgygfsd/tlda/frontend/dccp-dsafasf-tlda-frontend-build
+- DPC/DSAFSAF/kgygfsd/tlda/frontend/dccp-dsafasf-tlda-frontend-cd-dev
+- DPC/DSAFSAF/kgygfsd/tlda/frontend/dccp-dsafasf-tlda-frontend-cd-qlty-prod
+- DPC/DOQ/rgmandcde/dccp-rgmandcde-dupe-apps-build
+- DPC/DOQ/dik/dccp-dupe-dik-artifact
+- DPC/DOQ/dik/dccp-dupe-dik-build
+- DPC/DOQ/dik/dccp-dupe-dik-deploy
+- DPC/DSAFSAF/kgygfsd/dik/dccp-rie-dik-artifact-dev
+- DPC/DSAFSAF/kgygfsd/dik/dccp-rie-dik-artifact-makgygfsd
+- DPC/kgygfsd/dccp-rie-dik-artifact
+- DPC/kgygfsd/dccp-rie-dik-build
+- DPC/DSAFSAF/kgygfsd/dik/dccp-rie-dik-cd-dev
+- DPC/DSAFSAF/kgygfsd/dik/dccp-rie-dik-cd-qlty-prod-dr
+- DPC/kgygfsd/dccp-rie-dik-deploy
+- DPC/DSAFSAF/kgygfsd/dik/dccp-rie-dik-pr-build
+- DPC/kgygfsd/dccp-rie-dik
+- DPC/kgygfsd/infrastructure/dccp-rie-infrastructure
+- PULT/exmplex/pult-smthie-dev
+- PULT/Chatbot/_archive/pult-smthie-infrastructure-v2-dunder-miflinbc-template
+- PULT/Chatbot/_archive/pult-smthie-infrastructure
+- PULT/exmplex/pult-smthie-pilot
+- PULT/exmplex/pult-smthie-prod
+- PULT/NTITRA/pult-ntintra-Build SP Components
+- PULT/NTITRA/pult-ntintra-Deploy Azure Functions to UAT
+- PULT/NTITRA/Archive/pult-ntintra-Deploy Azure Fx to PROD
+- PULT/NTITRA/pult-ntintra-Deploy to DEV
+- PULT/NTITRA/Archive/pult-ntintra-Deploy to PROD
+- PULT/NTITRA/pult-ntintra-Deploy to QA
+- PULT/NTITRA/pult-ntintra-Deploy to UAT
+- PULT/NTITRA/pult-ntintra-TEST
+- PULT/NTITRA/pult-ntintra-TestBuild
+- PULT/NTITRA/Archive/pult-ntintra
+- PULT/rhw/testautomation/pult-rhw-testautomation
+- asw/Examples/demo-pipelines-javascript-docker
+- DPC/DSAFSAF/kgygfsd/tlda/frontend/v2/DEMO-V2-dccp-dsafasf-tlda-frontend-ci
+- PULT/Chatbot/deploy-infrastructure
+- PULT/Chatbot/destroy-infrastructure
+- RUIET/flg/v2/ruiet-cms-v2-cicd
+- RUIET/flg/CMS/ruiet-flg-cms-testautomation-playwright
+- RUIET/ruiet-lga-cobc/portal/ruiet-lga-cobc-portal-build
+- RUIET/ruiet-lga-cobc/portal/ruiet-lga-cobc-portal-deploy-artifact
+- RUIET/ruiet-lga-cobc/portal/ruiet-lga-cobc-portal-deployment
+- RUIET/ruiet-lga-cobc/portal/ruiet-lga-cobc-portal-publish-artifact
+- RUIET/ruiet-lga-cobc/syncjob/ruiet-lga-cobc-syncjobs
+- RUIET/flg/Observation Tracking/ruiet-lga-dadq-observation-mobile-backend
+- RUIET/flg/Observation Tracking/ruiet-lga-dadq-observation-web-app
+- RUIET/flg/Observation Tracking/ruiet-lga-dadq-observation-web-job
+- DPC/DSAFSAF/ruiet-mam-batch-management-general
+- RUIET/ruiet-dasfqrtrhg/dev/ruiet-mam-sp-managment-optimization-backend-aqua
+- RUIET/ruiet-dasfqrtrhg/dev/ruiet-mam-sp-managment-optimization-backend
+- RUIET/ruiet-dasfqrtrhg/dev/ruiet-dasfqrtrhg-backend-ci-dev
+- RUIET/ruiet-dasfqrtrhg/prod/ruiet-dasfqrtrhg-backend-ci-prod
+- RUIET/ruiet-dasfqrtrhg/dev/ruiet-dasfqrtrhg-embedding-ci-dev
+- RUIET/ruiet-dasfqrtrhg/prod/ruiet-dasfqrtrhg-embedding-ci-prod
+- RUIET/ruiet-dasfqrtrhg/dev/ruiet-dasfqrtrhg-frontend-ci-dev
+- RUIET/ruiet-dasfqrtrhg/prod/ruiet-dasfqrtrhg-frontend-ci-prod
+- RUIET/ruiet-dasfqrtrhg/dev/ruiet-dasfqrtrhg-infrastructure-dev
+- RUIET/ruiet-dasfqrtrhg/prod/ruiet-dasfqrtrhg-infrastructure-prod
+- RUIET/ruiet-dasfqrtrhg/dev/ruiet-dasfqrtrhg-model-cd-dev
+- RUIET/ruiet-dasfqrtrhg/prod/ruiet-dasfqrtrhg-model-cd-prod
+- RUIET/ruiet-dasfqrtrhg/dev/ruiet-dasfqrtrhg-training-ci-dev
+- RUIET/ruiet-dasfqrtrhg/prod/ruiet-dasfqrtrhg-training-ci-prod
+- RUIET/ruiet-ilol/ruiet-ilol-connectedworker-dashboards
+- RUIET/ruiet-ilol/iloloiu/ruiet-ilolui-frontend
+- RUIET/ruiet-ilol/iloloiu/ruiet-ilolui
+- RUIET/ruiet-ilol/iloloiu/ruiet-dsa-iloloiu-production-plan-job
+- RUIET/ruiet-ilol/iloloiu/ruiet-dsa-iloloiu-reporting-job
+- RUIET/ruiet-ilol/iloloiu/ruiet-dsa-cnnworker-onestshop-odp-remnd-job
+- RUIET/pvuie/amg/webapp/ruiet-pvuie-amg-web-app
+- RUIET/pvuie/amg/backendapi/ruiet-pvuie-amg-web-backend-api
+- RUIET/pvuie/amg/jobs/ruiet-pvuie-amg-web-jobs
+- RUIET/pvuie/ruiet-pvuie-spc-extractor
+- RUIET/pvuie/ruiet-pvuie-spc-laboratory
+- DPC/VMI/ruiet-vmi-web-api/ruiet-vmi-web-api-artifact
+- DPC/VMI/ruiet-vmi-web-api/ruiet-vmi-web-api-build
+- DPC/VMI/ruiet-vmi-web-api/ruiet-vmi-web-api-cd-dev
+- DPC/VMI/ruiet-vmi-web-api/ruiet-vmi-web-api-cd-prod-dr
+- DPC/VMI/ruiet-vmi-web-app/ruiet-vmi-web-app-artifact
+- DPC/VMI/ruiet-vmi-web-app/ruiet-vmi-web-app-build
+- DPC/VMI/ruiet-vmi-web-app/ruiet-vmi-web-app-cd-dev
+- DPC/VMI/ruiet-vmi-web-app/ruiet-vmi-web-app-cd-prod-dr
+- DTT/drew-automation-samples
+- asw/Prototyping/Test Automation/drew-demo-testautomation-portc
+- DTT/Innovation/InvoiceDispute/drew-ea-invoicedispute-deploy-code-function-app
+- DTT/Innovation/phoerniex/ai-phoenix/drew-innovation-ai-phoenix-deploy-chat
+- DTT/Innovation/phoerniex/ai-phoenix/drew-innovation-ai-phoenix-deploy-frontend
+- DTT/Innovation/phoerniex/ai-phoenix/drew-innovation-ai-phoenix-deploy-func-kpi-analytics
+- DTT/Innovation/phoerniex/ai-phoenix/drew-innovation-ai-phoenix-deploy-func-parsing
+- DTT/Innovation/phoerniex/ai-phoenix/drew-innovation-ai-phoenix-deploy-func-qas
+- DTT/Innovation/phoerniex/ai-phoenix/drew-innovation-ai-phoenix-deploy-func-skill
+- DTT/Innovation/phoerniex/ai-phoenix/drew-innovation-ai-phoenix-deploy-func-video-parser
+- DTT/Innovation/phoerniex/ai-phoenix/drew-innovation-ai-phoenix-deploy-search
+- DTT/Innovation/phoerniex/drew-innovation-phoenix-app-lsf
+- DTT/Innovation/phoerniex/drew-innovation-phoenix-app-snitaf
+- DTT/Innovation/phoerniex/drew-innovation-phoenix-app-spi
+- DTT/Innovation/phoerniex/drew-innovation-phoenix-app-videoparsing (1077)
+- DTT/Innovation/phoerniex/drew-innovation-phoenix-app
+- DTT/Innovation/phoerniex/drew-innovation-phoenix-deploy-chat-2
+- DTT/Innovation/phoerniex/drew-innovation-phoenix-deploy-frontend-2
+- DTT/Innovation/phoerniex/drew-innovation-phoenix-deploy-func-kpi-analytics-2
+- DTT/Innovation/phoerniex/drew-innovation-phoenix-deploy-func-parsing-2
+- DTT/Innovation/phoerniex/drew-innovation-phoenix-deploy-func-qas-2
+- DTT/Innovation/phoerniex/drew-innovation-phoenix-deploy-func-skill-2
+- DTT/Innovation/phoerniex/drew-innovation-phoenix-deploy-func-video-parser-2
+- DTT/Innovation/phoerniex/drew-innovation-phoenix-deploy-search-2
+- DTT/Innovation/phoerniex/drew-innovation-phoenix-lapp-psf
+- DTT/Innovation/phoerniex/drew-innovation-phoenix-sonar-linters-check-temp
+- asw/Examples/drew-sonar-scanning-example-dotnetconsole
+- DPC/DGC/velr/int_deploy_on_push
+- DPC/DGC/velr/int_redeploy_nightly
+- agg/Cloud Services/Automation/Infrastructure as Code/new-linux-vm-deploy-configure-with-disk
+- DPC/DGC/velr/PR_validation_on_INT_sandbox
+- agg/Sandbox/th-devops-pipelines
+- agg/Integration Framework/dsafgf PoC/th-integration-dsafgf-dispatcher-proc-dunder-miflin-api
+- agg/Integration Framework/dsafgf PoC/th-integration-dsafgf-pus-exp-dunder-miflin-api
+- agg/Service Management/Test Automation/PlayWright/DERYQ Order_Taking/th-pmo-TestAutomation-DERYQ-CICMigration
+- agg/Service Management/Test Automation/PlayWright/SAP FIORI-IOM/th-pmo-testautomation-IOM-playright
+- agg/Service Management/Test Automation/SAP-PRICING-REBATE/th-pmo-testautomation-SAP-Pricing-Rebate
+- agg/SAP/th_sap_devops_main
 - /Testrepo
-- DCCP/Digital Commerce/valserservice/uat_deploy_manual
-- TECS/Service Management/Test Automation/PlayWright/SAP FIORI-IOM/v2/v2-tecs-pmo-testautomation-IOM-playright
-- DCCP/Digital Commerce/valserservice/valserservice_deploy_prod
-- DCCP/Digital Commerce/valserservice/valservice-test
-- DCCP/Digital Commerce/valserservice/ZZZ-bu-digitalcommerce-valserservice-vsreboot-test
+- DPC/DGC/velr/uat_deploy_manual
+- agg/Service Management/Test Automation/PlayWright/SAP FIORI-IOM/v2/v2-th-pmo-testautomation-IOM-playright
+- DPC/DGC/velr/velr_deploy_prod
+- DPC/DGC/velr/valservice-test
+- DPC/DGC/velr/ZZZ-bu-dgc-velr-vsreboot-test

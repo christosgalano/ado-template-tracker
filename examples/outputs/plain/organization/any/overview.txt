@@ -2,7 +2,7 @@
 Adoption Overview
 ================================================================================
 
-Name: CCHBC
+Name: Dunder-Mifflin
 Scope: Organization
 Mode: Any
 Status: Compliant

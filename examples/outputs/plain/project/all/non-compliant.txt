@@ -2,7 +2,7 @@
 Non-Compliance Report
 ================================================================================
 
-Name: CCHBC-Governance-Center
+Name: Dunder-Mifflin-Governance-Center
 Scope: Project
 Mode: All
 Status: Non-Compliant

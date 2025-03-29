@@ -1,4 +1,4 @@
-# CCHBC-Governance-Center
+# Dunder-Mifflin-Governance-Center
 
 ## Adoption Summary
 
