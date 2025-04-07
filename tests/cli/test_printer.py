@@ -208,7 +208,7 @@ def test_with_file_output(
 
     # Verify file contains content
     content = output_path.read_text()
-    if "Adoption Statistics Overview" not in content:
+    if "Adoption Overview" not in content:
         pytest.fail("Expected overview content in output file")
     if organization.name not in content:
         pytest.fail(f"Expected organization name '{organization.name}' in output file")

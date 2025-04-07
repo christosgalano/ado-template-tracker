@@ -64,7 +64,7 @@ import asyncio
 import concurrent.futures
 import logging
 import time
-from concurrent.futures import ThreadPoolExecutor
+from concurrent.futures import ThreadPoolExecutor, as_completed
 from typing import ClassVar
 from urllib.parse import quote
 
@@ -199,8 +199,11 @@ class AzureDevOpsClient:
                 raise AuthenticationError
             response.raise_for_status()
             return response.json()
-        except requests.exceptions.RequestException:
-            logging.exception("client: API request failed for %s", url)
+        except requests.exceptions.HTTPError as e:
+            logging.error("client: [%s] %s - %s", e.response.status_code, e.response.reason, url)  # noqa: LOG015, TRY400
+            raise
+        except requests.exceptions.RequestException as e:
+            logging.error("client: Request error: %s - %s", type(e).__name__, url)  # noqa: LOG015, TRY400
             raise
 
     @staticmethod
@@ -227,11 +230,11 @@ class AzureDevOpsClient:
                     raise AuthenticationError
                 response.raise_for_status()
                 return await response.json()
-        except aiohttp.ClientResponseError:
-            logging.exception("client: async API request failed for %s", url)
+        except aiohttp.ClientResponseError as e:
+            logging.error("client: [%s] %s - %s", e.status, e.message, e.request_info.real_url)  # noqa: LOG015, TRY400
             raise
-        except aiohttp.ClientError:
-            logging.exception("client: async API request failed for %s", url)
+        except aiohttp.ClientError as e:
+            logging.error("client: aiohttp error: %s - %s", type(e).__name__, url)  # noqa: LOG015, TRY400
             raise
 
     ### Authentication methods
@@ -301,17 +304,59 @@ class AzureDevOpsClient:
         return Project.from_get_response(data)
 
     ### Repository methods
+    ### Repository methods
     def list_repositories(self, project: str) -> list[Repository]:
-        """Lists all repositories in a project."""
+        """Lists all repositories in a project, skipping ghost ones."""
         url = f"{self.base_url}/{project}/_apis/git/repositories"
         data = self._get(url)
-        return [Repository.from_get_response(item) for item in data.get("value", [])]
+        raw_repos = data.get("value", [])
+        repositories = []
+
+        def is_reachable(item) -> Repository | None:
+            try:
+                self._get(f"{self.base_url}/{project}/_apis/git/repositories/{item['id']}")
+                return Repository.from_get_response(item)
+            except requests.exceptions.RequestException as e:
+                if e.response is not None and e.response.status_code == 404:
+                    logging.warning(f"Skipping inaccessible repository '{item['name']}': {e}")
+                else:
+                    logging.exception(f"Error checking repository '{item['name']}': {e}")
+            except Exception as e:
+                logging.exception(f"Unexpected error while checking repository '{item['name']}': {e}")
+            return None
+
+        with ThreadPoolExecutor(max_workers=10) as executor:
+            futures = [executor.submit(is_reachable, item) for item in raw_repos]
+            for future in as_completed(futures):
+                result = future.result()
+                if result:
+                    repositories.append(result)
+
+        return repositories
 
     async def list_repositories_async(self, project: str) -> list[Repository]:
-        """Lists all repositories in a project asynchronously."""
+        """Lists all repositories in a project asynchronously, skipping ghost ones."""
         url = f"{self.base_url}/{project}/_apis/git/repositories"
         data = await self._get_async(url)
-        return [Repository.from_get_response(item) for item in data.get("value", [])]
+        raw_repos = data.get("value", [])
+        semaphore = asyncio.Semaphore(10)  # Limit concurrency
+
+        async def is_reachable(item: dict) -> Repository | None:
+            async with semaphore:
+                try:
+                    await self._get_async(f"{self.base_url}/{project}/_apis/git/repositories/{item['id']}")
+                    return Repository.from_get_response(item)
+                except aiohttp.ClientResponseError as e:
+                    if e.status == 404:
+                        logging.warning(f"Skipping inaccessible repository '{item['name']}': {e}")
+                    else:
+                        logging.exception(f"Error checking repository '{item['name']}': {e}")
+                except Exception as e:
+                    logging.exception(f"Unexpected error while checking repository '{item['name']}': {e}")
+                return None
+
+        results = await asyncio.gather(*[is_reachable(item) for item in raw_repos])
+        return [repo for repo in results if repo is not None]
 
     def get_repository(self, project: str, repository: str) -> Repository:
         """Gets details of a specific repository in a project."""
