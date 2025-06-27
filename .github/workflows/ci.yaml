@@ -110,7 +110,7 @@ jobs:
       if: success() || failure()
       with:
         check_name: pytest-results
-        junit_files: junit.xml
+        files: junit.xml
         comment_mode: always
         fail_on: test failures
         action_fail: false

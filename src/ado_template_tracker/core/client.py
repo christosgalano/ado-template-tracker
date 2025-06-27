@@ -65,7 +65,7 @@ import concurrent.futures
 import logging
 import time
 from concurrent.futures import ThreadPoolExecutor, as_completed
-from typing import ClassVar
+from typing import Any, ClassVar
 from urllib.parse import quote
 
 import aiohttp
@@ -200,10 +200,10 @@ class AzureDevOpsClient:
             response.raise_for_status()
             return response.json()
         except requests.exceptions.HTTPError as e:
-            logging.error("client: [%s] %s - %s", e.response.status_code, e.response.reason, url)  # noqa: LOG015, TRY400
+            logging.error("client: [%s] %s - %s", e.response.status_code, e.response.reason, url)  # noqa: TRY400
             raise
         except requests.exceptions.RequestException as e:
-            logging.error("client: Request error: %s - %s", type(e).__name__, url)  # noqa: LOG015, TRY400
+            logging.error("client: Request error: %s - %s", type(e).__name__, url)  # noqa: TRY400
             raise
 
     @staticmethod
@@ -231,10 +231,10 @@ class AzureDevOpsClient:
                 response.raise_for_status()
                 return await response.json()
         except aiohttp.ClientResponseError as e:
-            logging.error("client: [%s] %s - %s", e.status, e.message, e.request_info.real_url)  # noqa: LOG015, TRY400
+            logging.error("client: [%s] %s - %s", e.status, e.message, e.request_info.real_url)  # noqa: TRY400
             raise
         except aiohttp.ClientError as e:
-            logging.error("client: aiohttp error: %s - %s", type(e).__name__, url)  # noqa: LOG015, TRY400
+            logging.error("client: aiohttp error: %s - %s", type(e).__name__, url)  # noqa: TRY400
             raise
 
     ### Authentication methods
@@ -312,17 +312,19 @@ class AzureDevOpsClient:
         raw_repos = data.get("value", [])
         repositories = []
 
-        def is_reachable(item) -> Repository | None:
+        logger = logging.getLogger(__name__)
+
+        def is_reachable(item: dict[str, Any]) -> Repository | None:
             try:
                 self._get(f"{self.base_url}/{project}/_apis/git/repositories/{item['id']}")
                 return Repository.from_get_response(item)
             except requests.exceptions.RequestException as e:
-                if e.response is not None and e.response.status_code == 404:
-                    logging.warning(f"Skipping inaccessible repository '{item['name']}': {e}")
+                if e.response is not None and e.response.status_code == 404:  # noqa: PLR2004
+                    logger.warning("Skipping inaccessible repository '%s': %s", item["name"], e)
                 else:
-                    logging.exception(f"Error checking repository '{item['name']}': {e}")
-            except Exception as e:
-                logging.exception(f"Unexpected error while checking repository '{item['name']}': {e}")
+                    logger.exception("Error checking repository '%s'", item["name"])
+            except Exception:
+                logger.exception("Unexpected error while checking repository '%s'", item["name"])
             return None
 
         with ThreadPoolExecutor(max_workers=10) as executor:
@@ -342,17 +344,18 @@ class AzureDevOpsClient:
         semaphore = asyncio.Semaphore(10)  # Limit concurrency
 
         async def is_reachable(item: dict) -> Repository | None:
+            logger = logging.getLogger(__name__)
             async with semaphore:
                 try:
                     await self._get_async(f"{self.base_url}/{project}/_apis/git/repositories/{item['id']}")
                     return Repository.from_get_response(item)
                 except aiohttp.ClientResponseError as e:
-                    if e.status == 404:
-                        logging.warning(f"Skipping inaccessible repository '{item['name']}': {e}")
+                    if e.status == 404:  # noqa: PLR2004
+                        logger.warning("Skipping inaccessible repository '%s': %s", item["name"], e)
                     else:
-                        logging.exception(f"Error checking repository '{item['name']}': {e}")
-                except Exception as e:
-                    logging.exception(f"Unexpected error while checking repository '{item['name']}': {e}")
+                        logger.exception("Error checking repository '%s'", item["name"])
+                except Exception:
+                    logger.exception("Unexpected error while checking repository '%s'", item["name"])
                 return None
 
         results = await asyncio.gather(*[is_reachable(item) for item in raw_repos])

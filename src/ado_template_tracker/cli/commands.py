@@ -110,6 +110,7 @@ import asyncio
 import logging
 import os
 
+from ado_template_tracker import __version__
 from ado_template_tracker.core.adoption import TemplateAdoptionTracker
 from ado_template_tracker.core.client import AzureDevOpsClient
 from ado_template_tracker.core.models import AdoptionTarget, ComplianceMode, TemplateSource
@@ -272,6 +273,13 @@ def parse_args() -> argparse.Namespace:
         action="count",
         default=0,
         help="Increase verbosity (can be used multiple times)",
+    )
+
+    parser.add_argument(
+        "--version",
+        action="version",
+        version=f"{__version__}",
+        help="Show the version of the ado-template-tracker",
     )
 
     return parser.parse_args()
