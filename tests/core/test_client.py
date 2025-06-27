@@ -1,4 +1,4 @@
-# ruff: noqa: SLF001,PLR2004,C901,PLR0912,S105
+# ruff: noqa: SLF001,PLR2004,S105
 from unittest.mock import AsyncMock, patch
 
 import aiohttp

@@ -1,4 +1,4 @@
-# ruff: noqa: SLF001,PLR2004,C901,PLR0912,S105,SIM117
+# ruff: noqa: SLF001
 from pathlib import Path
 
 import pytest

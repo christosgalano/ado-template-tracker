@@ -1,4 +1,4 @@
-# ruff: noqa: SLF001,PLR2004,C901,PLR0912,S105
+# ruff: noqa: PLR2004,C901,S105
 import argparse
 import asyncio
 from unittest.mock import AsyncMock, Mock, patch

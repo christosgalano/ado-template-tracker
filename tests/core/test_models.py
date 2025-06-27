@@ -1,4 +1,4 @@
-# ruff: noqa: E501,SLF001,PLR2004,C901,PLR0912,PLR0915
+# ruff: noqa: E501,SLF001,PLR2004,C901,PLR0912
 
 import pytest
 
