@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "ado-template-tracker"
-description = "Azure DevOps Template Adoption Tracker"
+description = "Azure DevOps Pipeline Template Adoption Tracker"
 readme = "README.md"
 requires-python = ">=3.12"
 license = { text = "MIT" }
