@@ -18,7 +18,7 @@ tasks:
 
   setup:upgrade:
     desc: Upgrade pip
-    deps: [setup:venv]
+    deps: ['setup:venv']
     cmds:
       - |
         if [ "{{OS}}" == "windows" ]; then
@@ -59,19 +59,19 @@ tasks:
 
   setup:dev:
     desc: Install development dependencies
-    deps: [setup:upgrade]
+    deps: ['setup:upgrade']
     cmd: pip install -e ".[dev]"
     silent: true
 
   setup:build:
     desc: Install build dependencies
-    deps: [setup:upgrade]
+    deps: ['setup:upgrade']
     cmd: pip install build hatch
     silent: true
 
   setup:badge:
     desc: Install genbadge
-    deps: [setup:upgrade]
+    deps: ['setup:upgrade']
     cmd: pip install "genbadge[coverage]"
     silent: true
 
@@ -161,7 +161,7 @@ tasks:
 
   coverage:xml:
     desc: Generate XML coverage report
-    deps: [setup:badge]
+    deps: ['setup:badge']
     cmds:
       - pytest --cov=src/ado_template_tracker --cov-report=xml
       - echo "Coverage report generated in coverage.xml"
@@ -176,6 +176,7 @@ tasks:
 
   coverage:badge:
     desc: Generate coverage badge
+    deps: ['setup:badge']
     cmds:
       - pytest --cov=src/ado_template_tracker --cov-report=xml
       - genbadge coverage -i coverage.xml -o .github/badges/coverage.svg
