@@ -29,10 +29,9 @@ jobs:
         run: hatch build
 
       - name: Publish to TestPyPI
-        # env:
-        #   HATCH_INDEX_USER: __token__
-        #   HATCH_INDEX_AUTH: ${{ secrets.TEST_PYPI_TOKEN }}
-        run: hatch publish -r test
+        uses: pypa/gh-action-pypi-publish@release/v1
+        with:
+          repository-url: https://test.pypi.org/legacy/
 
   release:
     name: Release & PyPI Publish
