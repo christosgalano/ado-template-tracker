@@ -3,46 +3,72 @@ name: release
 on:
   push:
     tags:
-      - 'v*'
-
-# TODO: Update for python
+      - 'v*.*.*'
+  workflow_dispatch:
 
 jobs:
-  release:
+  test-release:
+    name: TestPyPI Publish
     runs-on: ubuntu-latest
+    environment: test-pypi
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install Hatch
+        run: pip install --upgrade hatch
+
+      - name: Build package
+        run: hatch build
+
+      - name: Publish to TestPyPI
+        # env:
+        #   HATCH_INDEX_USER: __token__
+        #   HATCH_INDEX_AUTH: ${{ secrets.TEST_PYPI_TOKEN }}
+        run: hatch publish -r test
+
+  release:
+    name: Release & PyPI Publish
+    needs: test-release
+    runs-on: ubuntu-latest
+    environment: pypi
     permissions:
       contents: write
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
         with:
-          fetch-depth: 0
+          python-version: '3.12'
 
-      - name: Fetch tags
-        run: git fetch --force --tags
+      - name: Install Hatch
+        run: pip install --upgrade hatch
 
-      - name: Check version
-        run: |
-          cli_version=$(awk -F'"' '/Version: /{ print $2 }' ./internal/cli/root.go)
-          tag_version=$(echo $GITHUB_REF | awk -F'/' '{ print $3 }')
-          if [ "$cli_version" != "$tag_version" ]; then
-            echo "Version mismatch: $cli_version != $tag_version"
-            exit 1
-          fi
+      - name: Build package
+        run: hatch build
 
-      - name: Setup Go
-        uses: actions/setup-go@v5
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
         with:
-          go-version: stable
-
-      - name: Install syft
-        run: curl -sSfL https://raw.githubusercontent.com/anchore/syft/main/install.sh | sh -s -- -b /usr/local/bin
-
-      - name: Run GoReleaser
-        uses: goreleaser/goreleaser-action@v6
-        with:
-          distribution: goreleaser
-          version: latest
-          args: release --clean
+          files: dist/*
         env:
-          GITHUB_TOKEN: ${{ secrets.GORELEASER_PAT }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Publish to TestPyPI
+        env:
+          HATCH_INDEX_USER: __token__
+          HATCH_INDEX_AUTH: ${{ secrets.TEST_PYPI_TOKEN }}
+        run: hatch publish -r test
+
+      - name: Publish to PyPI
+        env:
+          HATCH_INDEX_USER: __token__
+          HATCH_INDEX_AUTH: ${{ secrets.PYPI_TOKEN }}
+        run: hatch publish
