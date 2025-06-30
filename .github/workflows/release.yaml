@@ -26,6 +26,8 @@ jobs:
       - name: Build package
         run: hatch build
 
+      - name: Remove keyring
+        run: pip uninstall -y keyring
       - name: Publish to TestPyPI
         run: hatch publish -r test
         env:
