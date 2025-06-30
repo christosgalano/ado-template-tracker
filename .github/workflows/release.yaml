@@ -37,8 +37,6 @@ jobs:
     needs: test-release
     runs-on: ubuntu-latest
     environment: pypi
-    permissions:
-      write: all
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
