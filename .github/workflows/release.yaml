@@ -11,8 +11,6 @@ jobs:
     name: TestPyPI Publish
     runs-on: ubuntu-latest
     environment: test-pypi
-    permissions:
-      id-token: write
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -40,7 +38,7 @@ jobs:
     runs-on: ubuntu-latest
     environment: pypi
     permissions:
-      id-token: write
+      write: all
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4

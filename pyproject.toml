@@ -104,3 +104,7 @@ asyncio_default_fixture_loop_scope = "function"
 addopts = "-v --no-header --cov=src/ado_template_tracker --cov-report=term-missing"
 testpaths = ["tests"]
 python_files = "test_*.py"
+
+[tool.hatch.publish.index]
+user = "__token__"
+auth = ""
